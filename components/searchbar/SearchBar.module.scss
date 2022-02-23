@@ -1,0 +1,32 @@
+$input-size: 280px;
+
+.search-bar {
+  width: $input-size;
+  height: 45px;
+  border-radius: 18px;
+  display: flex;
+  position: relative;
+  ::placeholder {
+    color: grey;
+    font-weight: 100;
+    font-family: "Poppins";
+
+  }
+
+  &__input {
+    background-color: #F5F9FC;
+    padding: 12px;
+    border-radius: 18px;
+    width: $input-size;
+    border: 1px solid red;
+    border: none;
+  }
+
+  &__search-icon {
+    width: 25px;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    pointer-events: none;
+  }
+}
