@@ -4,8 +4,8 @@ const Main = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <div className={styles["header__first-block"]}></div>
-        <div className={styles["header__second-block"]}></div>
+        <div className={styles["header__first-block"]} />
+        <div className={styles["header__second-block"]} />
       </div>
       <div className={styles.bottom}></div>
       <div className={styles.content}>
@@ -18,7 +18,7 @@ const Main = () => {
             1 600 000 causes à soutenir. Faites de votre connexion une force, un
             soutien.
           </h3>
-          <div className={styles.pusher}></div>
+          <div className={styles.pusher} />
           <div className={styles.stats}>
             <div className={styles.stat}>
               <div className={styles.number}>
@@ -42,16 +42,32 @@ const Main = () => {
               <div className={styles.stat__title}>Causes en cours</div>
             </div>
           </div>
-          <div className={styles.pusher}></div>
+          <div className={styles.pusher} />
           <div className={styles.button}>
             <div className={styles.button__text}>Je crée ma cause</div>
           </div>
-          <div className={styles["pusher--xl"]}></div>
+          <div className={styles["pusher--xl"]} />
           <div className={styles["pick-continent"]}>
             Choisissez votre continent
           </div>
-          <div className={styles.pusher}></div>
-          <div className={styles.map}></div>
+          <div className={styles.pusher} />
+          {/* MAP */}
+          <div className={styles.map} />
+          <div className={styles["pusher--l"]} />
+          <div className={styles["popular-projects"]}>
+            <div className={styles["popular-projects__title"]}>
+              <span></span>
+              <div>MOST POPULAR ISSUES</div>
+            </div>
+            <div className={styles.slider}>
+              <div className={styles["control-pane"]}>
+                <div className={styles["control-pane__title"]}>
+                  Ils ont besoin de vous !
+                </div>
+                <div className={styles["controllers"]}></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

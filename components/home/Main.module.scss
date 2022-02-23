@@ -98,6 +98,45 @@
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
       }
+
+      .popular-projects {
+        width: 112%;
+        border: 1px solid red;
+        align-self: start;
+        &__title {
+          width: 250px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-weight: 500;
+          letter-spacing: 2px;
+          white-space: nowrap;
+          span {
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: white;
+          }
+          div {
+            color: white;
+            font-size: .8rem;
+          }
+        }
+
+        .slider {
+          .control-pane {
+            &__title {
+              color: white;
+              font-weight: 700;
+              font-size: 2rem;
+            }
+
+            .controllers {
+
+            }
+          }
+        }
+      }
     }
   }
 
@@ -131,5 +170,9 @@
 
   &--xl {
     height: 90px;
+  }
+
+  &--l {
+    height: 60px;
   }
 }
