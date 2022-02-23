@@ -8,7 +8,7 @@ const Main = () => {
         <div className={styles["header__second-block"]}></div>
       </div>
       <div className={styles.bottom}></div>
-      <div className={styles.presentation}>
+      <div className={styles.content}>
         <div className={styles.top}>
           <h1 className={styles.top__title}>
             Tell the world
@@ -42,6 +42,16 @@ const Main = () => {
               <div className={styles.stat__title}>Causes en cours</div>
             </div>
           </div>
+          <div className={styles.pusher}></div>
+          <div className={styles.button}>
+            <div className={styles.button__text}>Je crée ma cause</div>
+          </div>
+          <div className={styles["pusher--xl"]}></div>
+          <div className={styles["pick-continent"]}>
+            Choisissez votre continent
+          </div>
+          <div className={styles.pusher}></div>
+          <div className={styles.map}></div>
         </div>
       </div>
     </div>
