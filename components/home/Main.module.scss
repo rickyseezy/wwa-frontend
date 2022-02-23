@@ -1,0 +1,90 @@
+.container {
+  position: relative;
+  height: 100%;
+
+  .presentation {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    border: 1px solid;
+    width: 80%;
+    height: 70%;
+
+    .top {
+      &__title {
+        font-weight: 700;
+        font-size: 4rem;
+        text-align: center;
+
+        span {
+          margin-top: -25px;
+          display: block;
+        }
+      }
+
+      &__subtitle {
+        font-weight: 500;
+        text-align: center;
+        color: #1D53B7;
+      }
+
+      .stats {
+        display: flex;
+        justify-content: center;
+        .stat {
+          width: 200px;
+          height: 80px;
+          .number {
+            position: relative;
+            text-align: center;
+            &__bullet {
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              background: red;
+              right: 20px;
+              border-radius: 20px;
+            }
+            &__value {
+              font-weight: 700;
+              font-size: 2rem;
+            }
+          }
+          &__title {
+            font-weight: 500;
+            font-size: .8rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    height: 1500px;
+    position: relative;
+
+    &__first-block {
+      background-color: #F3F9FD;
+      height: 100%;
+    }
+
+    &__second-block {
+      background-image: linear-gradient(to top, #0a6aaf, #0a6aaf, #0a6aaf, #0a6aaf, #0a6aaf);
+      clip-path: polygon(0 20%, 100% 0, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0% 20%);
+      height: 60%;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  .bottom {
+    background: white;
+    height: 900px;
+  }
+}
+
+.pusher {
+  height: 30px;
+}

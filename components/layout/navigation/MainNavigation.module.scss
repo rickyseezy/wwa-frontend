@@ -11,10 +11,10 @@
     width: 80%;
 
     .logo {
-      width: 6%;
+      width: 90px;
 
       img {
-        width: 100%;
+        width: 90px;
       }
     }
 
@@ -44,8 +44,12 @@
 
       &__text {
         color: white;
-        font-family: 'Poppins';
         font-weight: 500;
+        white-space: nowrap;
+        font-family: 'Poppins';
+        font-size: 1rem;
+        padding-left: 5px;
+        padding-right: 5px;
       }
     }
   }

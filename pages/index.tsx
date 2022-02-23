@@ -1,7 +1,12 @@
 import MainNavigation from "@components/layout/navigation/MainNavigation";
-import { Html, Head, Main, NextScript } from "next/document";
+import Main from "@components/home/Main";
 
-export const HomePage = (props) => {
-  return <MainNavigation />;
+export const HomePage = () => {
+  return (
+    <>
+      <MainNavigation />
+      <Main />
+    </>
+  );
 };
 export default HomePage;
