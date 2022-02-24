@@ -6,15 +6,15 @@
     position: absolute;
     top: 0;
     left: 10%;
-    border: 1px solid;
     width: 80%;
-    height: 70%;
+    height: 75%;
 
     .top {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      height: 100%;
 
       &__title {
         font-weight: 700;
@@ -100,8 +100,7 @@
       }
 
       .popular-projects {
-        width: 112%;
-        border: 1px solid red;
+        width: 100%;
         align-self: start;
         &__title {
           width: 250px;
@@ -111,7 +110,7 @@
           font-weight: 500;
           letter-spacing: 2px;
           white-space: nowrap;
-          span {
+          .dash {
             display: block;
             width: 50px;
             height: 2px;
@@ -122,17 +121,33 @@
             font-size: .8rem;
           }
         }
+        .control-pane {
+          display: flex;
+          justify-content: space-between;
+          &__title {
+            color: white;
+            font-weight: 700;
+            font-size: 2rem;
+          }
 
-        .slider {
-          .control-pane {
-            &__title {
-              color: white;
-              font-weight: 700;
-              font-size: 2rem;
-            }
+          .controllers {
+            display: flex;
+            justify-content: space-between;
+            width: 100px;
 
-            .controllers {
-
+            .bullet {
+              width: 40px;
+              height: 40px;
+              border-radius: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              &--white {
+                background-color: white;
+              }
+              &__arrow {
+                width: 20px;
+              }
             }
           }
         }

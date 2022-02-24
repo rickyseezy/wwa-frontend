@@ -1,4 +1,5 @@
 import styles from "./Main.module.scss";
+import ScrollList from "@components/home/scroll-list/ScrollList";
 
 const Main = () => {
   return (
@@ -7,7 +8,6 @@ const Main = () => {
         <div className={styles["header__first-block"]} />
         <div className={styles["header__second-block"]} />
       </div>
-      <div className={styles.bottom}></div>
       <div className={styles.content}>
         <div className={styles.top}>
           <h1 className={styles.top__title}>
@@ -56,20 +56,40 @@ const Main = () => {
           <div className={styles["pusher--l"]} />
           <div className={styles["popular-projects"]}>
             <div className={styles["popular-projects__title"]}>
-              <span></span>
+              <span className={styles.dash}></span>
               <div>MOST POPULAR ISSUES</div>
             </div>
-            <div className={styles.slider}>
-              <div className={styles["control-pane"]}>
-                <div className={styles["control-pane__title"]}>
-                  Ils ont besoin de vous !
+            <div className={styles["control-pane"]}>
+              <div className={styles["control-pane__title"]}>
+                Ils ont besoin de vous !
+              </div>
+              <div className={styles["controllers"]}>
+                <div
+                  className={`${styles["controllers__left"]} ${styles["bullet"]} ${styles["bullet--white"]}`}
+                >
+                  <img
+                    className={styles["bullet__arrow"]}
+                    src="/icons/left-arrow.svg"
+                    alt="left arrow"
+                  />
                 </div>
-                <div className={styles["controllers"]}></div>
+                <div
+                  className={`${styles["controllers__right"]} ${styles["bullet"]} ${styles["bullet--white"]}`}
+                >
+                  <img
+                    className={styles["bullet__arrow"]}
+                    src="/icons/right-arrow.svg"
+                    alt="right arrow"
+                  />
+                </div>
               </div>
             </div>
+            <div className={styles["pusher"]} />
           </div>
+          <ScrollList />
         </div>
       </div>
+      <div className={styles.bottom} />
     </div>
   );
 };
