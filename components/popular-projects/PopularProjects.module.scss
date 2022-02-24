@@ -1,0 +1,17 @@
+.popular-projects {
+  width: 100%;
+  align-self: start;
+}
+
+
+.pusher {
+  height: 30px;
+
+  &--xl {
+    height: 90px;
+  }
+
+  &--l {
+    height: 60px;
+  }
+}

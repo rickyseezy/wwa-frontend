@@ -1,11 +1,11 @@
 import MainNavigation from "@components/layout/navigation/MainNavigation";
-import Main from "@components/home/Main";
+import Home from "@components/home/Home";
 
 export const HomePage = () => {
   return (
     <>
       <MainNavigation />
-      <Main />
+      <Home />
     </>
   );
 };
