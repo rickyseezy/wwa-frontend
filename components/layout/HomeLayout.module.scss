@@ -11,7 +11,8 @@
 }
 
 .third-bloc {
-  height: 980px;
+  height: 950px;
+  border: 1px solid red;
 
   .bottom {
     background: white;
@@ -19,10 +20,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     &__title {
       font-size: 3rem;
       font-weight: 600;
-      margin-top: 300px;
+      margin-top: 250px;
     }
 
     .poster {
@@ -35,6 +37,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       .play-button {
         width: 120px;
         height: 120px;
@@ -43,6 +46,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         &__icon {
           width: 0;
           height: 0;
@@ -63,8 +67,7 @@
   position: absolute;
   top: 77px;
   width: 100%;
-  min-height: 1772px;
   height: 1772px;
   display: flex;
   justify-content: center;
- }
+}
