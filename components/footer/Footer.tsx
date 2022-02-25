@@ -68,7 +68,7 @@ const Footer = () => {
             </div>
             <div className={styles["copyright__dashline"]} />
           </div>
-          <div className={styles["content__text"]}>
+          <div className={styles["container__text"]}>
             © 2021 World We Act. All rights reserved.
           </div>
         </div>
