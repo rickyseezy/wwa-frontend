@@ -14,11 +14,13 @@ const SearchBar = () => {
         onChange={onType}
         placeholder="Rechercher une cause à soutenir"
       />
-      <img
-        className={styles["search-bar__search-icon"]}
-        src="/icons/search_icon.svg"
-        alt="An SVG of an eye"
-      />
+      <div className={styles["icon-container"]}>
+        <img
+          className={styles["icon-container__search-icon"]}
+          src="/icons/search_icon.svg"
+          alt="An SVG of an eye"
+        />
+      </div>
     </div>
   );
 };
