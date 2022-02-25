@@ -1,4 +1,104 @@
 .footer {
   background-color: black;
   width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    width: 1300px;
+    height: 80%;
+
+    .menu {
+      display: flex;
+      width: 100%;
+      height: 50%;
+      color: white;
+
+      &__block {
+        &--large {
+          width: 60%;
+        }
+
+        &--small {
+          width: 25%;
+        }
+
+        &--medium {
+          width: 30%;
+        }
+      }
+
+      .primary {
+        &__logo {
+          width: 100px;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .socials {
+          display: flex;
+
+          &__fb {
+          }
+        }
+
+        .shape {
+          height: 50px;
+          width: 50px;
+          margin-right: 15px;
+          background-color: #23252E;
+          border-radius: 25px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 40%;
+          }
+        }
+      }
+    }
+
+    .container {
+      height: 50%;
+      .copyright {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        &__dashline {
+          height: 2px;
+          background-color: #ffffff73;
+          width: 47.5%;
+        }
+        &__logo {
+          width: 140px;
+          padding: 0 39px;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &--title {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &--link {
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+.pusher {
+  margin-top: 40px;
 }

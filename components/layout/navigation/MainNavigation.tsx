@@ -7,7 +7,7 @@ export const MainNavigation = () => {
     <div className={styles.menu}>
       <nav className={styles.menu__content}>
         <p className={styles.logo}>
-          <Logo />
+          <Logo src="/images/wwa-logo-black.png" />
         </p>
         <ul className={styles["nav-link"]}>
           <li className={styles["nav-link__link"]}>Projets</li>
