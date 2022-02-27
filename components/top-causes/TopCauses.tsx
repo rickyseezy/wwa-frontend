@@ -2,6 +2,7 @@ import styles from "./TopCauses.module.scss";
 import ScrollList from "@components/scroll-list/ScrollList";
 import ControlPane from "@components/control-pane/ControlPane";
 
+const listWidth = 1825; // ToDo :: It has to be dynamic card size (365) * number of card
 const TopCauses = () => {
   return (
     <div className={styles["causes"]}>
@@ -22,34 +23,55 @@ const TopCauses = () => {
         <div className={styles["menu-container__icon"]}></div>
       </div>
       <div className={styles["scroll-list"]}>
-        <ControlPane
-          titleColor="#0A6AAF"
-          subtitleColor="black"
-          title=" TOP CAUSES"
-          subTitle="Europe"
-          buttonColor="white"
-        />
-        <ScrollList />
+        <div className={styles["scroll-list__control-pane"]}>
+          <ControlPane
+            titleColor="#0A6AAF"
+            subtitleColor="black"
+            title=" TOP CAUSES"
+            subTitle="Europe"
+            buttonColor="white"
+          />
+        </div>
+        <div
+          className={styles["scroll-list__list"]}
+          style={{ width: `${listWidth}px` }}
+        >
+          <ScrollList />
+        </div>
       </div>
       <div className={styles["scroll-list"]}>
-        <ControlPane
-          titleColor="#0A6AAF"
-          subtitleColor="black"
-          title=" TOP CAUSES"
-          subTitle="Europe"
-          buttonColor="white"
-        />
-        <ScrollList />
+        <div className={styles["scroll-list__control-pane"]}>
+          <ControlPane
+            titleColor="#0A6AAF"
+            subtitleColor="black"
+            title=" TOP CAUSES"
+            subTitle="Europe"
+            buttonColor="white"
+          />
+        </div>
+        <div
+          className={styles["scroll-list__list"]}
+          style={{ width: `${listWidth}px` }}
+        >
+          <ScrollList />
+        </div>
       </div>
       <div className={styles["scroll-list"]}>
-        <ControlPane
-          titleColor="#0A6AAF"
-          subtitleColor="black"
-          title=" TOP CAUSES"
-          subTitle="Europe"
-          buttonColor="white"
-        />
-        <ScrollList />
+        <div className={styles["scroll-list__control-pane"]}>
+          <ControlPane
+            titleColor="#0A6AAF"
+            subtitleColor="black"
+            title=" TOP CAUSES"
+            subTitle="Europe"
+            buttonColor="white"
+          />
+        </div>
+        <div
+          className={styles["scroll-list__list"]}
+          style={{ width: `${listWidth}px` }}
+        >
+          <ScrollList />
+        </div>
       </div>
     </div>
   );

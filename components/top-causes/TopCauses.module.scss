@@ -21,5 +21,13 @@
 
   .scroll-list {
     margin-top: 50px;
+
+    ul {
+      margin-top: 30px;
+    }
+    &__control-pane {
+      width: 60%;
+      padding-left: 8px;
+    }
   }
 }
