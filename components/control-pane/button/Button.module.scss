@@ -1,0 +1,12 @@
+.bullet {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__arrow {
+    width: 20px;
+  }
+}

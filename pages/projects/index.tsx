@@ -2,6 +2,7 @@ import MainNavigation from "@components/layout/navigation/MainNavigation";
 import styles from "./ProjectPage.module.scss";
 import Stats from "@components/stats/Stats";
 import Footer from "@components/footer/Footer";
+import TopCauses from "@components/top-causes/TopCauses";
 
 function ProjectsPage() {
   return (
@@ -14,7 +15,11 @@ function ProjectsPage() {
             <Stats />
           </div>
         </div>
-        <div className={styles["content"]}></div>
+        <div className={styles["wrapper__content"]}>
+          <div className={styles["causes-wrapper"]}>
+            <TopCauses />
+          </div>
+        </div>
         <div className={styles["custom-shape"]}></div>
       </div>
       <Footer />

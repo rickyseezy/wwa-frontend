@@ -1,0 +1,25 @@
+@import "styles/colors.module";
+.causes {
+  width: 100%;
+
+  .menu-container {
+    .menu {
+      display: flex;
+      &__link {
+        margin-right: 10px;
+        border-radius: 15px;
+        font-size: .7rem;
+        padding: 5px 10px;
+
+        &--selected {
+          background-color: $blueLoyal;
+          color: $whiteParamount;
+        }
+      }
+    }
+  }
+
+  .scroll-list {
+    margin-top: 50px;
+  }
+}
