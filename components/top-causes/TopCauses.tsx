@@ -45,7 +45,7 @@ const TopCauses = () => {
             titleColor="#0A6AAF"
             subtitleColor="black"
             title=" TOP CAUSES"
-            subTitle="Europe"
+            subTitle="France"
             buttonColor="white"
           />
         </div>
@@ -62,7 +62,7 @@ const TopCauses = () => {
             titleColor="#0A6AAF"
             subtitleColor="black"
             title=" TOP CAUSES"
-            subTitle="Europe"
+            subTitle="Italie"
             buttonColor="white"
           />
         </div>
