@@ -21,6 +21,13 @@ function ProjectsPage() {
           </div>
         </div>
         <div className={styles["custom-shape"]}></div>
+        <div className={styles["map"]}>
+          <div className={styles["map__title"]}>Ça bouge dans le monde</div>
+          <div className={styles["map__subtitle"]}>
+            Choisissez votre continent
+          </div>
+          <div className={styles["map__display"]}></div>
+        </div>
       </div>
       <Footer />
     </>
