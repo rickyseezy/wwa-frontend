@@ -3,6 +3,7 @@ import styles from "./ProjectPage.module.scss";
 import Stats from "@components/stats/Stats";
 import Footer from "@components/footer/Footer";
 import TopCauses from "@components/top-causes/TopCauses";
+import ContinentMenu from "@components/continent-menu/ContinentMenu";
 
 function ProjectsPage() {
   return (
@@ -27,6 +28,9 @@ function ProjectsPage() {
             Choisissez votre continent
           </div>
           <div className={styles["map__display"]}></div>
+        </div>
+        <div className={styles["continent-menu-wrapper"]}>
+          <ContinentMenu />
         </div>
       </div>
       <Footer />

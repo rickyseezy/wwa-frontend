@@ -1,0 +1,12 @@
+.menu {
+  border: 1px solid blue;
+  width: 130px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  justify-content: space-between;
+  padding: 8px;
+}

@@ -1,0 +1,38 @@
+@import "styles/colors.module";
+
+.item {
+  width: 110px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+
+  &--europe {
+    background-color: $orangeSalmon;
+    border: 1px solid $orangeStrong;
+    color: $orangeStrong;
+  }
+
+  &--africa {
+    background-color: $greenLuok;
+    border: 1px solid $greenApple;
+    color: $greenApple;
+  }
+
+  &__img {
+    width: 60px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+}

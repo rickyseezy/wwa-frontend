@@ -75,4 +75,14 @@
     }
 
   }
+
+  .continent-menu-wrapper {
+    width: 200px;
+    height: 800px;
+    border: 1px solid red;
+    position: absolute;
+    top: 500px;
+    display: flex;
+    justify-content: center;
+  }
 }
