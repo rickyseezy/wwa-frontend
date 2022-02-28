@@ -11,6 +11,7 @@ interface IContinentConfig {
   custom: string;
 }
 
+// ToDo :: Keep adding continents
 const continentConfig = new Map<string, IContinentConfig>([
   [
     "EUROPE",

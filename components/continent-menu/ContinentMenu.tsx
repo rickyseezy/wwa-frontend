@@ -4,8 +4,8 @@ import ContinentMenuItem from "@components/continent-menu/item/Item";
 enum Continent {
   Europe = "EUROPE",
   Africa = "AFRICA",
-  NorthUS = "AMÉRIQUE DU NORD",
-  SouthAmerica = "AMÉRIQUE DU SUD",
+  NorthUS = "NORTH-US",
+  SouthAmerica = "SOUTH-AMERICA",
   Asia = "ASIA",
   Oceania = "OCEANIA",
 }
