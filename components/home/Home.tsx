@@ -1,7 +1,7 @@
 import styles from "./Home.module.scss";
 import Stats from "@components/stats/Stats";
 import PopularProjects from "@components/popular-projects/PopularProjects";
-import HomeLayout from "@components/layout/HomeLayout";
+import HomeLayout from "@components/layouts/HomeLayout";
 
 const Home = () => {
   return (

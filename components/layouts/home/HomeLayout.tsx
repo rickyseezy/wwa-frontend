@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./HomeLayout.module.scss";
-import MainNavigation from "@components/layout/navigation/MainNavigation";
+import MainNavigation from "@components/navigation/MainNavigation";
 import Footer from "@components/footer/Footer";
 
 interface LayoutProps {

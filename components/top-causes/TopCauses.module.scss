@@ -2,57 +2,6 @@
 .causes {
   width: 100%;
 
-  .menu-container {
-    width: 70%;
-    height: 40px;
-    position: relative;
-
-    .menu {
-      display: flex;
-      overflow-x: scroll;
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      &__link {
-        margin-right: 10px;
-        border-radius: 15px;
-        font-size: .7rem;
-        padding: 5px 10px;
-        white-space: nowrap;
-
-        &--selected {
-          background-color: $blueLoyal;
-          color: $whiteParamount;
-        }
-      }
-    }
-
-    &__icon {
-      position: absolute;
-      right: 0;
-      bottom: 18px;
-      display: flex;
-
-
-      .bullet {
-        width: 17px;
-        height: 17px;
-        border-radius: 20px;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &__arrow {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-  }
-
   .scroll-list {
     margin-top: 50px;
 
@@ -64,8 +13,4 @@
       padding-left: 8px;
     }
   }
-}
-
-#scrollable {
-  border: 0;
 }
