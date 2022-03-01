@@ -19,6 +19,38 @@
     background-color: $greenLuok;
     border: 1px solid $greenApple;
     color: $greenApple;
+
+    .item__img {
+      width: 50px;
+    }
+  }
+
+  &--northus {
+    background-color: $purpleLight;
+    border: 1px solid $purpleBayleen;
+    color: $purpleBayleen;
+  }
+
+  &--southamerica {
+    background-color: $blueLightyMick;
+    border: 1px solid $blueNight;
+    color: $blueNight;
+
+    .item__img {
+      width: 32px;
+    }
+  }
+
+  &--asia {
+    background-color: $roseBailame;
+    border: 1px solid $roseSlight;
+    color: $roseSlight;
+  }
+
+  &--oceania {
+    background-color: $yellowJuyli;
+    border: 1px solid $yellowBoon;
+    color: $yellowBoon;
   }
 
   &__img {

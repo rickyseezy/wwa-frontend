@@ -29,6 +29,38 @@ const continentConfig = new Map<string, IContinentConfig>([
       custom: `${styles["item--africa"]}`,
     },
   ],
+  [
+    "NORTH-US",
+    {
+      title: "AMÉRIQUE DU NORD",
+      imgSrc: "/images/north-us-item.png",
+      custom: `${styles["item--northus"]}`,
+    },
+  ],
+  [
+    "SOUTH-AMERICA",
+    {
+      title: "AMÉRIQUE DU SUD",
+      imgSrc: "/images/south-america-item.png",
+      custom: `${styles["item--southamerica"]}`,
+    },
+  ],
+  [
+    "ASIA",
+    {
+      title: "ASIE",
+      imgSrc: "/images/asia-item.png",
+      custom: `${styles["item--asia"]}`,
+    },
+  ],
+  [
+    "OCEANIA",
+    {
+      title: "OCÈANIE",
+      imgSrc: "/images/oceania-item.png",
+      custom: `${styles["item--oceania"]}`,
+    },
+  ],
 ]);
 
 const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {

@@ -15,10 +15,10 @@ const ContinentMenu = () => {
     <div className={styles["menu"]}>
       <ContinentMenuItem continent={Continent.Europe} />
       <ContinentMenuItem continent={Continent.Africa} />
-      <ContinentMenuItem continent={Continent.Europe} />
-      <ContinentMenuItem continent={Continent.Europe} />
-      <ContinentMenuItem continent={Continent.Europe} />
-      <ContinentMenuItem continent={Continent.Europe} />
+      <ContinentMenuItem continent={Continent.NorthUS} />
+      <ContinentMenuItem continent={Continent.SouthAmerica} />
+      <ContinentMenuItem continent={Continent.Asia} />
+      <ContinentMenuItem continent={Continent.Oceania} />
     </div>
   );
 };
