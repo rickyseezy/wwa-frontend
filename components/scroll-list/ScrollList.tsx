@@ -22,6 +22,18 @@ const ScrollList = () => {
       <li>
         <Card />
       </li>
+      <li>
+        <Card />
+      </li>
+      <li>
+        <Card />
+      </li>
+      <li>
+        <Card />
+      </li>
+      <li>
+        <Card />
+      </li>
     </ul>
   );
 };

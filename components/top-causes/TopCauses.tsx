@@ -1,9 +1,7 @@
 import styles from "./TopCauses.module.scss";
 import ScrollList from "@components/scroll-list/ScrollList";
 import ControlPane from "@components/control-pane/ControlPane";
-import { useEffect, useState } from "react";
 
-const listWidth = 1825; // ToDo :: It has to be dynamic card size (365) * number of card
 const TopCauses = () => {
   return (
     <div className={styles["causes"]}>
@@ -17,10 +15,7 @@ const TopCauses = () => {
             buttonColor="white"
           />
         </div>
-        <div
-          className={styles["scroll-list__list"]}
-          style={{ width: `${listWidth}px` }}
-        >
+        <div className={styles["scroll-list__list"]}>
           <ScrollList />
         </div>
       </div>
@@ -34,10 +29,7 @@ const TopCauses = () => {
             buttonColor="white"
           />
         </div>
-        <div
-          className={styles["scroll-list__list"]}
-          style={{ width: `${listWidth}px` }}
-        >
+        <div className={styles["scroll-list__list"]}>
           <ScrollList />
         </div>
       </div>
@@ -51,10 +43,7 @@ const TopCauses = () => {
             buttonColor="white"
           />
         </div>
-        <div
-          className={styles["scroll-list__list"]}
-          style={{ width: `${listWidth}px` }}
-        >
+        <div className={styles["scroll-list__list"]}>
           <ScrollList />
         </div>
       </div>

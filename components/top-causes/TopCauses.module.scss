@@ -4,13 +4,17 @@
 
   .scroll-list {
     margin-top: 50px;
+    width: 78%;
 
     ul {
       margin-top: 30px;
     }
     &__control-pane {
-      width: 65%;
+      width: 88%;
       padding-left: 8px;
+    }
+    &__list {
+      width: 100%;
     }
   }
 }
