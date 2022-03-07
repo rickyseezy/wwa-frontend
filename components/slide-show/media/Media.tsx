@@ -1,9 +1,17 @@
 import styles from "./Media.module.scss";
 
-const Media = () => {
+interface IMediaProps {
+  index: number;
+}
+
+const Media = ({ index }: IMediaProps) => {
   return (
     <li>
-      <div className={styles["media"]}>
+      <div
+        className={`${styles["media"]} ${
+          index == 0 ? styles["media--activated"] : null
+        }`}
+      >
         <img src="/icons/play-circle.svg" />
       </div>
     </li>

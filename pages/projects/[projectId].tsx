@@ -4,6 +4,7 @@ import MainNavigation from "@components/navigation/MainNavigation";
 import Stats from "@components/stats/Stats";
 import Footer from "@components/footer/Footer";
 import SlideShow from "@components/slide-show/SlideShow";
+import Discover from "@components/discover/Discover";
 
 const ProjectPage = () => {
   return (
@@ -75,6 +76,9 @@ const ProjectPage = () => {
             </div>
           </div>
           <SlideShow />
+          <div className={styles["discover-container"]}>
+            <Discover />
+          </div>
         </div>
       </div>
       <Footer />

@@ -18,7 +18,7 @@ const SlideShow = () => {
       </div>
       <ul className={styles["medias"]}>
         {dummy.map((p, i) => (
-          <Media key={i} />
+          <Media key={i} index={i} /> // ToDo :: Remove index props (just for demo purpose)
         ))}
       </ul>
     </div>

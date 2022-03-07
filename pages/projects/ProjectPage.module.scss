@@ -106,7 +106,6 @@
   }
 
   &__content {
-    border: 1px solid black;
     width: 70%;
     margin-left: 15%;
 
@@ -166,6 +165,11 @@
           font-weight: 700;
         }
       }
+    }
+
+    .discover-container {
+      margin-top: 130px;
+      margin-bottom: 130px;
     }
   }
 }
