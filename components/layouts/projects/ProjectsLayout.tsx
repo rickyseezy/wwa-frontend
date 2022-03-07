@@ -21,11 +21,6 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   );
 
   function showScrollableMenu(element: HTMLElement) {
-    console.log(
-      "showScrollableMenu ",
-      element.scrollHeight > element.clientHeight ||
-        element.scrollWidth > element.clientWidth
-    );
     toggleButton(
       element.scrollHeight > element.clientHeight ||
         element.scrollWidth > element.clientWidth

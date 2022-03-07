@@ -5,7 +5,7 @@ import Causes from "@components/causes/Causes";
 function ProjectsPage() {
   return (
     <ProjectsLayout>
-      <Causes />
+      <TopCauses />
     </ProjectsLayout>
   );
 }

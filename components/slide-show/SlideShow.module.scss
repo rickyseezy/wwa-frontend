@@ -1,0 +1,47 @@
+.slideshow-container {
+  margin-top: 70px;
+  border: 1px solid red;
+  border-radius: 15px;
+
+  .slideshow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .controllers {
+      display: flex;
+      position: absolute;
+      justify-content: space-between;
+      width: 95%;
+
+      .controller {
+        width: 35px;
+        height: 35px;
+        background-color: #1D53B7;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  .medias {
+    border: 1px solid green;
+    display: flex;
+    overflow-x: scroll;
+    padding: 2px;
+    margin-top: 30px;
+  }
+}
