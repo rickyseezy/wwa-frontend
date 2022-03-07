@@ -72,35 +72,7 @@
       }
 
       .actions {
-        display: flex;
-        width: 430px;
-        justify-content: space-evenly;
         margin-top: 30px;
-        .action {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: white;
-          width: 133px;
-          height: 40px;
-          border-radius: 18px;
-          &__text {
-            font-weight: 600;
-            font-size: .8rem;
-          }
-
-          &--donate {
-            color: #FE9A21;
-          }
-
-          &--share {
-            color: #2CC5CE;
-          }
-
-          &--support {
-            color: #F22BB2;
-          }
-        }
       }
     }
   }
@@ -172,4 +144,16 @@
       margin-bottom: 130px;
     }
   }
+}
+
+.menu-scroll {
+  position: sticky;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F3F9FD;
 }

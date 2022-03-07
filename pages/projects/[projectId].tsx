@@ -1,14 +1,39 @@
 import styles from "./ProjectPage.module.scss";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import MainNavigation from "@components/navigation/MainNavigation";
 import Stats from "@components/stats/Stats";
 import Footer from "@components/footer/Footer";
 import SlideShow from "@components/slide-show/SlideShow";
 import Discover from "@components/discover/Discover";
+import MenuScroll from "@components/menu-scroll/MenuScroll";
+import Actions from "@components/actions/Actions";
 
 const ProjectPage = () => {
+  const [show, setShowScrollMenu] = useState(false);
+
+  useEffect(() => {
+    function handleScroll(e) {
+      console.log(window.scrollY);
+      if (window.scrollY >= 50) {
+        setShowScrollMenu(true);
+        return;
+      }
+
+      if (window.scrollY <= 85) {
+        setShowScrollMenu(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+  });
   return (
     <Fragment>
+      <div
+        className={styles["menu-scroll"]}
+        style={show ? { display: "flex" } : { display: "none" }}
+      >
+        <MenuScroll title=" Les champs de Maïs de Moussa" />
+      </div>
       <MainNavigation />
       <div className={styles["project"]}>
         <div className={styles["banner"]}>
@@ -30,19 +55,7 @@ const ProjectPage = () => {
               <Stats />
             </div>
             <div className={styles["actions"]}>
-              <div
-                className={`${styles["action"]} ${styles["action--donate"]}`}
-              >
-                <div className={styles["action__text"]}>Faire un don</div>
-              </div>
-              <div className={`${styles["action"]} ${styles["action--share"]}`}>
-                <div className={styles["action__text"]}>Partager</div>
-              </div>
-              <div
-                className={`${styles["action"]} ${styles["action--support"]}`}
-              >
-                <div className={styles["action__text"]}>Soutenir</div>
-              </div>
+              <Actions />
             </div>
           </div>
         </div>

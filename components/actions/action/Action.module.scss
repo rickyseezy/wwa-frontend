@@ -1,0 +1,25 @@
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 133px;
+  height: 40px;
+  border-radius: 18px;
+  &__text {
+    font-weight: 600;
+    font-size: .8rem;
+  }
+
+  &--donate {
+    color: #FE9A21;
+  }
+
+  &--share {
+    color: #2CC5CE;
+  }
+
+  &--support {
+    color: #F22BB2;
+  }
+}

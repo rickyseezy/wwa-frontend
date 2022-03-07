@@ -1,0 +1,14 @@
+/*background-color: #F3F9FD;*/
+.menu-scroll {
+  width: 72%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-weight: 700;
+    font-size: .8rem;
+    letter-spacing: 2.2px;
+  }
+}
