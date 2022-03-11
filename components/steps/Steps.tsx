@@ -8,9 +8,15 @@ const Steps = () => {
       >
         1
       </div>
-      <div className={styles["steps__line"]} />
-      <div className={styles["steps__step"]}>2</div>
-      <div className={styles["steps__line"]} />
+      <div
+        className={`${styles["steps__line"]} ${styles["steps__line--selected"]}`}
+      />
+      <div
+        className={`${styles["steps__step"]} ${styles["steps__step--selected"]}`}
+      >
+        2
+      </div>
+      <div className={`${styles["steps__line"]}`} />
       <div className={styles["steps__step"]}>3</div>
     </div>
   );

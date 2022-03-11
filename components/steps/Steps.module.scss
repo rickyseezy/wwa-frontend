@@ -19,6 +19,10 @@
     &--selected {
       background-color: #1D53B7;
       color: white;
+      animation-name: fill-step;
+      animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
     }
   }
 
@@ -26,5 +30,22 @@
     background-color: #ECF2FF;
     width: 120px;
     height: 1.3px;
+
+    &--selected {
+      animation-name: fill-step;
+      animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes fill-step {
+  from {
+    background-color: #ECF2FF;
+  }
+
+  to {
+    background-color: #1D53B7;
   }
 }
