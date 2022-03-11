@@ -1,0 +1,49 @@
+.help-card {
+  position: relative;
+  border: 1px solid #c3d4fb;
+  width: 318px;
+  height: 302px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: background-color 1s;
+  &--selected {
+    background-color: #ECF2FF;
+    color: #1D53B7;
+  }
+
+  &__img {
+    width: 80%;
+  }
+
+  &__text {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    font-size: .7rem;
+    width: 80%;
+    text-align: center;
+  }
+
+  .select-icon {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 33px;
+    background-color: #1D53B7;
+    position: absolute;
+    top: -20px;
+    right: 12px;
+    img {
+      width: 70%;
+    }
+  }
+}

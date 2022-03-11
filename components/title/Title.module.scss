@@ -1,0 +1,18 @@
+.title {
+  display: flex;
+  align-items: center;
+  &__dash {
+    width: 80px;
+    height: 4px;
+    background-color: #1D53B7;
+    display: block;
+  }
+
+  &__text {
+    font-size: .9rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #1D53B7;
+    margin-left: 20px;
+  }
+}

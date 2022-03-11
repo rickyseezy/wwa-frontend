@@ -1,0 +1,30 @@
+.steps {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__step {
+    background-color: #ECF2FF;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .7rem;
+    font-weight: 700;
+    color: #1D53B7;
+
+    &--selected {
+      background-color: #1D53B7;
+      color: white;
+    }
+  }
+
+  &__line {
+    background-color: #ECF2FF;
+    width: 120px;
+    height: 1.3px;
+  }
+}

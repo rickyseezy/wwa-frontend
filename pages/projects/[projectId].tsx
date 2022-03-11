@@ -7,6 +7,7 @@ import SlideShow from "@components/slide-show/SlideShow";
 import Discover from "@components/discover/Discover";
 import MenuScroll from "@components/menu-scroll/MenuScroll";
 import Actions from "@components/actions/Actions";
+import Title from "@components/title/Ttile";
 
 const ProjectPage = () => {
   const [show, setShowScrollMenu] = useState(false);
@@ -61,10 +62,7 @@ const ProjectPage = () => {
         </div>
         <div className={styles["project__content"]}>
           <div className={styles["intro"]}>
-            <div className={styles["subtitle"]}>
-              <span className={styles["subtitle__dash"]} />
-              <div className={styles["subtitle__text"]}>L'HISTOIRE</div>
-            </div>
+            <Title text="l'HISTOIRE" />
             <div className={styles["intro__title"]}>
               Des champs de maïs vitaux
             </div>
