@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <div className={styles["footer"]}>
       <div className={styles["footer__content"]}>
+        
         <div className={styles["menu"]}>
           <div
-            className={`${styles["primary"]} ${styles["menu__block--large"]}`}
-          >
+            className={`${styles["primary"]} ${styles["menu__block--large"]}`}>
             <div className={styles["primary__logo"]}>
               <Logo src="/images/wwa-logo-white.png" />
             </div>
@@ -43,16 +43,19 @@ const Footer = () => {
             <div className={styles["pusher"]} />
             <div className={styles["footer--link"]}>Les causes</div>
             <div className={styles["footer--link"]}>Les projets</div>
+            <div className={styles["footer--link"]}>E-Stands</div>
+            <div className={styles["footer--link"]}>Actualités</div>
           </div>
           <div className={styles["menu__block--small"]}>
             <h2 className={styles["footer--title"]}>À propos</h2>
             <div className={styles["pusher"]} />
+            <div className={styles["footer--link"]}>Le groupe</div>
             <div className={styles["footer--link"]}>Mentions Légales</div>
             <div className={styles["footer--link"]}>
-              Conditions générales d'utilisation
+             <p  className={styles['footer--paraLink']}>Conditions <br /> générales <br /> d'utilisation</p>  
             </div>
             <div className={styles["footer--link"]}>
-              Politique de confidentialité
+           <p> Politique  de <br /> confidentialité </p>  
             </div>
           </div>
           <div className={styles["menu__block--medium"]}>
@@ -60,6 +63,8 @@ const Footer = () => {
             <NewsletterInput />
           </div>
         </div>
+
+
         <div className={styles["container"]}>
           <div className={styles["copyright"]}>
             <div className={styles["copyright__dashline"]} />

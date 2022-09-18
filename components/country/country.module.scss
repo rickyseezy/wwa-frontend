@@ -1,0 +1,25 @@
+.country {
+    border: 1px solid #BBCBE9;
+    border-radius: 15px;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+
+    &__icon {
+      width: 60px;
+    }
+
+    &__name {
+      margin-top: 5px;
+      font-weight: 600;
+      font-size: .8rem;
+      letter-spacing: 2px;
+      color: #474A57;
+      width: 80%;
+      text-align: center;
+    }
+  }

@@ -1,6 +1,6 @@
 .form {
   background-color: white;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -24,7 +24,7 @@
 
     .help-types {
       margin-top: 40px;
-      display: flex;
+      display: flex ;
       justify-content: center;
 
       &__separator {

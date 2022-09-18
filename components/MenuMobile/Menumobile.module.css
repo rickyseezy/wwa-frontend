@@ -1,0 +1,49 @@
+.menuMobile {
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  z-index: 4545;
+  display: block;
+  padding: 2em;
+}
+
+.menuMobile__cross {
+  margin-bottom: 1em;
+}
+
+.menuMobile__input {
+  margin: 0;
+  width: 100%;
+  border-radius: 50px;
+  padding: 10px 15px;
+  margin-bottom: 2em;
+  border: 1px solid black;
+}
+
+.menuMobile__ul li {
+  margin: 3em 0;
+}
+
+.menuMobile__ul li a {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20.1702px;
+  line-height: 27px;
+  text-decoration: none;
+  color: black;
+}
+
+.menuMobile__btn {
+  width: 85%;
+  padding: 1em 0;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border-radius: 50px;
+}
+/*# sourceMappingURL=Menumobile.module.css.map */

@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 2rem 0 0 0 ;
 
   .control-header {
     width: 100%;
@@ -27,7 +28,7 @@
     &__subtitle {
       color: white;
       font-weight: 700;
-      font-size: 2rem;
+      font-size: 3rem;
     }
   }
 
@@ -38,4 +39,193 @@
 
 .spacer {
   width: 10px;
+}
+
+
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px)  {
+  
+  /* CSS */
+  .control-pane {
+    display: flex;
+    justify-content: space-between;
+    width: 120% !important;
+    margin: 2rem 0 0 0 ;
+  
+    .control-header {
+      width: 100%;
+      &__title {
+        width: 300px;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        .dash {
+          display: block;
+          width: 60px;
+          height: 2px;
+          background-color: white;
+        }
+        div {
+          color: white;
+          margin-left: 20px;
+          font-size: .6rem;
+        }
+      }
+      &__subtitle {
+        color: white;
+        font-weight: 700;
+        font-size: 3rem;
+      }
+    }
+  
+    .controllers {
+      display: flex;
+      transform: translate(-120px,30px);
+
+    }
+  }
+  
+  .spacer {
+    width: 10px;
+  }
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+  
+*/
+
+@media screen and (min-width:468px) and (max-width: 768px){
+  
+  .control-header {
+    width: 100%;
+    &__title {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      .dash {
+        display: block;
+        width: 60px;
+        height: 2px;
+        background-color: white;
+      }
+      div {
+        color: white;
+        margin-left: 20px;
+        font-size: .6rem;
+      }
+    }
+    &__subtitle {
+      color: white;
+      font-weight: 700;
+      width: 100%;
+      font-size: 1.8rem !important;
+    }
+  }
+
+  .controllers {
+    display: flex;
+    transform: translateX(30px);
+  }
+}
+
+
+@media screen and (max-width: 481px)  {
+  
+  /* CSS */
+
+  
+  .control-header {
+    width: 100%;
+    &__title {
+      width: 300px;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      .dash {
+        display: block;
+        width: 30px !important;
+        height: 2px;
+        background-color: white;
+      }
+      div {
+        color: white;
+        margin-left: 20px;
+        font-size: .6rem;
+      }
+    }
+    &__subtitle {
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem !important;
+      margin-top: 4em;
+    }
+
+ 
+  }
+  
+  .controllers {
+    transform: translate(-250px, 20px) !important;
+  margin: 2em 0 3.5em 0 !important;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  
+  /* CSS */
+
 }

@@ -1,0 +1,57 @@
+
+@import "styles/variables.module";  
+
+
+// main content grid with display flex 
+.contentItemaccount{
+    display: flex;
+    background-color: #F7FCFF;
+    
+    padding: 2em 2em;
+    width: 100%;
+   
+   
+    // left  content
+ .contentVolet{
+     width: 40%;
+     display: flex;
+     justify-content: flex-end  ;
+ }
+
+ // right content
+ .contentPages{
+    width: 100%;
+}
+
+}
+
+// compte et h1
+
+.h4compte{
+    display: flex;
+    align-items: center;
+    
+
+    span{
+        width: 100px;
+        height: 3px;
+        background-color: $primaryblue;
+        margin: 0 1em 0 0;
+    }
+
+    h4{
+        color: $primaryblue;
+    }
+  
+}
+
+.h1pages{
+    margin: -0.5em 0 1em 0;
+font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+font-weight: bolder;
+line-height: 64px;
+
+}   
+

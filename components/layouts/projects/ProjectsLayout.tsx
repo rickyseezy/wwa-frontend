@@ -2,8 +2,9 @@ import styles from "./ProjectsLayout.module.scss";
 import MainNavigation from "@components/navigation/MainNavigation";
 import Stats from "@components/stats/Stats";
 import ContinentMenu from "@components/continent-menu/ContinentMenu";
-import Footer from "@components/footer/Footer";
 import React, { useEffect, useState } from "react";
+import MenuBurger from "@components/menu-burger/MenuBurger";
+import Footer from "@components/footer/Footer";
 
 interface IProjectsLayout {
   children: React.ReactNode;
@@ -42,6 +43,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
     <>
       <div className={styles["wrapper"]}>
         <MainNavigation />
+        <MenuBurger />
         <div className={styles["banner"]}>
           <h1 className={styles["banner__title"]}>EUROPE</h1>
           <div className={styles["stats-container"]}>

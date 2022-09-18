@@ -1,0 +1,26 @@
+.infofooter:nth-child(1) {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 8em;
+  width: 45%;
+}
+
+.infofooter:nth-child(1) .containerimgFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 2em;
+  width: 60%;
+}
+
+.infofooter:nth-child(1) ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  gap: 2em;
+}
+
+.infofooter:nth-child(1) ul li {
+  list-style: none;
+}
+/*# sourceMappingURL=infofooter.module.css.map */

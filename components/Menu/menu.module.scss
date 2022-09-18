@@ -1,0 +1,49 @@
+@import "styles/variables.module";
+
+.containerMenu{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+
+    div{
+        width: 100%;
+    }
+  
+// logo's menu
+  &__logo{
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+ }
+
+
+// item'smenu
+  &__itemmenu{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  ul{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 70%;
+  }
+  
+  li{
+      list-style: none;
+      font-weight: bolder;
+       display: flex;
+      img{
+        transform: translateY(1px) translateX(2px);
+      }
+  }
+
+ }
+
+}

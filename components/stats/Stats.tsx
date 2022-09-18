@@ -22,6 +22,13 @@ const Stats = () => {
         </div>
         <div className={styles.stat__title}>Causes en cours</div>
       </div>
+      <div className={styles.stat}>
+        <div className={styles.number}>
+        <span className={styles.number__bullet2}></span>
+          <div className={styles.number__value}>231</div>
+        </div>
+        <div className={styles.stat__title}>E-stand en direct</div>
+      </div>
     </div>
   );
 };

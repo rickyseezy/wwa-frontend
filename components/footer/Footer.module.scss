@@ -1,20 +1,18 @@
 .footer {
   background-color: black;
   width: 100%;
-  min-height: 600px;
-  height: 50%;
+  padding: 6em 2em;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &__content {
-    width: 1300px;
-    height: 80%;
+    width: 80%;
+   
 
     .menu {
       display: flex;
       width: 100%;
-      height: 50%;
       color: white;
 
       &__block {
@@ -71,9 +69,10 @@
         height: 100%;
         justify-content: center;
         align-items: center;
+        padding: 4em 0;
         &__dashline {
           height: 2px;
-          background-color: #ffffff73;
+          background-color: #ffffff1c;
           width: 47.5%;
         }
         &__logo {
@@ -103,9 +102,273 @@
     font-weight: 100;
     margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 1.3em;
+  }
+
+  &--paraLink{
+    line-height: 1.5em;
+
   }
 }
 
 .pusher {
   margin-top: 40px;
+}
+
+
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media screen and (min-width: 1081px) and (max-width:1400px) {
+  
+  /* CSS */
+  .footer {
+ 
+  
+    &__content {
+      width: 90% !important;
+    }
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+  /* CSS */
+  .footer {
+    padding: 2em 2em;
+    &--title {
+      font-weight: 500;
+      white-space: nowrap;
+      text-align: center;
+    }
+    &__content {
+      width: 100%;
+      .menu {
+        flex-direction: column !important;
+
+
+        .primary {
+          &__logo {
+            margin: 2em auto;
+            width: 30%;
+          }
+        }
+
+        .socials {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 4em;
+
+          &__fb {
+          }
+        }
+
+
+
+        &__block{
+
+          &--small {
+            display: none;
+          } 
+          &--medium {
+            width: 100%;
+          } 
+          &--large {
+            width: 100%;
+          } 
+       
+        }
+    }
+  }
+
+
+  .shape {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px !important ;
+    background-color: #23252E;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 40%;
+    }
+  }
+  
+
+  
+
+
+
+  
+}
+  
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  /* CSS */
+  .footer {
+    padding: 2em 2em;
+    &--title {
+      font-weight: 500;
+      white-space: nowrap;
+      text-align: center;
+    }
+    &__content {
+      width: 100%;
+      .menu {
+        flex-direction: column !important;
+
+
+        .primary {
+          &__logo {
+            margin: 0 auto;
+            width: 40%;
+          }
+        }
+
+        .socials {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 4em;
+
+          &__fb {
+          }
+        }
+
+
+
+        &__block{
+
+          &--small {
+            display: none;
+          } 
+          &--medium {
+            width: 100%;
+          } 
+          &--large {
+            width: 100%;
+          } 
+       
+        }
+    }
+  }
+
+
+  .shape {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px !important ;
+    background-color: #23252E;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 40%;
+    }
+  }
+  
+}
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  
+  /* CSS */
+  .footer {
+    padding: 2em 2em;
+    &--title {
+      font-weight: 500;
+      white-space: nowrap;
+      text-align: center;
+    }
+    &__content {
+      width: 100%;
+      .menu {
+        flex-direction: column !important;
+
+
+        .primary {
+          &__logo {
+            margin: 0 auto;
+            width: 50%;
+          }
+        }
+
+        .socials {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 4em;
+
+          &__fb {
+          }
+        }
+
+
+
+        &__block{
+
+          &--small {
+            display: none;
+          } 
+          &--medium {
+            width: 100%;
+          } 
+          &--large {
+            width: 100%;
+          } 
+       
+        }
+    }
+  }
+  
+}
+
 }
