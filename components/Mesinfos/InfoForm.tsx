@@ -1,6 +1,6 @@
 import TittleAccount from '@components/titleAccount/TittleAccount'
 import React from 'react'
-import styles from './InfoForm.module.scss'
+import styles from './infoForm.module.scss'
 function InfoForm() {
   return (
     <div className={styles["container-info"]}>

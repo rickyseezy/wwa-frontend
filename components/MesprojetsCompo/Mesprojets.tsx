@@ -1,7 +1,7 @@
 import TittleAccount from '@components/titleAccount/TittleAccount'
 import React from 'react'
 import ProjetItems, { objMesprojet } from '../cardAccount/ProjetItems'
-import styles from './Mesprojets.module.scss'
+import styles from './mesprojets.module.scss'
 
 interface Data  {
   objMesporjets : [],
