@@ -47,7 +47,7 @@ const CreateForm = () => {
               placeholder="Votre site web"
             />
             <div className={styles["form-container__step"]}>
-              2. L'objectif du projet
+              2. L&apos;objectif du projet
             </div>
             <textarea
               className={styles["form-container__textarea"]}
