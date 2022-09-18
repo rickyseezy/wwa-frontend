@@ -51,7 +51,7 @@ const CreateForm = () => {
             </div>
             <textarea
               className={styles["form-container__textarea"]}
-              placeholder="L'objectif de votre cause"
+              placeholder="L&apos;objectif de votre cause"
             />
             <div className={styles["form-container__step"]}>
               3. Description de votre projet

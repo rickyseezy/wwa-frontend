@@ -49,7 +49,7 @@ const Footer = () => {
             <div className={styles["pusher"]} />
             <div className={styles["footer--link"]}>Mentions Légales</div>
             <div className={styles["footer--link"]}>
-              Conditions générales d'utilisation
+              Conditions générales d&apos;utilisation
             </div>
             <div className={styles["footer--link"]}>
               Politique de confidentialité
