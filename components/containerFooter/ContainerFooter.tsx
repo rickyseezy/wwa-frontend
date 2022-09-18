@@ -32,7 +32,7 @@ function ContainerFooter({containerFooterClass} : PropsContainerFooter ) {
          <ul>
              <li>Le groupe</li>
              <li>Mentions légale</li>
-             <li>conditions <br /> générale <br /> d'utilisation</li>
+             <li>conditions <br /> générale <br /> d&apos;utilisation</li>
              <li>Politique  de <br /> confidentialité</li>
          </ul>
      </div>

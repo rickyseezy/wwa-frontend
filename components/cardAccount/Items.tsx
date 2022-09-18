@@ -91,7 +91,7 @@ const [back, setback] = useState<void>()
 
                 {/* delete */}
                 <div className={styles['main__containerdelete']} key={index + 1}>
-                  <h2>Supprimer <br /> "Des logements décents et <br /> fonctionnels"</h2>
+                  <h2>Supprimer <br /> &quot;Des logements décents et <br /> fonctionnels&quot;</h2>
                   <div className={styles["btndelete"]}>
                     <button>Oui,supprimer</button>
                     <button onClick={handclickDelete}>Annuler</button>

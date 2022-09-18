@@ -105,7 +105,7 @@ function MenuVoletCompte() {
         <ul >
          
          {itemstab.map((textcontnt,i)=>(
-            <li ref={el => itemmenu.current[i] = el} onClick={handleChangeVolet} >
+            <li key={i} ref={el => itemmenu.current[i] = el} onClick={handleChangeVolet} >
             <MenuItems  data-king={i} text={textcontnt}  img='/icons/chevron-down.png' />
             </li>
          ))}

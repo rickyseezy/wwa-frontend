@@ -52,7 +52,7 @@ const Footer = () => {
             <div className={styles["footer--link"]}>Le groupe</div>
             <div className={styles["footer--link"]}>Mentions Légales</div>
             <div className={styles["footer--link"]}>
-             <p  className={styles['footer--paraLink']}>Conditions <br /> générales <br /> d'utilisation</p>  
+             <p  className={styles['footer--paraLink']}>Conditions <br /> générales <br /> d&apos;utilisation</p>
             </div>
             <div className={styles["footer--link"]}>
            <p> Politique  de <br /> confidentialité </p>  

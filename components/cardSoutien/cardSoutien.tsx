@@ -82,13 +82,12 @@ return (
   <TittleAccount titleH1='Mes soutiens' />
 
   <div className={styles['grid']}>
-    {objSoutient.map((el)=>{
-    console.log(el)
+    {objSoutient.map((el, i)=>{
 
 
     return(
 
-    <div className={styles['frontcard']}>
+    <div key={i} className={styles['frontcard']}>
       <div className={styles['imgProjet']}>
         <img src={el.img} alt="" />
       </div>
