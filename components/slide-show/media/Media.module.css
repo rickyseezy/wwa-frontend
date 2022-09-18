@@ -1,0 +1,64 @@
+.media {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: black;
+  border-radius: 15px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media img {
+  width: 50%;
+}
+
+.media--activated {
+  border: 5px solid #1D53B7;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  /* CSS */
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* CSS */
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media screen and (min-width: 320px) and (max-width: 468px) {
+  .media {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    background-color: black;
+    border-radius: 15px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .media img {
+    width: 50%;
+  }
+  .media--activated {
+    border: 5px solid #1D53B7;
+  }
+}
+/*# sourceMappingURL=Media.module.css.map */

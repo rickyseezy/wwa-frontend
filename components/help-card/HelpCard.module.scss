@@ -1,8 +1,8 @@
 .help-card {
   position: relative;
   border: 1px solid #c3d4fb;
-  width: 318px;
-  height: 302px;
+  width: 25%;
+  padding: 2em 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,12 @@
   border-radius: 10px;
   transition: background-color 1s;
   &--selected {
-    background-color: #ECF2FF;
+    background-color: #ecf2ff;
+    color: #1D53B7;
+  }
+
+  &--selectedRight {
+    background-color: #ffffff;
     color: #1D53B7;
   }
 

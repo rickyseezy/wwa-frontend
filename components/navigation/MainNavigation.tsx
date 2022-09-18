@@ -1,29 +1,52 @@
-import SearchBar from "@components/searchbar/SearchBar";
-import styles from "./MainNavigation.module.scss";
-import Logo from "@components/logo/Logo";
+import Logo from '@components/logo/Logo'
+import Searchbar from '@components/searchbar/SearchBar'
+import { useRouter } from 'next/router'
+import React from 'react'
 
-export const MainNavigation = () => {
+import styles from './MainNavigation.module.scss'
+function Menu() {
+
+  const router = useRouter()
+
+
+  const pageCause = ()=>{
+   router.push('/projects')
+
+   }
+
+   const pageProjet = ()=>{
+    router.push('/')
+ 
+    }
+
+    
+  const pageCompte = ()=>{
+    router.push('/Mon-compte')
+ 
+    }
+
   return (
-    <div className={styles.menu}>
-      <nav className={styles.menu__content}>
-        <p className={styles.logo}>
-          <Logo src="/images/wwa-logo-black.png" />
-        </p>
-        <ul className={styles["nav-link"]}>
-          <li className={styles["nav-link__link"]}>Projets</li>
-          <li className={styles["nav-link__link"]}>Causes</li>
-          <li className={styles["nav-link__link"]}>Connexion</li>
-        </ul>
-        <SearchBar />
-        <div className={styles.spacer}></div>
-        <div className={styles["btn-createcause"]}>
-          <div className={styles["btn-createcause__text"]}>
-            Je crée ma cause
-          </div>
-        </div>
-      </nav>
-    </div>
-  );
-};
+    <div className={styles['containerMenu']}>
+      {/* logo */}
+    <div className={styles['containerMenu__logo']}>
+    <Logo src={'/images/wwa-logo-black.png'} />
 
-export default MainNavigation;
+    </div>
+      {/* menu */}
+    <div className={styles['containerMenu__itemmenu']}>
+        <ul>
+          <li><a href="#" onClick={pageProjet}>Projects</a> <img src="/images" alt="" /></li>
+          <li><a href="#" onClick={pageCause}>Causes</a></li>
+          <li><a href="#" onClick={pageCompte}>Mon Compte</a></li>
+
+        </ul>
+       </div>
+{/* input */}
+     <Searchbar />
+    </div>
+
+    
+  )
+}
+
+export default Menu

@@ -16,7 +16,16 @@
         width: 10px;
         height: 10px;
         background: red;
-        right: 20px;
+        right: 29px;
+        border-radius: 20px;
+      }
+
+      &__bullet2 {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: red;
+        right: 60px;
         border-radius: 20px;
       }
 
@@ -27,9 +36,227 @@
     }
 
     &__title {
-      font-weight: 500;
+      font-weight: 800;
       font-size: .8rem;
       text-align: center;
     }
   }
+}
+
+
+
+.stattwo{
+  display: flex;
+  flex-direction: row;
+  .stat{
+    text-align: center;
+  }
+  .statP{
+    text-align: center;
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  
+  /* CSS */
+  
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px)  {
+  
+  /* CSS */
+  .stats{
+    width: 90% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2,1fr) !important;
+    padding: 0 3em !important;
+    margin: 0 auto !important;
+    div{
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      flex-direction: column;
+    }
+   }
+
+   .number {
+    position: relative;
+    text-align: center;
+
+    &__bullet {
+      position: absolute;
+      width: 7px !important;
+      height: 7px !important;
+      background: red;
+      right: 29px !important;
+      border-radius: 20px;
+    }
+
+    &__bullet2 {
+      position: absolute;
+      width: 7px !important;
+      height: 7px !important;
+      background: red;
+      top: -5px !important;
+      right: 50px !important;
+      border-radius: 20px;
+    }
+
+    &__value {
+      font-weight: 700;
+      font-size: 1.5rem !important;
+    }
+
+
+  }
+
+  .stat{
+    margin-top: 1.5em;
+    width: 160px !important;
+    margin: 0 auto;
+    &__title {
+      font-weight: 800;
+      font-size: 1rem !important;
+      text-align: center;
+    }
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width:468px) and (max-width:768px) {
+  .stats{
+    width: 90% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2,1fr) !important;
+    padding: 0 1em !important;
+   }
+
+   .number {
+    position: relative;
+    text-align: center;
+
+    &__bullet {
+      position: absolute;
+      width: 7px !important;
+      height: 7px !important;
+      background: red;
+      right: 29px !important;
+      border-radius: 20px;
+    }
+
+    &__bullet2 {
+      position: absolute;
+      width: 7px !important;
+      height: 7px !important;
+      background: red;
+      top: -5px !important;
+      right: 50px !important;
+      border-radius: 20px;
+    }
+
+    &__value {
+      font-weight: 700;
+      font-size: 1.5rem !important;
+    }
+
+
+  }
+
+  .stat{
+    margin-top: 1.5em;
+    width: 160px !important;
+    &__title {
+      font-weight: 800;
+      font-size: 1rem !important;
+      text-align: center;
+    }
+  }
+
+}
+
+@media (max-width: 481px){
+  
+  /* CSS */
+  .stats{
+    width: 90% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2,1fr) !important;
+    padding: 0 1em !important;
+
+   }
+
+   .number {
+    position: relative;
+    text-align: center;
+
+    &__bullet {
+      position: absolute;
+      width: 7px !important;
+      height: 7px !important;
+      background: red;
+      right: 29px !important;
+      border-radius: 20px;
+    }
+
+    &__bullet2 {
+      position: absolute;
+      width: 7px !important;
+      height: 7px !important;
+      background: red;
+      top: -5px !important;
+      right: 50px !important;
+      border-radius: 20px;
+    }
+
+    &__value {
+      font-weight: 700;
+      font-size: 1.2rem !important;
+    }
+  }
+
+  .stat{
+    margin-top: 1.5em;
+    width: 160px !important;
+   
+  }
+
+
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media screen and (max-width: 320px)  {
+  
+ .stats{
+  display: grid !important;
+  grid-template-columns: repeat(2,1fr) !important;
+ }
+
 }

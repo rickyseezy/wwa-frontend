@@ -19,8 +19,10 @@ const Home = () => {
         <div className={styles.pusher} />
         <Stats />
         <div className={styles.pusher} />
+        <div className={styles["cont-button"]}>
         <div className={styles.button}>
           <div className={styles.button__text}>Je crée ma cause</div>
+        </div>
         </div>
         <div className={styles["pick-continent"]}>
           Choisissez votre continent

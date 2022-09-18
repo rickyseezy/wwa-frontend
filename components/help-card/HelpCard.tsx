@@ -1,19 +1,31 @@
 import styles from "./HelpCard.module.scss";
 
-const HelpCard = () => {
+interface TypeHelpCard {
+  title: string,
+  backgroundColorCard : string,
+  imgValid : string,
+  valid : string,
+  imgCard : string
+
+}
+
+
+const HelpCard = ({title,backgroundColorCard,imgValid,valid,imgCard}: TypeHelpCard ) => {
+
+
   return (
-    <div className={`${styles["help-card"]} ${styles["help-card--selected"]}`}>
+    <div className={`${styles["help-card"]} ${styles[backgroundColorCard]}`}>
       <img
         className={styles["help-card__img"]}
-        src="/images/project-type.png"
+        src={imgCard}
       />
-      <div className={styles["help-card__text"]}>Un projet</div>
+      <div className={styles["help-card__text"]}>{title}</div>
       <div className={styles["help-card__description"]}>
         Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed nam
         sem tellus erat.Lorem ipsum dolor amet, consectetur adipiscing elit.
       </div>
-      <div className={styles["select-icon"]}>
-        <img src="/icons/check.svg" />
+      <div className={styles[valid]}>
+        <img src={imgValid} />
       </div>
     </div>
   );

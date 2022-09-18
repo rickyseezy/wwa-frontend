@@ -1,0 +1,315 @@
+@import "styles/colors.module";
+
+
+.gridAccount{
+    padding: 2em 0;
+    display: flex;
+  background-color: $backgroundColorBlueLight; 
+}
+
+
+
+.voletcontainer{
+  width:40%;
+  display: flex;
+  justify-content:flex-end;
+  margin-right:4em ;
+
+
+}
+
+
+//  volet 
+
+
+
+.containervolet{
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 350px;
+
+  margin-top: 2em;
+  margin-left: 2em;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 5;
+  padding: 0em 0em;
+  height: 460px;
+  
+ .projetsection,.Estandsection,.solutionSection,.infoSection,.deconnecterSection{
+     cursor: pointer;
+     // color: $primaryblue;
+     color: $btnblue;
+      position: relative;
+      z-index: 1;
+      font-size: 0.8em;
+      margin: 1.5em 0;
+ 
+ }
+
+ .projetsection:after,.Estandsection:after,.solutionSection:after,.infoSection:after,.deconnecterSection:after{
+     content: '';
+     position: absolute;
+     top: -10px;
+     left: 0px;
+     width: 100%;
+     height: 156%;
+     z-index: -1;
+     bottom: 35px;
+     
+ }
+ .projetsection:hover::after,.Estandsection:hover::after,.solutionSection:hover::after,.infoSection:hover::after,.deconnecterSection:hover::after{
+     // background-color: $primaryblue;
+     background-color: $blueLoyal;
+
+     z-index: -1;
+
+ } 
+ .projetsection:hover,.Estandsection:hover,.solutionSection:hover,.infoSection:hover,.deconnecterSection:hover{
+     color:white;
+     z-index: 44;
+ }
+  .imageprojet{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1em 0;
+     img{
+         width: 60%;
+         height: 150px;
+         border-radius: 50%;
+         filter: contrast(120%);
+
+     }
+  }
+
+
+ .projetsection{
+padding: .2em 0;
+position: relative;
+padding-left : 2em; 
+
+::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 6%;
+ //    background-color: $primaryblue;
+ background-color: $blueNight;
+    opacity: 0.5;
+    width: 80%;
+    height: 1px;
+}
+
+ 
+ }
+
+ .Estandsection{
+padding: .2em 0;
+position: relative;
+padding-left : 2em; 
+::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 6%;
+    background-color: $blueNight;
+    opacity: 0.5;
+    width: 80%;
+    height: 1px;
+}
+ }
+
+ .solutionSection{
+padding: .2em 0;
+position: relative;
+padding-left : 2em; 
+::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 6%;
+    background-color: $blueNight;
+    opacity: 0.5;
+    width: 80%;
+    height: 1px;
+}
+ }
+
+ .infoSection{
+padding: .2em 0;
+position: relative;
+padding-left : 2em; 
+::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 6%;
+    background-color: $blueNight;
+    opacity: 0.2;
+    width: 80%;
+    height: 1px;
+}
+ }
+ 
+
+ .deconnecterSection{
+padding: .2em 0;
+position: relative;
+padding-left : 2em; 
+
+ }
+
+
+
+}
+
+
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    /* CSS */
+    .containervolet{
+      border: 1px solid rgba(0, 0, 0, 0);
+      width: 235px;
+    
+      margin-top: 2em;
+      margin-left: 2em;
+      background-color: white;
+      border-radius: 10px;
+      z-index: 5;
+      padding: 0em 0em;
+      height: 460px;
+    }
+
+
+    .Estandsection{
+      h2{
+        font-size: 1.4em;
+      }
+    }
+    
+   .solutionSection{
+    h2{
+      font-size: 1.4em;
+    }
+   }
+   .infoSection{
+    h2{
+      font-size: 1.4em;
+    }
+   }
+   .deconnectionSection{
+    h2{
+      font-size: 1.4em;
+    }
+   }
+
+   .imageprojet{
+ 
+ img{
+     width: 60%;
+     height: 129px !important;
+     border-radius: 50%;
+     filter: contrast(120%);
+
+ }
+}
+.voletcontainer{
+  width:40%;
+  display: flex;
+  justify-content:flex-end;
+  margin-right:2em !important ;
+
+
+}
+  }
+   
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    /* CSS */
+    
+  
+    .gridAccount{
+      position: relative;
+      padding: 0em 0EM 2em 0 !important;
+      display: flex;
+      flex-direction: column;
+    background-color: $backgroundColorBlueLight; 
+    
+    }
+     
+    .voletcontainer{
+        width:40%;
+        display: flex;
+        justify-content:flex-end;
+        margin-right:4em ;
+        display: NONE;
+      
+      
+      }
+  
+
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+  
+    /* CSS */
+
+   
+.gridAccount{
+  position: relative;
+  padding: 0em 0EM 2em 0 !important;
+  display: flex;
+  flex-direction: column;
+background-color: $backgroundColorBlueLight; 
+
+}
+ 
+.voletcontainer{
+    width:40%;
+    display: flex;
+    justify-content:flex-end;
+    margin-right:4em ;
+    display: NONE;
+  
+  
+  }
+  
+  
+  }

@@ -2,7 +2,11 @@ import styles from "./TopCauses.module.scss";
 import ScrollList from "@components/scroll-list/ScrollList";
 import ControlPane from "@components/control-pane/ControlPane";
 
+
 const TopCauses = () => {
+ 
+
+
   return (
     <div className={styles["causes"]}>
       <div className={styles["scroll-list"]}>

@@ -16,6 +16,10 @@ const ControlPane = ({
   subTitle,
   buttonColor,
 }: ControlPaneProps) => {
+
+
+
+
   return (
     <div className={styles["control-pane"]}>
       <div className={styles["control-header"]}>

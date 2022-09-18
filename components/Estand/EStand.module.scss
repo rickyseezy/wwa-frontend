@@ -1,0 +1,118 @@
+@import "styles/colors.module";
+.Container-soutients{
+width: 100%;
+
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin: 0 1em 0 0;
+        width: 100%;
+       padding: .5em 0 4em 0;
+       gap : 1em
+    }
+
+} 
+
+
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    /* CSS */
+     /* CSS */
+     .Container-soutients{
+      width: 100%;
+      
+          &__grid{
+              display: grid !important;
+              grid-template-columns: repeat(2,1fr) !important;
+              margin: 3em 0 !important;
+              width: 95%;
+             padding: .5em 0 4em 0;
+             gap : 1em;
+             margin-bottom: 0em;
+          }
+      
+      } 
+  }
+  
+ 
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    /* CSS */
+    .Container-soutients{
+        width: 100%;
+        
+            &__grid{
+                display: grid !important;
+                grid-template-columns: repeat(2,1fr);
+                margin: 3em auto !important;
+                width: 90%;
+               padding: .5em 0 4em 0;
+               gap : 1em;
+               margin-bottom: 0em;
+            }
+        
+        } 
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    
+    /* CSS */
+    .Container-soutients{
+      width: 100%;
+      
+          &__grid{
+              display: grid !important;
+              grid-template-columns: repeat(1,1fr);
+              margin: 3em auto !important;
+              width: 90%;
+             padding: .5em 0 4em 0;
+             gap : 1em
+          }
+      
+      } 
+        
+        
+        
+  }

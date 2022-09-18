@@ -8,6 +8,9 @@ import Discover from "@components/discover/Discover";
 import MenuScroll from "@components/menu-scroll/MenuScroll";
 import Actions from "@components/actions/Actions";
 import Title from "@components/title/Ttile";
+import MenuBurger from "@components/menu-burger/MenuBurger";
+import Statstwo from "@components/stats/Statstwo";
+
 
 const ProjectPage = () => {
   const [show, setShowScrollMenu] = useState(false);
@@ -15,12 +18,16 @@ const ProjectPage = () => {
   useEffect(() => {
     function handleScroll(e) {
       console.log(window.scrollY);
-      if (window.scrollY >= 50) {
-        setShowScrollMenu(true);
-        return;
+   
+      if (window.matchMedia("(max-width: 400px)").matches) {
+        /* the view port is at least 400 pixels wide */
+      }else if(window.matchMedia("(min-width: 400px)").matches){
+        if ( window.scrollY >= 50 ) {
+          setShowScrollMenu(true);
+          return;
+        }
       }
-
-      if (window.scrollY <= 85) {
+      if ( window.scrollY <= 85 ) {
         setShowScrollMenu(false);
       }
     }
@@ -36,6 +43,7 @@ const ProjectPage = () => {
         <MenuScroll title=" Les champs de Maïs de Moussa" />
       </div>
       <MainNavigation />
+      <MenuBurger />
       <div className={styles["project"]}>
         <div className={styles["banner"]}>
           <div className={styles["overlay"]}></div>
@@ -53,7 +61,7 @@ const ProjectPage = () => {
               </div>
             </div>
             <div className={styles["stats"]}>
-              <Stats />
+              <Statstwo />
             </div>
             <div className={styles["actions"]}>
               <Actions />

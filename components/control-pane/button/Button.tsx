@@ -11,10 +11,14 @@ const ControlPaneButton = ({
   color,
   buttonColor,
 }: IControlPaneButtonProps) => {
+  function handleClick(e){
+    console.log(e.target)
+  }
   return (
     <div
       className={`${styles["bullet"]}`}
       style={{ backgroundColor: buttonColor }}
+      onClick={handleClick}
     >
       <img
         className={styles["bullet__arrow"]}

@@ -1,0 +1,104 @@
+@charset "UTF-8";
+.AccountMobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 44545;
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+  padding: 2em;
+  display: none;
+  box-sizing: border-box;
+  /*Add this*/
+}
+
+.AccountMobile__cross {
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  z-index: 44646464;
+  width: 5%;
+}
+
+.AccountMobile__container {
+  position: relative;
+  background-color: white;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.AccountMobile__container h1 {
+  text-align: center;
+  margin-bottom: .7em;
+}
+
+.AccountMobile__radio {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.AccountMobile__radio label {
+  display: flex;
+  gap: .5em;
+}
+
+.AccountMobile__input {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.AccountMobile__input input {
+  padding: 10px 15px;
+  border-radius: 50px;
+  width: 100%;
+  height: 40px;
+  margin: 1.2em auto;
+  border: 1px solid black;
+  background: #F5F9FC;
+  border: 1px solid transparent !important;
+}
+
+.AccountMobile__input input::placeholder {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+.AccountMobile__textCheck .Actualités {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  gap: .7em;
+}
+
+.AccountMobile__textCheck .Diffamation {
+  display: flex;
+  align-items: center;
+  gap: .7em;
+}
+
+.AccountMobile__btn-div {
+  /* Brand/Deep Blue */
+  margin-top: 9em;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AccountMobile__btn-div .btn {
+  width: 100%;
+  padding: 1em;
+  background: #1d53b7;
+  color: white;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  font-size: 1em;
+  font-weight: 700;
+}
+/*# sourceMappingURL=AccountMobile.module.css.map */

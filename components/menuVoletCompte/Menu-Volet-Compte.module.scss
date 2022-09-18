@@ -1,0 +1,243 @@
+@import "styles/colors.module";
+
+.title-Mc{
+  padding: 1em 0;
+  background-color: white;
+  h2{
+    text-align: center !important;
+    font-size: 1.2em;
+  }
+  display: none;
+}
+.container-menu{
+    width: 100%;
+    display: none;
+    
+overflow: hidden;
+    ul{
+    }
+
+    li{
+        list-style: none;
+        padding: .7em 0em .7em 0em ;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        background-color:#0A6AAF;
+        color: white;
+       &:hover{
+        background-color:$blueLoyal;
+        color: white;
+       }
+       p
+       {
+        pointer-events: none;
+        cursor: not-allowed;
+       }
+
+       img{
+        z-index: 55;
+        margin-left: 8EM;
+        pointer-events: none;
+        cursor: not-allowed;
+       }
+    }
+
+}
+
+
+
+
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    /* CSS */
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 767px) and (max-width: 1024px) {
+    
+    /* CSS */
+    .title-Mc{
+      display: none !important;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media screen and (min-width: 481px) and (max-width:766px){
+    /* CSS */
+    .title-Mc{
+      display: block !important;
+      padding: 1em 0;
+      background-color: white;
+      h2{
+        text-align: center !important;
+        font-size: 1.2em;
+      }
+    }
+    .container-menu{
+      width: 100%;
+      display: block !important;
+      
+  overflow: hidden;
+      ul{
+      }
+  
+      li{
+          list-style: none;
+          padding: .7em 0em .7em 0em ;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          background-color:#0A6AAF;
+          color: white;
+         &:hover{
+          background-color:$blueLoyal;
+          color: white;
+         }
+         p
+         {
+          pointer-events: none;
+          cursor: not-allowed;
+         }
+  
+         img{
+          z-index: 55;
+          margin-left: 8EM;
+          pointer-events: none;
+          cursor: not-allowed;
+         }
+      }
+  
+  }
+  }
+
+  @media screen and (max-width: 481px)  {
+    
+    /* CSS */
+    .title-Mc{
+      padding: 1em 0;
+      background-color: white;
+      display: block !important;
+      h2{
+        text-align: center !important;
+        font-size: 1.2em;
+      }
+    }
+    .container-menu{
+      width: 100%;
+      display: block !important;
+      
+  overflow: hidden;
+      ul{
+      }
+  
+      li{
+          list-style: none;
+          padding: .7em 0em .7em 0em ;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          background-color:#0A6AAF;
+          color: white;
+         &:hover{
+          background-color:$blueLoyal;
+          color: white;
+         }
+         p
+         {
+          pointer-events: none;
+          cursor: not-allowed;
+         }
+  
+         img{
+          z-index: 55;
+          margin-left: 8EM;
+          pointer-events: none;
+          cursor: not-allowed;
+         }
+      }
+  
+  }
+  
+  
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    
+    /* CSS */
+    .container-menu{
+        width: 100% !important;
+        display: block !important;
+        
+    overflow: hidden;
+        ul{
+        }
+    
+        li{
+            list-style: none;
+            padding: .7em 0em .7em 0em ;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            background-color:#0A6AAF;
+            color: white;
+           &:hover{
+            background-color:$blueLoyal;
+            color: white;
+           }
+           p
+           {
+            pointer-events: none;
+            cursor: not-allowed;
+           }
+    
+           img{
+            z-index: 55;
+            margin-left: 8EM;
+            pointer-events: none;
+            cursor: not-allowed;
+           }
+        }
+    
+    }
+    
+    
+  }
