@@ -70,29 +70,28 @@ let [page,setPage] = useState<number>(1)
   let taille: Window & typeof globalThis
 
 useEffect(()=>{
-  console.log(page,'effect')
   let taille = window.matchMedia("(min-width: 400px)").matches
-  console.log(taille,'taille')
   // change la valeur de contswich (bolean)  si ell est inférieur a 400px
     if(taille){
-      setcontswitch(false)
+      console.log(taille,'taille plus petit que 400px')
+
+      setcontswitch(true)
 
     }else{
-      setcontswitch(true)
+      setcontswitch(false)
     }
 
 
-  
-},[taille,page])
+},[taille,page,contSwitch])
 
   return (
   <>
 {/* menu haut desktop */}
     <MainNavigation />
-    {/* menu haut mobile */}
+    {/* le menu burger */}
     <MenuBurger />
 
-    {/* <MenuVoletCompte /> */}
+    {/* le menu pour naviguer dans la page compte  */}
     <div className={styles['gridAccount']}>
 
       <div className={styles['voletcontainer']}>

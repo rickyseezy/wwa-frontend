@@ -1,13 +1,13 @@
 import Mesprojets from '@components/MesprojetsCompo/Mesprojets'
 import React, { useEffect } from 'react'
-import {objo} from '../../components/Volet/Volet'
+import {markerofPage} from '../../components/Volet/Volet'
 
 
 function Switch() {
 useEffect(()=>{
-    console.log(objo)
+    console.log(markerofPage,'marquerofpage')
 
-},[objo])
+},[markerofPage])
 
   return (
 <>
