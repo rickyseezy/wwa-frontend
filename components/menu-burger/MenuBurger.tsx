@@ -6,7 +6,8 @@ import AccountMobile from '@components/AccountMobilepage/AccountMobile';
 
 function MenuBurger(props) {
   let [menuDisplay,setmenuDisplay] = useState<number>(0)
-  let [showLogin,setShowlogin] = useState<Boolean>(false)
+  let [showmenu,setmenu] = useState<boolean>(false)
+  let [showLogin,setShowlogin] = useState<number>()
 
   function ChangeDisplay(){
     setmenuDisplay(()=> menuDisplay += 1)
@@ -14,16 +15,16 @@ function MenuBurger(props) {
   }
 
   function HandleLogin(){
-   setShowlogin(true)
-   console.log(showLogin,'jlhlkhkl')
+    if(!showLogin){
+      setShowlogin(0)
+    }
 
+   setShowlogin(el => el + 1)
+   console.log(showLogin,'jlhlkhkl')
+  
   }
 
-  useEffect(()=>{
-
-
-    //  setShowlogin(el => el = !el)
-  },[showLogin])
+  
   return (
     <div className={styles['menuBurger-content']}>
         <div className={styles["menuBurger-content___burger"]}>
@@ -37,7 +38,7 @@ function MenuBurger(props) {
             <img onClick={HandleLogin} src="/icons/Vector.png" alt="login icone" />
         </div>
         <MenuMobile   displayMenu={menuDisplay} />
-        {showLogin && <AccountMobile  data={'show'} />}
+        {showLogin && <AccountMobile  data={showLogin} />}
     </div>
   )
 }

@@ -10,9 +10,10 @@ const ControlPaneButton = ({
   direction,
   color,
   buttonColor,
+  
 }: IControlPaneButtonProps) => {
-  function handleClick(e){
-    console.log(e.target)
+  function handleClick (e){
+    console.log(e.target,'control panel')
   }
   return (
     <div

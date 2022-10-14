@@ -12,6 +12,7 @@ const PopularProjects = () => {
           titleColor="#FFFF"
           subtitleColor="#FFFF"
           buttonColor="blue"
+          loc='home-page'
         />
         <div className={styles["pusher"]} />
       </div>

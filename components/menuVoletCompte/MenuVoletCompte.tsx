@@ -1,4 +1,5 @@
 import SwitchCompte from '@components/switchcompte/SwitchCompte'
+import { Console } from 'console'
 import { useRouter } from 'next/router'
 import React, { useEffect,useRef, useState, } from 'react'
 import MenuItems from './items/MenuItems'
@@ -21,8 +22,10 @@ function MenuVoletCompte() {
     // le volet dessant  a true
      const [ItemsDown,setItemsDown] = useState(false)
  
-     function handleChangeVolet(e){
-      e.preventDefault()
+
+
+ function handleChangeVolet(e){
+
       //  met volet en bas ou en haut (toggle)
       setItemsDown(boleanHB => boleanHB = !ItemsDown)    
         
@@ -49,68 +52,47 @@ function MenuVoletCompte() {
             default:
               console.log(`Sorry`);
           }
-        }
-
-        //  met la fleche vers me haut
-        if(ItemsDown){
-
-          if(liMenu == e.target){
-            liMenu.children[1].src = '/icons/chevron-up.png'
-
-          }
-        }
-   
-        // met la fleche vers le bas
-        if(!ItemsDown && liMenu != e.target){
-          e.target.children[1].src = '/icons/chevron-down.png'
+          // donne le text du lien qui a été clické dans le premier lien
+          itemmenu.current[0].children[0].textContent = itemstab[i]
           
+          console.log(itemmenu.current[0].children[0], e.target.children[0],itemstab[i],'targeteeeeeee')
+
         }
 
+
+   
       })
 
-
-      for(let i = 0 ; i  < itemmenu.current.length ;i++){
-
-        if(ItemsDown){
-          console.log('cest bas')  
-       
-            itemmenu.current[i].style = `display:flex`
-
-          
-        }else{
-          console.log('c\'est haut')
-          if(i > 0){
-
-            itemmenu.current[i].style = `display : none`
-          }
-        }
-      }
-            
+   
         
     }
      
    
 
-    // useEffect(()=>{
+    useEffect(()=>{
       
-
-    //   //   for(let i = 0 ; i  < itemmenu.current.length ;i++){
-
-    //   //   if(ItemsDown){
-    //   //     console.log('cest bas')
+      itemmenu.current.forEach((li,i )=>{
+        if(!ItemsDown){
      
-    //   //       itemmenu.current[i].style = 'display : flex;background-color:white;color:#0A6AAF !important'
+          li.children[1].src='/icons/chevron-up.png'
+          if(i > 0){
+            li.style  = `display : none`
+              }
 
-          
-    //   //   }else{
-    //   //     console.log('c\'est haut')
-    //   //     if(i > 0){
+        }else{
+          li.children[1].src='/icons/chevron-down.png'
+            li.style  = `display : flex`
+            // tt les lien sauf le premier 
+                if(i > 0){
+            li.style  = `background:white; color:#0A6AAF`
+            li.children[1].style ='color:#0A6AAF'
+              }
+        }
+    
+      })
 
-    //   //       itemmenu.current[i].style = `display : none;background-color:#0A6AAF;color:white !important`
-    //   //     }
-    //   //   }
-    //   // }
-    // },[itemmenu,ItemsDown])
+
+    },[itemmenu,ItemsDown])
 
 
 

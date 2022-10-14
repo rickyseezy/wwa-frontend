@@ -5,7 +5,7 @@ import styles from './AccountMobile.module.scss'
 
 
 const AccountMobile = (props: any) =>  {
-  console.log(props.data,'eeeddddd')
+  console.log(props,'eeeddddd')
 
   const accountMobile = useRef(null)
   let [leave,setleave] = useState(false)
@@ -19,16 +19,19 @@ const AccountMobile = (props: any) =>  {
   }
     
   useEffect(()=>{
-    console.log(props.data)
-   if(props.data){
+ 
+    console.log(props.data,'hhio')
+
+    if(props.data){
   
      accountMobile.current.style = 'display:block'
    }else{
     accountMobile.current.style = 'display:none'
 
    }
+  
 
-  },[props.data] )
+  },[props.data])
 
   
   return (

@@ -17,8 +17,8 @@ interface Data  {
 
 function Mesprojets(props : Data) {
 
- console.log(props,'dazdaz')
- 
+
+
   return (
     <div className={styles['containerprojet']}>
 
