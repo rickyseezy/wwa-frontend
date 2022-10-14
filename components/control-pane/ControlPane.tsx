@@ -7,7 +7,6 @@ interface ControlPaneProps {
   titleColor: string;
   subtitleColor: string;
   buttonColor: string;
-  loc:String
 }
 
 const ControlPane = ({
@@ -16,7 +15,7 @@ const ControlPane = ({
   title,
   subTitle,
   buttonColor,
-  loc
+  
 }: ControlPaneProps) => {
 
 
