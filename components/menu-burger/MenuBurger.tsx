@@ -3,6 +3,9 @@ import styles from './menu-burger.module.scss'
 import { useState } from 'react'
 import MenuMobile from "@components/MenuMobile/MenuMobile";
 import AccountMobile from '@components/AccountMobilepage/AccountMobile';
+import Connect from '@components/connectionrequest/Connect';
+import Reinit from '@components/reinitialiser/Reinit';
+import LinkReinit from '@components/linkreinit/LinkReinit';
 
 function MenuBurger(props) {
   let [menuDisplay,setmenuDisplay] = useState<number>(0)
@@ -38,7 +41,10 @@ function MenuBurger(props) {
             <img onClick={HandleLogin} src="/icons/Vector.png" alt="login icone" />
         </div>
         <MenuMobile   displayMenu={menuDisplay} />
-        {showLogin && <AccountMobile  data={showLogin} />}
+        {/* {showLogin && <AccountMobile  data={showLogin} />} */}
+        {showLogin &&  <Connect />}
+        {/* <Reinit /> */}
+       <LinkReinit />
     </div>
   )
 }
