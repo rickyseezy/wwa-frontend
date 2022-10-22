@@ -20,15 +20,9 @@ const AccountMobile = (props: any) =>  {
     
   useEffect(()=>{
  
-    console.log(props.data,'hhio')
 
-    if(props.data){
-  
-     accountMobile.current.style = 'display:block'
-   }else{
-    accountMobile.current.style = 'display:none'
+    accountMobile.current.style = 'display:flex'
 
-   }
   
 
   },[props.data])

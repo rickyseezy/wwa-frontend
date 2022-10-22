@@ -10,22 +10,20 @@ import LinkReinit from '@components/linkreinit/LinkReinit';
 function MenuBurger(props) {
   let [menuDisplay,setmenuDisplay] = useState<number>(0)
   let [showmenu,setmenu] = useState<boolean>(false)
-  let [showLogin,setShowlogin] = useState<number>()
+  let [showLogin,setShowlogin] = useState<number>(0)
 
   function ChangeDisplay(){
     setmenuDisplay(()=> menuDisplay += 1)
-    console.log(menuDisplay)
+
   }
 
   function HandleLogin(){
-    if(!showLogin){
-      setShowlogin(0)
-    }
 
-   setShowlogin(el => el + 1)
-   console.log(showLogin,'jlhlkhkl')
-  
+      setShowlogin(el => el +1)
+  //  console.log(showLogin)
   }
+
+
 
   
   return (
@@ -41,10 +39,8 @@ function MenuBurger(props) {
             <img onClick={HandleLogin} src="/icons/Vector.png" alt="login icone" />
         </div>
         <MenuMobile   displayMenu={menuDisplay} />
-        {/* {showLogin && <AccountMobile  data={showLogin} />} */}
-        {showLogin &&  <Connect />}
-        {/* <Reinit /> */}
-       <LinkReinit />
+        {showLogin >= 1 &&  <Connect show={showLogin} />}
+   
     </div>
   )
 }
