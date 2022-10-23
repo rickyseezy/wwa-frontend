@@ -2,12 +2,14 @@
   "name": "wwa-frontend",
   "version": "0.1.0",
   "private": true,
+  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+ 
   "dependencies": {
     "faker": "^6.6.6",
     "next": "12.1.0",

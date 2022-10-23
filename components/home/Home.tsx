@@ -2,31 +2,51 @@ import styles from "./Home.module.scss";
 import Stats from "@components/stats/Stats";
 import PopularProjects from "@components/popular-projects/PopularProjects";
 import HomeLayout from "@components/layouts/home/HomeLayout";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useState } from "react";
 
 const Home = () => {
-  
-   let cont_btn = useRef(null)
+    // let [taille,settaille] = useState(0)
+    let cont_btn = useRef(null)
 
    useEffect(()=>{
-    window.addEventListener('scroll',(e)=>{
-      // si le button ne retoune rien ne rien faire
-      if(cont_btn.current === null){
-        return
-      }
+ 
+   function ScrollButton(styleOff){
+    if(cont_btn.current === null){
+      return
+    }
 
-      //  si écran arrive au top du button position fixed sinon le laisse a l'endroit basic
-      if(cont_btn.current.getBoundingClientRect().top < window.scrollY){
-       console.log('yoyoyo')
-       cont_btn.current.style = `position:fixed !important;
-       bottom:0 !important
-       `
-      }else{
-        cont_btn.current.style = `position:relative`
-      }
-    })
+    //  si écran arrive au top du button position fixed sinon le laisse a l'endroit basic
+    if(cont_btn.current.getBoundingClientRect().top < window.scrollY){
+     console.log('yoyoyo')
+     cont_btn.current.style = `position:fixed !important;
+     bottom:0 !important;
+     transition:.5s
+     `
+    }else{
+      cont_btn.current.style = styleOff
 
+    }
+   }
     
+    
+    function handleResize() {
+      console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
+   
+      if(window.innerWidth < 500){
+        console.log('hpoppppppp')
+        window.addEventListener('scroll',ScrollButton)
+      }else{
+        // enleve le scroll 
+        window.removeEventListener('scroll', ScrollButton);
+        // cont_btn.current.style = `position:relative`
+            if(window.innerWidth <= 1024){
+              cont_btn.current.style = `position:absolute !important;bottom350px`
+
+            }
+      }
+     }
+    handleResize( )
+     window.addEventListener('resize', handleResize)
    })
 
 
