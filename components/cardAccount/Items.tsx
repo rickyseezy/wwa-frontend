@@ -47,7 +47,7 @@ const [back, setback] = useState<void>()
 
       const handclickDelete = (e: React.Dispatch<React.SetStateAction<string>> | React.MouseEvent<HTMLElement>) => {
           // @ts-ignore
-    let front = e?.nativeEvent.path[3].children[0]
+        let front = e?.nativeEvent.path[3].children[0]
           // @ts-ignore
           let back = e?.nativeEvent.path[3].children[1]
 

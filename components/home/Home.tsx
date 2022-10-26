@@ -8,46 +8,45 @@ const Home = () => {
     // let [taille,settaille] = useState(0)
     let cont_btn = useRef(null)
 
-   useEffect(()=>{
- 
-   function ScrollButton(styleOff){
-    if(cont_btn.current === null){
-      return
-    }
 
-    //  si écran arrive au top du button position fixed sinon le laisse a l'endroit basic
-    if(cont_btn.current.getBoundingClientRect().top < window.scrollY){
-     console.log('yoyoyo')
-     cont_btn.current.style = `position:fixed !important;
-     bottom:0 !important;
-     transition:.5s
-     `
-    }else{
-      cont_btn.current.style = styleOff
-
-    }
-   }
-    
-    
-    function handleResize() {
-      console.log('resized to: ', window.innerWidth, 'x', window.innerHeight)
-   
-      if(window.innerWidth < 500){
-        console.log('hpoppppppp')
-        window.addEventListener('scroll',ScrollButton)
-      }else{
-        // enleve le scroll 
-        window.removeEventListener('scroll', ScrollButton);
-        // cont_btn.current.style = `position:relative`
-            if(window.innerWidth <= 1024){
-              cont_btn.current.style = `position:absolute !important;bottom350px`
+    useEffect(()=>{
+      window.addEventListener('resize',()=>{
+        console.log(window.innerWidth)
+        if(window.innerWidth < 500){
+      
+          cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
+  
+        }else{
+          if(window.innerWidth <= 1024 && window.innerWidth > 500){
+            cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
+  
+          }else{
+            if(cont_btn.current){
+              cont_btn.current.style = 'position:relative'
 
             }
+
+          }
+
+        }
+      })
+      if(window.innerWidth < 500){
+  
+        cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
+
+      }else{
+        if(window.innerWidth <= 1024 && window.innerWidth > 500){
+          cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
+
+        }
+        // cont_btn.current.style = 'position:relative'
+
       }
-     }
-    handleResize( )
-     window.addEventListener('resize', handleResize)
-   })
+
+    })
+
+ 
+    //  si écran arrive au top du button position fixed sinon le laisse a l'endroit basic
 
 
   return (
