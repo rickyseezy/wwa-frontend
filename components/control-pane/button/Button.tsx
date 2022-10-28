@@ -4,16 +4,17 @@ interface IControlPaneButtonProps {
   direction: string;
   color: string;
   buttonColor: string;
+  idbutton:number
 }
 
 const ControlPaneButton = ({
   direction,
   color,
   buttonColor,
-  
+  idbutton
 }: IControlPaneButtonProps) => {
   function handleClick (e){
-    console.log(e.target,'control panel')
+    console.log(e.target,'control pane',idbutton)
   }
   return (
     <div

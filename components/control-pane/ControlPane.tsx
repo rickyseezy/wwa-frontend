@@ -7,6 +7,7 @@ interface ControlPaneProps {
   titleColor: string;
   subtitleColor: string;
   buttonColor: string;
+  id:number
 }
 
 const ControlPane = ({
@@ -15,9 +16,9 @@ const ControlPane = ({
   title,
   subTitle,
   buttonColor,
+  id,
   
 }: ControlPaneProps) => {
-
 
 
 
@@ -43,12 +44,15 @@ const ControlPane = ({
           direction="left"
           color={buttonColor}
           buttonColor={titleColor}
+          idbutton={id}
         />
         <div className={styles.spacer} />
         <ControlPaneButton
           direction="right"
           color={buttonColor}
           buttonColor={titleColor}
+
+          idbutton={id}
 
         />
       </div>
