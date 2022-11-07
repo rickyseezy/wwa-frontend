@@ -1,9 +1,59 @@
 import styles from "./ScrollList.module.scss";
 import Card from "@components/card/Card";
+import {useRef,useEffect, useState} from "react"
 
-const ScrollList = () => {
+
+
+
+
+
+interface IControlSwitch {
+  direction:Object,
+  id:Number
+  
+}
+
+const ScrollList = ({direction,id}:IControlSwitch) => {
+  let[move,setmove] = useState(0)
+  let containerCard = useRef(null)
+ useEffect(()=>{
+  
+
+  if(direction.id){
+    console.log(direction,id ,'test')
+
+  }
+
+
+    if(direction.id === id){
+
+      if(direction.directiono === 'right'){
+  
+        setmove(el => el += 150)
+        containerCard.current.style = `transform:translate(${move}px);transition:.5s`
+        console.log('right',move)
+
+      }
+      else if(direction.directiono === 'left'){
+  
+      
+        setmove(el => el -= 150)
+        console.log(move)
+
+        containerCard.current.style = `transform:translate(${move}px);transition:.5s`
+        console.log('left',move)
+      }
+
+
+    }
+  
+    
+ },[direction])
+
+
   return (
-    <ul className={styles["scroll-list"]}>
+    <div className={styles['container-scroll']}>
+    <ul className={styles["scroll-list"]} ref={containerCard}>
       <li>
         <Card />
       </li>
@@ -35,6 +85,7 @@ const ScrollList = () => {
         <Card />
       </li>
     </ul>
+    </div>
   );
 };
 

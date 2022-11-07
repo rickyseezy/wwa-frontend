@@ -1,20 +1,28 @@
 import styles from "./Button.module.scss";
 
 interface IControlPaneButtonProps {
-  direction: string;
-  color: string;
-  buttonColor: string;
-  idbutton:number
+  direction: string,
+  color: string,
+  buttonColor: string,
+  idbutton:number,
+  moveCard:Function
 }
 
 const ControlPaneButton = ({
   direction,
   color,
   buttonColor,
-  idbutton
+  idbutton,
+  moveCard
 }: IControlPaneButtonProps) => {
   function handleClick (e){
-    console.log(e.target,'control pane',idbutton)
+     if(moveCard){
+      moveCard(direction,idbutton)
+
+     }else{
+      console.log('no function associate ')
+     }
+  
   }
   return (
     <div
@@ -26,6 +34,7 @@ const ControlPaneButton = ({
         className={styles["bullet__arrow"]}
         src={`/icons/${direction}-arrow-${color}.svg`}
         alt="left arrow"
+        onClick={handleClick}
       />
     </div>
   );
