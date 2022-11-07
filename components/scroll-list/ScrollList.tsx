@@ -24,24 +24,24 @@ const ScrollList = ({direction,id}:IControlSwitch) => {
 
   }
 
-
     if(direction.id === id){
 
       if(direction.directiono === 'right'){
-  
-        setmove(el => el += 150)
-        containerCard.current.style = `transform:translate(${move}px);transition:.5s`
+        setmove(el => el += 365)
+    
+        containerCard.current.style = `transform:translateX(${move}px);transition:.5s`
         console.log('right',move)
-
+      
       }
       else if(direction.directiono === 'left'){
   
       
-        setmove(el => el -= 150)
+        setmove(el => el -= 365)
         console.log(move)
 
-        containerCard.current.style = `transform:translate(${move}px);transition:.5s`
+        containerCard.current.style = `transform:translateX(${move}px);transition:.5s`
         console.log('left',move)
+      
       }
 
 
