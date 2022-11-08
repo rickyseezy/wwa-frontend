@@ -12,33 +12,35 @@ const TopCauses = () => {
   let [arrow,setarrow] = useState({})
   let [arrowTwo,setarrowTwo] = useState({})
   let [arrowThree,setarrowThree] = useState({})
+ // carousel 1
 
   function parentToChild(data: any,id:number){
      directionMoveCardOne = data
      console.log(directionMoveCardOne,id)
      let updateVal = {}
- 
+//  update de la direction et id  du carousel
       updateVal = {directiono : directionMoveCardOne,id}
     
       setarrow({...arrow,...updateVal})
    }
 
-   
+ // carousel 2
+  
    function parentToChildTwo(data: any,id:number){
     directionMoveCardTwo = data
     console.log(directionMoveCardTwo,id)
     let updateVal = {}
-
+//  update de la direction et id  du carousel
      updateVal = {directiono : directionMoveCardTwo,id}
     setarrowTwo({...arrowTwo,...updateVal})
   }
 
-
+// carousel 3
   function parentToChildThree(data: any,id:number){
     directionMoveCardThree = data
     console.log(directionMoveCardThree,id)
     let updateVal = {}
-
+//  update de la direction et id  du carousel
      updateVal = {directiono : directionMoveCardThree,id}
     setarrowThree({...arrowThree,...updateVal})
   }
