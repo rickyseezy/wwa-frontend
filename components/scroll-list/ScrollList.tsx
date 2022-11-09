@@ -1,92 +1,103 @@
 import styles from "./ScrollList.module.scss";
 import Card from "@components/card/Card";
-import {useRef,useEffect, useState} from "react"
-
-
-
-
-
+import {useRef, useEffect, useState, useMemo} from "react"
 
 interface IControlSwitch {
-  direction:Object,
-  id:Number
-  
+    direction : Object,
+    id : Number
+
 }
+let compte = 0
 
-const ScrollList = ({direction,id}:IControlSwitch) => {
-  let[move,setmove] = useState(0)
-  let containerCard = useRef(null)
- useEffect(()=>{
-  
+let tabId  = []
 
-  if(direction.id){
-    console.log(direction,id ,'test')
+const ScrollList = ({direction, id} : IControlSwitch) => {
 
-  }
-
-    if(direction.id === id){
-
-      if(direction.directiono === 'right'){
-        setmove(el => el += 365)
     
-        containerCard.current.style = `transform:translateX(${move}px);transition:.5s`
-        console.log('right',move)
-      
-      }
-      else if(direction.directiono === 'left'){
-  
-      
-        setmove(el => el -= 365)
-        console.log(move)
 
-        containerCard.current.style = `transform:translateX(${move}px);transition:.5s`
-        console.log('left',move)
-      
-      }
-
-
-    }
-  
+    let containerCard = useRef(null)
+     
     
- },[direction])
 
+    useEffect(() => {
+      
+ 
+        let left = null
 
-  return (
-    <div className={styles['container-scroll']}>
-    <ul className={styles["scroll-list"]} ref={containerCard}>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-      <li>
-        <Card />
-      </li>
-    </ul>
-    </div>
-  );
+        //   si les fleches qui ont été cliqué correspondent au carrousel
+
+        if (direction.id === id) {
+            if (containerCard != null) {
+                left = containerCard
+                    .current
+                    .getBoundingClientRect()
+                    .left
+                // console.log(left, 'container')
+
+            }
+            if (direction.directiono === 'right') {
+
+                if (left < 18) {
+                    compte += 365
+
+                }
+                containerCard.current.style = `transform:translateX(${compte}px);transition:.5s`
+
+            } else if (direction.directiono === 'left') {
+                tabId.push(id)
+//  remet la valeur de compte a zero si la précdente valeur de id
+// est diffetente de la currente 
+                if(tabId[tabId.length -2]  != tabId[tabId.length - 1]){
+                    compte  = 0
+                
+                 }
+              
+                 compte -= 365
+             
+
+                containerCard.current.style = `transform:translateX(${compte}px);transition:.5s`
+            }
+
+        }
+
+    }, [direction, id])
+
+    return (
+        <div className={styles['container-scroll']} ref={containerCard}>
+            <ul className={styles["scroll-list"]}>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+                <li>
+                    <Card/>
+                </li>
+            </ul>
+        </div>
+    );
 };
 
 export default ScrollList;

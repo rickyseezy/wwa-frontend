@@ -2,15 +2,14 @@
   "name": "wwa-frontend",
   "version": "0.1.0",
   "private": true,
-  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
- 
   "dependencies": {
+    "debounce": "^1.2.1",
     "faker": "^6.6.6",
     "next": "12.1.0",
     "prettier": "^2.5.1",
@@ -26,24 +25,4 @@
     "eslint-config-next": "12.1.0",
     "typescript": "^4.5.5"
   }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
