@@ -9,19 +9,14 @@ interface IControlSwitch {
 }
 let compte = 0
 
-let tabId  = []
+let tabId = []
 
 const ScrollList = ({direction, id} : IControlSwitch) => {
 
-    
-
     let containerCard = useRef(null)
-     
-    
 
     useEffect(() => {
-      
- 
+
         let left = null
 
         //   si les fleches qui ont été cliqué correspondent au carrousel
@@ -45,17 +40,17 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
 
             } else if (direction.directiono === 'left') {
                 tabId.push(id)
-//  remet la valeur de compte a zero si la précdente valeur de id
-// est diffetente de la currente 
-                if(tabId[tabId.length -2]  != tabId[tabId.length - 1]){
-                    compte  = 0
+                //  remet la valeur de compte a zero si la précdente valeur de id est diffetente
+                // de la currente
+                if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
+                    compte = 0
                 
-                 }
-              
-                 compte -= 365
-             
-
+                }
+                   
+                compte -= 365
+        
                 containerCard.current.style = `transform:translateX(${compte}px);transition:.5s`
+              console.log(compte,'ffffffff')
             }
 
         }
