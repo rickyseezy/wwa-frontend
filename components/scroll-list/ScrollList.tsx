@@ -41,7 +41,7 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
             } else if (direction.directiono === 'left') {
                 tabId.push(id)
                 //  remet la valeur de compte a zero si la précdente valeur de id est diffetente
-                // de la currente
+                // de la current
                 if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
                     compte = 0
                 
