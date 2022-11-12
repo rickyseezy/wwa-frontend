@@ -27,9 +27,7 @@ function MenuMobile(props) {
 
 
    useEffect(() => {
-    console.log(menuContainer.current)
      if(props.displayMenu > 0){
-        console.log('hey')
         menuContainer.current.style = 'display : block'
      }
      
@@ -57,7 +55,6 @@ function MenuMobile(props) {
         <li>Connexion </li>
       </ul>
       <button className={styles['menuMobile__btn']}>Je crée ma cause</button>
-      <AccountMobile />
     </div>
   )
 }

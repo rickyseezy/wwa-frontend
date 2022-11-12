@@ -31,12 +31,12 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   const [isShown, toggleButton] = useState(false);
 
   useEffect(() => {
-    console.log("Hello ", isShown);
+    // console.log("Hello ", isShown);
     const scrollable = document.getElementById(`${styles["scrollable"]}`);
-    console.log(
-      scrollable.scrollHeight > scrollable.clientHeight ||
-        scrollable.scrollWidth > scrollable.clientWidth
-    );
+    // console.log(
+    //   scrollable.scrollHeight > scrollable.clientHeight ||
+    //     scrollable.scrollWidth > scrollable.clientWidth
+    // );
     showScrollableMenu(scrollable);
   });
   return (

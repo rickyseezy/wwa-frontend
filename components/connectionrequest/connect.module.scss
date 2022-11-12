@@ -1,0 +1,72 @@
+.connect {
+    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    background-color: white;
+    z-index: 45454;
+    padding: 2em 2em 0 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 !important;
+    overflow: hidden;
+    gap: 1em;
+
+    &__form {
+        input {
+            width: 100%;
+            border: none;
+            background: #F5F9FC;
+            border-radius: 50px;
+            padding: 10px 15px;
+            margin-bottom: 2em;
+        }
+
+        p {
+            a {
+
+                color: rgba(29, 83, 183, 1);
+            }
+
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        button {
+            width: 100%;
+            background: #1D53B7;
+            border-radius: 50px;
+            padding: 15px 0;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            border: none;
+            margin-top: 2em;
+        }
+    }
+
+    &__band{
+        margin-top: 2em;
+        /* Text / Gray 200 */
+        bottom: 0;
+      width: 100vw;
+      padding: 1em 0;
+      text-align: center;
+     background: #EEEFF4;  
+
+     p{
+        font-size: 12px;
+        font-weight: 700;
+        color: #474A57;
+        a{
+            text-decoration: none;
+            color: #1D53B7;
+            font-weight: 700;
+        }
+     }
+    }
+
+}

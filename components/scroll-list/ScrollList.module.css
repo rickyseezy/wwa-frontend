@@ -71,5 +71,9 @@
     padding-left: 0px !important;
     margin: 1em 0;
   }
+  .container-scroll {
+    width: 100%;
+    background-color: coral;
+  }
 }
 /*# sourceMappingURL=ScrollList.module.css.map */

@@ -10,7 +10,7 @@ import MenuVoletCompte from '@components/menuVoletCompte/MenuVoletCompte'
 
 
 function SwitchCompte({props}) {
-    console.log(props)
+    console.log(props,'ohihious')
 
     useEffect(()=>{
        console.log(props,'swtiwh')

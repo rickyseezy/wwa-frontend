@@ -4,7 +4,7 @@ import { objMesprojet } from '../cardAccount/ProjetItems'
 import { useRouter } from 'next/router'
 import { objSoutient  } from '../cardSoutien/cardSoutien'
 
-export let objo
+export let markerofPage
 interface switchPage{
     pageNumber : number,
 
@@ -28,7 +28,7 @@ function Volet({pageNumber} : switchPage) {
    
        return  page++
    }) 
-objo = page
+markerofPage = page
   }
     
   const handlePageMesInfo = (e) =>{
@@ -46,9 +46,9 @@ const handlePageMeDeconnecter = (e) =>{
 
 
 useEffect(()=>{
-   objo =page   
-   console.log(objo)
-},[objo])
+   markerofPage =page   
+   console.log(markerofPage)
+},[markerofPage])
     
     return (
     <div className={styles['containervolet']}>

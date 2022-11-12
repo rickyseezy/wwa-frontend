@@ -25,7 +25,10 @@ let [page,setPage] = useState<number>(1)
 
 // fonction qui change de pages lorsque  l'on click
   const handlePageMesProj = (e: any) =>{ 
+    console.log('hr')
   setPage(()=>{
+    console.log('hr')
+
  return page = 1
  
   })
@@ -36,7 +39,6 @@ let [page,setPage] = useState<number>(1)
   
   return page =  2     
   })
-  console.log('hey',page)
 
   }
 
@@ -70,29 +72,31 @@ let [page,setPage] = useState<number>(1)
   let taille: Window & typeof globalThis
 
 useEffect(()=>{
-  console.log(page,'effect')
-  let taille = window.matchMedia("(min-width: 400px)").matches
-  console.log(taille,'taille')
-  // change la valeur de contswich (bolean)  si ell est inférieur a 400px
-    if(taille){
-      setcontswitch(false)
+  let taille = window.innerWidth
+  // console.log(taille,'tailllllllllle')
+  // change la valeur de contswich (bolean)  si ell est inférieur a 600px
+    if(taille < 600){
+      // console.log(taille,'taille plus petit que 400px')
 
-    }else{
       setcontswitch(true)
+
+    }if(taille > 600){
+
+      setcontswitch(false)
     }
+  console.log(taille,'tailllllllllle')
 
 
-  
 },[taille,page])
 
   return (
   <>
 {/* menu haut desktop */}
     <MainNavigation />
-    {/* menu haut mobile */}
+    {/* le menu burger */}
     <MenuBurger />
 
-    {/* <MenuVoletCompte /> */}
+    {/* le menu pour naviguer dans la page compte  */}
     <div className={styles['gridAccount']}>
 
       <div className={styles['voletcontainer']}>
@@ -119,7 +123,8 @@ useEffect(()=>{
       </div>
       
       {/* si la taille de l'écran est plus pettit que 400px le voleMobile s'affiche sinon le desktop prend le pas  */}
-    {contSwitch ?  <MenuVoletCompte />  : <SwitchCompte  props={page}/> }
+    {  contSwitch ? <MenuVoletCompte /> : <SwitchCompte props={page} /> }
+    
      
       
       
