@@ -9,11 +9,11 @@ const TopCauses = () => {
     let directionMoveCardThree = null
 
     let [arrow,
-        setarrow] = useState({})
+        setarrow] = useState<Object>({})
     let [arrowTwo,
-        setarrowTwo] = useState({})
+        setarrowTwo] = useState<Object>({})
     let [arrowThree,
-        setarrowThree] = useState({})
+        setarrowThree] = useState<Object>({})
     // carousel 1
 
     function parentToChild(data : any, id : number) {
@@ -35,7 +35,6 @@ const TopCauses = () => {
 
     function parentToChildTwo(data : any, id : number) {
         directionMoveCardTwo = data
-        console.log(directionMoveCardTwo, id)
         let updateVal = {}
         //  update de la direction et id  du carousel
         updateVal = {
@@ -51,7 +50,6 @@ const TopCauses = () => {
     // carousel 3
     function parentToChildThree(data : any, id : number) {
         directionMoveCardThree = data
-        console.log(directionMoveCardThree, id)
         let updateVal = {}
         //  update de la direction et id  du carousel
         updateVal = {
