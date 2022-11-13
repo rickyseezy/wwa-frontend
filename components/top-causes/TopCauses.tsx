@@ -2,18 +2,23 @@ import styles from "./TopCauses.module.scss";
 import ScrollList from "@components/scroll-list/ScrollList";
 import ControlPane from "@components/control-pane/ControlPane";
 import {useState} from "react";
+interface dataDirection{
+    direction:String,
+    id:number
+}
 
 const TopCauses = () => {
+    
     let directionMoveCardOne = null
     let directionMoveCardTwo = null
     let directionMoveCardThree = null
 
     let [arrow,
-        setarrow] = useState<Object>({})
+        setarrow] = useState < Object > ({})
     let [arrowTwo,
-        setarrowTwo] = useState<Object>({})
+        setarrowTwo] = useState < Object > ({})
     let [arrowThree,
-        setarrowThree] = useState<Object>({})
+        setarrowThree] = useState < Object > ({})
     // carousel 1
 
     function parentToChild(data : any, id : number) {
@@ -21,7 +26,7 @@ const TopCauses = () => {
         let updateVal = {}
         //  update de la direction et id  du carousel
         updateVal = {
-            directiono: directionMoveCardOne,
+            direction: directionMoveCardOne,
             id
         }
 
@@ -38,7 +43,7 @@ const TopCauses = () => {
         let updateVal = {}
         //  update de la direction et id  du carousel
         updateVal = {
-            directiono: directionMoveCardTwo,
+            direction: directionMoveCardTwo,
             id
         }
         setarrowTwo({
@@ -53,7 +58,7 @@ const TopCauses = () => {
         let updateVal = {}
         //  update de la direction et id  du carousel
         updateVal = {
-            directiono: directionMoveCardThree,
+            direction: directionMoveCardThree,
             id
         }
         setarrowThree({
@@ -76,7 +81,7 @@ const TopCauses = () => {
                         func={parentToChild}/>
                 </div>
                 <div className={styles["scroll-list__list"]}>
-                    <ScrollList direction={arrow} id={2}/>
+                    <ScrollList dir={arrow} id={2}/>
                 </div>
             </div>
             <div className={styles["scroll-list"]}>
@@ -91,7 +96,7 @@ const TopCauses = () => {
                         func={parentToChildTwo}/>
                 </div>
                 <div className={styles["scroll-list__list"]}>
-                    <ScrollList direction={arrowTwo} id={3}/>
+                    <ScrollList dir={arrowTwo} id={3}/>
                 </div>
             </div>
             <div className={styles["scroll-list"]}>
@@ -106,7 +111,7 @@ const TopCauses = () => {
                         func={parentToChildThree}/>
                 </div>
                 <div className={styles["scroll-list__list"]}>
-                    <ScrollList direction={arrowThree} id={4}/>
+                    <ScrollList dir={arrowThree} id={4}/>
                 </div>
             </div>
         </div>

@@ -2,9 +2,15 @@ import styles from "./ScrollList.module.scss";
 import Card from "@components/card/Card";
 import {useRef, useEffect, useState, useMemo} from "react"
 
-type Direction = {
-    directiono: String;
-    id: Number
+interface Direction  {
+    direction?: String;
+    id?: Number
+}
+
+interface IControlSwitch {
+    dir : Direction,
+    
+    id : Number
 }
 
 type CarousselsIds = {
@@ -14,17 +20,16 @@ type CarousselsIds = {
     id4?: number
 }
 
-interface IControlSwitch {
-    direction : Direction,
-    id : Number
 
-}
+
 let compte = 0
 
 let tabId = []
 let idobj : CarousselsIds = {}
-const ScrollList = ({direction, id} : IControlSwitch) => {
 
+
+const ScrollList = ({dir, id} : IControlSwitch) => {
+console.log(dir,'direction')
     let containerCard = useRef(null)
     let scroll_list = useRef(null)
 
@@ -81,14 +86,18 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
         }
     }
 
-let firstcard = null
+    let firstcard = null
     useEffect(() => {
 
         window.addEventListener('resize', () => {
 
             if (window.innerWidth) {
-                console.log(scroll_list.current.firstChild.getBoundingClientRect().left,'left first')
-                 firstcard =   scroll_list.current.firstChild.getBoundingClientRect().left
+                console.log(scroll_list.current.firstChild.getBoundingClientRect().left, 'left first')
+                firstcard = scroll_list
+                    .current
+                    .firstChild
+                    .getBoundingClientRect()
+                    .left
             }
         })
 
@@ -96,7 +105,7 @@ let firstcard = null
 
         //   si les fleches qui ont été cliqué correspondent au carrousel
 
-        if (direction.id === id) {
+        if (dir.id === id) {
             if (containerCard != null) {
                 left = containerCard
                     .current
@@ -106,16 +115,19 @@ let firstcard = null
 
             }
 
-            //  si la direction cliquer est droite avancé le carousel d'une carte
-            if (direction.directiono === 'right') {
+            //  si la dir cliquer est droite avancé le carousel d'une carte
+            if (dir.direction === 'right') {
                 tabId.push(id)
-                if(scroll_list.current ) {
-                console.log('uo')
-                 firstcard =   scroll_list.current.firstChild.getBoundingClientRect().left
+                if (scroll_list.current) {
+                    console.log('uo')
+                    firstcard = scroll_list
+                        .current
+                        .firstChild
+                        .getBoundingClientRect()
+                        .left
                 }
-      console.log(firstcard)
+                console.log(firstcard)
 
-                
                 if (window.innerWidth > 1200) {
                     firstcard = 42
                 } else if (window.innerWidth < 500) {
@@ -124,7 +136,7 @@ let firstcard = null
 
                 if (left < firstcard) {
 
-                    // si la direction d'une autre gallerie a été cliqué
+                    // si la dir d'une autre gallerie a été cliqué
                     if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
                         if (tabId[tabId.length - 2] === 1 || tabId[tabId.length - 1] === 1) {
                             compte = 0
@@ -141,7 +153,7 @@ let firstcard = null
                     console.log(tabId, 'right infos')
                 }
 
-            } else if (direction.directiono === 'left') {
+            } else if (dir.direction === 'left') {
                 //  remet la valeur de compte a zero si la précdente valeur de id est diffetente
                 // de la current console.log('call')
                 tabId.push(id)
@@ -152,7 +164,7 @@ let firstcard = null
                     .left
                 console.log(leftLastCard)
 
-                // si la direction d'une autre gallerie a été cliqué
+                // si la dir d'une autre gallerie a été cliqué
                 if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
                     if (tabId[tabId.length - 2] === 1 || tabId[tabId.length - 1] === 1) {
                         compte = 0
@@ -198,7 +210,7 @@ let firstcard = null
 
         }
 
-    }, [direction, id])
+    }, [dir, id])
 
     return (
         <div className={styles['container-scroll']} ref={containerCard}>
