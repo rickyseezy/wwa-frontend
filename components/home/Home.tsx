@@ -13,13 +13,17 @@ const Home = () => {
       window.addEventListener('resize',()=>{
         console.log(window.innerWidth)
         if(window.innerWidth < 500){
-      
-          cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
+        if(cont_btn.current){
+        cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
+
+        }
   
         }else{
           if(window.innerWidth <= 1024 && window.innerWidth > 500){
+            if(cont_btn.current){
+
             cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
-  
+            }
           }else{
             if(cont_btn.current){
               cont_btn.current.style = 'position:relative'

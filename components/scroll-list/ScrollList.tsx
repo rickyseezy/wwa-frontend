@@ -2,16 +2,17 @@ import styles from "./ScrollList.module.scss";
 import Card from "@components/card/Card";
 import {useRef, useEffect, useState, useMemo} from "react"
 
-type Direction = {directiono: String;id:Number}
-
-type CarousselsIds = {
-    id1?:number,
-    id2?:number,
-    id3?:number,
-    id4?:number
+type Direction = {
+    directiono: String;
+    id: Number
 }
 
-
+type CarousselsIds = {
+    id1?: number,
+    id2?: number,
+    id3?: number,
+    id4?: number
+}
 
 interface IControlSwitch {
     direction : Direction,
@@ -22,10 +23,10 @@ let compte = 0
 
 let tabId = []
 let idobj : CarousselsIds = {}
-
 const ScrollList = ({direction, id} : IControlSwitch) => {
 
     let containerCard = useRef(null)
+    let scroll_list = useRef(null)
 
     function memoiseDiection(idDir : Number, obj : CarousselsIds) {
 
@@ -80,7 +81,16 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
         }
     }
 
+let firstcard = null
     useEffect(() => {
+
+        window.addEventListener('resize', () => {
+
+            if (window.innerWidth) {
+                console.log(scroll_list.current.firstChild.getBoundingClientRect().left,'left first')
+                 firstcard =   scroll_list.current.firstChild.getBoundingClientRect().left
+            }
+        })
 
         let left = null
 
@@ -92,19 +102,30 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
                     .current
                     .getBoundingClientRect()
                     .left
-                // console.log(left, 'container')
+                console.log(left, 'container')
 
             }
 
             //  si la direction cliquer est droite avancé le carousel d'une carte
             if (direction.directiono === 'right') {
                 tabId.push(id)
+                if(scroll_list.current ) {
+                console.log('uo')
+                 firstcard =   scroll_list.current.firstChild.getBoundingClientRect().left
+                }
+      console.log(firstcard)
 
-                // empéché la carte de déplacé
-                if (left < 18) {
+                
+                if (window.innerWidth > 1200) {
+                    firstcard = 42
+                } else if (window.innerWidth < 500) {
+                    firstcard = 20
+                }
+
+                if (left < firstcard) {
 
                     // si la direction d'une autre gallerie a été cliqué
-         if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
+                    if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
                         if (tabId[tabId.length - 2] === 1 || tabId[tabId.length - 1] === 1) {
                             compte = 0
                             idobj = {}
@@ -124,6 +145,12 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
                 //  remet la valeur de compte a zero si la précdente valeur de id est diffetente
                 // de la current console.log('call')
                 tabId.push(id)
+                let leftLastCard = scroll_list
+                    .current
+                    .lastChild
+                    .getBoundingClientRect()
+                    .left
+                console.log(leftLastCard)
 
                 // si la direction d'une autre gallerie a été cliqué
                 if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
@@ -136,7 +163,32 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
 
                 }
 
-                compte -= 365
+                // more than 12000 1867 recalculé la valeur last limit selaon la taille de
+                // l"écran sans resize
+
+                let lastlimit = 0
+                if (window.innerWidth > 1200) {
+                    lastlimit = 1867
+                } else if (window.innerWidth < 500) {
+                    lastlimit = 380
+                }
+
+                // recalculé la valeur last limit selaon la taille de l"écran en resize
+                window.addEventListener('resize', () => {
+
+                    if (window.innerWidth > 1200) {
+                        lastlimit = 1867
+
+                    } else if (window.innerWidth < 500) {
+                        lastlimit = 380
+                    }
+                })
+                console.log('last', lastlimit)
+                // si la derniére carte arrive a la position central
+                if (leftLastCard > lastlimit) {
+                    compte -= 365
+                }
+
                 idobj[`id${id}`] = compte
                 containerCard.current.style = `transform:translateX(${compte}px);transition:.5s ease`
                 // console.log(compte, 'ffffffff') console.log(idobj, 'out')
@@ -150,7 +202,7 @@ const ScrollList = ({direction, id} : IControlSwitch) => {
 
     return (
         <div className={styles['container-scroll']} ref={containerCard}>
-            <ul className={styles["scroll-list"]}>
+            <ul className={styles["scroll-list"]} ref={scroll_list}>
                 <li>
                     <Card/>
                 </li>
