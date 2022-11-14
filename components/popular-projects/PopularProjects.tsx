@@ -15,7 +15,7 @@ const PopularProjects = () => {
         let updateVal = {}
 
         updateVal = {
-            directiono: directionMoveCard,
+            direction: directionMoveCard,
             id
         }
         setarrow({
