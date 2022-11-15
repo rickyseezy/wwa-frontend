@@ -15,7 +15,7 @@ const PopularProjects = () => {
         let updateVal = {}
 
         updateVal = {
-            directiono: directionMoveCard,
+            direction: directionMoveCard,
             id
         }
         setarrow({
@@ -34,12 +34,7 @@ const PopularProjects = () => {
             id={1}
             func={parentToChild}/>
         <div className={styles["pusher"]}/>
-    </div> < ScrollList direction = {
-        arrow
-    }
-    id = {
-        1
-    } /> </>);
+    </div> < ScrollList dir = {arrow} id = { 1 } /> </>);
 };
 
 export default PopularProjects;
