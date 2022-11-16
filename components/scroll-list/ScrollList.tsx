@@ -162,7 +162,7 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                 }
                  
                  if(window.innerWidth < 500){
-                    limit = window.innerWidth + limit
+                    limit = window.innerWidth + taillCard
                  }
 
                 if (in_slider.current.getBoundingClientRect().right >= limit  ) {
