@@ -101,7 +101,76 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   
   /* CSS */
+  .item {
+    width: 69px;
+    height: 69px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 0 .4em;
   
+    &--europe {
+      background-color: $orangeSalmon;
+      border: 1px solid   transparent;
+           color: $orangeStrong;
+    }
+  
+    &--africa {
+      background-color: $greenLuok;
+      border: 1px solid  transparent;
+         color: $greenApple;
+  
+      .item__img {
+        width: 50px;
+      }
+    }
+  
+    &--northus {
+      background-color: $purpleLight;
+      border: 1px solid  transparent;
+
+      color: $purpleBayleen;
+    }
+  
+    &--southamerica {
+      background-color: $blueLightyMick;
+      border: 1px solid transparent;
+         color: $blueNight;
+  
+      .item__img {
+        width: 32px;
+      }
+    }
+  
+    &--asia {
+      background-color: $roseBailame;
+      border: 1px solid transparent;
+      color: $roseSlight;
+    }
+  
+    &--oceania {
+      background-color: $yellowJuyli;
+      border: 1px solid transparent;
+      color: $yellowBoon;
+    }
+  
+    &__img {
+      width: 60px;
+  
+      img {
+        width: 109%;
+      }
+    }
+  
+    &__title {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+  }
 }
 
 /* 
@@ -109,16 +178,6 @@
   ##Screen = B/w 768px to 1024px
 */
 
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  
-  /* CSS */
-  
-}
-
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-*/
 
 @media (min-width: 481px) and (max-width: 767px) {
   
@@ -127,19 +186,10 @@
   .menu{
     display: none !important;
   }
-}
 
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
-
-@media screen and (min-width: 320px) and (max-width: 480px) {
-
-  /* CSS */
   .item {
-    width: 50px;
-    height: 50px;
+    width: 38px;
+    height: 38px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -203,7 +253,89 @@
     &__title {
       font-size: .5rem;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+  }
+  
+  
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+
+  /* CSS */
+  .item {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 0 .4em;
+  
+    &--europe {
+      background-color: $orangeSalmon;
+      border: 1px solid   transparent;
+           color: $orangeStrong;
+    }
+  
+    &--africa {
+      background-color: $greenLuok;
+      border: 1px solid  transparent;
+         color: $greenApple;
+  
+      .item__img {
+        width: 50px;
+      }
+    }
+  
+    &--northus {
+      background-color: $purpleLight;
+      border: 1px solid  transparent;
+
+      color: $purpleBayleen;
+    }
+  
+    &--southamerica {
+      background-color: $blueLightyMick;
+      border: 1px solid transparent;
+         color: $blueNight;
+  
+      .item__img {
+        width: 32px;
+      }
+    }
+  
+    &--asia {
+      background-color: $roseBailame;
+      border: 1px solid transparent;
+      color: $roseSlight;
+    }
+  
+    &--oceania {
+      background-color: $yellowJuyli;
+      border: 1px solid transparent;
+      color: $yellowBoon;
+    }
+  
+    &__img {
+      width: 60px;
+  
+      img {
+        width: 59%;
+      }
+    }
+  
+    &__title {
+      font-size: .5rem;
+      font-weight: 600;
+      letter-spacing: .5px;
       text-align: center;
     }
   }

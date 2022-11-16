@@ -159,8 +159,8 @@
     }
 
      .cont-button{
-      position: absolute;
-      bottom: 350px;
+      position: fixed;
+      bottom: 0;
       width: 100vw;
       height: 100PX;
       background-color: #ffffff;
@@ -170,7 +170,7 @@
       align-items: center;
      }
   .button {
-    bottom: 300px;
+
     border: 1px solid transparent;
     padding: 2.4rem 8rem;
     height: 50px;
@@ -211,93 +211,9 @@ z-index: 4445454;
 
 */
 
-@media screen and (min-width:481px) and ( max-width: 768px){
-  .content {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
 
-    &__subtitle {
-      font-weight: 700;
-      text-align: center;
-      color: #1D53B7;
-      margin-top: 1rem;
-      font-size: 1em;
-      width: 90%;
-      text-align: center;
-    }
-
-
-    &__title {
-      font-weight: 700;
-      font-size: 3rem;
-      text-align: center;
-      line-height: 2em;
-  
-      span {
-        margin-top: -25px;
-        display: block;
-      }
-    }
-
-
-    .pick-continent {
-      margin-top: 17px;
-      color: #1D53B7;
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-
-     .cont-button{
-      position: absolute;
-      bottom: 350px;
-      width: 100vw;
-      height: 100PX;
-      background-color: #ffffff;
-      z-index: 52;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-     }
-  .button {
-    bottom: 300px;
-    border: 1px solid transparent;
-    padding: 2.6rem 8rem;
-    height: 50px;
-
-    background: #1D53B7;
-    border-radius: 50px;
-    margin-top: 0em;
-z-index: 4445454;
-    &__text {
-      color: white;
-      font-weight: 600;
-      font-size: 1.3rem;
-
-    }
-  }
-
-
-
-  }
-
-
-  .map {
-    margin-top: 0px !important;
-    background-size: 93% !important;
-    width: 100%;
-    height: 262px !important;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-}
-
-
-@media screen and (max-width: 481px)  {
+@media screen and (max-width: 481px) and ( max-width: 768px) {
   
   /* CSS */
   .content {
@@ -381,8 +297,8 @@ z-index: 4445454;
     }
        
     .cont-button{
-      position: absolute !important;
-      bottom: 350px !important;
+      position: fixed !important;
+      bottom: 0 !important;
       width: 100vw !important;
       height: 100PX;
       background-color: #ffffff;

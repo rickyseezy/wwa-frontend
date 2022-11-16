@@ -9,45 +9,45 @@ const Home = () => {
     let cont_btn = useRef(null)
 
 
-    useEffect(()=>{
-      window.addEventListener('resize',()=>{
-        console.log(window.innerWidth)
-        if(window.innerWidth < 500){
-        if(cont_btn.current){
-        cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
+    // useEffect(()=>{
+    //   window.addEventListener('resize',()=>{
+    //     console.log(window.innerWidth)
+    //     if(window.innerWidth < 500){
+    //     if(cont_btn.current){
+    //     cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
 
-        }
+    //     }
   
-        }else{
-          if(window.innerWidth <= 1024 && window.innerWidth > 500){
-            if(cont_btn.current){
+    //     }else{
+    //       if(window.innerWidth <= 1024 && window.innerWidth > 500){
+    //         if(cont_btn.current){
 
-            cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
-            }
-          }else{
-            if(cont_btn.current){
-              cont_btn.current.style = 'position:relative'
+    //         cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
+    //         }
+    //       }else{
+    //         if(cont_btn.current){
+    //           cont_btn.current.style = 'position:relative'
 
-            }
+    //         }
 
-          }
+    //       }
 
-        }
-      })
-      if(window.innerWidth < 500){
+    //     }
+    //   })
+    //   if(window.innerWidth < 500){
   
-        cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
+    //     cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
 
-      }else{
-        if(window.innerWidth <= 1024 && window.innerWidth > 500){
-          cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
+    //   }else{
+    //     if(window.innerWidth <= 1024 && window.innerWidth > 500){
+    //       cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
 
-        }
-        // cont_btn.current.style = 'position:relative'
+    //     }
+    //     // cont_btn.current.style = 'position:relative'
 
-      }
+    //   }
 
-    })
+    // })
 
  
     //  si écran arrive au top du button position fixed sinon le laisse a l'endroit basic
@@ -85,3 +85,12 @@ const Home = () => {
 };
 
 export default Home;
+
+    function createmycause({cont_btn}) {
+      return (<div ref={cont_btn} className={styles["cont-button"]}>
+        <div className={styles.button}>
+          <div className={styles.button__text}>Je crée ma cause</div>
+        </div>
+        </div>);
+    }
+  

@@ -108,18 +108,20 @@
       position: absolute;
       width: 7px !important;
       height: 7px !important;
+      top: 0;
       background: red;
-      right: 29px !important;
+      right:-10px !important;
       border-radius: 20px;
     }
 
     &__bullet2 {
+
       position: absolute;
       width: 7px !important;
       height: 7px !important;
-      background: red;
-      top: -5px !important;
-      right: 50px !important;
+      
+      top: 0px !important;
+      right: -10px !important;
       border-radius: 20px;
     }
 
