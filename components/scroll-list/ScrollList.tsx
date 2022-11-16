@@ -89,6 +89,8 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
 
         let left = null
         let right = null
+        let taillCard = scroll_list.current.children[0].clientWidth
+        let limit = window.innerWidth
 
         //   si les fleches qui ont été cliqué correspondent au carrousel
 
@@ -115,9 +117,8 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                         .getBoundingClientRect()
                         .left
                 }
-
-                // if (window.innerWidth > 1200) {     firstcard = 42 } else if
-                // (window.innerWidth < 500) {     firstcard = 20 }
+            
+        
                 if (left > firstcard) {
 
                     // si la dir d'une autre gallerie a été cliqué
@@ -128,8 +129,12 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                         }
                         memoiseDiection(id, idobj)
                     }
-                    compte += 365
+                    compte += taillCard
                     idobj[`id${id}`] = compte
+                    if(left < firstcard){
+                        compte = left
+                        console.log(compte,'yoooooooo')
+                    }
                     in_slider.current.style = `transform:translateX(${compte}px);transition:.5s ease`
 
                 }
@@ -155,25 +160,18 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                     memoiseDiection(id, idobj)
 
                 }
+                 
+                 if(window.innerWidth < 500){
+                    limit = window.innerWidth + limit
+                 }
 
-                // more than 12000 1867 recalculé la valeur last limit selaon la taille de
-                // l"écran sans resize
-
-                // let lastlimit = 0
-                // if (window.innerWidth > 1200) {
-                //     lastlimit = 1867
-                // } else if (window.innerWidth < 500) {
-                //     lastlimit = 380
-                // }
-
-                // recalculé la valeur last limit selaon la taille de l"écran en resize
-                // window.addEventListener('resize', () => {     if (window.innerWidth > 1200) {
-                //         lastlimit = 1867     } else if (window.innerWidth < 500) {
-                // lastlimit = 380     } }) console.log('last', lastlimit) si la derniére carte
-                // arrive a la position central
-                if (in_slider.current.getBoundingClientRect().right >= window.innerWidth + containerCard.current.getBoundingClientRect().x) {
-                    compte -= 365
+                if (in_slider.current.getBoundingClientRect().right >= limit  ) {
+                    compte -= taillCard
+                }else{
+                    console.log(in_slider.current.getBoundingClientRect(),window.innerWidth + scroll_list.current.children[0].clientWidth,'cible')
                 }
+
+                console.log(in_slider.current.getBoundingClientRect().right,limit,'test')
 
                 idobj[`id${id}`] = compte
                 in_slider.current.style = `transform:translateX(${compte}px);transition:.5s ease`
