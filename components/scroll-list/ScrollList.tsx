@@ -32,7 +32,7 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
     let in_slider = useRef(null)
 
     function memoiseDiection(idDir : Number, obj : CarousselsIds) {
-
+console.log(idDir,obj,'scrooll')
         if (idDir === 1 && Object.keys(obj).length != 0) {
             console.log('1 volet ', idDir, obj)
 
@@ -49,7 +49,6 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
 
         if (idDir === 2 && Object.keys(obj).length != 0) {
             console.log('2 volet ', idDir, obj)
-
             //    si la fleche n'as pas encore été cliquer compte = 0
             if (!obj.id2) {
                 obj['id2'] = 0
@@ -93,7 +92,7 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
         let limit = window.innerWidth
 
         //   si les fleches qui ont été cliqué correspondent au carrousel
-
+           console.log(dir)
         if (dir.id === id) {
             if (containerCard != null) {
                 left = containerCard
@@ -150,7 +149,7 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                     .getBoundingClientRect()
                     .right
                 console.log(in_slider.current.getBoundingClientRect(), 'yo', containerCard.current.getBoundingClientRect().x,window.innerWidth)
-
+console.log(tabId)
                 // si la dir d'une autre gallerie a été cliqué
                 if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
                     if (tabId[tabId.length - 2] === 1 || tabId[tabId.length - 1] === 1) {
@@ -164,18 +163,16 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                  if(window.innerWidth < 500){
                     limit = window.innerWidth + taillCard
                  }
-
+console.log(in_slider.current.getBoundingClientRect().right,limit)
                 if (in_slider.current.getBoundingClientRect().right >= limit  ) {
                     compte -= taillCard
-                }else{
-                    console.log(in_slider.current.getBoundingClientRect(),window.innerWidth + scroll_list.current.children[0].clientWidth,'cible')
+                    console.log('yo')
                 }
 
-                console.log(in_slider.current.getBoundingClientRect().right,limit,'test')
 
                 idobj[`id${id}`] = compte
                 in_slider.current.style = `transform:translateX(${compte}px);transition:.5s ease`
-
+console.log('end',idobj,id)
             }
 
         }
