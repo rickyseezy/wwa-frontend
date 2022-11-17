@@ -3,17 +3,14 @@
   justify-content: center;
   width: 100%;
 }
-
 .stats .stat {
   width: 200px;
   height: 80px;
 }
-
 .stats .stat .number {
   position: relative;
   text-align: center;
 }
-
 .stats .stat .number__bullet {
   position: absolute;
   width: 10px;
@@ -22,7 +19,6 @@
   right: 29px;
   border-radius: 20px;
 }
-
 .stats .stat .number__bullet2 {
   position: absolute;
   width: 10px;
@@ -31,15 +27,13 @@
   right: 60px;
   border-radius: 20px;
 }
-
 .stats .stat .number__value {
   font-weight: 700;
   font-size: 2rem;
 }
-
 .stats .stat__title {
   font-weight: 800;
-  font-size: .8rem;
+  font-size: 0.8rem;
   text-align: center;
 }
 
@@ -47,11 +41,9 @@
   display: flex;
   flex-direction: row;
 }
-
 .stattwo .stat {
   text-align: center;
 }
-
 .stattwo .statP {
   text-align: center;
 }
@@ -63,7 +55,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -71,7 +62,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -99,17 +89,17 @@
     position: absolute;
     width: 7px !important;
     height: 7px !important;
+    top: 0;
     background: red;
-    right: 29px !important;
+    right: -10px !important;
     border-radius: 20px;
   }
   .number__bullet2 {
     position: absolute;
     width: 7px !important;
     height: 7px !important;
-    background: red;
-    top: -5px !important;
-    right: 50px !important;
+    top: 0px !important;
+    right: -10px !important;
     border-radius: 20px;
   }
   .number__value {
@@ -127,7 +117,6 @@
     text-align: center;
   }
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -174,7 +163,6 @@
     text-align: center;
   }
 }
-
 @media (max-width: 481px) {
   /* CSS */
   .stats {
@@ -213,7 +201,6 @@
     width: 160px !important;
   }
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -223,5 +210,4 @@
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
   }
-}
-/*# sourceMappingURL=Stats.module.css.map */
+}/*# sourceMappingURL=Stats.module.css.map */

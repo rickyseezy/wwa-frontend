@@ -1,0 +1,23 @@
+.link-reinit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 44544;
+  padding: 2em;
+}
+.link-reinit h1 {
+  text-align: left;
+  font-size: 20px;
+}
+.link-reinit button {
+  width: 100%;
+  background: #1D53B7;
+  border-radius: 50px;
+  padding: 15px 0;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  margin-top: 2em;
+}/*# sourceMappingURL=linkreinit.module.css.map */

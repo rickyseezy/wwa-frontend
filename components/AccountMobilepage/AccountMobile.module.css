@@ -3,16 +3,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 44545;
+  z-index: 454566544;
   height: 100vh;
   width: 100%;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 2em;
-  display: none;
   box-sizing: border-box;
   /*Add this*/
 }
-
 .AccountMobile__cross {
   position: absolute;
   left: 5%;
@@ -20,19 +18,16 @@
   z-index: 44646464;
   width: 5%;
 }
-
 .AccountMobile__container {
   position: relative;
   background-color: white;
   height: 100%;
   overflow-y: scroll;
 }
-
 .AccountMobile__container h1 {
   text-align: center;
-  margin-bottom: .7em;
+  margin-bottom: 0.7em;
 }
-
 .AccountMobile__radio {
   width: 90%;
   margin: 0 auto;
@@ -40,19 +35,16 @@
   justify-content: space-between;
   gap: 1em;
 }
-
 .AccountMobile__radio label {
   display: flex;
-  gap: .5em;
+  gap: 0.5em;
 }
-
 .AccountMobile__input {
   margin: 2em 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
 .AccountMobile__input input {
   padding: 10px 15px;
   border-radius: 50px;
@@ -63,25 +55,29 @@
   background: #F5F9FC;
   border: 1px solid transparent !important;
 }
-
+.AccountMobile__input input::-moz-placeholder {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+.AccountMobile__input input:-ms-input-placeholder {
+  font-size: 1.1em;
+  font-weight: 700;
+}
 .AccountMobile__input input::placeholder {
   font-size: 1.1em;
   font-weight: 700;
 }
-
 .AccountMobile__textCheck .Actualités {
   display: flex;
   align-items: center;
   margin-bottom: 1em;
-  gap: .7em;
+  gap: 0.7em;
 }
-
 .AccountMobile__textCheck .Diffamation {
   display: flex;
   align-items: center;
-  gap: .7em;
+  gap: 0.7em;
 }
-
 .AccountMobile__btn-div {
   /* Brand/Deep Blue */
   margin-top: 9em;
@@ -90,15 +86,13 @@
   justify-content: center;
   align-items: center;
 }
-
 .AccountMobile__btn-div .btn {
   width: 100%;
   padding: 1em;
-  background: #1d53b7;
+  background: rgb(29, 83, 183);
   color: white;
   border-radius: 50px;
   border: 1px solid transparent;
   font-size: 1em;
   font-weight: 700;
-}
-/*# sourceMappingURL=AccountMobile.module.css.map */
+}/*# sourceMappingURL=AccountMobile.module.css.map */

@@ -13,7 +13,6 @@
   width: 390px;
   margin: 0 0em 0em 15em;
 }
-
 .cardInfo input {
   margin: 1rem 0;
   border-radius: 50px;
@@ -22,13 +21,21 @@
   padding: 12px 15px;
   border: 1px solid transparent;
 }
-
-.cardInfo input::placeholder {
+.cardInfo input::-moz-placeholder {
   font-weight: bold;
-  font-size: .9em;
+  font-size: 0.9em;
   color: rgba(0, 0, 0, 0.903);
 }
-
+.cardInfo input:-ms-input-placeholder {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.903);
+}
+.cardInfo input::placeholder {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.903);
+}
 .cardInfo button {
   width: 80%;
   padding: 10px 15px;
@@ -48,7 +55,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
     ##Device = Laptops, Desktops
     ##Screen = B/w 1025px to 1280px
@@ -56,7 +62,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
     ##Device = Tablets, Ipads (portrait)
     ##Screen = B/w 768px to 1024px
@@ -73,7 +78,6 @@
     margin: 0em 0 0 5em !important;
   }
 }
-
 @media screen and (min-width: 481px) and (max-width: 767px) {
   /* CSS */
   .container-info {
@@ -98,9 +102,19 @@
     padding: 12px 15px;
     border: 1px solid transparent;
   }
+  .cardInfo input::-moz-placeholder {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.903);
+  }
+  .cardInfo input:-ms-input-placeholder {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.903);
+  }
   .cardInfo input::placeholder {
     font-weight: bold;
-    font-size: .9em;
+    font-size: 0.9em;
     color: rgba(0, 0, 0, 0.903);
   }
   .cardInfo button {
@@ -115,7 +129,6 @@
     margin-top: 1em;
   }
 }
-
 /* 
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
@@ -144,9 +157,19 @@
     padding: 12px 15px;
     border: 1px solid transparent;
   }
+  .cardInfo input::-moz-placeholder {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.903);
+  }
+  .cardInfo input:-ms-input-placeholder {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: rgba(0, 0, 0, 0.903);
+  }
   .cardInfo input::placeholder {
     font-weight: bold;
-    font-size: .9em;
+    font-size: 0.9em;
     color: rgba(0, 0, 0, 0.903);
   }
   .cardInfo button {
@@ -160,5 +183,4 @@
     font-size: 1em;
     margin-top: 1em;
   }
-}
-/*# sourceMappingURL=infoForm.module.css.map */
+}/*# sourceMappingURL=infoForm.module.css.map */

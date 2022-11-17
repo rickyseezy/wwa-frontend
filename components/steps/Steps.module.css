@@ -1,0 +1,63 @@
+.steps {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.steps__step {
+  background-color: #ECF2FF;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #1D53B7;
+}
+.steps__step--selected {
+  background-color: #1D53B7;
+  color: white;
+  -webkit-animation-name: fill-step;
+          animation-name: fill-step;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.steps__line {
+  background-color: #ECF2FF;
+  width: 120px;
+  height: 1.3px;
+}
+.steps__line--selected {
+  -webkit-animation-name: fill-step;
+          animation-name: fill-step;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fill-step {
+  from {
+    background-color: #ECF2FF;
+  }
+  to {
+    background-color: #1D53B7;
+  }
+}
+
+@keyframes fill-step {
+  from {
+    background-color: #ECF2FF;
+  }
+  to {
+    background-color: #1D53B7;
+  }
+}/*# sourceMappingURL=Steps.module.css.map */

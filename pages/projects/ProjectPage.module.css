@@ -1,7 +1,6 @@
 .project {
   background-color: #F3F9FD;
 }
-
 .project .banner {
   height: 416px;
   background: url("/todelete/project-banner.png") no-repeat;
@@ -9,15 +8,13 @@
   color: white;
   position: relative;
 }
-
 .project .banner .overlay {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: #34631475;
+  background-color: rgba(52, 99, 20, 0.4588235294);
 }
-
 .project .banner .content {
   position: absolute;
   width: 100%;
@@ -27,12 +24,10 @@
   justify-content: center;
   align-items: center;
 }
-
 .project .banner .content__title {
   font-weight: 600;
   font-size: 2.5rem;
 }
-
 .project .banner .content .author-info {
   display: flex;
   align-items: center;
@@ -40,25 +35,21 @@
   width: 150px;
   margin-top: 10px;
 }
-
 .project .banner .content .author-info__picture {
   width: 30px;
   height: 30px;
   background-color: red;
   border-radius: 20px;
 }
-
 .project .banner .content .author-info__picture img {
   width: 100%;
 }
-
 .project .banner .content .author-info__name {
   font-weight: 400;
-  font-size: .7rem;
+  font-size: 0.7rem;
   margin-left: 5px;
   margin-right: 5px;
 }
-
 .project .banner .content .author-info__certified {
   width: 25px;
   height: 25px;
@@ -68,47 +59,38 @@
   justify-content: center;
   align-items: center;
 }
-
 .project .banner .content .author-info__certified img {
   width: 50%;
 }
-
 .project .banner .content .stats {
   margin-top: 40px;
 }
-
 .project .banner .content .actions {
   margin-top: 30px;
 }
-
 .project__content {
   width: 70%;
   margin-left: 15%;
 }
-
 .project__content .intro {
   margin-top: 50px;
 }
-
 .project__content .intro__title {
   font-weight: 700;
   font-size: 2.5rem;
   margin-top: 10px;
 }
-
 .project__content .intro__description {
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 400;
   width: 50%;
   margin-top: 35px;
   line-height: 1.7em;
 }
-
 .project__content .live-indicator {
   display: flex;
   justify-content: flex-end;
 }
-
 .project__content .live-indicator .indicator {
   align-self: flex-start;
   color: white;
@@ -121,18 +103,17 @@
   justify-content: center;
   align-items: center;
 }
-
 .project__content .live-indicator .indicator__text {
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 700;
 }
-
 .project__content .discover-container {
   margin-top: 130px;
   padding-bottom: 130px;
 }
 
 .menu-scroll {
+  position: -webkit-sticky;
   position: sticky;
   z-index: 999;
   top: 0;
@@ -151,7 +132,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -159,7 +139,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -181,7 +160,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #34631475;
+    background-color: rgba(52, 99, 20, 0.4588235294);
   }
   .project .banner .content {
     position: absolute;
@@ -214,7 +193,7 @@
   }
   .project .banner .content .author-info__name {
     font-weight: 400;
-    font-size: .7rem;
+    font-size: 0.7rem;
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -242,7 +221,6 @@
     margin-left: 15%;
   }
 }
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -250,7 +228,6 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   /* CSS */
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -272,7 +249,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #34631475;
+    background-color: rgba(52, 99, 20, 0.4588235294);
   }
   .project .banner .content {
     position: absolute;
@@ -287,7 +264,7 @@
     font-weight: 600;
     font-size: 1.5rem !important;
     margin-top: 2em;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
   .project .banner .content .author-info {
     display: flex;
@@ -307,7 +284,7 @@
   }
   .project .banner .content .author-info__name {
     font-weight: 400;
-    font-size: .7rem;
+    font-size: 0.7rem;
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -342,7 +319,7 @@
     margin-top: 10px;
   }
   .project__content .intro__description {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: 400;
     width: 100%;
     margin-top: 35px;
@@ -364,7 +341,7 @@
     align-items: center;
   }
   .project__content .live-indicator .indicator__text {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: 700;
   }
   .project__content .discover-container {
@@ -372,7 +349,6 @@
     padding-bottom: 130px;
   }
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -391,7 +367,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #34631475;
+    background-color: rgba(52, 99, 20, 0.4588235294);
   }
   .project .banner .content {
     position: absolute;
@@ -426,7 +402,7 @@
   }
   .project .banner .content .author-info__name {
     font-weight: 400;
-    font-size: .7rem;
+    font-size: 0.7rem;
     margin-left: 5px;
     margin-right: 5px;
   }
@@ -485,11 +461,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 4545454454646545644 !important;
+    z-index: 4545454454646546000 !important;
   }
   .live-indicator .indicator__text {
-    font-size: .8rem;
+    font-size: 0.8rem;
     font-weight: 700;
   }
-}
-/*# sourceMappingURL=ProjectPage.module.css.map */
+}/*# sourceMappingURL=ProjectPage.module.css.map */

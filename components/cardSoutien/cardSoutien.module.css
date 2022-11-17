@@ -10,31 +10,29 @@
   gap: 1EM;
   padding: 1em 0;
 }
-
 .grid .frontcard {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   background-color: white;
-  padding: 2em .5em;
+  padding: 2em 0.5em;
   border-radius: 33.805px 33.805px 27.044px 20.283px;
 }
 
 .cont-text h2 {
   font-size: 1.1em;
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
-
 .cont-text p {
   font-size: 1em;
-  color: #969bab;
-  margin: .5em .5em;
+  color: rgb(150, 155, 171);
+  margin: 0.5em 0.5em;
 }
 
 .btn {
   width: 98%;
   margin: 0 auto;
-  gap: .5em;
+  gap: 0.5em;
 }
 
 .btnprojet {
@@ -42,7 +40,7 @@
   background-color: blue;
   color: aliceblue;
   border-radius: 20px;
-  padding: .5em .5em;
+  padding: 0.5em 0.5em;
   display: flex;
   justify-content: center;
 }
@@ -66,17 +64,15 @@
   font-weight: 900;
   margin: 0 auto;
 }
-
 .imgProjet img {
   width: 100%;
   height: 200px;
   border-radius: 20px;
 }
-
 .imgProjet::after {
-  content: '600 459 actors';
+  content: "600 459 actors";
   position: absolute;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   left: 10.85px;
   top: 10.97px;
   background: #FFE3C1;
@@ -90,19 +86,17 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
-  */
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
-    ##Device = Tablets, Ipads (portrait)
-    ##Screen = B/w 768px to 1024px
-  */
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
   .grid {
@@ -114,11 +108,10 @@
     padding: 1em 0;
   }
 }
-
 /* 
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
-  */
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
 @media (min-width: 481px) and (max-width: 767px) {
   /* CSS */
   .grid {
@@ -132,29 +125,29 @@
   .grid .frontcard {
     display: block;
     background-color: white;
-    padding: 2em .5em;
+    padding: 2em 0.5em;
     border-radius: 33.805px 33.805px 27.044px 20.283px;
   }
   .grid .frontcard h2 {
     font-size: 1em;
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
   .grid .frontcard p {
-    font-size: .8em;
-    color: #969bab;
-    margin: .5em .5em;
+    font-size: 0.8em;
+    color: rgb(150, 155, 171);
+    margin: 0.5em 0.5em;
   }
   .btn {
     width: 98%;
     margin: 0 auto;
-    gap: .5em;
+    gap: 0.5em;
   }
   .btnprojet {
     width: 100% !important;
     background-color: blue;
     color: aliceblue;
     border-radius: 20px;
-    padding: .5em .5em;
+    padding: 0.5em 0.5em;
     display: flex;
     justify-content: center;
   }
@@ -180,20 +173,19 @@
     border-radius: 20px;
   }
   .imgProjet::after {
-    content: '600 459 actors';
+    content: "600 459 actors";
     position: absolute;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     left: 10.85px;
     top: 10.97px;
     background: #FFE3C1;
     border-radius: 20.283px;
   }
 }
-
 /* 
-    ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 479px
-  */
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
 @media screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS */
   .container {
@@ -210,29 +202,29 @@
   .grid .frontcard {
     display: block;
     background-color: white;
-    padding: 2em .5em;
+    padding: 2em 0.5em;
     border-radius: 33.805px 33.805px 27.044px 20.283px;
   }
   .grid .frontcard h2 {
     font-size: 1.3em;
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
   .grid .frontcard p {
     font-size: 1em;
-    color: #969bab;
-    margin: .5em .5em;
+    color: rgb(150, 155, 171);
+    margin: 0.5em 0.5em;
   }
   .btn {
     width: 98%;
     margin: 0 auto;
-    gap: .5em;
+    gap: 0.5em;
   }
   .btnprojet {
     width: 100% !important;
     background-color: blue;
     color: aliceblue;
     border-radius: 20px;
-    padding: .5em .5em;
+    padding: 0.5em 0.5em;
     display: flex;
     justify-content: center;
   }
@@ -258,13 +250,12 @@
     border-radius: 20px;
   }
   .imgProjet::after {
-    content: '600 459 actors';
+    content: "600 459 actors";
     position: absolute;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     left: 10.85px;
     top: 10.97px;
     background: #FFE3C1;
     border-radius: 20.283px;
   }
-}
-/*# sourceMappingURL=cardSoutien.module.css.map */
+}/*# sourceMappingURL=cardSoutien.module.css.map */

@@ -1,5 +1,4 @@
 .container-scroll {
-  width: 3661px !important;
   align-self: flex-start;
 }
 
@@ -24,7 +23,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -32,7 +30,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -40,7 +37,6 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
   .scroll-list {
-    width: 100%;
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -49,7 +45,6 @@
     margin: 1em 0;
   }
 }
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -57,7 +52,6 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   /* CSS */
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -65,7 +59,6 @@
 @media (min-width: 481px) and (max-width: 767px) {
   /* CSS */
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -73,7 +66,6 @@
 @media screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS */
   .scroll-list {
-    width: 100%;
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -81,8 +73,4 @@
     padding-left: 0 !important;
     margin: 1em 0;
   }
-  .container-scroll {
-    width: 100%;
-  }
-}
-/*# sourceMappingURL=ScrollList.module.css.map */
+}/*# sourceMappingURL=ScrollList.module.css.map */

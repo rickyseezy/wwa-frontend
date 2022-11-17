@@ -2,7 +2,6 @@
   margin-top: 70px;
   border-radius: 15px;
 }
-
 .slideshow-container .slideshow {
   width: 100%;
   height: 100%;
@@ -11,19 +10,16 @@
   align-items: center;
   position: relative;
 }
-
 .slideshow-container .slideshow img {
   width: 100%;
   border-radius: 15px;
 }
-
 .slideshow-container .slideshow .controllers {
   display: flex;
   position: absolute;
   justify-content: space-between;
   width: 95%;
 }
-
 .slideshow-container .slideshow .controllers .controller {
   width: 35px;
   height: 35px;
@@ -33,11 +29,9 @@
   align-items: center;
   justify-content: center;
 }
-
 .slideshow-container .slideshow .controllers .controller img {
   width: 80%;
 }
-
 .slideshow-container .medias {
   display: flex;
   overflow-x: scroll;
@@ -52,7 +46,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -60,7 +53,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -68,7 +60,6 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -76,7 +67,6 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   /* CSS */
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -84,7 +74,6 @@
 @media screen and (max-width: 481px) {
   /* CSS */
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -92,7 +81,6 @@
 @media screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS */
 }
-
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
@@ -100,7 +88,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -108,7 +95,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -116,7 +102,6 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -124,7 +109,6 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   /* CSS */
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -132,7 +116,6 @@
 @media screen and (max-width: 481px) {
   /* CSS */
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -147,5 +130,4 @@
     margin-top: 10px;
     border-radius: 15px;
   }
-}
-/*# sourceMappingURL=SlideShow.module.css.map */
+}/*# sourceMappingURL=SlideShow.module.css.map */

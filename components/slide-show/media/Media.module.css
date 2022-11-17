@@ -9,11 +9,9 @@
   justify-content: center;
   align-items: center;
 }
-
 .media img {
   width: 50%;
 }
-
 .media--activated {
   border: 5px solid #1D53B7;
 }
@@ -25,7 +23,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -37,7 +34,6 @@
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   /* CSS */
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -60,5 +56,4 @@
   .media--activated {
     border: 5px solid #1D53B7;
   }
-}
-/*# sourceMappingURL=Media.module.css.map */
+}/*# sourceMappingURL=Media.module.css.map */

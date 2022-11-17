@@ -68,7 +68,7 @@ useEffect(()=>{
   </form>
   <div className={styles['connect__band']}>
         
-    <p onClick={handleSub}>Pas encore de compte ?  s'inscrire</p>
+    <p onClick={handleSub}>Pas encore de compte ? <span>s'inscrire</span> </p>
   </div>
  </div>
   )

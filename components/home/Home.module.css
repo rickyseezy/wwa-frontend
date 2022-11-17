@@ -6,25 +6,21 @@
   justify-content: center;
   align-items: center;
 }
-
 .content__title {
   font-weight: 700;
   font-size: 4rem;
   text-align: center;
 }
-
 .content__title span {
   margin-top: -25px;
   display: block;
 }
-
 .content__subtitle {
   font-weight: 500;
   text-align: center;
   color: #1D53B7;
   margin-top: 1rem;
 }
-
 .content .button {
   border: 1px solid transparent;
   padding: 1.6rem 2rem;
@@ -36,20 +32,17 @@
   background-color: #1D53B7;
   margin-top: 1rem;
 }
-
 .content .button__text {
   color: white;
   font-weight: 600;
   font-size: 1.3rem;
 }
-
 .content .pick-continent {
   margin-top: 60px;
   color: #1D53B7;
   font-size: 1.2rem;
   font-weight: 800;
 }
-
 .content .map {
   margin-top: 40px;
   background: #F3F9FD url("/images/FrameR.png") no-repeat center;
@@ -63,11 +56,9 @@
 .pusher {
   height: 30px;
 }
-
 .pusher--xl {
   height: 90px;
 }
-
 .pusher--l {
   height: 60px;
 }
@@ -79,7 +70,6 @@
 @media (min-width: 1281px) {
   /* CSS */
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -87,7 +77,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -95,7 +84,6 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -136,8 +124,8 @@
     font-weight: 800;
   }
   .content .cont-button {
-    position: absolute;
-    bottom: 350px;
+    position: fixed;
+    bottom: 0;
     width: 100vw;
     height: 100PX;
     background-color: #ffffff;
@@ -147,7 +135,6 @@
     align-items: center;
   }
   .content .button {
-    bottom: 300px;
     border: 1px solid transparent;
     padding: 2.4rem 8rem;
     height: 50px;
@@ -170,83 +157,12 @@
     border-bottom-right-radius: 20px;
   }
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 
 */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-  .content {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .content__subtitle {
-    font-weight: 700;
-    text-align: center;
-    color: #1D53B7;
-    margin-top: 1rem;
-    font-size: 1em;
-    width: 90%;
-    text-align: center;
-  }
-  .content__title {
-    font-weight: 700;
-    font-size: 3rem;
-    text-align: center;
-    line-height: 2em;
-  }
-  .content__title span {
-    margin-top: -25px;
-    display: block;
-  }
-  .content .pick-continent {
-    margin-top: 17px;
-    color: #1D53B7;
-    font-size: 1.2rem;
-    font-weight: 800;
-  }
-  .content .cont-button {
-    position: absolute;
-    bottom: 350px;
-    width: 100vw;
-    height: 100PX;
-    background-color: #ffffff;
-    z-index: 52;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .content .button {
-    bottom: 300px;
-    border: 1px solid transparent;
-    padding: 2.6rem 8rem;
-    height: 50px;
-    background: #1D53B7;
-    border-radius: 50px;
-    margin-top: 0em;
-    z-index: 4445454;
-  }
-  .content .button__text {
-    color: white;
-    font-weight: 600;
-    font-size: 1.3rem;
-  }
-  .map {
-    margin-top: 0px !important;
-    background-size: 93% !important;
-    width: 100%;
-    height: 262px !important;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-}
-
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 481px) and (max-width: 768px) {
   /* CSS */
   .content {
     width: 90%;
@@ -276,7 +192,6 @@
     display: block;
   }
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -308,11 +223,11 @@
   .button__text {
     color: white;
     font-weight: 600;
-    font-size: .8rem !important;
+    font-size: 0.8rem !important;
   }
   .cont-button {
-    position: absolute !important;
-    bottom: 350px !important;
+    position: fixed !important;
+    bottom: 0 !important;
     width: 100vw !important;
     height: 100PX;
     background-color: #ffffff;
@@ -321,5 +236,4 @@
     justify-content: center;
     align-items: center;
   }
-}
-/*# sourceMappingURL=Home.module.css.map */
+}/*# sourceMappingURL=Home.module.css.map */

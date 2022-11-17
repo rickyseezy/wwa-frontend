@@ -1,0 +1,8 @@
+.country-causes {
+  display: flex;
+  flex-wrap: wrap;
+  width: 77%;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 4px;
+}/*# sourceMappingURL=Causes.module.css.map */

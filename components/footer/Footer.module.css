@@ -6,41 +6,32 @@
   justify-content: center;
   align-items: center;
 }
-
 .footer__content {
   width: 80%;
 }
-
 .footer__content .menu {
   display: flex;
   width: 100%;
   color: white;
 }
-
 .footer__content .menu__block--large {
   width: 60%;
 }
-
 .footer__content .menu__block--small {
   width: 25%;
 }
-
 .footer__content .menu__block--medium {
   width: 30%;
 }
-
 .footer__content .menu .primary__logo {
   width: 100px;
 }
-
 .footer__content .menu .primary__logo img {
   width: 100%;
 }
-
 .footer__content .menu .primary .socials {
   display: flex;
 }
-
 .footer__content .menu .primary .shape {
   height: 50px;
   width: 50px;
@@ -51,15 +42,12 @@
   justify-content: center;
   align-items: center;
 }
-
 .footer__content .menu .primary .shape img {
   width: 40%;
 }
-
 .footer__content .container {
   height: 50%;
 }
-
 .footer__content .container .copyright {
   display: flex;
   height: 100%;
@@ -67,40 +55,33 @@
   align-items: center;
   padding: 4em 0;
 }
-
 .footer__content .container .copyright__dashline {
   height: 2px;
-  background-color: #ffffff1c;
+  background-color: rgba(255, 255, 255, 0.1098039216);
   width: 47.5%;
 }
-
 .footer__content .container .copyright__logo {
   width: 140px;
   padding: 0 39px;
 }
-
 .footer__content .container .copyright__logo img {
   width: 100%;
 }
-
 .footer__content .container__text {
   color: white;
   text-align: center;
   font-size: 1rem;
 }
-
 .footer--title {
   font-weight: 500;
   white-space: nowrap;
 }
-
 .footer--link {
   font-weight: 100;
   margin-top: 20px;
   margin-bottom: 10px;
   font-size: 1.3em;
 }
-
 .footer--paraLink {
   line-height: 1.5em;
 }
@@ -119,7 +100,6 @@
     width: 90% !important;
   }
 }
-
 /* 
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
@@ -127,7 +107,6 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -135,7 +114,6 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
 }
-
 /* 
   ##Device = Tablets, Ipads (landscape)
   ##Screen = B/w 768px to 1024px
@@ -188,7 +166,6 @@
     width: 40%;
   }
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -241,7 +218,6 @@
     width: 40%;
   }
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -280,5 +256,4 @@
   .footer__content .menu__block--large {
     width: 100%;
   }
-}
-/*# sourceMappingURL=Footer.module.css.map */
+}/*# sourceMappingURL=Footer.module.css.map */

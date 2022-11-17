@@ -25,10 +25,7 @@
         }
 
         p {
-            a {
-
-                color: rgba(29, 83, 183, 1);
-            }
+           
 
             font-weight: 700;
             font-size: 12px;
@@ -61,10 +58,9 @@
         font-size: 12px;
         font-weight: 700;
         color: #474A57;
-        a{
-            text-decoration: none;
-            color: #1D53B7;
-            font-weight: 700;
+        span {
+
+            color: rgba(29, 83, 183, 1);
         }
      }
     }

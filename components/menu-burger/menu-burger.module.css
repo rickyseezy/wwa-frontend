@@ -1,0 +1,90 @@
+.menuBurger-content {
+  width: 100%;
+  padding: 1EM;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menuBurger-content__searchNcontact img {
+  margin-right: 1em;
+}
+
+@media (min-width: 1281px) {
+  /* CSS */
+  .menuBurger-content {
+    display: none;
+  }
+}
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* CSS */
+  .menuBurger-content {
+    display: none;
+  }
+}
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* CSS */
+  .menuBurger-content {
+    display: none;
+  }
+}
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  /* CSS */
+}
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media screen and (max-width: 481px) {
+  /* CSS */
+  .control-header {
+    width: 100%;
+  }
+  .control-header__title {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+  .control-header__title .dash {
+    display: block;
+    width: 30px !important;
+    height: 2px;
+    background-color: white;
+  }
+  .control-header__title div {
+    color: white;
+    margin-left: 20px;
+    font-size: 0.6rem;
+  }
+  .control-header__subtitle {
+    color: white;
+    font-weight: 700;
+    font-size: 1.5rem !important;
+    margin-top: 1em;
+  }
+  .controllers {
+    transform: translate(-301px, 77px) !important;
+    margin: 2em 0 3.5em 0 !important;
+  }
+}
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  /* CSS */
+}/*# sourceMappingURL=menu-burger.module.css.map */

@@ -2,30 +2,26 @@
 .containerprojet {
   width: 100%;
 }
-
 .containerprojet h1 {
   font-size: 4em;
-  margin: -.2em 0 1em 0;
-  font-family: 'Poppins', sans-serif;
+  margin: -0.2em 0 1em 0;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 800;
   line-height: 64px;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 .containerprojet .h4compte {
   display: flex;
   align-items: center;
   margin: 1em 0;
 }
-
 .containerprojet .h4compte span {
   width: 100px;
   height: 3px;
   background-color: #0A6AAF;
   margin: 0 1em 0 0;
 }
-
 .containerprojet .h4compte h3 {
   color: #0A6AAF;
 }
@@ -45,9 +41,9 @@
   ##Screen = 1281px to higher resolution desktops
 */
 /* 
-    ##Device = Laptops, Desktops
-    ##Screen = B/w 1025px to 1280px
-  */
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
 @media screen and (min-width: 1080px) and (max-width: 1350px) {
   /* CSS */
   .containerCard {
@@ -60,11 +56,10 @@
     margin-bottom: 4rem;
   }
 }
-
 /* 
-    ##Device = Tablets, Ipads (portrait)
-    ##Screen = B/w 768px to 1024px
-  */
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
   .containerprojet {
@@ -83,11 +78,10 @@
     margin-bottom: 4rem;
   }
 }
-
 /* 
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
-  */
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .containerCard {
     margin: 3em auto !important;
@@ -99,7 +93,6 @@
     margin-bottom: 4rem;
   }
 }
-
 @media screen and (max-width: 481px) {
   /* CSS */
   .containerprojet h1 {
@@ -128,11 +121,10 @@
     margin-bottom: 4rem;
   }
 }
-
 /* 
-    ##Device = Most of the Smartphones Mobiles (Portrait)
-    ##Screen = B/w 320px to 479px
-  */
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
 @media screen and (min-width: 320px) and (max-width: 480px) {
   /* CSS */
   .containerprojet h1 {
@@ -160,5 +152,4 @@
     padding-right: 0em !important;
     margin-bottom: 4rem;
   }
-}
-/*# sourceMappingURL=mesprojets.module.css.map */
+}/*# sourceMappingURL=mesprojets.module.css.map */
