@@ -8,6 +8,8 @@ import Footer from "@components/footer/Footer";
 import Country from "@components/country/country";
 import InputNtexterea from "@components/Input&texterea/InputNtexterea";
 import { useRouter } from "next/router";
+import MenuMobile from "@components/MenuMobile/MenuMobile";
+import MenuBurger from "@components/menu-burger/MenuBurger";
 
 const CreateForm = () => {
   const [bol,setbol] = useState(false)
@@ -37,6 +39,8 @@ const thematics = [...Array(30)];
 return (
 <Fragment>
   <MainNavigation />
+  <MenuBurger />
+  
   <form className={styles["form"]}>
     <div className={styles["form__steps"]}>
       <Steps />

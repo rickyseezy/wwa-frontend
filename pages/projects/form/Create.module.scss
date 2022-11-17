@@ -390,6 +390,8 @@
         margin-top: 40px;
         display: flex ;
         justify-content: center;
+        flex-direction: column;
+        width: 100%;
   
         &__separator {
           width: 20px;

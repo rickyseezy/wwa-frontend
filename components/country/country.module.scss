@@ -31,7 +31,7 @@
 @media screen and (min-width: 1080px) and (max-width: 1350px) {
     
   /* CSS */
-
+  
 }
 
 /* 
@@ -40,7 +40,32 @@
 */
 
 @media screen and  (min-width: 768px) and (max-width: 1024px)  {
-  
+  .country {
+    border: 1px solid #BBCBE9;
+    border-radius: 15px;
+    width: 120px;
+    height:95px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+
+    &__icon {
+      width: 60px;
+    }
+
+    &__name {
+      margin-top: 5px;
+      font-weight: 600;
+      font-size: .5rem !important;
+      letter-spacing: 2px;
+      color: #474A57;
+      width: 80%;
+      text-align: center;
+    }
+  }
 
   
 }

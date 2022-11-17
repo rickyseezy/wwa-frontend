@@ -265,6 +265,8 @@
     margin-top: 40px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    width: 100%;
   }
   .form .content .help-types__separator {
     width: 20px;

@@ -46,4 +46,89 @@
 }
 .help-card .select-icon img {
   width: 70%;
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1350px) {
+  /* CSS */
+}
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .help-card {
+    position: relative;
+    border: 1px solid #c3d4fb;
+    width: 48%;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color 1s;
+  }
+}
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media screen and (max-width: 481px) {
+  /* CSS */
+}
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .help-card {
+    position: relative;
+    border: 1px solid #c3d4fb;
+    width: 100%;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color 1s;
+    margin-top: 1EM;
+  }
+  .help-card--selected {
+    background-color: #ecf2ff;
+    color: #1D53B7;
+  }
+  .help-card--selectedRight {
+    background-color: #ffffff;
+    color: #1D53B7;
+  }
+  .help-card__img {
+    width: 80%;
+  }
+  .help-card__text {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .help-card__description {
+    font-size: 0.7rem;
+    width: 80%;
+    text-align: center;
+  }
+  .help-card .select-icon {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 33px;
+    background-color: #1D53B7;
+    position: absolute;
+    top: -20px;
+    right: 12px;
+  }
+  .help-card .select-icon img {
+    width: 70%;
+  }
 }/*# sourceMappingURL=HelpCard.module.css.map */
