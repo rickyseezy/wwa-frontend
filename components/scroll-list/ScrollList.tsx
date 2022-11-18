@@ -1,6 +1,6 @@
 import styles from "./ScrollList.module.scss";
 import Card from "@components/card/Card";
-import {useRef, useEffect, useState, useMemo} from "react"
+import { useRef, useEffect, useState, useMemo } from "react"
 
 interface Direction {
     direction?: String;
@@ -8,9 +8,9 @@ interface Direction {
 }
 
 interface IControlSwitch {
-    dir : Direction,
+    dir: Direction,
 
-    id : Number
+    id: Number
 }
 
 type CarousselsIds = {
@@ -21,84 +21,50 @@ type CarousselsIds = {
 }
 
 let compte = 0
-
+let limited = true
 let tabId = []
-let idobj : CarousselsIds = {}
-
-const ScrollList = ({dir, id} : IControlSwitch) => {
+let idobj: CarousselsIds = {}
+const ScrollList = ({ dir, id }: IControlSwitch) => {
     let containerCard = useRef(null)
     let scroll_list = useRef(null)
     let in_slider = useRef(null)
+    let firstcard = null
+    
+   
+    // let [limited,setlimit] = useState(true)
 
-    function memoiseDiection(idDir : Number, obj : CarousselsIds) {
-        if (idDir === 1 && Object.keys(obj).length != 0) {
-            console.log('1 volet ', idDir, obj)
 
-            //    si la fleche n'as pas encore été cliquer compte = 0
-            if (!obj.id1) {
-                obj['id1'] = 0
-                compte = obj.id1
-                console.log(obj)
-            } else {
-                compte = obj.id1
+    // function qui garde la derniére position en mémoire
+    function memoiseDiection(idDir: Number, obj: CarousselsIds) {
+        console.log(obj,idDir,'mémoire')
+ 
+          if(obj[`id${idDir}`] === undefined){
+            console.log('yo')
+            obj[`id${idDir}`] = 0
+                compte = obj[`id${idDir}`]
+          }else{
+            compte = obj[`id${idDir}`]
+          }
 
-            }
-        }
-
-        if (idDir === 2 && Object.keys(obj).length != 0) {
-            //    si la fleche n'as pas encore été cliquer compte = 0
-            if (!obj.id2) {
-                obj['id2'] = 0
-                compte = obj.id2
-                console.log(obj)
-            } else {
-                compte = obj.id2
-
-            }
-        }
-        if (idDir === 3 && Object.keys(obj).length != 0) {
-            //    si la fleche n'as pas encore été cliquer compte = 0
-            if (!obj.id3) {
-                obj.id3 = 0
-                compte = obj.id3
-            } else {
-                compte = obj.id3
-
-            }
-        }
-
-        if (idDir === 4 && Object.keys(obj).length != 0) {
-            //    si la fleche n'as pas encore été cliquer compte = 0
-            if (!obj.id4) {
-                obj.id4 = 0
-                compte = obj.id4
-            } else {
-                compte = obj.id4
-
-            }
-        }
+          console.log(obj)
     }
 
-    let firstcard = null
+ 
     useEffect(() => {
 
         let left = null
-        let right = null
         let taillCard = scroll_list.current.children[0].clientWidth
         let limit = window.innerWidth
 
         //   si les fleches qui ont été cliqué correspondent au carrousel
-           console.log(dir)
         if (dir.id === id) {
+            console.log(id)
             if (containerCard != null) {
                 left = containerCard
                     .current
                     .getBoundingClientRect()
                     .left
-                right = containerCard
-                    .current
-                    .getBoundingClientRect()
-                    .right
+            
 
             }
             //  si la dir cliquer est droite avancé le carousel d'une carte
@@ -112,8 +78,8 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                         .getBoundingClientRect()
                         .left
                 }
-            
-        
+
+
                 if (left > firstcard) {
 
                     // si la dir d'une autre gallerie a été cliqué
@@ -124,9 +90,12 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                         }
                         memoiseDiection(id, idobj)
                     }
+
+
                     compte += taillCard
                     idobj[`id${id}`] = compte
-                    if(left < firstcard){
+
+                    if (left < firstcard) {
                         compte = left
                     }
                     in_slider.current.style = `transform:translateX(${compte}px);transition:.5s ease`
@@ -138,6 +107,7 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                 // de la current console.log('call')
 
                 tabId.push(id)
+                let mediaMatch = window.matchMedia('(max-width: 500px)');
 
                 // si la dir d'une autre gallerie a été cliqué
                 if (tabId[tabId.length - 2] != tabId[tabId.length - 1]) {
@@ -148,20 +118,40 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
                     memoiseDiection(id, idobj)
 
                 }
-                 
-                 if(window.innerWidth < 500){
+
+                if (mediaMatch.matches) {
+                    console.log('hey')
                     limit = window.innerWidth + taillCard
-                 }
-                if (in_slider.current.getBoundingClientRect().right >= limit  ) {
-                    compte -= taillCard
                 }
+                if (in_slider.current.getBoundingClientRect().right >= limit) {
+                    compte -= taillCard
 
-
+                   
+                    
                 idobj[`id${id}`] = compte
-                in_slider.current.style = `transform:translateX(${compte}px);transition:.5s ease`
+                 in_slider.current.style = `transform:translateX(${compte}px);transition:.5s ease`
+                console.log(compte,'iuguigggguig')
+                // if(Math.abs(compte) > window.innerWidth){
+                //        console.log('yooooooooooooooooooo')
+                //       limited = false
+                // }
+                  
+                }
+              
+               
+              
+             
+
             }
 
         }
+
+  
+
+
+        
+
+     
 
     }, [dir, id])
 
@@ -171,34 +161,34 @@ const ScrollList = ({dir, id} : IControlSwitch) => {
 
                 <ul className={styles["scroll-list"]} ref={scroll_list}>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                     <li>
-                        <Card/>
+                        <Card />
                     </li>
                 </ul>
             </div>
