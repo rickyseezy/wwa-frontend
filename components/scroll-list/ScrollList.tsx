@@ -14,10 +14,7 @@ interface IControlSwitch {
 }
 
 type CarousselsIds = {
-    id1?: number,
-    id2?: number,
-    id3?: number,
-    id4?: number
+   [id : string] : number
 }
 
 let compte = 0
