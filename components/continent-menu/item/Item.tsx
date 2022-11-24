@@ -3,6 +3,7 @@ import {string} from "prop-types";
 
 interface IContinentMenuItemProps {
     continent : string;
+    blur:any
 }
 
 interface IContinentConfig {
@@ -57,13 +58,14 @@ const continentConfig = new Map < string,IContinentConfig > ([
         ]
     ]);
 
-const ContinentMenuItem = ({continent} : IContinentMenuItemProps) => {
+const ContinentMenuItem = ({continent,blur} : IContinentMenuItemProps) => {
     const config = continentConfig.get(continent);
     const classes : string[] = [styles["item"]];
     classes.push(config.custom);
+    console.log(classes)
 
     return (
-        <div className={classes.join(" ")}>
+        <div className={classes.join(" ")} onClick={blur} >
             <div className={styles["item__img"]}>
                 <img src={config.imgSrc}/>
             </div>

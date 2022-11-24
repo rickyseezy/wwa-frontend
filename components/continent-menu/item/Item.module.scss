@@ -102,13 +102,14 @@
   
   /* CSS */
   .item {
-    width: 69px;
-    height: 69px;
+    width: 75px;
+    height: 75px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    padding: .5em;
+    border-radius: 10px;
     margin: 0 .4em;
   
     &--europe {
@@ -118,9 +119,9 @@
     }
   
     &--africa {
-      background-color: $greenLuok;
+      background-color: white;
       border: 1px solid  transparent;
-         color: $greenApple;
+         color: black;
   
       .item__img {
         width: 50px;
@@ -128,39 +129,56 @@
     }
   
     &--northus {
-      background-color: $purpleLight;
+      background-color:white;
       border: 1px solid  transparent;
+      color: black !important;
+      padding: .5em;
+      .item__img {
+        width: 72px !important;
+      }
 
+      .item__title {
+        font-size: .5em !important;
+      }
       color: $purpleBayleen;
     }
   
     &--southamerica {
-      background-color: $blueLightyMick;
+      background-color: white;
       border: 1px solid transparent;
-         color: $blueNight;
+         color: black;
+         padding: .7em;
   
-      .item__img {
-        width: 32px;
-      }
+         .item__img {
+          width: 28px !important;
+        }
+  
+        .item__title {
+          font-size: .5em !important;
+        }
     }
   
     &--asia {
-      background-color: $roseBailame;
+      background-color: white;
       border: 1px solid transparent;
-      color: $roseSlight;
+      color: black;
     }
   
     &--oceania {
-      background-color: $yellowJuyli;
+      background-color: white;
       border: 1px solid transparent;
-      color: $yellowBoon;
+      color: black;
     }
   
     &__img {
       width: 60px;
-  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
       img {
-        width: 109%;
+        width: 80%;
+  
       }
     }
   
@@ -169,6 +187,7 @@
       font-weight: 600;
       letter-spacing: 2px;
       text-align: center;
+      margin-top: .5em;
     }
   }
 }
@@ -188,13 +207,14 @@
   }
 
   .item {
-    width: 38px;
-    height: 38px;
+    width: 55px;
+    height: 55px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    padding: 1em;
+    border-radius: 10px;
     margin: 0 .4em;
   
     &--europe {
@@ -204,9 +224,9 @@
     }
   
     &--africa {
-      background-color: $greenLuok;
+      background-color: white;
       border: 1px solid  transparent;
-         color: $greenApple;
+         color: black;
   
       .item__img {
         width: 50px;
@@ -214,47 +234,65 @@
     }
   
     &--northus {
-      background-color: $purpleLight;
+      background-color:white;
       border: 1px solid  transparent;
+      color: black !important;
+      padding: .5em;
+      .item__img {
+        width: 72px !important;
+      }
 
+      .item__title {
+        font-size: .4em !important;
+      }
       color: $purpleBayleen;
     }
   
     &--southamerica {
-      background-color: $blueLightyMick;
+      background-color: white;
       border: 1px solid transparent;
-         color: $blueNight;
+         color: black;
+         padding: .7em;
   
-      .item__img {
-        width: 32px;
-      }
+         .item__img {
+          width: 28px !important;
+        }
+  
+        .item__title {
+          font-size: .4em !important;
+        }
     }
   
     &--asia {
-      background-color: $roseBailame;
+      background-color: white;
       border: 1px solid transparent;
-      color: $roseSlight;
+      color: black;
     }
   
     &--oceania {
-      background-color: $yellowJuyli;
+      background-color: white;
       border: 1px solid transparent;
-      color: $yellowBoon;
+      color: black;
     }
   
     &__img {
       width: 60px;
-  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
       img {
-        width: 69%;
+        width: 60%;
+  
       }
     }
   
     &__title {
       font-size: .5rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-align: center;
+      margin-top: .5em;
     }
   }
   
@@ -270,13 +308,13 @@
 
   /* CSS */
   .item {
-    width: 38px;
-    height: 38px;
+    width: 45px;
+    height: 45px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
     margin: 0 .4em;
   
     &--europe {
@@ -286,57 +324,77 @@
     }
   
     &--africa {
-      background-color: $greenLuok;
+      background-color: white;
       border: 1px solid  transparent;
-         color: $greenApple;
-  
+         color: black;
+         padding: 0 .5em;
       .item__img {
         width: 50px;
       }
+   
     }
   
     &--northus {
-      background-color: $purpleLight;
+      background-color: white;
       border: 1px solid  transparent;
+      color: black;
+      padding: 0 .5em;
 
-      color: $purpleBayleen;
+      .item__img {
+        width: 72px !important;
+      }
+
+      .item__title {
+        font-size: .3em !important;
+      }
     }
   
     &--southamerica {
-      background-color: $blueLightyMick;
+      background-color: white;
       border: 1px solid transparent;
-         color: $blueNight;
-  
+         color: black;
+      padding: 0 .5em;
       .item__img {
         width: 32px;
+      }
+
+      .item__title {
+        font-size: .3em;
       }
     }
   
     &--asia {
-      background-color: $roseBailame;
+      background-color: white;
       border: 1px solid transparent;
-      color: $roseSlight;
+      color: black;
     }
   
     &--oceania {
-      background-color: $yellowJuyli;
+      background-color: white;
       border: 1px solid transparent;
-      color: $yellowBoon;
+      color: black;
     }
   
     &__img {
       width: 60px;
-  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+
       img {
-        width: 59%;
+        width: 39%;
       }
     }
   
     &__title {
-      font-size: .5rem;
+      margin-top: .5em;
+      font-size: .4rem;
       font-weight: 600;
       letter-spacing: .5px;
       text-align: center;
+      pointer-events: none;
+
     }
   }
   

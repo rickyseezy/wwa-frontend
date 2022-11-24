@@ -83,13 +83,6 @@
 */
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS */
-}
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-@media (min-width: 768px) and (max-width: 1024px) {
-  /* CSS */
   .content {
     width: 80%;
     height: 100%;
@@ -162,7 +155,7 @@
   ##Screen = B/w 481px to 767px
 
 */
-@media screen and (max-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
   /* CSS */
   .content {
     width: 90%;
@@ -171,6 +164,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .content .map {
+    margin-top: 44px !important;
+    background-size: 100% !important;
+    width: 100%;
+    height: 357px !important;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
   .content__subtitle {
     font-weight: 700;
@@ -183,7 +184,7 @@
   }
   .content__title {
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
     line-height: 2em;
   }

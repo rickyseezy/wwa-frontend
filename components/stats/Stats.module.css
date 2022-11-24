@@ -127,6 +127,7 @@
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
     padding: 0 1em !important;
+    margin: 0 auto;
   }
   .number {
     position: relative;
@@ -154,8 +155,8 @@
     font-size: 1.5rem !important;
   }
   .stat {
-    margin-top: 1.5em;
     width: 160px !important;
+    margin: 1.5em auto 0 auto;
   }
   .stat__title {
     font-weight: 800;

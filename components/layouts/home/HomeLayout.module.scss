@@ -204,7 +204,7 @@
       justify-content: flex-start;
   
       &__title {
-        font-size: 3rem;
+        font-size: 2rem !important;
         font-weight: 600;
         margin-top: 1.5rem !important
       }
@@ -242,12 +242,15 @@
   }
 
   .second-bloc {
-    height: 972px;
+ 
+    height: 1117px;
     padding: 4em 0;
     width: 100%;
     background-color: black;
     background-image: linear-gradient(to top, #0a6aaf, #0a6aaf, #0a6aaf, #0a6aaf, #0a6aaf);
-    clip-path: polygon(0% 20%, 100% 9%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0% 20%)
+    -webkit-clip-path: polygon(0% 20%, 100% 9%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0% 20%) !important;
+    clip-path: polygon(0% 33%, 100% 26%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0% 20%) !important;
+
   }
 
   // polygon(0% 20%, 100% 9%, 100% 20%, 100% 100%, 80% 100%, 20% 100%, 0 100%, 0% 20%)
