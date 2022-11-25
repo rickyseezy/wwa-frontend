@@ -12,7 +12,7 @@
 
   &--europe {
     background-color: $orangeSalmon;
-    border: 1px solid $orangeStrong;
+    border: 1px solid transparent;
     color: $orangeStrong;
   }
 
@@ -56,18 +56,25 @@
 
   &__img {
     width: 60px;
+    pointer-events: none;
 
     img {
       width: 100%;
+      pointer-events: none;
+
     }
   }
 
   &__title {
-    font-size: .8rem;
+    pointer-events: none;
+
+    font-size: .7rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-align: center;
   }
+
+ 
 }
 
 
@@ -101,6 +108,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   
   /* CSS */
+ 
   .item {
     width: 75px;
     height: 75px;
@@ -108,7 +116,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: .5em;
+    padding: .8em;
     border-radius: 10px;
     margin: 0 .4em;
   
@@ -116,12 +124,13 @@
       background-color: $orangeSalmon;
       border: 1px solid   transparent;
            color: $orangeStrong;
+    
     }
   
     &--africa {
-      background-color: white;
-      border: 1px solid  transparent;
-         color: black;
+      background-color: $greenLuok;
+      border: 1px solid $greenApple;
+      color: $greenApple;
   
       .item__img {
         width: 50px;
@@ -129,12 +138,12 @@
     }
   
     &--northus {
-      background-color:white;
-      border: 1px solid  transparent;
-      color: black !important;
+      background-color: $purpleLight;
+    border: 1px solid $purpleBayleen;
+    color: $purpleBayleen;
       padding: .5em;
       .item__img {
-        width: 72px !important;
+        width: 82px !important;
       }
 
       .item__title {
@@ -144,13 +153,12 @@
     }
   
     &--southamerica {
-      background-color: white;
-      border: 1px solid transparent;
-         color: black;
-         padding: .7em;
+      background-color: $blueLightyMick;
+      border: 1px solid $blueNight;
+      color: $blueNight;
   
          .item__img {
-          width: 28px !important;
+          width: 38px !important;
         }
   
         .item__title {
@@ -159,16 +167,18 @@
     }
   
     &--asia {
-      background-color: white;
-      border: 1px solid transparent;
-      color: black;
+      background-color: $roseBailame;
+      border: 1px solid $roseSlight;
+      color: $roseSlight;
     }
   
     &--oceania {
-      background-color: white;
-      border: 1px solid transparent;
-      color: black;
+      background-color: $yellowJuyli;
+      border: 1px solid $yellowBoon;
+      color: $yellowBoon;
     }
+
+ 
   
     &__img {
       width: 60px;
@@ -183,13 +193,23 @@
     }
   
     &__title {
-      font-size: .8rem;
+      font-size: .7rem;
       font-weight: 600;
       letter-spacing: 2px;
       text-align: center;
       margin-top: .5em;
     }
+    &__back{
+      background-color: white !important;
+      border: none !important;
+      color: black !important;
+      padding: .7em;
+      font-size: .5em;
+     
+    }
   }
+
+
 }
 
 /* 

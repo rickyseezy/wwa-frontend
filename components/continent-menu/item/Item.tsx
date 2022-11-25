@@ -1,9 +1,10 @@
 import styles from "./Item.module.scss";
 import {string} from "prop-types";
+import { useEffect, useRef } from "react";
 
 interface IContinentMenuItemProps {
     continent : string;
-    blur:any
+
 }
 
 interface IContinentConfig {
@@ -57,15 +58,59 @@ const continentConfig = new Map < string,IContinentConfig > ([
             }
         ]
     ]);
+    let tabItems = []
 
-const ContinentMenuItem = ({continent,blur} : IContinentMenuItemProps) => {
+const ContinentMenuItem = ({continent} : IContinentMenuItemProps) => {
+
     const config = continentConfig.get(continent);
     const classes : string[] = [styles["item"]];
     classes.push(config.custom);
     console.log(classes)
+    let divItems = useRef(null)
+
+    useEffect(()=>{
+        console.log('render')
+      tabItems.push(divItems.current)
+
+console.log(tabItems)
+              // reset les classes bacground white
+
+   tabItems.map((el,i)=>{
+       if(i != 0){
+       el.style = `  background-color: white !important;
+        border: none !important;
+        color: black !important;`
+       }
+   })
+     
+     return ()=>{
+        tabItems.length = 0
+     }
+    },[])
+
+    function Select(e){
+        let tabItemsClasses = Array.from(continentConfig.values())
+        let tabClasses = []
+        // reset les classes bacground white
+        tabItemsClasses.forEach((el,i)=>{
+            let{custom} = el
+            console.log(custom)
+            // tabItems[i].classList.remove(custom)
+            tabItems[i].style = `  background-color: white !important;
+      border: none !important;
+      color: black !important;`
+        })
+  
+        // met la classe target au background correspondant 
+        e.target.classList.remove('back')
+        e.target.style = 'border: 1px solid transparent'
+            e.target.classList.add(classes[1])
+
+        
+   }
 
     return (
-        <div className={classes.join(" ")} onClick={blur} >
+        <div className={classes.join(" ")} onClick={Select}  ref={divItems}>
             <div className={styles["item__img"]}>
                 <img src={config.imgSrc}/>
             </div>

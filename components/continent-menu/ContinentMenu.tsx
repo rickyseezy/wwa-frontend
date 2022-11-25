@@ -11,17 +11,15 @@ enum Continent {
 }
 
 const ContinentMenu = () => {
-    function Select(e: { target:HTMLDivElement; }){
-         console.log(e.target)
-    }
+  
     return (
         <div className={styles["menu"]}>
-            <ContinentMenuItem continent={Continent.Europe} blur={Select}/>
-            <ContinentMenuItem continent={Continent.Africa} blur={Select}/>
-            <ContinentMenuItem continent={Continent.NorthUS} blur={Select}/>
-            <ContinentMenuItem continent={Continent.SouthAmerica} blur={Select}/>
-            <ContinentMenuItem continent={Continent.Asia} blur={Select}/>
-            <ContinentMenuItem continent={Continent.Oceania} blur={Select}/>
+            <ContinentMenuItem continent={Continent.Europe} />
+            <ContinentMenuItem continent={Continent.Africa} />
+            <ContinentMenuItem continent={Continent.NorthUS} />
+            <ContinentMenuItem continent={Continent.SouthAmerica} />
+            <ContinentMenuItem continent={Continent.Asia} />
+            <ContinentMenuItem continent={Continent.Oceania} />
         </div>
     );
 };
