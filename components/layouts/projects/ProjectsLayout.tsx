@@ -64,15 +64,8 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
                 <li className={styles["menu__link"]}>Espagne</li>
                 <li className={styles["menu__link"]}>Portugal</li>
                 <li className={styles["menu__link"]}>Allemagne</li>
-                {/*<li className={styles["menu__link"]}>Allemagne</li>
-          <li className={styles["menu__link"]}>Grèce</li>
-          <li className={styles["menu__link"]}>Grèce</li>
-          <li className={styles["menu__link"]}>Grèce</li>
-          <li className={styles["menu__link"]}>Grèce</li>
-          <li className={styles["menu__link"]}>Grèce</li>
-          <li className={styles["menu__link"]}>Grèce</li>
-          <li className={styles["menu__link"]}>Grèce</li>
-          <li className={styles["menu__link"]}>Grèce</li>*/}
+                <li className={styles["menu__link"]}>Gréce</li>
+
               </ul>
               <div className={styles["menu-container__icon"]}>
                 {isShown ? scrollButton : null}

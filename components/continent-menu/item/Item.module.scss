@@ -244,9 +244,9 @@
     }
   
     &--africa {
-      background-color: white;
-      border: 1px solid  transparent;
-         color: black;
+      background-color: $greenLuok;
+      border: 1px solid  $greenApple;
+      color: $greenApple;
   
       .item__img {
         width: 50px;
@@ -254,9 +254,9 @@
     }
   
     &--northus {
-      background-color:white;
-      border: 1px solid  transparent;
-      color: black !important;
+      background-color: $purpleLight;
+    border: 1px solid $purpleBayleen;
+    color: $purpleBayleen;
       padding: .5em;
       .item__img {
         width: 72px !important;
@@ -269,9 +269,9 @@
     }
   
     &--southamerica {
-      background-color: white;
-      border: 1px solid transparent;
-         color: black;
+      background-color: $blueLightyMick;
+      border: 1px solid $blueNight;
+      color: $blueNight;
          padding: .7em;
   
          .item__img {
@@ -284,15 +284,15 @@
     }
   
     &--asia {
-      background-color: white;
-      border: 1px solid transparent;
-      color: black;
+      background-color: $roseBailame;
+      border: 1px solid $roseSlight;
+      color: $roseSlight;
     }
   
     &--oceania {
-      background-color: white;
-      border: 1px solid transparent;
-      color: black;
+      background-color: $yellowJuyli;
+      border: 1px solid $yellowBoon;
+      color: $yellowBoon;
     }
   
     &__img {
@@ -344,9 +344,9 @@
     }
   
     &--africa {
-      background-color: white;
-      border: 1px solid  transparent;
-         color: black;
+      background-color: $greenLuok;
+      border: 1px solid $greenApple;
+      color: $greenApple;
          padding: 0 .5em;
       .item__img {
         width: 50px;
@@ -355,9 +355,9 @@
     }
   
     &--northus {
-      background-color: white;
-      border: 1px solid  transparent;
-      color: black;
+      background-color: $purpleLight;
+      border: 1px solid $purpleBayleen;
+      color: $purpleBayleen;
       padding: 0 .5em;
 
       .item__img {
@@ -370,9 +370,9 @@
     }
   
     &--southamerica {
-      background-color: white;
-      border: 1px solid transparent;
-         color: black;
+      background-color: $blueLightyMick;
+      border: 1px solid $blueNight;
+      color: $blueNight;
       padding: 0 .5em;
       .item__img {
         width: 32px;
@@ -384,15 +384,15 @@
     }
   
     &--asia {
-      background-color: white;
-      border: 1px solid transparent;
-      color: black;
+      background-color: $roseBailame;
+      border: 1px solid $roseSlight;
+      color: $roseSlight;
     }
   
     &--oceania {
-      background-color: white;
-      border: 1px solid transparent;
-      color: black;
+      background-color: $yellowJuyli;
+      border: 1px solid $yellowBoon;
+      color: $yellowBoon;
     }
   
     &__img {
