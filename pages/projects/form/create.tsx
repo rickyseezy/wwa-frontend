@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from "react";
+import { ChangeEvent, Fragment, useRef, useState } from "react";
 import MainNavigation from "@components/navigation/MainNavigation";
 import styles from "./Create.module.scss";
 import Steps from "@components/steps/Steps";
@@ -12,12 +12,43 @@ import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 
 const CreateForm = () => {
-  const [bol,setbol] = useState(false)
+  const [bol,setbol] = useState(true)
   const show = useRef(null)
   const hide = useRef(null)
+const card1 = useRef(null)
   const route = useRouter()
-  
 
+  let [backgound1,setbackgound] = useState( "help-card--selected")
+  let [img1,setimg1] = useState(  '/icons/check.svg' )
+
+
+  let [background2,setbackgoundnot] = useState( "help-card--selectedRight")
+  let [img2,setimg2] = useState(  '/icons/check.svg' )
+
+  function SelectCause(e : ChangeEvent<HTMLElement>){
+   
+    console.log(e)
+
+    if(e.currentTarget.classList.contains('HelpCard_help-card--selectedRight__pm8m0')){
+      console.log('clicked')
+      if(backgound1 === "help-card--selectedRight"){
+        setbackgoundnot("help-card--selectedRight")
+        setbackgound("help-card--selected" )
+        // setimg1('/icons/check.svg')
+        // setimg2('')
+      }else{
+        setbackgoundnot("help-card--selected")
+        setbackgound("help-card--selectedRight")
+        // setimg1('')
+        // setimg2('/icons/check.svg')
+
+      }
+    
+
+    }
+
+
+  }
 
   const onContinueClick = () =>{
      console.log(bol,'bolean')
@@ -47,16 +78,17 @@ return (
     </div>
     <div className={styles["content"]}>
       <Title text="VOTRE CAUSE" />
-      <div className={styles["content__question"]}>
+      <div className={styles["content__question"]} >
         Quel est le type de votre cause ?
       </div>
       {/* Todo :: Remove display: none to display the card type */}
-      <div className={styles["help-types"]} ref={show} style={{ display: "none" }}>
-        <HelpCard title='Un project' backgroundColorCard="help-card--selected" imgValid= '/icons/check.svg' valid="select-icon" imgCard="/images/project-type.png" />
+      <div className={styles["help-types"]} ref={show} >
+        <HelpCard title='Un project' backgroundColorCard={backgound1} select={SelectCause} imgValid={img1} valid="select-icon" imgCard="/images/project-type.png"  />
         <div className={styles["help-types__separator"]} />
-        <HelpCard title='Un e-stand' backgroundColorCard="help-card--selectedRight" imgValid="" valid="" imgCard="/images/Group.png" />
+        <HelpCard title='Un e-stand' backgroundColorCard={background2} imgValid={img2} valid=""  imgCard="/images/Group.png" select={SelectCause} />
       </div>
-      <div className={styles["form-container"]} ref={hide}>
+      {/*  form page */}
+      <div className={styles["form-container"]} ref={hide} style={{ display: "none" }}>
         <div className={styles["form-container__step" ]} >1. Vous êtes</div>
         <div className={styles["select-box"]}>
           <div className={styles["choice"]}>

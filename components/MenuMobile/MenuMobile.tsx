@@ -23,7 +23,9 @@ function MenuMobile(props) {
   function FowardMNcompte(){
     router.push('/Mon-compte')
 }
-
+function CreateCause(){
+  router.push('/projects/form/create')
+}
 
 
    useEffect(() => {
@@ -54,7 +56,7 @@ function MenuMobile(props) {
         <li>Actualités </li>
         <li>Connexion </li>
       </ul>
-      <button className={styles['menuMobile__btn']}>Je crée ma cause</button>
+      <button className={styles['menuMobile__btn']} onClick={CreateCause}>Je crée ma cause</button>
     </div>
   )
 }

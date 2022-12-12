@@ -2,55 +2,19 @@ import styles from "./Home.module.scss";
 import Stats from "@components/stats/Stats";
 import PopularProjects from "@components/popular-projects/PopularProjects";
 import HomeLayout from "@components/layouts/home/HomeLayout";
-import { useEffect, useRef,useState } from "react";
+import { ChangeEvent, useEffect, useRef,useState } from "react";
+import { useRouter } from "next/router";
 
 const Home = () => {
     // let [taille,settaille] = useState(0)
     let cont_btn = useRef(null)
 
+    let router = useRouter()
 
-    // useEffect(()=>{
-    //   window.addEventListener('resize',()=>{
-    //     console.log(window.innerWidth)
-    //     if(window.innerWidth < 500){
-    //     if(cont_btn.current){
-    //     cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
+   function CreateCause( ){
 
-    //     }
-  
-    //     }else{
-    //       if(window.innerWidth <= 1024 && window.innerWidth > 500){
-    //         if(cont_btn.current){
-
-    //         cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
-    //         }
-    //       }else{
-    //         if(cont_btn.current){
-    //           cont_btn.current.style = 'position:relative'
-
-    //         }
-
-    //       }
-
-    //     }
-    //   })
-    //   if(window.innerWidth < 500){
-  
-    //     cont_btn.current.style = 'position:fixed !important; bottom:0 !important'
-
-    //   }else{
-    //     if(window.innerWidth <= 1024 && window.innerWidth > 500){
-    //       cont_btn.current.style = 'position:absolute !important; bottom:350px !important'
-
-    //     }
-    //     // cont_btn.current.style = 'position:relative'
-
-    //   }
-
-    // })
-
- 
-    //  si écran arrive au top du button position fixed sinon le laisse a l'endroit basic
+    router.push('/projects/form/create')
+   }
 
 
   return (
@@ -70,7 +34,7 @@ const Home = () => {
         <div className={styles.pusher} />
         <div ref={cont_btn} className={styles["cont-button"]}>
         <div className={styles.button}>
-          <div className={styles.button__text}>Je crée ma cause</div>
+          <div className={styles.button__text} onClick={CreateCause}>Je crée ma cause</div>
         </div>
         </div>
         <div className={styles["pick-continent"]}>

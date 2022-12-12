@@ -1,9 +1,17 @@
 import React from 'react'
 import styles from './SearchBar.module.scss'
 import { ChangeEvent, ChangeEventHandler } from "react";
+import { useRouter } from "next/router";
 
 
 function Searchbar() {
+
+   let router = useRouter()
+
+    function CreateCause(){
+      router.push('/projects/form/create')
+    }
+
     function onType(event: ChangeEvent<HTMLInputElement>) {
         console.log(event.target.value);
       }
@@ -16,7 +24,7 @@ function Searchbar() {
       </button>
     </div>
   <div>
-  <button className={styles["inputsearch__btnmenu"]}>Je crée ma cause</button>
+  <button className={styles["inputsearch__btnmenu"]} onClick={CreateCause}>Je crée ma cause</button>
   </div>
 </div> 
   )

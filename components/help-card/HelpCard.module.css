@@ -73,8 +73,57 @@
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
-@media screen and (max-width: 481px) {
-  /* CSS */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .help-card {
+    position: relative;
+    border: 1px solid #c3d4fb;
+    width: 100%;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color 1s;
+    margin-top: 1EM;
+  }
+  .help-card--selected {
+    background-color: #ecf2ff;
+    color: #1D53B7;
+  }
+  .help-card--selectedRight {
+    background-color: #ffffff;
+    color: #1D53B7;
+  }
+  .help-card__img {
+    width: 80%;
+  }
+  .help-card__text {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .help-card__description {
+    font-size: 0.7rem;
+    width: 80%;
+    text-align: center;
+  }
+  .help-card .select-icon {
+    width: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 33px;
+    background-color: #1D53B7;
+    position: absolute;
+    top: -20px;
+    right: 12px;
+  }
+  .help-card .select-icon img {
+    width: 70%;
+  }
 }
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)

@@ -32,8 +32,10 @@
     justify-content: center;
     align-items: center;
     border-radius: 25px;
-    background-color: #1D53B7;
+    background-color: #0A6AAF;
+
     margin-top: 1rem;
+    cursor: pointer;
   
     &__text {
       color: white;
@@ -93,7 +95,7 @@
   ##Screen = B/w 1025px to 1280px
 */
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media screen and  (min-width: 1025px) and (max-width: 1280px) {
   
   /* CSS */
   
@@ -106,7 +108,7 @@
 
 
 
-@media (min-width: 768px) and (max-width: 1024px)  {
+@media screen and (min-width: 768px) and (max-width: 1024px)  {
   
   /* CSS */
   .content {

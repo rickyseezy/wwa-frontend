@@ -1,20 +1,23 @@
 import styles from "./HelpCard.module.scss";
+import { useState } from "react";
 
 interface TypeHelpCard {
   title: string,
   backgroundColorCard : string,
   imgValid : string,
   valid : string,
-  imgCard : string
+  imgCard : string,
+  select: Function,
+
 
 }
 
 
-const HelpCard = ({title,backgroundColorCard,imgValid,valid,imgCard}: TypeHelpCard ) => {
-
+const HelpCard = ({title,backgroundColorCard,imgValid,valid,imgCard,select,}: TypeHelpCard ) => {
+  
 
   return (
-    <div className={`${styles["help-card"]} ${styles[backgroundColorCard]}`}>
+    <div className={`${styles["help-card"]} ${styles[backgroundColorCard]}`} onClick={select}>
       <img
         className={styles["help-card__img"]}
         src={imgCard}

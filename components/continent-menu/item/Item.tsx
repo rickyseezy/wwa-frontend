@@ -94,7 +94,8 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
         // reset les classes bacground white
         tabItemsClasses.forEach((el, i) => {
             let { custom } = el
-
+             
+            console.log(el.title.split(' ').join('').toLocaleLowerCase(),'class')
 
             tabItems[i].style = `  background-color: white !important;
       border: none !important;

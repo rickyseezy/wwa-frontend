@@ -90,16 +90,64 @@
 
 @media screen and ( min-width:481px) and (max-width:768px) {
 
-
+  .help-card {
+    position: relative;
+    border: 1px solid #c3d4fb;
+    width: 100%;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background-color 1s;
+    margin-top: 1EM;
+    &--selected {
+      background-color: #ecf2ff;
+      color: #1D53B7;
+    }
+  
+    &--selectedRight {
+      background-color: #ffffff;
+      color: #1D53B7;
+    }
+  
+    &__img {
+      width: 80%;
+    }
+  
+    &__text {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  
+    &__description {
+      font-size: .7rem;
+      width: 80%;
+      text-align: center;
+    }
+  
+    .select-icon {
+      width: 33px;
+      height: 33px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 33px;
+      background-color: #1D53B7;
+      position: absolute;
+      top: -20px;
+      right: 12px;
+      img {
+        width: 70%;
+      }
+    }
+  }
  
 }
-@media screen and (max-width: 481px)  {
-  
-  /* CSS */
 
-
-
-}
 
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
