@@ -459,6 +459,21 @@
 @media screen and (min-width: 320px) and (max-width: 480px) {
 
     /* CSS */
+    .wrapper {
+            .banner{
+                &__title{
+                    margin-top: 1em;
+                    text-align: center;
+                    font-size: 2em;
+                }
+            }
+            .stats-container {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    
     .continent-menu-wrapper {
         left: 10%;
         width: 100%;

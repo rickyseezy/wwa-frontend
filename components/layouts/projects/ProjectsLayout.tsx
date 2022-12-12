@@ -2,9 +2,10 @@ import styles from "./ProjectsLayout.module.scss";
 import MainNavigation from "@components/navigation/MainNavigation";
 import Stats from "@components/stats/Stats";
 import ContinentMenu from "@components/continent-menu/ContinentMenu";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState  } from "react";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import Footer from "@components/footer/Footer";
+import { useRouter } from "next/router";
 
 interface IProjectsLayout {
   children: React.ReactNode;
@@ -19,7 +20,13 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
         alt="left arrow"
       />
     </div>
-  );
+  )
+  let [title,settitle] = useState('EUROPE')
+  const [isShown, toggleButton] = useState(false); 
+
+ const router = useRouter()
+
+console.log(router.query.index)
 
   function showScrollableMenu(element: HTMLElement) {
     toggleButton(
@@ -28,7 +35,31 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
     );
   }
 
-  const [isShown, toggleButton] = useState(false);
+  function SwitchTitle(titles){
+    switch(titles){
+      case 'Afrique':
+        settitle('AFRIQUE')
+        break;
+      case 'Asie':
+        settitle('ASIE')
+        break;
+        case 'Ameriquedunord':
+          settitle('AMERIQUE DU NORD')
+          break;
+          case 'Ameriquedusud':
+            settitle('AMERIQUE DU SUD')
+            break;
+            case '/':
+              settitle('EUROPE')
+              break;
+            case 'Oceanie':
+              settitle('OCEANIE')
+              break;
+
+    }
+    }
+  
+   
 
   useEffect(() => {
     // console.log("Hello ", isShown);
@@ -37,6 +68,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
     //   scrollable.scrollHeight > scrollable.clientHeight ||
     //     scrollable.scrollWidth > scrollable.clientWidth
     // );
+    SwitchTitle(router.query.index)
     showScrollableMenu(scrollable);
   });
   return (
@@ -45,7 +77,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
         <MainNavigation />
         <MenuBurger />
         <div className={styles["banner"]}>
-          <h1 className={styles["banner__title"]}>EUROPE</h1>
+          <h1 className={styles["banner__title"]}>{title}</h1>
           <div className={styles["stats-container"]}>
             <Stats />
           </div>
