@@ -1,6 +1,7 @@
 import styles from "./Item.module.scss";
 import { string } from "prop-types";
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 
 interface IContinentMenuItemProps {
     continent: string;
@@ -61,18 +62,17 @@ const continentConfig = new Map<string, IContinentConfig>([
 let tabItems = []
 
 const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
+    
 
+    const router = useRouter()
     const config = continentConfig.get(continent);
     const classes: string[] = [styles["item"]];
     classes.push(config.custom);
-    console.log(classes)
     let divItems = useRef(null)
 
     useEffect(() => {
-        console.log('render')
         tabItems.push(divItems.current)
 
-        console.log(tabItems)
         // reset les classes bacground white
 
         tabItems.map((el, i) => {
@@ -100,7 +100,8 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
       border: none !important;
       color: black !important;`
         })
-
+        router.push('/projects/countries/Afrique')
+        console.log(config.title)
         // met la classe target au background correspondant 
         e.target.classList.remove('back')
         e.target.style = 'border: 1px solid transparent'
