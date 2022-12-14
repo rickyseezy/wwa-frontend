@@ -336,6 +336,7 @@
     align-items: center;
     border-radius: 10px;
     margin: 0 .4em;
+    
   
     &--europe {
       background-color: $orangeSalmon;
@@ -361,7 +362,7 @@
       padding: 0 .5em;
 
       .item__img {
-        width: 72px !important;
+        width: 92px !important;
       }
 
       .item__title {
@@ -375,7 +376,7 @@
       color: $blueNight;
       padding: 0 .5em;
       .item__img {
-        width: 32px;
+        width: 42px;
       }
 
       .item__title {

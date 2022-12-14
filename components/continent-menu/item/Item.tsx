@@ -92,16 +92,13 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
         let tabItemsClasses = Array.from(continentConfig.values())
 
         // reset les classes bacground white
-        tabItemsClasses.forEach((el, i) => {
-            let { custom } = el
+        tabItemsClasses.forEach((_el, i) => {
              
-            console.log(el.title.split(' ').join('').toLocaleLowerCase(),'class')
 
             tabItems[i].style = `  background-color: white !important;
       border: none !important;
       color: black !important;`
         })
-        console.log(config.title)
         // met la classe target au background correspondant 
         e.target.classList.remove('back')
         e.target.style = 'border: 1px solid transparent'

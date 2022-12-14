@@ -2,7 +2,7 @@ import styles from "./ProjectsLayout.module.scss";
 import MainNavigation from "@components/navigation/MainNavigation";
 import Stats from "@components/stats/Stats";
 import ContinentMenu from "@components/continent-menu/ContinentMenu";
-import React, { useEffect, useState  } from "react";
+import React, { useEffect, useState } from "react";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import Footer from "@components/footer/Footer";
 import { useRouter } from "next/router";
@@ -21,45 +21,45 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
       />
     </div>
   )
-  let [title,settitle] = useState('EUROPE')
-  const [isShown, toggleButton] = useState(false); 
+  let [title, settitle] = useState('EUROPE')
+  const [isShown, toggleButton] = useState(false);
 
- const router = useRouter()
+  const router = useRouter()
 
-console.log(router.query.index)
+  console.log(router.query.index)
 
   function showScrollableMenu(element: HTMLElement) {
     toggleButton(
       element.scrollHeight > element.clientHeight ||
-        element.scrollWidth > element.clientWidth
+      element.scrollWidth > element.clientWidth
     );
   }
 
-  function SwitchTitle(titles){
-    switch(titles){
+  function SwitchTitle(titles) {
+    switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
         break;
       case 'ASIE':
         settitle('ASIE')
         break;
-        case 'AMÉRIQUE DU NORD':
-          settitle('AMERIQUE DU NORD')
-          break;
-          case 'AMÉRIQUE DU SUD':
-            settitle('AMERIQUE DU SUD')
-            break;
-            case 'EUROPE':
-              settitle('EUROPE')
-              break;
-            case 'OCÈANIE':
-              settitle('OCEANIE')
-              break;
+      case 'AMÉRIQUE DU NORD':
+        settitle('AMERIQUE DU NORD')
+        break;
+      case 'AMÉRIQUE DU SUD':
+        settitle('AMERIQUE DU SUD')
+        break;
+      case 'EUROPE':
+        settitle('EUROPE')
+        break;
+      case 'OCÈANIE':
+        settitle('OCEANIE')
+        break;
 
     }
-    }
-  
-   
+  }
+
+
 
   useEffect(() => {
     // console.log("Hello ", isShown);
