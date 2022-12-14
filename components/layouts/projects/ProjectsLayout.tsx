@@ -37,22 +37,22 @@ console.log(router.query.index)
 
   function SwitchTitle(titles){
     switch(titles){
-      case 'Afrique':
+      case 'AFRICA':
         settitle('AFRIQUE')
         break;
-      case 'Asie':
+      case 'ASIE':
         settitle('ASIE')
         break;
-        case 'Ameriquedunord':
+        case 'AMÉRIQUE DU NORD':
           settitle('AMERIQUE DU NORD')
           break;
-          case 'Ameriquedusud':
+          case 'AMÉRIQUE DU SUD':
             settitle('AMERIQUE DU SUD')
             break;
-            case '/':
+            case 'EUROPE':
               settitle('EUROPE')
               break;
-            case 'Oceanie':
+            case 'OCÈANIE':
               settitle('OCEANIE')
               break;
 

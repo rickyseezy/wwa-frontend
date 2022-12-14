@@ -101,13 +101,13 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
       border: none !important;
       color: black !important;`
         })
-        router.push('/projects/countries/Afrique')
         console.log(config.title)
         // met la classe target au background correspondant 
         e.target.classList.remove('back')
         e.target.style = 'border: 1px solid transparent'
         e.target.classList.add(classes[1])
 
+        router.push('/projects/countries/'+ config.title)
 
     }
 
