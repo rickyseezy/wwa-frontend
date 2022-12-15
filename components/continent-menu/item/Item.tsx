@@ -99,7 +99,7 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
       border: none !important;
       color: black !important;`
         })
-        // met la classe target au background correspondant 
+        // met la classe target du background correspondant 
         e.target.classList.remove('back')
         e.target.style = 'border: 1px solid transparent'
         e.target.classList.add(classes[1])
