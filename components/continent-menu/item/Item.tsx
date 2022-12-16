@@ -1,6 +1,6 @@
 import styles from "./Item.module.scss";
 import { string } from "prop-types";
-import { useEffect, useRef } from "react";
+import { MouseEventHandler, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 
 interface IContinentMenuItemProps {
@@ -61,7 +61,7 @@ const continentConfig = new Map<string, IContinentConfig>([
 ]);
 let tabItems = []
 
-const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
+const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {   
     
 
     const router = useRouter()
@@ -89,21 +89,22 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
     }, [])
 
     function Select(e) {
-        let tabItemsClasses = Array.from(continentConfig.values())
-
+        let tabItemsClasses : Object[]  = Array.from(continentConfig.values())
+        const target = e.target as HTMLDivElement;
         // reset les classes bacground white
         tabItemsClasses.forEach((_el, i) => {
              
 
             tabItems[i].style = `  background-color: white !important;
-      border: none !important;
-      color: black !important;`
+               border: none !important;
+                color: black !important;
+               `
         })
         // met la classe target du background correspondant 
-        e.target.classList.remove('back')
-        e.target.style = 'border: 1px solid transparent'
-        e.target.classList.add(classes[1])
 
+         e.target.style = 'border: 1px solid transparent'
+        target.classList.add(classes[1])
+        target.classList.remove('back')
         router.push('/projects/countries/'+ config.title)
 
     }

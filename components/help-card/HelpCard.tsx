@@ -1,5 +1,5 @@
 import styles from "./HelpCard.module.scss";
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 
 interface TypeHelpCard {
   title: string,
@@ -7,13 +7,14 @@ interface TypeHelpCard {
   imgValid : string,
   valid : string,
   imgCard : string,
-  select: Function,
+  select:MouseEventHandler<HTMLDivElement>,
+
 
 
 }
 
 
-const HelpCard = ({title,backgroundColorCard,imgValid,valid,imgCard,select,}: TypeHelpCard ) => {
+const HelpCard = ({title,backgroundColorCard,imgValid,valid,imgCard,select}: TypeHelpCard ) => {
   
 
   return (
