@@ -1,4 +1,4 @@
-import { ChangeEvent, Fragment, useRef, useState } from "react";
+import { ChangeEvent, Fragment, MouseEventHandler, useRef, useState } from "react";
 import MainNavigation from "@components/navigation/MainNavigation";
 import styles from "./Create.module.scss";
 import Steps from "@components/steps/Steps";
@@ -11,24 +11,21 @@ import { useRouter } from "next/router";
 import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 
+
 const CreateForm = () => {
   const [bol,setbol] = useState(true)
   const show = useRef(null)
   const hide = useRef(null)
-const card1 = useRef(null)
-  const route = useRouter()
+
 
   let [backgound1,setbackgound] = useState( "help-card--selected")
   let [img1,setimg1] = useState(  '/icons/check.svg' )
-
-
   let [background2,setbackgoundnot] = useState( "help-card--selectedRight")
   let [img2,setimg2] = useState(  '/icons/check.svg' )
 
-  function SelectCause(e : ChangeEvent<HTMLElement>){
+  function SelectCause(e: { currentTarget: { classList: { contains: (arg0: string) => any; }; }; }){
    
-    console.log(e)
-
+    // const target = e.currentTarget as HTMLAnchorElement;
     if(e.currentTarget.classList.contains('HelpCard_help-card--selectedRight__pm8m0')){
       console.log('clicked')
       if(backgound1 === "help-card--selectedRight"){
