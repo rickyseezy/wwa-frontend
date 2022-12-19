@@ -32,7 +32,8 @@ const PopularProjects = () => {
             subtitleColor="#FFFF"
             buttonColor="blue"
             id={1}
-            func={parentToChild}/>
+            func={parentToChild}
+            />
         <div className={styles["pusher"]}/>
     </div> < ScrollList dir = {arrow} id = { 1 } /> </>);
 };

@@ -1,5 +1,6 @@
 import styles from "./ControlPane.module.scss";
 import ControlPaneButton from "@components/control-pane/button/Button";
+import { useEffect, useRef } from "react";
 
 interface ControlPaneProps {
     title : string;
@@ -20,6 +21,18 @@ const ControlPane = ({
     id,
     func
 } : ControlPaneProps) => {
+
+    const controller = useRef(null)
+    console.log(controller,id)
+    useEffect(()=>{
+        if (window.matchMedia("(max-width: 481px)").matches) {
+            // Viewport is less or equal to 700 pixels wide
+            if(id === 1){
+                controller.current.style = ' transform: translate(-300px, 20px) !important'
+            }
+          } 
+     
+    })
 
     return (
         <div className={styles["control-pane"]}>
@@ -42,7 +55,7 @@ const ControlPane = ({
                     {subTitle}
                 </div>
             </div>
-            <div className={styles["controllers"]}>
+            <div className={styles["controllers"]} ref={controller}>
                 <ControlPaneButton
                     direction="left"
                     color={buttonColor}
