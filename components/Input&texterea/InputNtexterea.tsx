@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,  useEffect} from 'react'
 import styles from "./input&texterea.module.scss";
 
 interface ControlInputNtextera{
@@ -7,12 +7,24 @@ interface ControlInputNtextera{
   bolea : boolean
 }
 
-
+let tab = []
 const InputNtexterea = ({titleInput,placeholder,bolea}:ControlInputNtextera) => {
-  
-    
+  const [selectedFile, setSelectedFile] = useState(null);
+  const  [file,setfile] = useState([])
+    // console.log(selectedFile,file)
+
+    useEffect(()=>{
+      if(selectedFile){
+        console.log('yep')
+        tab.push(selectedFile)
+        setfile(tab)
+      }
+
+    },[selectedFile])
+
+console.log(tab,"ggjk",file)
      if(bolea){
-      console.log(bolea)
+     
 
       return (
         <div className={styles["form-container1__step"]}>
@@ -26,7 +38,6 @@ const InputNtexterea = ({titleInput,placeholder,bolea}:ControlInputNtextera) => 
      }
      
      if(!bolea){
-       console.log('hey')
        return(
          <>       
         <div className={styles["form-container1__step"]}>
@@ -39,7 +50,10 @@ const InputNtexterea = ({titleInput,placeholder,bolea}:ControlInputNtextera) => 
         />
         <div className={styles["files__text"]}>
           Importez des photos et des vidéos depuis votre appareil
+         
         </div>
+        <input type="file" className={styles["files__input"]} 
+          onChange={(e) => setSelectedFile(e.target.files[0])}/>
       </div>
          </>
        )

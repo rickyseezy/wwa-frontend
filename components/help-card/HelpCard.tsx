@@ -8,17 +8,18 @@ interface TypeHelpCard {
   valid : string,
   imgCard : string,
   select:MouseEventHandler<HTMLDivElement>,
+  id:string
 
 
 
 }
 
 
-const HelpCard = ({title,backgroundColorCard,imgValid,valid,imgCard,select}: TypeHelpCard ) => {
+const HelpCard = ({title,backgroundColorCard,imgValid,valid,imgCard,select,id}: TypeHelpCard ) => {
   
 
   return (
-    <div className={`${styles["help-card"]} ${styles[backgroundColorCard]}`} onClick={select}>
+    <div className={`${styles["help-card"]} ${id} ${styles[backgroundColorCard]}`} onClick={select}>
       <img
         className={styles["help-card__img"]}
         src={imgCard}

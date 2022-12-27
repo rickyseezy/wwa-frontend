@@ -196,7 +196,7 @@
       justify-content: center;
       margin-top: 60px;
       .button {
-        background-color: #1D53B7;
+        background-color: #1d53b770;
         width: 318px;
         height: 54px;
         border-radius: 30px;
@@ -207,12 +207,17 @@
         font-weight: 500;
         font-size: .8rem;
         cursor: pointer;
+ 
       }
+      
+  
     }
   }
 }
 
-
+.bkg{
+  background-color: #1d53b7 !important;
+}
 
  
 @media screen and (min-width: 1080px) and (max-width: 1350px) {
@@ -557,11 +562,11 @@
   
     .content {
       width: 80%;
-      margin-top: 120px;
+      margin-top: 63px;
   
       &__question {
         margin-top: 10px;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 700;
       }
   
@@ -679,13 +684,13 @@
   
         .countries {
           margin-top: 35px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          display: grid;
+          grid-template-columns: repeat(3,1fr);
+          gap: 1em;
   
           .country {
        
-            width: 91px;
+            width: 95px;
             height: 42px;
             display: flex;
             flex-direction: column;

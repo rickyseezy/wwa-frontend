@@ -115,10 +115,10 @@
 
 @media screen and (min-width: 320px) and (max-width: 480px){
   .country {
-    border: none;
+   
 
-    width: 69px;
-    height: 69px;
+    width: 85px;
+    height: 89px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -126,18 +126,31 @@
     margin-right: 10px;
 
     &__icon {
-      width: 49px;
+      width: 58.79px;
+      height: 48.82px;
+  
     }
-
     &__name {
       margin-top: 5px;
       font-weight: 600;
-      font-size: .4rem;
+      font-size: 9.397px;
       letter-spacing: 2px;
       color: #474A57;
-      width: 80%;
+      width: 90%;
       text-align: center;
     }
+    &:nth-child(3){
+
+    img{
+      width: 65.79px;
+      height: 48.82px;
+
+    }
+    .name{
+      margin-top: 1px;
+      display: none;
+    }
+     } 
   }
 
   }
