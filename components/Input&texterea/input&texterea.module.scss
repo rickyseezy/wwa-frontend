@@ -35,7 +35,7 @@
 }
 
 .files {
-  position: relative;
+    position: relative;
     border-radius: 10px;
     background-color: #F3F9FD;
     width: 100%;
@@ -65,5 +65,48 @@
         font-weight: 600;
         color: #1D53B7;
         margin-top: 15px;
+    }
+}
+
+.step-grid {
+    width: 100%;
+    display: grid;
+    gap: 0.5em;
+    grid-template-columns: repeat(3,1fr);
+
+}
+.step-item {
+    width: 100px;
+    height: 70px;
+
+    img {
+        border-radius: 10px;
+
+        width: 100px;
+        height: 100%;
+    }
+}
+
+.add-text {
+    font-size: 1rem;
+    margin: 2em 0;
+}
+
+.input-file {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F5F9FC;
+    border-radius: 10px;
+    width: 100px;
+    height: 70px;
+    &__input {
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
     }
 }

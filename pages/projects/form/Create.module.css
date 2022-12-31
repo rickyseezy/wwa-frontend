@@ -222,24 +222,6 @@
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
 */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .form .content .form-container {
-    width: 100%;
-    margin-left: 0;
-  }
-  .form .content .form-container .countries .country {
-    width: 40px !important;
-    height: 40px !important;
-  }
-  .form .content .form-container .thematics .thematic {
-    width: 45% !important;
-    height: 200px !important;
-  }
-  .form .content .form-container .thematics .thematic__name {
-    font-size: .5em !important;
-  }
-}
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px

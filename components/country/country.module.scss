@@ -11,6 +11,7 @@
 
     &__icon {
       width: 60px;
+      pointer-events: none;
     }
 
     &__name {
@@ -21,6 +22,8 @@
       color: #474A57;
       width: 80%;
       text-align: center;
+      pointer-events: none;
+
     }
   }
 

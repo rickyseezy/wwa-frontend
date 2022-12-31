@@ -66,4 +66,20 @@
   color: #1D53B7;
   margin-top: 15px;
 }
+
+.step-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.step-item {
+  width: 100px;
+  height: 70px;
+}
+
+.step-item img {
+  width: 100px;
+  height: 100%;
+}
 /*# sourceMappingURL=input&texterea.module.css.map */
