@@ -232,119 +232,7 @@
   ##Screen = B/w 768px to 1024px
 */
 
-@media screen and  (min-width: 768px) and (max-width: 1024px)  {
-  .form {
 
-  
-    &__steps {
-  
-    }
-  
-    .content {
-
-  
-      &__question {
-  
-      }
-  
-      .help-types {
-
-        &__separator {
-
-        }
-      }
-  
-      .form-container {
-        //border: 1px solid;
-       width: 100%;
-       margin-left: 0;
-  
-        &__step {
-   
-        }
-  
-        .select-box {
-    
-          .choice {
- 
-            &__checkbox {
-           
-  
-              span {
-       
-              }
-            }
-  
-            &__text {
-
-            }
-          }
-        }
-  
-        &__input {
-        
-  
-          &::placeholder {
-       
-          }
-        }
-  
-        &__textarea {
-     
-  
-          &::placeholder {
-       
-          }
-        }
-  
-        .files {
-      
-  
-          &__icon {
-
-          }
-  
-          &__text {
-
-          }
-        }
-  
-        .countries {
-        
-  
-          .country {
-           width: 40px !important;
-           height: 40px !important;
-          }
-        }
-  
-        .thematics {
-  
-          .thematic {
-            width: 45% !important;
-            height: 200px !important;
-  
-  
-            &__image {
-        
-            }
-  
-            &__name {
-             font-size: .5em !important;
-            }
-          }
-        }
-  
-      }
-  
-      .button-container {
-    
-      }
-    }
-
-  
-}
-}
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -708,7 +596,9 @@
         }
   
         .thematics {
-  
+         display: grid !important;
+         grid-template-columns: repeat(2,1fr) !important;
+         
           .thematic {
             width: 100% !important;
             height: 200px !important;
