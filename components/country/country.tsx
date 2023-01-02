@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./country.module.scss";
 
-
+ 
 interface CountryPanelProps {
     imgSrc : string;
     titleCountry : string
