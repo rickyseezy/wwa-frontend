@@ -18,6 +18,13 @@ const CreateForm = () => {
     const show = useRef(null)
     const hide = useRef(null)
 
+    let countryEuro= useRef()
+    let countryAfri= useRef()
+    let countryUsNorth= useRef()
+    let countryUsSouth= useRef()
+    let countryAsia= useRef()
+    let countryOcea= useRef()
+
     let [card1Style,
         setcard1Style] = useState("")
 
@@ -45,10 +52,9 @@ const CreateForm = () => {
         }
 
     }
-    console.log(card1Style)
     const onContinueClick = () => {
         setcard1Style("")
-
+          if(card1Style === 'card1' || card1Style === 'card2'){
         if (!bol) {
             show.current.style = 'display :flex'
             hide.current.style = 'display : none'
@@ -60,10 +66,12 @@ const CreateForm = () => {
         }
 
         setbol(!bol)
-
+        }
     }
 
-    const thematics = [...Array(30)];
+    const thematics = [...Array(25)];
+    const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
+    'Numérique','Puissance publique','Répuclique','Ruralité','Santé','Séxurité et Défense','Solidarités','Sport','Théme autre','Transition écologique','Travail','Villes et Quartier']
     return (
         <Fragment>
             <MainNavigation/>
@@ -151,17 +159,17 @@ const CreateForm = () => {
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>
 
-                            <Country titleCountry="EUROPE" imgSrc="/icons/europe-icon.svg"/>
+                            <Country titleCountry="EUROPE" imgSrc="/icons/europe-icon.svg" div={countryEuro}   />
 
-                            <Country titleCountry="AFRIQUE" imgSrc='/icons/africa-icon.svg'/>
+                            <Country titleCountry="AFRIQUE" imgSrc='/icons/africa-icon.svg' div={countryAfri}/>
 
-                            <Country titleCountry="AMÉRIQUE DU NORD" imgSrc='/icons/na-icon.svg'/>
+                            <Country titleCountry="AMÉRIQUE DU NORD" imgSrc='/icons/na-icon.svg' div={countryUsNorth}/>
 
-                            <Country titleCountry="AMÉRIQUE DU SUD" imgSrc='/icons/sa-icon.svg'/>
+                            <Country titleCountry="AMÉRIQUE DU SUD" imgSrc='/icons/sa-icon.svg' div={countryUsSouth}/>
 
-                            <Country titleCountry="ASIE" imgSrc='/icons/asia-icon.svg'/>
+                            <Country titleCountry="ASIE" imgSrc='/icons/asia-icon.svg' div={countryAsia}/>
 
-                            <Country titleCountry="OCÉANIE" imgSrc='/icons/oceania-icon.svg'/>
+                            <Country titleCountry="OCÉANIE" imgSrc='/icons/oceania-icon.svg' div={countryOcea}/>
 
                         </div>
                         {/*Todo :: Text should be dynamic either project or cause*/}
@@ -172,7 +180,7 @@ const CreateForm = () => {
                             {thematics.map((_, i) => (
                                 <div className={styles["thematic"]} key={i}>
                                     <div className={styles["thematic__image"]}/>
-                                    <div className={styles["thematic__name"]}>Culture</div>
+                                    <div className={styles["thematic__name"]}>{Theme[i]}</div>
                                 </div>
                             ))}
                         </div>

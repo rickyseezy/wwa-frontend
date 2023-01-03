@@ -53,7 +53,6 @@ function CreateCause(){
         <li onClick={FowardCauses}>Causes </li>
         <li onClick={FowardProject}>Projets </li>
         <li onClick={FowardMNcompte}>Mon Compte</li>
-        <li>Actualités </li>
         <li>Connexion </li>
       </ul>
       <button className={styles['menuMobile__btn']} onClick={CreateCause}>Je crée ma cause</button>

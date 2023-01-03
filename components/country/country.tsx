@@ -1,30 +1,117 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from "./country.module.scss";
-
+import stylesItm from "../continent-menu/item/Item.module.scss";
  
 interface CountryPanelProps {
     imgSrc : string;
     titleCountry : string
+    div : any
 
 }
 
-const country = ({imgSrc, titleCountry} : CountryPanelProps) => {
-    function Country(e){
-        let target = e.target.children[0].src
-        if(target.match('asia')){
-            console.log('yo')
 
+interface IContinentConfig {
+    title: string;
+    imgSrc: string;
+    custom: string;
+}
+
+
+const continentConfig = new Map<string, IContinentConfig>([
+    [
+        "EUROPE", {
+            title: "EUROPE",
+            imgSrc: "/images/europe-item.png",
+            custom: `${stylesItm["item--europe"]}`
         }
-
-        switch(target){
-            case target.match('asia') :
-                console.log('yeah')
+    ],
+    [
+        "AFRICA", {
+            title: "AFRIQUE",
+            imgSrc: "/images/africa-item.png",
+            custom: `${stylesItm["item--africa"]}`
         }
+    ],
+    [
+        "NORTH-US", {
+            title: "AMÉRIQUE DU NORD",
+            imgSrc: "/images/north-us-item.png",
+            custom: `${stylesItm["item--northus"]}`
+        }
+    ],
+    [
+        "SOUTH-AMERICA", {
+            title: "AMÉRIQUE DU SUD",
+            imgSrc: "/images/south-america-item.png",
+            custom: `${stylesItm["item--southamerica"]}`
+        }
+    ],
+    [
+        "ASIA", {
+            title: "ASIE",
+            imgSrc: "/images/asia-item.png",
+            custom: `${stylesItm["item--asia"]}`
+        }
+    ],
+    [
+        "OCEANIA", {
+            title: "OCÉANIE",
+            imgSrc: "/images/oceania-item.png",
+            custom: `${stylesItm["item--oceania"]}`
+        }
+    ]
+]);
+let tab = []
+const country = ({imgSrc, titleCountry,div} : CountryPanelProps) => {
+    
+    let [countryConf,setCountryConf] = useState('')
+    let [divContinent,setcontinent] = useState([])
+    console.log(div.current,'div')
+    
+// enléve le style des précédents country 
+    function Removecustom(){
+        continentConfig.forEach(continent =>{
+ 
 
+            divContinent.forEach(removeback =>{
+                removeback.classList.remove(continent.custom)
+              })
+           })
+      
     }
 
+    function Country(e){
+        Removecustom()
+
+     continentConfig.forEach(continent =>{
+ 
+
+      if(continent.title === e.target.children[1].innerText){
+        // la div targetté ainsi que la style custom associé dans l'array
+        e.target.classList.add(continent.custom)
+        }
+     })
+
+
+
+     }
+     
+       useEffect(()=>{
+ 
+        if(div.current && tab.length <=  5){
+            tab.push(div.current)
+            setcontinent(tab)
+            console.log(tab,divContinent)
+    
+        }
+        console.log(countryConf)
+
+     
+
+ 
+       })
     return (
-        <div className={styles["country"]} onClick={Country}>
+        <div className={`${styles["country"]} `} onClick={Country} ref={div}  >
             <img className={styles["country__icon"]} src={imgSrc}/>
             <div className={styles["country__name"]}>{titleCountry}</div>
 

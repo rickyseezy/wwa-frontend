@@ -59,8 +59,7 @@ interface IContinentConfig {
 //         }
 //     ]
 // ]);
-
-export  const continentConfig = new Map<string, IContinentConfig>([
+const continentConfig = new Map<string, IContinentConfig>([
     [
         "EUROPE", {
             title: "EUROPE",
