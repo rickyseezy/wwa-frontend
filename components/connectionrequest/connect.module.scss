@@ -6,7 +6,7 @@
     width: 100vw;
     background-color: white;
     z-index: 445454545454;
-    padding: 2em 2em 0 2em;
+    padding: 2em 0em 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,4 +65,34 @@
      }
     }
 
+}
+
+@media screen and (min-width:758px) and (max-width:1400px) {
+   
+    .back-connect{
+        background-color: rgba(0, 0, 0, 0.422);
+        position: fixed;
+        z-index: 565765;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height:100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .connect{
+            position: relative !important;
+            width: 40% !important;
+        }
+    }
+}
+
+@media screen and (max-width:758px) {
+    .back-connect{
+        .connect{
+         padding: 2em 2em 0em 2em;
+        }
+    }
+    
 }

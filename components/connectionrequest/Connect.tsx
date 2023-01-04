@@ -50,6 +50,7 @@ useEffect(()=>{
 
 
   return (
+    <div className={styles['back-connect']}>
  <div ref={connect}  className={styles['connect']}>
   <h1>Connectez-vous</h1>
   <form action="" className={styles["connect__form"]}>
@@ -70,6 +71,7 @@ useEffect(()=>{
         
     <p onClick={handleSub}>Pas encore de compte ? <span>s'inscrire</span> </p>
   </div>
+ </div>
  </div>
   )
 }

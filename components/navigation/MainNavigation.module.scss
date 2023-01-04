@@ -2,6 +2,7 @@
 
 
 .containerMenu{
+  position: relative;
     width: 100%;
     padding: 1em 0;
     display: flex;
@@ -33,7 +34,7 @@
      display: flex;
      align-items: center;
      justify-content: space-between;
-     width: 80%;
+     width: 90%;
   }
   
   li{
@@ -62,11 +63,6 @@
   ##Screen = 1281px to higher resolution desktops
 */
 
-@media (min-width: 1281px) {
-  
-  /* CSS */
-  
-}
 
 /* 
   ##Device = Laptops, Desktops
@@ -76,6 +72,26 @@
 @media (min-width: 1025px) and (max-width: 1280px) {
   
   /* CSS */
+  .containerMenu{
+    &__item{
+      width: 60%;
+    }
+    div{
+      &:nth-child(1){
+        width: 80%;
+      }
+    }
+
+    &__itemmenu{
+      
+  ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+ }
+    }
+  }
   
 }
 

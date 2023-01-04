@@ -5,8 +5,8 @@
   top: 0;
   width: 100vw;
   background-color: white;
-  z-index: 45454;
-  padding: 2em 2em 0 2em;
+  z-index: 445454545454;
+  padding: 2em 0em 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,4 +54,28 @@
 }
 .connect__band p span {
   color: rgb(29, 83, 183);
+}
+
+@media screen and (min-width: 758px) and (max-width: 1400px) {
+  .back-connect {
+    background-color: rgba(0, 0, 0, 0.422);
+    position: fixed;
+    z-index: 565765;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .back-connect .connect {
+    position: relative !important;
+    width: 40% !important;
+  }
+}
+@media screen and (max-width: 758px) {
+  .back-connect .connect {
+    padding: 2em 2em 0em 2em;
+  }
 }/*# sourceMappingURL=connect.module.css.map */

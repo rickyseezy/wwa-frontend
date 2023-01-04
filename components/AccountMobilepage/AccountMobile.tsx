@@ -29,7 +29,8 @@ const AccountMobile = (props: any) =>  {
 
   
   return (
-    <div className={styles['AccountMobile']} ref={accountMobile}>
+    <div className={styles['back-account']} ref={accountMobile}>
+    <div className={styles['AccountMobile']} >
       <img onClick={LeaveCompte} className={styles['AccountMobile__cross']} src="/images/cross.png" alt="" />
         <div className={styles['AccountMobile__container']}>
             <h1>Créer un compte</h1>
@@ -81,6 +82,7 @@ const AccountMobile = (props: any) =>  {
 
         </div>
    
+    </div>
     </div>
   )
 }
