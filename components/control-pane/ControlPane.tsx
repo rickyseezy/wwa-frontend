@@ -23,7 +23,6 @@ const ControlPane = ({
 } : ControlPaneProps) => {
 
     const controller = useRef(null)
-    console.log(controller,id)
     useEffect(()=>{
         if (window.matchMedia("(max-width: 481px)").matches) {
             // Viewport is less or equal to 700 pixels wide

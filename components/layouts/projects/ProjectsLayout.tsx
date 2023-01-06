@@ -6,36 +6,27 @@ import React, { useEffect, useState } from "react";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import Footer from "@components/footer/Footer";
 import { useRouter } from "next/router";
+import MenuCountry from "@components/menuCountry/MenuCountry";
 
 interface IProjectsLayout {
   children: React.ReactNode;
 }
 
 const ProjectsLayout = ({ children }: IProjectsLayout) => {
-  const scrollButton = (
-    <div className={`${styles["bullet"]}`}>
-      <img
-        className={styles["bullet__arrow"]}
-        src={`/icons/right-arrow-blue.svg`}
-        alt="left arrow"
-      />
-    </div>
-  )
+
   let [title, settitle] = useState('EUROPE')
-  const [isShown, toggleButton] = useState(false);
+  let [accTittle, setAccTitle] = useState('')
+
+  let [titleCountry, settitleCountry] = useState('')
+  let [bolean,setbolean] = useState(false)
+
 
   const router = useRouter()
 
-  console.log(router.query.index)
-
-  function showScrollableMenu(element: HTMLElement) {
-    toggleButton(
-      element.scrollHeight > element.clientHeight ||
-      element.scrollWidth > element.clientWidth
-    );
-  }
 
   function SwitchTitle(titles) {
+    setbolean(false)
+
     switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
@@ -59,50 +50,50 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
     }
   }
 
+  function menuClicked(e){
+ 
+      setbolean(true)
+    
+    settitleCountry(e.target.innerText)
+  }
+
 
 
   useEffect(() => {
-    // console.log("Hello ", isShown);
-    const scrollable = document.getElementById(`${styles["scrollable"]}`);
-    // console.log(
-    //   scrollable.scrollHeight > scrollable.clientHeight ||
-    //     scrollable.scrollWidth > scrollable.clientWidth
-    // );
+
     SwitchTitle(router.query.index)
-    showScrollableMenu(scrollable);
-  });
+    ChooseTitle()
+    console.log(bolean)
+  },[bolean]);
+   
+
+  function ChooseTitle(){
+     if(bolean){
+      console.log(bolean,'bol1 true')
+
+     }else{
+      // setbolean(false)
+      console.log(bolean,'bol2 true')
+    } 
+  }
+
+
+
   return (
     <>
-      <div className={styles["wrapper"]}>
+      <div className={styles["wrapper"]}> 
         <MainNavigation />
         <MenuBurger />
         <div className={styles["banner"]}>
-          <h1 className={styles["banner__title"]}>{title}</h1>
+          <h1 className={styles["banner__title"]}>{!bolean  ? title : titleCountry}</h1>
           <div className={styles["stats-container"]}>
             <Stats />
           </div>
         </div>
         <div className={styles["wrapper__content"]}>
           <div className={styles["causes-wrapper"]}>
-            <div className={styles["menu-container"]}>
-              <ul className={styles["menu"]} id={styles["scrollable"]}>
-                <li
-                  className={`${styles["menu__link"]} ${styles["menu__link--selected"]} `}
-                >
-                  Top causes
-                </li>
-                <li className={styles["menu__link"]}>Les plus suivies</li>
-                <li className={styles["menu__link"]}>Italie</li>
-                <li className={styles["menu__link"]}>Espagne</li>
-                <li className={styles["menu__link"]}>Portugal</li>
-                <li className={styles["menu__link"]}>Allemagne</li>
-                <li className={styles["menu__link"]}>Gréce</li>
-
-              </ul>
-              <div className={styles["menu-container__icon"]}>
-                {isShown ? scrollButton : null}
-              </div>
-            </div>
+           
+            <MenuCountry select={menuClicked}/>
             <div className={styles["children-container"]}>{children}</div>
           </div>
         </div>
@@ -115,7 +106,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
           <div className={styles["map__display"]}></div>
         </div>
         <div className={styles["continent-menu-wrapper"]}>
-          <ContinentMenu />
+          <ContinentMenu   />
         </div>
       </div>
       <Footer />

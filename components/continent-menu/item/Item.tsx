@@ -1,6 +1,6 @@
 import styles from "./Item.module.scss";
 import { string } from "prop-types";
-import { MouseEventHandler, useEffect, useRef } from "react";
+import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 
 interface IContinentMenuItemProps {
@@ -108,7 +108,7 @@ let tabItems = []
 
 const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {   
     
-
+    let [selectCountry,setSelectCountry] = useState()
     const router = useRouter()
     const config = continentConfig.get(continent);
     const classes: string[] = [styles["item"]];
@@ -117,8 +117,9 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 
     useEffect(() => {
         tabItems.push(divItems.current)
+           
 
-        // reset les classes bacground white
+        // reset les classes background white
 
         tabItems.map((el, i) => {
             if (i != 0) {
@@ -126,8 +127,8 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
         border: none !important;
         color: black !important;`
             }
-        })
-
+         })
+ 
         return () => {
             tabItems.length = 0
         }
@@ -136,6 +137,9 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
     function Select(e) {
         let tabItemsClasses : Object[]  = Array.from(continentConfig.values())
         const target = e.target as HTMLDivElement;
+
+
+
         // reset les classes bacground white
         tabItemsClasses.forEach((_el, i) => {
              
@@ -145,14 +149,20 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
                 color: black !important;
                `
         })
+
+
+
+
         // met la classe target du background correspondant 
 
          e.target.style = 'border: 1px solid transparent'
         target.classList.add(classes[1])
         target.classList.remove('back')
         router.push('/projects/countries/'+ config.title)
+       
 
     }
+
 
     return (
         <div className={classes.join(" ")} onClick={Select} ref={divItems}>
