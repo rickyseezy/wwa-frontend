@@ -104,7 +104,7 @@ const continentConfig = new Map<string, IContinentConfig>([
     ]
 ]);
 
-let tabItems = []
+let tabItems = [] 
 
 const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {   
     
