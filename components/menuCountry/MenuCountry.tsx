@@ -1,8 +1,8 @@
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useState,useRef, MouseEventHandler } from "react";
 import styles from "../layouts/projects/ProjectsLayout.module.scss";
 
 interface MenuCountryProps{
-    select : Function
+    select : MouseEventHandler<HTMLLIElement>
 }
 
 function MenuCountry({select}:MenuCountryProps) {
@@ -39,7 +39,7 @@ function MenuCountry({select}:MenuCountryProps) {
 
         <div className={styles["menu-container"]}>
         <ul className={styles["menu"]} id={styles["scrollable"]}  ref={scrollable}>
-          {/* <li onClick={select}
+          <li onClick={select}
             className={`${styles["menu__link"]} ${styles["menu__link--selected"]} `}
           >
             Top causes
@@ -49,7 +49,7 @@ function MenuCountry({select}:MenuCountryProps) {
           <li onClick={select} className={styles["menu__link"]}>Espagne</li>
           <li onClick={select} className={styles["menu__link"]}>Portugal</li>
           <li onClick={select} className={styles["menu__link"]}>Allemagne</li>
-          <li onClick={select} className={styles["menu__link"]}>Gréce</li> */}
+          <li onClick={select} className={styles["menu__link"]}>Gréce</li>
 
         </ul>
         <div className={styles["menu-container__icon"]}>

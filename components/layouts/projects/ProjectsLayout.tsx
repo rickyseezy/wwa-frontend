@@ -18,14 +18,12 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   let [accTittle, setAccTitle] = useState('')
 
   let [titleCountry, settitleCountry] = useState('')
-  let [bolean,setbolean] = useState(false)
-
+let [bolean,setbolean] = useState(false)
 
   const router = useRouter()
 
 
   function SwitchTitle(titles) {
-    setbolean(false)
 
     switch (titles) {
       case 'AFRICA':
@@ -51,31 +49,24 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   }
 
   function menuClicked(e){
- 
-      setbolean(true)
-    
-    settitleCountry(e.target.innerText)
+
+    if(!bolean){
+      settitle(e.target.innerText)
+
+    }
+
   }
 
 
 
   useEffect(() => {
 
-    SwitchTitle(router.query.index)
-    ChooseTitle()
-    console.log(bolean)
-  },[bolean]);
+      SwitchTitle(router.query.index)
+
+ 
+  });
    
 
-  function ChooseTitle(){
-     if(bolean){
-      console.log(bolean,'bol1 true')
-
-     }else{
-      // setbolean(false)
-      console.log(bolean,'bol2 true')
-    } 
-  }
 
 
 
@@ -85,7 +76,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
         <MainNavigation />
         <MenuBurger />
         <div className={styles["banner"]}>
-          <h1 className={styles["banner__title"]}>{!bolean  ? title : titleCountry}</h1>
+          <h1 className={styles["banner__title"]}>{title}</h1>
           <div className={styles["stats-container"]}>
             <Stats />
           </div>
