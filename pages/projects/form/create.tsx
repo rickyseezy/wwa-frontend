@@ -12,7 +12,23 @@ import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 let stylesbol = ""
 
+interface IProjet {
+    title: string
+    subtitle: string
+    description: string
+    files: File[]
+   }
+
+   interface File {
+    filename: string // dbeudbe.jpg
+    url: string // http://aws.cloud/dbeudbe.jpg
+    type: string // image/video
+   }
+
 const CreateForm = () => {
+    let [profil,setprofil] = useState({
+
+    })
     const [bol,
         setbol] = useState(true)
     const show = useRef(null)
@@ -24,14 +40,34 @@ const CreateForm = () => {
     let countryUsSouth= useRef()
     let countryAsia= useRef()
     let countryOcea= useRef()
+    let individuel = useRef()
+    let assosiation = useRef()
 
     let [card1Style,
         setcard1Style] = useState("")
 
+        function OptionWebsite(e){
+            console.log(e.target,individuel.current)
+            
+
+            // if(e.target === individuel.current){
+            //     e.target.style = 'background : #1D53B7'
+            //     if(assosiation.current){
+            //     assosiation.current.style = 'background :white'
+            //      }
+            // }else{
+            //     e.target.style = 'background : #1D53B7'
+            //     if(individuel.current){
+            //       individuel.current.style = 'background :white'
+            //      }
+            // }
+        }
      function ClickTime(){
       // setcard1Style("")
       console.log(card1Style)
      }
+
+     
     function SelectCause(e : {
         currentTarget: {
             classList: {
@@ -52,6 +88,8 @@ const CreateForm = () => {
         }
 
     }
+
+
     const onContinueClick = () => {
         setcard1Style("")
           if(card1Style === 'card1' || card1Style === 'card2'){
@@ -125,16 +163,15 @@ const CreateForm = () => {
                         <div className={styles["select-box"]}>
                             <div className={styles["choice"]}>
                                 <div className={styles["choice__checkbox"]}>
-                                    <span
+                                    <span  onClick={OptionWebsite}
                                         style={{
-                                        display: "none"
-                                    }}/>
+                                       background:"white"}} ref={individuel}/>
                                 </div>
                                 <div className={styles["choice__text"]}>Individuel</div>
                             </div>
                             <div className={styles["choice"]}>
                                 <div className={styles["choice__checkbox"]}>
-                                    <span/>
+                                    <span onClick={OptionWebsite} ref={assosiation}/>
                                 </div>
                                 <div className={styles["choice__text"]}>Association</div>
                             </div>
@@ -144,11 +181,15 @@ const CreateForm = () => {
                             placeholder="Votre site web"/>
 
                         <InputNtexterea
-                            titleInput="2. L'objectif du projet"
-                            placeholder={`L'objectif de votre cause`}
+                            titleInput="2. Titre du project"
+                            placeholder={`Le titre de votre cause`}
+                            bolea={true}/>
+                             <InputNtexterea
+                            titleInput="3. Sous-titre du projet"
+                            placeholder={`Sous-titre de votre project`}
                             bolea={true}/>
                         <InputNtexterea
-                            titleInput="3. Description de votre projet"
+                            titleInput="4. Description de votre projet"
                             placeholder={`Description de votre project`}
                             bolea={true}/>
                         <InputNtexterea
