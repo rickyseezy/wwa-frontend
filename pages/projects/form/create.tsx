@@ -1,4 +1,4 @@
-import {ChangeEvent, Fragment, MouseEventHandler, useRef, useState} from "react";
+import {ChangeEvent, Fragment, MouseEventHandler, useEffect, useRef, useState} from "react";
 import MainNavigation from "@components/navigation/MainNavigation";
 import styles from "./Create.module.scss";
 import Steps from "@components/steps/Steps";
@@ -13,6 +13,8 @@ import MenuBurger from "@components/menu-burger/MenuBurger";
 let stylesbol = ""
 
 interface IProjet {
+    focus: string,
+    web: string,
     title: string
     subtitle: string
     description: string
@@ -27,6 +29,12 @@ interface IProjet {
 
 const CreateForm = () => {
     let [profil,setprofil] = useState({
+        focus:'',
+        setweb:'',
+        title: '',
+        subtitle: '',
+        description: '',
+        files:'',
 
     })
     const [bol,
@@ -43,19 +51,23 @@ const CreateForm = () => {
     let individuel = useRef()
     let assosiation = useRef()
 
-    let [card1Style,
-        setcard1Style] = useState("")
+    let [card1Style,setcard1Style] = useState("")
 
         function OptionWebsite(e){
             console.log(e.target,individuel.current)
             
 
             // if(e.target === individuel.current){
+
+            //     setprofil({focus:'individuel'})
             //     e.target.style = 'background : #1D53B7'
+                
             //     if(assosiation.current){
             //     assosiation.current.style = 'background :white'
             //      }
             // }else{
+            //     setprofil({focus:'association'})
+
             //     e.target.style = 'background : #1D53B7'
             //     if(individuel.current){
             //       individuel.current.style = 'background :white'
@@ -106,6 +118,10 @@ const CreateForm = () => {
         setbol(!bol)
         }
     }
+
+    useEffect(()=>{
+        console.log(profil)
+    })
 
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
@@ -178,7 +194,10 @@ const CreateForm = () => {
                         </div>
                         <input
                             className={styles["form-container__input"]}
-                            placeholder="Votre site web"/>
+                            placeholder="Votre site web" onChange={(e)=> {
+                                console.log(e.target.value)
+                                
+                                }}/>
 
                         <InputNtexterea
                             titleInput="2. Titre du project"
