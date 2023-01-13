@@ -6,6 +6,8 @@ interface CountryPanelProps {
     imgSrc : string;
     titleCountry : string
     div : any
+    contSelect : any
+
 
 }
 
@@ -62,7 +64,7 @@ const continentConfig = new Map<string, IContinentConfig>([
     ]
 ]);
 let tab = []
-const country = ({imgSrc, titleCountry,div} : CountryPanelProps) => {
+const country = ({imgSrc, titleCountry,div,contSelect} : CountryPanelProps) => {
     
     let [countryConf,setCountryConf] = useState('')
     let [divContinent,setcontinent] = useState([])
@@ -89,6 +91,9 @@ const country = ({imgSrc, titleCountry,div} : CountryPanelProps) => {
       if(continent.title === e.target.children[1].innerText){
         // la div targetté ainsi que la style custom associé dans l'array
         e.target.classList.add(continent.custom)
+
+        // console.log(continent.title)
+        contSelect(continent.title)
         }
      })
 

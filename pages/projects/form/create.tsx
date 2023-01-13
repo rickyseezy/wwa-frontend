@@ -26,17 +26,18 @@ interface IProjet {
     url: string // http://aws.cloud/dbeudbe.jpg
     type: string // image/video
    }
-
+   
+   let createAccount = {
+    focus: '',
+    web: '',
+    title: '',
+    subtitle: '',
+    description: '',
+    conntinent: '',
+    files: []
+   }
 const CreateForm = () => {
-    let [profil,setprofil] = useState({
-        focus:'',
-        setweb:'',
-        title: '',
-        subtitle: '',
-        description: '',
-        files:'',
-
-    })
+    let [profil,setprofil] = useState<IProjet>({...createAccount})
     const [bol,
         setbol] = useState(true)
     const show = useRef(null)
@@ -58,15 +59,17 @@ const CreateForm = () => {
             
 
             // if(e.target === individuel.current){
+            //     createAccount.focus = 'individuel'
+            //     setprofil({...createAccount})
 
-            //     setprofil({focus:'individuel'})
             //     e.target.style = 'background : #1D53B7'
                 
             //     if(assosiation.current){
             //     assosiation.current.style = 'background :white'
             //      }
             // }else{
-            //     setprofil({focus:'association'})
+            //     createAccount.focus = 'associate'
+            //     setprofil({...createAccount})
 
             //     e.target.style = 'background : #1D53B7'
             //     if(individuel.current){
@@ -74,12 +77,15 @@ const CreateForm = () => {
             //      }
             // }
         }
-     function ClickTime(){
-      // setcard1Style("")
-      console.log(card1Style)
+     function ContinentSelected(continent){
+      console.log(continent)
+      createAccount.conntinent = continent
+      setprofil({...createAccount})
+      
      }
 
-     
+ // selctionne les cartes pour les cause 
+    
     function SelectCause(e : {
         currentTarget: {
             classList: {
@@ -100,7 +106,6 @@ const CreateForm = () => {
         }
 
     }
-
 
     const onContinueClick = () => {
         setcard1Style("")
@@ -123,6 +128,33 @@ const CreateForm = () => {
         console.log(profil)
     })
 
+// récupére l'information des chans selon le placeholder 
+    function InputValue(e){
+      
+       let expr = e.target.placeholder
+
+       switch (expr) {
+        case 'Description de votre project':
+          createAccount.description = e.target.value
+          setprofil({...createAccount})
+          break;
+        case 'Le titre de votre cause':
+            createAccount.title = e.target.value
+            setprofil({...createAccount})
+
+            break;
+        case 'Sous-titre de votre project':
+            createAccount.subtitle = e.target.value
+            setprofil({...createAccount})
+
+          break;
+        default:
+          console.log(`Sorry, we are out of ${expr}.`);
+      }
+      
+    
+    }
+
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
     'Numérique','Puissance publique','Répuclique','Ruralité','Santé','Séxurité et Défense','Solidarités','Sport','Théme autre','Transition écologique','Travail','Villes et Quartier']
@@ -131,7 +163,7 @@ const CreateForm = () => {
             <MainNavigation/>
             <MenuBurger/>
 
-            <form className={styles["form"]} onClick={ClickTime}>
+            <form className={styles["form"]} >
                 <div className={styles["form__steps"]}>
                     <Steps step={bol}/>
                 </div>
@@ -195,41 +227,42 @@ const CreateForm = () => {
                         <input
                             className={styles["form-container__input"]}
                             placeholder="Votre site web" onChange={(e)=> {
-                                console.log(e.target.value)
+                                createAccount.web = e.target.value
+                               setprofil({...createAccount})
                                 
                                 }}/>
 
                         <InputNtexterea
                             titleInput="2. Titre du project"
                             placeholder={`Le titre de votre cause`}
-                            bolea={true}/>
+                            bolea={true} val={InputValue}   />
                              <InputNtexterea
                             titleInput="3. Sous-titre du projet"
                             placeholder={`Sous-titre de votre project`}
-                            bolea={true}/>
+                            bolea={true} val={InputValue}  />
                         <InputNtexterea
                             titleInput="4. Description de votre projet"
                             placeholder={`Description de votre project`}
-                            bolea={true}/>
+                            bolea={true} val={InputValue}  />
                         <InputNtexterea
                             titleInput="4. Ajoutez une image a votre projet"
                             placeholder={``}
-                            bolea={false}/>
+                            bolea={false} val={InputValue}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>
 
-                            <Country titleCountry="EUROPE" imgSrc="/icons/europe-icon.svg" div={countryEuro}   />
+                            <Country titleCountry="EUROPE" imgSrc="/icons/europe-icon.svg" div={countryEuro} contSelect={ContinentSelected}   />
 
-                            <Country titleCountry="AFRIQUE" imgSrc='/icons/africa-icon.svg' div={countryAfri}/>
+                            <Country titleCountry="AFRIQUE" imgSrc='/icons/africa-icon.svg' div={countryAfri} contSelect={ContinentSelected}/>
 
-                            <Country titleCountry="AMÉRIQUE DU NORD" imgSrc='/icons/na-icon.svg' div={countryUsNorth}/>
+                            <Country titleCountry="AMÉRIQUE DU NORD" imgSrc='/icons/na-icon.svg' div={countryUsNorth} contSelect={ContinentSelected}/>
 
-                            <Country titleCountry="AMÉRIQUE DU SUD" imgSrc='/icons/sa-icon.svg' div={countryUsSouth}/>
+                            <Country titleCountry="AMÉRIQUE DU SUD" imgSrc='/icons/sa-icon.svg' div={countryUsSouth} contSelect={ContinentSelected}/>
 
-                            <Country titleCountry="ASIE" imgSrc='/icons/asia-icon.svg' div={countryAsia}/>
+                            <Country titleCountry="ASIE" imgSrc='/icons/asia-icon.svg' div={countryAsia} contSelect={ContinentSelected}/>
 
-                            <Country titleCountry="OCÉANIE" imgSrc='/icons/oceania-icon.svg' div={countryOcea}/>
+                            <Country titleCountry="OCÉANIE" imgSrc='/icons/oceania-icon.svg' div={countryOcea}  contSelect={ContinentSelected}/>
 
                         </div>
                         {/*Todo :: Text should be dynamic either project or cause*/}
