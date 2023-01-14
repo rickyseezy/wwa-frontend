@@ -8,6 +8,7 @@ interface ControlInputNtextera {
   placeholder: string;
   bolea: boolean;
   val:React.ChangeEventHandler<HTMLTextAreaElement>
+  fileSelect:Function
 }
 
 let tab = [];
@@ -16,7 +17,8 @@ const InputNtexterea = ({
   titleInput,
   placeholder,
   bolea,
-  val
+  val,
+  fileSelect
 }: ControlInputNtextera) => {
   let [cathFile, setcatch] = useState();
   let [tabfile, settabfile] = useState([]);
@@ -37,7 +39,8 @@ const InputNtexterea = ({
       reader.onloadend = () => {
         if (reader.result) {
           tab.push(reader.result);
-          console.log(tab)
+          console.log(tab,'tab')
+          fileSelect(tab)
           settabfile([...tab]);
         }
       };

@@ -68,7 +68,7 @@ const country = ({imgSrc, titleCountry,div,contSelect} : CountryPanelProps) => {
     
     let [countryConf,setCountryConf] = useState('')
     let [divContinent,setcontinent] = useState([])
-    console.log(div.current,'div')
+    // console.log(div.current,'div')
     
 // enléve le style des précédents country 
     function Removecustom(){
@@ -106,10 +106,10 @@ const country = ({imgSrc, titleCountry,div,contSelect} : CountryPanelProps) => {
         if(div.current && tab.length <=  5){
             tab.push(div.current)
             setcontinent(tab)
-            console.log(tab,divContinent)
+            // console.log(tab,divContinent)
     
         }
-        console.log(countryConf)
+        // console.log(countryConf)
 
      
 

@@ -1,4 +1,4 @@
-import {ChangeEvent, Fragment, MouseEventHandler, useEffect, useRef, useState} from "react";
+import { Fragment, useEffect, useRef, useState} from "react";
 import MainNavigation from "@components/navigation/MainNavigation";
 import styles from "./Create.module.scss";
 import Steps from "@components/steps/Steps";
@@ -49,11 +49,13 @@ const CreateForm = () => {
     let countryUsSouth= useRef()
     let countryAsia= useRef()
     let countryOcea= useRef()
-    let individuel = useRef()
+    let individuel = useRef<HTMLDivElement>()
     let assosiation = useRef()
 
     let [card1Style,setcard1Style] = useState("")
 
+
+    // l'option du site indiv || assos
         function OptionWebsite(e){
             console.log(e.target,individuel.current)
             
@@ -73,10 +75,12 @@ const CreateForm = () => {
 
             //     e.target.style = 'background : #1D53B7'
             //     if(individuel.current){
-            //       individuel.current.style = 'background :white'
+            //     individuel.current.style = 'background :white'
             //      }
             // }
         }
+
+        // récupére le continent selectionné
      function ContinentSelected(continent){
       console.log(continent)
       createAccount.conntinent = continent
@@ -107,6 +111,7 @@ const CreateForm = () => {
 
     }
 
+    // bouton pour changer de page de cause a formulaire de formulaire a profil
     const onContinueClick = () => {
         setcard1Style("")
           if(card1Style === 'card1' || card1Style === 'card2'){
@@ -126,7 +131,7 @@ const CreateForm = () => {
 
     useEffect(()=>{
         console.log(profil)
-    })
+     })
 
 // récupére l'information des chans selon le placeholder 
     function InputValue(e){
@@ -153,6 +158,12 @@ const CreateForm = () => {
       }
       
     
+    }
+
+    function CatchFile(file){
+     console.log(file,'file create')
+     createAccount.files = [...file]
+     setprofil({...createAccount})
     }
 
     const thematics = [...Array(25)];
@@ -235,19 +246,19 @@ const CreateForm = () => {
                         <InputNtexterea
                             titleInput="2. Titre du project"
                             placeholder={`Le titre de votre cause`}
-                            bolea={true} val={InputValue}   />
+                            bolea={true} val={InputValue}  fileSelect={null}  />
                              <InputNtexterea
                             titleInput="3. Sous-titre du projet"
                             placeholder={`Sous-titre de votre project`}
-                            bolea={true} val={InputValue}  />
+                            bolea={true} val={InputValue} fileSelect={null}  />
                         <InputNtexterea
                             titleInput="4. Description de votre projet"
                             placeholder={`Description de votre project`}
-                            bolea={true} val={InputValue}  />
+                            bolea={true} val={InputValue} fileSelect={null}  />
                         <InputNtexterea
                             titleInput="4. Ajoutez une image a votre projet"
                             placeholder={``}
-                            bolea={false} val={InputValue}  />
+                            bolea={false} val={InputValue} fileSelect={CatchFile}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>
