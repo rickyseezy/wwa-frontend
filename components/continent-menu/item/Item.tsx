@@ -117,8 +117,8 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 
     useEffect(() => {
         tabItems.push(divItems.current)
-           
-
+        console.log(router.pathname)
+     
         // reset les classes background white
 
         tabItems.map((el, i) => {
