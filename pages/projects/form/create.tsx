@@ -18,6 +18,7 @@ interface IProjet {
     title: string
     subtitle: string
     description: string
+    Theme:string
     files: File[]
    }
 
@@ -26,7 +27,6 @@ interface IProjet {
     url: string // http://aws.cloud/dbeudbe.jpg
     type: string // image/video
    }
-   
    let createAccount = {
     focus: '',
     web: '',
@@ -34,14 +34,21 @@ interface IProjet {
     subtitle: '',
     description: '',
     conntinent: '',
+    Theme:'',
     files: []
    }
+
+   let tabprofil = []
+
 const CreateForm = () => {
+      
+
     let [profil,setprofil] = useState<IProjet>({...createAccount})
     const [bol,
         setbol] = useState(true)
     const show = useRef(null)
     const hide = useRef(null)
+    let router = useRouter()
 
     let countryEuro= useRef()
     let countryAfri= useRef()
@@ -49,8 +56,9 @@ const CreateForm = () => {
     let countryUsSouth= useRef()
     let countryAsia= useRef()
     let countryOcea= useRef()
-    let individuel = useRef<HTMLDivElement>()
-    let assosiation = useRef()
+    let individuel = useRef<HTMLDivElement | null>(null)
+    let assosiation = useRef<HTMLDivElement | null >(null)
+    type test = typeof assosiation
 
     let [card1Style,setcard1Style] = useState("")
 
@@ -59,15 +67,18 @@ const CreateForm = () => {
         function OptionWebsite(e){
             console.log(e.target,individuel.current)
             
-
+     
             // if(e.target === individuel.current){
             //     createAccount.focus = 'individuel'
             //     setprofil({...createAccount})
 
+
             //     e.target.style = 'background : #1D53B7'
                 
-            //     if(assosiation.current){
-            //     assosiation.current.style = 'background :white'
+            //     if(assosiation.current !== undefined){
+            //         let asos =  assosiation.current 
+
+            //     asos.style = 'background :white'
             //      }
             // }else{
             //     createAccount.focus = 'associate'
@@ -75,7 +86,7 @@ const CreateForm = () => {
 
             //     e.target.style = 'background : #1D53B7'
             //     if(individuel.current){
-            //     individuel.current.style = 'background :white'
+            //     individuel.current.style  = 'background :white'
             //      }
             // }
         }
@@ -127,10 +138,20 @@ const CreateForm = () => {
 
         setbol(!bol)
         }
+
+        if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != ""){
+             router.push('/')
+             for(let key in createAccount){
+                console.log(key)
+                key = ''
+             }
+             setprofil({...createAccount})
+        }
     }
 
     useEffect(()=>{
         console.log(profil)
+        console.log(document.querySelector(''))
      })
 
 // récupére l'information des chans selon le placeholder 
@@ -160,6 +181,13 @@ const CreateForm = () => {
     
     }
 
+// récupére le theme
+    function CatchTheme(e){
+       console.log(e.target.children[1].innerText)
+       createAccount.Theme = e.target.children[1].innerText
+       setprofil({...createAccount})
+    }
+
     function CatchFile(file){
      console.log(file,'file create')
      createAccount.files = [...file]
@@ -169,6 +197,8 @@ const CreateForm = () => {
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
     'Numérique','Puissance publique','Répuclique','Ruralité','Santé','Séxurité et Défense','Solidarités','Sport','Théme autre','Transition écologique','Travail','Villes et Quartier']
+    
+    
     return (
         <Fragment>
             <MainNavigation/>
@@ -282,7 +312,7 @@ const CreateForm = () => {
                         </div>
                         <div className={styles["thematics"]}>
                             {thematics.map((_, i) => (
-                                <div className={styles["thematic"]} key={i}>
+                                <div className={styles["thematic"]} key={i} onClick={CatchTheme}>
                                     <div className={styles["thematic__image"]}/>
                                     <div className={styles["thematic__name"]}>{Theme[i]}</div>
                                 </div>
