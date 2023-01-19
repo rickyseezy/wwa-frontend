@@ -56,7 +56,7 @@ const CreateForm = () => {
     let countryUsSouth= useRef()
     let countryAsia= useRef()
     let countryOcea= useRef()
-    let individuel = useRef<HTMLDivElement | null>(null)
+    let individuel = useRef<HTMLDivElement|null>(null)
     let assosiation = useRef<HTMLDivElement | null >(null)
     type test = typeof assosiation
 
@@ -68,27 +68,27 @@ const CreateForm = () => {
             console.log(e.target,individuel.current)
             
      
-            // if(e.target === individuel.current){
-            //     createAccount.focus = 'individuel'
-            //     setprofil({...createAccount})
+            if(e.target === individuel.current){
+                createAccount.focus = 'individuel'
+                setprofil({...createAccount})
 
 
-            //     e.target.style = 'background : #1D53B7'
+                e.target.style = 'background : #1D53B7'
                 
-            //     if(assosiation.current !== undefined){
-            //         let asos =  assosiation.current 
+                if(assosiation.current !== undefined){
+                    let asos =  assosiation.current 
 
-            //     asos.style = 'background :white'
-            //      }
-            // }else{
-            //     createAccount.focus = 'associate'
-            //     setprofil({...createAccount})
+                asos.style.setProperty('background','white')
+                 }
+            }else{
+                createAccount.focus = 'associate'
+                setprofil({...createAccount})
 
-            //     e.target.style = 'background : #1D53B7'
-            //     if(individuel.current){
-            //     individuel.current.style  = 'background :white'
-            //      }
-            // }
+                e.target.style = 'background : #1D53B7'
+                if(individuel.current != undefined){
+                individuel.current.style.setProperty('background','white')
+                 }
+            }
         }
 
         // récupére le continent selectionné
@@ -151,7 +151,7 @@ const CreateForm = () => {
 
     useEffect(()=>{
         console.log(profil)
-        console.log(document.querySelector(''))
+        console.log(document.querySelectorAll('.inp'))
      })
 
 // récupére l'information des chans selon le placeholder 
