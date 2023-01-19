@@ -147,6 +147,7 @@ const CreateForm = () => {
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != ""){
              router.push('/')
              tabprofil.push(profil)
+             createAccount.files.length = 0
              createAccount = {
                 focus: '',
                 web: '',
@@ -167,7 +168,7 @@ const CreateForm = () => {
  
     useEffect(()=>{
       
-        console.log(profil,'test tab',tabprofil)
+        console.log(profil,'test tab',tabprofil,profil.files)
 
      })
 
@@ -206,23 +207,30 @@ const CreateForm = () => {
     }
 
     function CatchFile(file){
-     console.log(file,'yuuuuuuuuuuuuuuuuuu')
+        // console.log(profil.files,file,'cleaaaaaaaaaaaaaaaaaaaaaar')
+
+        // if(file.length > 0){
+        //     console.log(file,'yeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah')
+
+        //   return  file.length = 0
+        // }
+
+
      createAccount.files = [...file]
      setprofil({...createAccount})
      console.log(file,'file create', createAccount.files)
 
     }
 
-    function ClearFiles(file){
-        console.log(createAccount.files.length)
-        if(file.length > 0 ){
-            file.length = 0
-          console.log(file)
-        }else{
-            return file
-        }
-        console.log(file)
-    }
+    // function ClearFiles(file){
+    //     console.log(profil.files,file,'cleaaaaaaaaaaaaaaaaaaaaaar')
+    //     if(file.length > 0 && profil.files.length == 0){
+    //         console.log(file,'yeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah')
+
+    //       return  file.length = 0
+    //     }
+    //     console.log(file,'file in clear function')
+    // }
 
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
@@ -318,7 +326,7 @@ const CreateForm = () => {
                         <InputNtexterea
                             titleInput="4. Ajoutez une image a votre projet"
                             placeholder={``}
-                            bolea={false} val={InputValue} fileSelect={CatchFile} removefile={ClearFiles}  />
+                            bolea={false} val={InputValue} fileSelect={CatchFile} removefile={null}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>
