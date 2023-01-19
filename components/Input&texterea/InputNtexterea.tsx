@@ -8,23 +8,25 @@ interface ControlInputNtextera {
   placeholder: string;
   bolea: boolean;
   val:React.ChangeEventHandler<HTMLTextAreaElement>
-  fileSelect:Function
+  fileSelect:Function,
+  removefile:Function
 }
 
 let tab = [];
-
 const InputNtexterea = ({
   titleInput,
   placeholder,
   bolea,
   val,
-  fileSelect
+  fileSelect,
+  removefile
 }: ControlInputNtextera) => {
+
+
   let [cathFile, setcatch] = useState();
   let [tabfile, settabfile] = useState([]);
 
   function INputValue(e) {
-    console.log(e);
     const file = e.target.files[0];
     if (file) {
       setcatch(file);
@@ -39,21 +41,23 @@ const InputNtexterea = ({
       reader.onloadend = () => {
         if (reader.result) {
           tab.push(reader.result);
-          console.log(tab,'tab')
           fileSelect(tab)
           settabfile([...tab]);
+          removefile(tab)
+     
         }
       };
       reader.readAsDataURL(cathFile);
     } else {
       console.log("no file");
     }
+
+
   }, [cathFile]);
 
 
 
 
-  console.log(tabfile);
   if (bolea) {
     return (
       <div className={styles["form-container1__step"]} >

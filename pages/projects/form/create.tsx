@@ -35,15 +35,17 @@ interface IProjet {
     description: '',
     conntinent: '',
     Theme:'',
+    project : "",
     files: []
    }
 
    let tabprofil = []
-
+   let tabInput = []
 const CreateForm = () => {
       
 
     let [profil,setprofil] = useState<IProjet>({...createAccount})
+
     const [bol,
         setbol] = useState(true)
     const show = useRef(null)
@@ -64,7 +66,7 @@ const CreateForm = () => {
 
 
     // l'option du site indiv || assos
-        function OptionWebsite(e){
+     function OptionWebsite(e){
             console.log(e.target,individuel.current)
             
      
@@ -112,10 +114,13 @@ const CreateForm = () => {
         if (e.currentTarget.classList.contains("card1")) {
             stylesbol = "card1"
             setcard1Style(stylesbol)
+            createAccount.project = 'project'
+            setprofil({...createAccount})
 
         } else if (e.currentTarget.classList.contains("card2")) {
             stylesbol = "card2"
-
+            createAccount.project = 'cause'
+            setprofil({...createAccount})
             setcard1Style(stylesbol)
 
         }
@@ -141,17 +146,29 @@ const CreateForm = () => {
 
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != ""){
              router.push('/')
-             for(let key in createAccount){
-                console.log(key)
-                key = ''
-             }
+             tabprofil.push(profil)
+             createAccount = {
+                focus: '',
+                web: '',
+                title: '',
+                subtitle: '',
+                description: '',
+                conntinent: '',
+                Theme:'',
+                project:'',
+                files: []
+               }
+             
              setprofil({...createAccount})
+           
+
         }
     }
-
+ 
     useEffect(()=>{
-        console.log(profil)
-        console.log(document.querySelectorAll('.inp'))
+      
+        console.log(profil,'test tab',tabprofil)
+
      })
 
 // récupére l'information des chans selon le placeholder 
@@ -189,9 +206,22 @@ const CreateForm = () => {
     }
 
     function CatchFile(file){
-     console.log(file,'file create')
+     console.log(file,'yuuuuuuuuuuuuuuuuuu')
      createAccount.files = [...file]
      setprofil({...createAccount})
+     console.log(file,'file create', createAccount.files)
+
+    }
+
+    function ClearFiles(file){
+        console.log(createAccount.files.length)
+        if(file.length > 0 ){
+            file.length = 0
+          console.log(file)
+        }else{
+            return file
+        }
+        console.log(file)
     }
 
     const thematics = [...Array(25)];
@@ -276,19 +306,19 @@ const CreateForm = () => {
                         <InputNtexterea
                             titleInput="2. Titre du project"
                             placeholder={`Le titre de votre cause`}
-                            bolea={true} val={InputValue}  fileSelect={null}  />
+                            bolea={true} val={InputValue}  fileSelect={null} removefile={null} />
                              <InputNtexterea
                             titleInput="3. Sous-titre du projet"
                             placeholder={`Sous-titre de votre project`}
-                            bolea={true} val={InputValue} fileSelect={null}  />
+                            bolea={true} val={InputValue} fileSelect={null} removefile={null} />
                         <InputNtexterea
                             titleInput="4. Description de votre projet"
                             placeholder={`Description de votre project`}
-                            bolea={true} val={InputValue} fileSelect={null}  />
+                            bolea={true} val={InputValue} fileSelect={null} removefile={null}  />
                         <InputNtexterea
                             titleInput="4. Ajoutez une image a votre projet"
                             placeholder={``}
-                            bolea={false} val={InputValue} fileSelect={CatchFile}  />
+                            bolea={false} val={InputValue} fileSelect={CatchFile} removefile={ClearFiles}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>
