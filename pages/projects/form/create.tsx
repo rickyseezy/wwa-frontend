@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState} from "react";
+import { Fragment, useEffect, useRef, useState,useCallback} from "react";
 import MainNavigation from "@components/navigation/MainNavigation";
 import styles from "./Create.module.scss";
 import Steps from "@components/steps/Steps";
@@ -13,6 +13,7 @@ import MenuBurger from "@components/menu-burger/MenuBurger";
 let stylesbol = ""
 
 interface IProjet {
+    project: string;
     focus: string,
     web: string,
     title: string
@@ -40,11 +41,11 @@ interface IProjet {
    }
 
    let tabprofil = []
-   let tabInput = []
 const CreateForm = () => {
       
 
     let [profil,setprofil] = useState<IProjet>({...createAccount})
+    let [count,setcount] = useState<number>(0)
 
     const [bol,
         setbol] = useState(true)
@@ -124,6 +125,7 @@ const CreateForm = () => {
             setcard1Style(stylesbol)
 
         }
+        console.log(profil)
 
     }
 
@@ -144,10 +146,11 @@ const CreateForm = () => {
         setbol(!bol)
         }
 
-        if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != ""){
-             router.push('/')
-             tabprofil.push(profil)
-             createAccount.files.length = 0
+        if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
+            tabprofil.push(profil)
+            setcount(el => el +1)
+
+            router.push('/')
              createAccount = {
                 focus: '',
                 web: '',
@@ -168,7 +171,7 @@ const CreateForm = () => {
  
     useEffect(()=>{
       
-        console.log(profil,'test tab',tabprofil,profil.files)
+        console.log(tabprofil)
 
      })
 
@@ -207,30 +210,22 @@ const CreateForm = () => {
     }
 
     function CatchFile(file){
-        // console.log(profil.files,file,'cleaaaaaaaaaaaaaaaaaaaaaar')
-
-        // if(file.length > 0){
-        //     console.log(file,'yeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah')
-
-        //   return  file.length = 0
-        // }
-
-
-     createAccount.files = [...file]
-     setprofil({...createAccount})
-     console.log(file,'file create', createAccount.files)
-
+        console.log(file,'yuuuuuuuuuuuuuuuuuu')
+        createAccount.files = [...file]
+        setprofil({...createAccount})
+        console.log(file,'file create', createAccount.files)
     }
+    
 
-    // function ClearFiles(file){
-    //     console.log(profil.files,file,'cleaaaaaaaaaaaaaaaaaaaaaar')
-    //     if(file.length > 0 && profil.files.length == 0){
-    //         console.log(file,'yeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah')
+    const ClearFiles = useCallback((file) => {
+        console.log(createAccount.files.length,profil.files.length,'usecallback')
+        if(createAccount.files.length === 1 ){
+           file.length = 0
+        }
+        console.log(count)
+      }, [count]);
+      
 
-    //       return  file.length = 0
-    //     }
-    //     console.log(file,'file in clear function')
-    // }
 
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
@@ -326,7 +321,7 @@ const CreateForm = () => {
                         <InputNtexterea
                             titleInput="4. Ajoutez une image a votre projet"
                             placeholder={``}
-                            bolea={false} val={InputValue} fileSelect={CatchFile} removefile={null}  />
+                            bolea={false} val={InputValue} fileSelect={CatchFile} removefile={ClearFiles}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>

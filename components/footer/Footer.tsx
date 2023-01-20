@@ -69,7 +69,7 @@ const Footer = () => {
           <div className={styles["copyright"]}>
             <div className={styles["copyright__dashline"]} />
             <div className={styles["copyright__logo"]}>
-              {/* <img src="/images/footer-logo.png" /> */}
+              <img src="/images/footer-logo.png" />
             </div>
             <div className={styles["copyright__dashline"]} />
           </div>

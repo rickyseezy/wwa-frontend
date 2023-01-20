@@ -19,7 +19,7 @@ const InputNtexterea = ({
   bolea,
   val,
   fileSelect,
-  // removefile
+  removefile
 }: ControlInputNtextera) => {
 
 
@@ -43,7 +43,7 @@ const InputNtexterea = ({
           tab.push(reader.result);
           fileSelect(tab)
           settabfile([...tab]);
-          // removefile(tab)
+          removefile(tab)
      
         }
       };
