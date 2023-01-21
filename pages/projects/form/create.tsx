@@ -37,10 +37,12 @@ interface IProjet {
     conntinent: '',
     Theme:'',
     project : "",
-    files: []
+    files: [],
    }
 
    let tabprofil = []
+   let compteObj = 0
+   let tabCompte = 0
 const CreateForm = () => {
       
 
@@ -68,7 +70,6 @@ const CreateForm = () => {
 
     // l'option du site indiv || assos
      function OptionWebsite(e){
-            console.log(e.target,individuel.current)
             
      
             if(e.target === individuel.current){
@@ -96,7 +97,6 @@ const CreateForm = () => {
 
         // récupére le continent selectionné
      function ContinentSelected(continent){
-      console.log(continent)
       createAccount.conntinent = continent
       setprofil({...createAccount})
       
@@ -125,7 +125,6 @@ const CreateForm = () => {
             setcard1Style(stylesbol)
 
         }
-        console.log(profil)
 
     }
 
@@ -147,6 +146,7 @@ const CreateForm = () => {
         }
 
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
+            tabCompte = createAccount.files.length
             tabprofil.push(profil)
             setcount(el => el +1)
 
@@ -160,18 +160,20 @@ const CreateForm = () => {
                 conntinent: '',
                 Theme:'',
                 project:'',
+            
                 files: []
                }
              
              setprofil({...createAccount})
-           
-
+  
+             console.log(createAccount.files.length,'test vide moh dthe fucker bitch')
+        
         }
     }
  
     useEffect(()=>{
       
-        console.log(tabprofil)
+        console.log(tabprofil,profil,tabCompte,'things get real mdf' )
 
      })
 
@@ -204,27 +206,40 @@ const CreateForm = () => {
 
 // récupére le theme
     function CatchTheme(e){
-       console.log(e.target.children[1].innerText)
        createAccount.Theme = e.target.children[1].innerText
        setprofil({...createAccount})
     }
 
     function CatchFile(file){
-        console.log(file,'yuuuuuuuuuuuuuuuuuu')
-        createAccount.files = [...file]
+
+        console.log(file.length,createAccount.files.length,'test that mdf',file)
+
+// clear the array from file 
+        if( file.length !== 0 && createAccount.files.length == 0 ){
+            console.log('we in that mdf')
+            
+        }
+
+
+        // Add tab to the object 
+        let tabCatchFile = []
+         for(let i = 0 ; i < file.length ; i++){
+            tabCatchFile[i] = file[i]
+         }
+         createAccount.files = tabCatchFile
         setprofil({...createAccount})
-        console.log(file,'file create', createAccount.files)
     }
     
 
-    const ClearFiles = useCallback((file) => {
-        console.log(createAccount.files.length,profil.files.length,'usecallback')
-        if(createAccount.files.length === 1 ){
-           file.length = 0
-        }
-        console.log(count)
-      }, [count]);
-      
+    // const ClearFiles = (file )=> {
+    //     // console.log(file.length,createAccount.files.length,'test file')
+    //     // if( file.length !== 0 && createAccount.files.length == 0 ){
+    //     //     console.log('yooooooooo in test file')
+    //     //    file.length = 0
+    //     // }
+            
+    //     };
+        
 
 
     const thematics = [...Array(25)];
@@ -321,7 +336,7 @@ const CreateForm = () => {
                         <InputNtexterea
                             titleInput="4. Ajoutez une image a votre projet"
                             placeholder={``}
-                            bolea={false} val={InputValue} fileSelect={CatchFile} removefile={ClearFiles}  />
+                            bolea={false} val={InputValue} fileSelect={CatchFile}  removefile={null}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>

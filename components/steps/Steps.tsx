@@ -3,7 +3,6 @@ type Step ={
   step :boolean
 }
 const Steps = ({step} : Step) => {
-  console.log(step)
     return (
         <div className={styles["steps"]}>
             <div className={`${styles["steps__step"]} ${styles["steps__step--selected"]}`}>

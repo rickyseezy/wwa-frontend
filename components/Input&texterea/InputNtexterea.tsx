@@ -19,7 +19,7 @@ const InputNtexterea = ({
   bolea,
   val,
   fileSelect,
-  removefile
+  // removefile
 }: ControlInputNtextera) => {
 
 
@@ -27,6 +27,7 @@ const InputNtexterea = ({
   let [tabfile, settabfile] = useState([]);
 
   function INputValue(e) {
+    console.log(e.target.files,'file man')
     const file = e.target.files[0];
     if (file) {
       setcatch(file);
@@ -40,10 +41,14 @@ const InputNtexterea = ({
       const reader = new FileReader();
       reader.onloadend = () => {
         if (reader.result) {
+          console.log(tab,'moh the super fucker up ')
+
           tab.push(reader.result);
+          console.log(tab,'moh the super fucker down')
+
           fileSelect(tab)
           settabfile([...tab]);
-          removefile(tab)
+          // removefile(tab)
      
         }
       };
@@ -106,6 +111,7 @@ const InputNtexterea = ({
                   <div className={styles["step-item"]} key={i}>
                     <img src={el} alt="" className={styles["img"]} />
                   </div>
+                  
                 ))
               : null}
             {tabfile.length > 0 ? (
