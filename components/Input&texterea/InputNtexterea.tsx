@@ -1,4 +1,3 @@
-import Picture from "@components/images/Picture";
 import React, { useState, useEffect, useRef, createRef } from "react";
 import styles from "./input&texterea.module.scss";
 import InputFile from "./InputFile";
@@ -9,59 +8,42 @@ interface ControlInputNtextera {
   bolea: boolean;
   val:React.ChangeEventHandler<HTMLTextAreaElement>
   fileSelect:Function,
-  removefile:Function
+  removefile:Function,
+  files?: string[]
 }
 
-let tab = [];
 const InputNtexterea = ({
   titleInput,
   placeholder,
   bolea,
   val,
   fileSelect,
+    files = []
   // removefile
 }: ControlInputNtextera) => {
-
-
-  let [cathFile, setcatch] = useState();
-  let [tabfile, settabfile] = useState([]);
+  let tab = [];
+  console.log("INITIAL FILES ", files)
+  let [tabfile, settabfile] = useState<string[]>(files);
 
   function INputValue(e) {
-    console.log(e.target.files,'file man')
-    const file = e.target.files[0];
+    console.log("HEY")
+    console.log(e?.target?.files,'file man')
+    const file = e?.target?.files[0];
     if (file) {
-      setcatch(file);
-    } else {
-      setcatch(null);
-    }
-  }
-
-  useEffect(() => {
-    if (cathFile) {
       const reader = new FileReader();
+      reader.readAsDataURL(file);
       reader.onloadend = () => {
+        console.log("HERE 2")
         if (reader.result) {
-          console.log(tab,'moh the super fucker up ')
-
-          tab.push(reader.result);
-          console.log(tab,'moh the super fucker down')
-
+          console.log("RESULT = ", reader.result)
+        tab.push(reader.result);
+          console.log("TAB length ", tab.length)
           fileSelect(tab)
-          settabfile([...tab]);
-          // removefile(tab)
-     
+          settabfile(tabfile.concat(tab));
         }
       };
-      reader.readAsDataURL(cathFile);
-    } else {
-      console.log("no file");
     }
-
-
-  }, [cathFile]);
-
-
-
+  }
 
   if (bolea) {
     return (

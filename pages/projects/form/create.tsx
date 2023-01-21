@@ -20,7 +20,8 @@ interface IProjet {
     subtitle: string
     description: string
     Theme:string
-    files: File[]
+    files: string[]
+    conntinent: string
    }
 
    interface File {
@@ -28,25 +29,25 @@ interface IProjet {
     url: string // http://aws.cloud/dbeudbe.jpg
     type: string // image/video
    }
-   let createAccount = {
-    focus: '',
-    web: '',
-    title: '',
-    subtitle: '',
-    description: '',
-    conntinent: '',
-    Theme:'',
-    project : "",
-    files: [],
-   }
 
    let tabprofil = []
    let compteObj = 0
    let tabCompte = 0
 const CreateForm = () => {
-      
 
-    let [profil,setprofil] = useState<IProjet>({...createAccount})
+    let createAccount = {
+        focus: '',
+        web: '',
+        title: '',
+        subtitle: '',
+        description: '',
+        conntinent: '',
+        Theme:'',
+        project : "",
+        files: [],
+    }
+
+    let [profil,setprofil] = useState<IProjet>(createAccount)
     let [count,setcount] = useState<number>(0)
 
     const [bol,
@@ -73,8 +74,7 @@ const CreateForm = () => {
             
      
             if(e.target === individuel.current){
-                createAccount.focus = 'individuel'
-                setprofil({...createAccount})
+                setprofil({...profil, focus: 'individuel'})
 
 
                 e.target.style = 'background : #1D53B7'
@@ -85,8 +85,7 @@ const CreateForm = () => {
                 asos.style.setProperty('background','white')
                  }
             }else{
-                createAccount.focus = 'associate'
-                setprofil({...createAccount})
+                setprofil({...profil, focus: 'associate'})
 
                 e.target.style = 'background : #1D53B7'
                 if(individuel.current != undefined){
@@ -96,10 +95,8 @@ const CreateForm = () => {
         }
 
         // récupére le continent selectionné
-     function ContinentSelected(continent){
-      createAccount.conntinent = continent
-      setprofil({...createAccount})
-      
+     function ContinentSelected(continent: string){
+      setprofil({...profil, conntinent: continent})
      }
 
  // selctionne les cartes pour les cause 
@@ -116,12 +113,12 @@ const CreateForm = () => {
             stylesbol = "card1"
             setcard1Style(stylesbol)
             createAccount.project = 'project'
-            setprofil({...createAccount})
+            setprofil({...profil, ...createAccount})
 
         } else if (e.currentTarget.classList.contains("card2")) {
             stylesbol = "card2"
             createAccount.project = 'cause'
-            setprofil({...createAccount})
+            setprofil({...profil, ...createAccount})
             setcard1Style(stylesbol)
 
         }
@@ -151,31 +148,10 @@ const CreateForm = () => {
             setcount(el => el +1)
 
             router.push('/')
-             createAccount = {
-                focus: '',
-                web: '',
-                title: '',
-                subtitle: '',
-                description: '',
-                conntinent: '',
-                Theme:'',
-                project:'',
-            
-                files: []
-               }
-             
-             setprofil({...createAccount})
-  
-             console.log(createAccount.files.length,'test vide moh dthe fucker bitch')
+            console.log(createAccount.files.length,'test vide moh dthe fucker bitch')
         
         }
     }
- 
-    useEffect(()=>{
-      
-        console.log(tabprofil,profil,tabCompte,'things get real mdf' )
-
-     })
 
 // récupére l'information des chans selon le placeholder 
     function InputValue(e){
@@ -184,17 +160,14 @@ const CreateForm = () => {
 
        switch (expr) {
         case 'Description de votre project':
-          createAccount.description = e.target.value
-          setprofil({...createAccount})
+          setprofil({...profil, description: e.target.value})
           break;
         case 'Le titre de votre cause':
-            createAccount.title = e.target.value
-            setprofil({...createAccount})
+            setprofil({...profil, title: e.target.value})
 
             break;
         case 'Sous-titre de votre project':
-            createAccount.subtitle = e.target.value
-            setprofil({...createAccount})
+            setprofil({...profil, subtitle: e.target.value})
 
           break;
         default:
@@ -206,47 +179,21 @@ const CreateForm = () => {
 
 // récupére le theme
     function CatchTheme(e){
-       createAccount.Theme = e.target.children[1].innerText
-       setprofil({...createAccount})
+       setprofil({...profil, Theme: e.target.children[1].innerText})
     }
 
     function CatchFile(file){
-
-        console.log(file.length,createAccount.files.length,'test that mdf',file)
-
-// clear the array from file 
-        if( file.length !== 0 && createAccount.files.length == 0 ){
-            console.log('we in that mdf')
-            
-        }
+        console.log("[CatchFile]", file)
 
 
-        // Add tab to the object 
-        let tabCatchFile = []
-         for(let i = 0 ; i < file.length ; i++){
-            tabCatchFile[i] = file[i]
-         }
-         createAccount.files = tabCatchFile
-        setprofil({...createAccount})
+        setprofil({...profil, files:  profil.files.concat(file)})
     }
-    
-
-    // const ClearFiles = (file )=> {
-    //     // console.log(file.length,createAccount.files.length,'test file')
-    //     // if( file.length !== 0 && createAccount.files.length == 0 ){
-    //     //     console.log('yooooooooo in test file')
-    //     //    file.length = 0
-    //     // }
-            
-    //     };
-        
-
 
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
     'Numérique','Puissance publique','Répuclique','Ruralité','Santé','Séxurité et Défense','Solidarités','Sport','Théme autre','Transition écologique','Travail','Villes et Quartier']
-    
-    
+
+    console.log("PROFILE", profil)
     return (
         <Fragment>
             <MainNavigation/>
@@ -316,9 +263,7 @@ const CreateForm = () => {
                         <input
                             className={styles["form-container__input"]}
                             placeholder="Votre site web" onChange={(e)=> {
-                                createAccount.web = e.target.value
-                               setprofil({...createAccount})
-                                
+                            setprofil({...profil, web: e.target.value})
                                 }}/>
 
                         <InputNtexterea
@@ -336,7 +281,7 @@ const CreateForm = () => {
                         <InputNtexterea
                             titleInput="4. Ajoutez une image a votre projet"
                             placeholder={``}
-                            bolea={false} val={InputValue} fileSelect={CatchFile}  removefile={null}  />
+                            bolea={false} val={InputValue} fileSelect={CatchFile}  files={profil.files} removefile={null}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>
