@@ -119,7 +119,6 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 useEffect(()=>{
 
     if(classes[1].match('europe')){
-        console.log(classes[1].match('europe')['input'])
       europeStyle = classes[1].match('europe')['input']
     }
     tabItems.push(divItems.current)
