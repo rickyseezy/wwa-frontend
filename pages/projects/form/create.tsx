@@ -31,8 +31,7 @@ interface IProjet {
    }
 
    let tabprofil = []
-   let compteObj = 0
-   let tabCompte = 0
+
 const CreateForm = () => {
 
     let createAccount = {
@@ -144,7 +143,6 @@ const CreateForm = () => {
         }
 
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
-            tabCompte = createAccount.files.length
             tabprofil.push(profil)
             setcount(el => el +1)
 

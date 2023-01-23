@@ -114,25 +114,18 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
     const classes: string[] = [styles["item"]];
     classes.push(config.custom);
     let divItems = useRef(null)
+    let europeStyle
+       
+useEffect(()=>{
 
-    useEffect(() => {
-        tabItems.push(divItems.current)
-        console.log(router.pathname)
-     
-        // reset les classes background white
+    if(classes[1].match('europe')){
+        console.log(classes[1].match('europe')['input'])
+      europeStyle = classes[1].match('europe')['input']
+    }
+    tabItems.push(divItems.current)
+   tabItems[0].classList.add(europeStyle)
 
-        tabItems.map((el, i) => {
-            if (i != 0) {
-                el.style = `  background-color: white !important;
-        border: none !important;
-        color: black !important;`
-            }
-         })
- 
-        return () => {
-            tabItems.length = 0
-        }
-    }, [])
+})
 
     function Select(e) {
         let tabItemsClasses : Object[]  = Array.from(continentConfig.values())
@@ -158,6 +151,7 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
          e.target.style = 'border: 1px solid transparent'
         target.classList.add(classes[1])
         target.classList.remove('back')
+        console.log(target.className)
         router.push('/projects/countries/'+ config.title)
        
 
@@ -165,7 +159,7 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 
 
     return (
-        <div className={classes.join(" ")} onClick={Select} ref={divItems}>
+        <div className={classes[0]} onClick={Select} ref={divItems}>
             <div className={styles["item__img"]}>
                 <img src={config.imgSrc} />
             </div>
