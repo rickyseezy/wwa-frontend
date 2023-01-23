@@ -48,6 +48,7 @@ const CreateForm = () => {
     }
 
     let [profil,setprofil] = useState<IProjet>(createAccount)
+    let [fullprofil,setfullprofil] = useState<boolean>(false)
     let [count,setcount] = useState<number>(0)
 
     const [bol,
@@ -189,6 +190,12 @@ const CreateForm = () => {
         setprofil({...profil, files:  profil.files.concat(file)})
     }
 
+    useEffect(()=>{
+        if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
+                setfullprofil(true)
+        } 
+    })
+
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
     'Numérique','Puissance publique','Répuclique','Ruralité','Santé','Séxurité et Défense','Solidarités','Sport','Théme autre','Transition écologique','Travail','Villes et Quartier']
@@ -315,7 +322,7 @@ const CreateForm = () => {
 
                     {/* SUBMIT BUTTON*/}
                     <div className={styles["button-container"]}>
-                        <div className={`${styles["button"]} ${styles[card1Style === "card1" || card1Style === "card2" ? "bkg" : "" ]}`} onClick={onContinueClick}>Continuer</div>
+                        <div className={`${styles["button"]} ${styles[card1Style === "card1" || card1Style === "card2" || fullprofil ? "bkg" : "" ]}`} onClick={onContinueClick}>Continuer</div>
                     </div>
                 </div>
             </form>
