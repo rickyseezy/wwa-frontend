@@ -114,23 +114,47 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
     const classes: string[] = [styles["item"]];
     classes.push(config.custom);
     let divItems = useRef(null)
-    let europeStyle
-       
-useEffect(()=>{
+function Clean(){
+    // si page est sur cause 
+    if( router.query.index === undefined){
+        tabItems.map((el, i) => {
 
-    if(classes[1].match('europe')){
-      europeStyle = classes[1].match('europe')['input']
+            if (i != 0) {
+                el.style = `  background-color: white !important;
+        border: none !important;
+        color: black !important;`
+            }
+         })
+    }else{
+        tabItems.map((el, i) => {
+// si la page est sur countries reset le styles des elements qui ne sont pas égale a l'index 
+            if (router.query.index != el.children[1].innerText) {
+                el.style = `  background-color: white !important;
+        border: none !important;
+        color: black !important;`
+            }
+         })
     }
-    tabItems.push(divItems.current)
-   tabItems[0].classList.add(europeStyle)
+}
 
-})
+    useEffect(() => {
+        tabItems.push(divItems.current)
+        console.log(router.query.index)
+     
+        // reset les classes background white sauf la premiere 
+
+      Clean()
+      
+        return () => {
+            tabItems.length = 0
+        }
+    }, [router.query.index])
 
     function Select(e) {
         let tabItemsClasses : Object[]  = Array.from(continentConfig.values())
         const target = e.target as HTMLDivElement;
 
-
+    setSelectCountry(e.target)
 
         // reset les classes bacground white
         tabItemsClasses.forEach((_el, i) => {
@@ -149,8 +173,6 @@ useEffect(()=>{
 
          e.target.style = 'border: 1px solid transparent'
         target.classList.add(classes[1])
-        target.classList.remove('back')
-        console.log(target.className)
         router.push('/projects/countries/'+ config.title)
        
 
@@ -158,7 +180,7 @@ useEffect(()=>{
 
 
     return (
-        <div className={classes[0]} onClick={Select} ref={divItems}>
+        <div className={classes.join(" ")} onClick={Select} ref={divItems}>
             <div className={styles["item__img"]}>
                 <img src={config.imgSrc} />
             </div>

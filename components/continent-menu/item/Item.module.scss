@@ -38,7 +38,8 @@
     color: $blueNight;
 
     .item__img {
-      width: 32px;
+      width: 32px !important;
+      margin: 0 !important;
     }
   }
 
@@ -55,12 +56,13 @@
   }
 
   &__img {
-    width: 60px;
+    width: 50px;
     pointer-events: none;
-
+    
     img {
       width: 100%;
       pointer-events: none;
+
 
     }
   }
@@ -73,10 +75,20 @@
     letter-spacing: 2px;
     text-align: center;
   }
+  
 
+  &:nth-child(4){
+    img{
+      width: 35px;
+    }
+  }
  
 }
-
+.whiteBack{
+ background-color: white !important;
+                    border: none !important;
+                       color: black !important;
+}
 
 /* 
   ##Device = Desktops
