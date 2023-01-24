@@ -225,9 +225,34 @@
 }
 
  
-@media screen and (min-width: 1080px) and (max-width: 1350px) {
+@media screen and (min-width: 912px) and (max-width: 1350px) {
     
-
+  .form {
+    background-color: white;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+  
+    &__steps {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .content {
+      width: 90%;
+      margin-top: 120px;
+  
+  
+      }
+  
+      .button-container {
+    
+      }
+    }
+ 
   
 
 }
@@ -243,7 +268,7 @@
   ##Screen = B/w 481px to 767px
 */
 
-@media screen and ( min-width:481px) and (max-width:768px) {
+@media screen and ( min-width:481px) and (max-width:911px) {
 
   .form {
     background-color: white;
