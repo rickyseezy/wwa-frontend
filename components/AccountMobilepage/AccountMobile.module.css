@@ -97,7 +97,7 @@
   font-weight: 700;
 }
 
-@media screen and (min-width: 758px) and (max-width: 1400px) {
+@media screen and (min-width: 758px) and (max-width: 2000px) {
   .back-account {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.422);

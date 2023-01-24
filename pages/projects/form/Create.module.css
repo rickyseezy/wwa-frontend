@@ -170,10 +170,12 @@
 .form .content .form-container .thematics {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin-top: 20px;
   gap: 20px;
   max-height: 800px;
   overflow-y: scroll;
+  cursor: pointer;
 }
 .form .content .form-container .thematics .thematic {
   width: 200px;
@@ -183,10 +185,12 @@
   height: 70%;
   background-color: rgba(29, 83, 183, 0.27);
   border-radius: 10px;
+  pointer-events: none;
 }
 .form .content .form-container .thematics .thematic__name {
   font-size: 1rem;
   margin-top: 10px;
+  pointer-events: none;
 }
 .form .content .button-container {
   display: flex;
@@ -247,6 +251,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
     width: 100%;
   }
   .form .content .help-types__separator {
