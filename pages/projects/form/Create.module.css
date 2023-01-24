@@ -183,7 +183,9 @@
 }
 .form .content .form-container .thematics .thematic__image {
   height: 70%;
-  background-color: rgba(29, 83, 183, 0.27);
+  background: url("/images/culture.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 10px;
   pointer-events: none;
 }
