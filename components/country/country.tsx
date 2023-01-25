@@ -63,19 +63,20 @@ const continentConfig = new Map<string, IContinentConfig>([
         }
     ]
 ]);
-let tab = []
+let tab =  []
 const country = ({imgSrc, titleCountry,div,contSelect} : CountryPanelProps) => {
-    
-    let [countryConf,setCountryConf] = useState('')
+
+
     let [divContinent,setcontinent] = useState([])
-    // console.log(div.current,'div')
+
     
 // enléve le style des précédents country 
     function Removecustom(){
+        console.log('remove',divContinent)
         continentConfig.forEach(continent =>{
  
 
-            divContinent.forEach(removeback =>{
+            divContinent.map(removeback =>{
                 removeback.classList.remove(continent.custom)
               })
            })
@@ -102,19 +103,16 @@ const country = ({imgSrc, titleCountry,div,contSelect} : CountryPanelProps) => {
      }
      
        useEffect(()=>{
- 
-        if(div.current && tab.length <=  5){
-            tab.push(div.current)
-            setcontinent(tab)
-            // console.log(tab,divContinent)
-    
-        }
-        // console.log(countryConf)
+        console.log('useeffect out',tab)
+               if(tab.length <= 5){
+                tab.push(div.current)
+                setcontinent([...tab])
+               }
 
-     
+           
+       },[])
 
- 
-       })
+console.log(divContinent)
     return (
         <div className={`${styles["country"]} `} onClick={Country} ref={div}  >
             <img className={styles["country__icon"]} src={imgSrc}/>
