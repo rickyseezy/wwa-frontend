@@ -1,4 +1,6 @@
-import { Fragment, useEffect, useRef, useState,useCallback} from "react";
+import { Fragment, useEffect, useRef, useState,useCallback, MouseEventHandler} from "react";
+import stylesItm from "../../../components/continent-menu/item/Item.module.scss";
+
 import MainNavigation from "@components/navigation/MainNavigation";
 import styles from "./Create.module.scss";
 import Steps from "@components/steps/Steps";
@@ -29,11 +31,88 @@ interface IProjet {
     url: string // http://aws.cloud/dbeudbe.jpg
     type: string // image/video
    }
+   
+   interface Array2  {
+     title : string,
+     img : string
+   }
 
-   let tabprofil = []
+   let tabTitle : Array2[] = [
+    {title : 'EUROPE',
+    img :    "/icons/europe-icon.svg"
+    },
+    {title : 'AFRIQUE',
+    img :    '/icons/africa-icon.svg' 
+    },
+    {title : 'AMÉRIQUE DU NORD',
+    img :    '/icons/na-icon.svg'
+    },
+    {title : 'AMÉRIQUE DU SUD',
+    img :    '/icons/sa-icon.svg' 
+    },
+    {title : 'ASIE',
+    img :    '/icons/asia-icon.svg'
+    },
+    {title : 'OCÉANIE',
+    img :    '/icons/oceania-icon.svg'
+    },
+   ]
+
+
+   interface IContinentConfig {
+    title: string;
+    imgSrc: string;
+    custom: string;
+}
+
+   
+const continentConfig = new Map<string, IContinentConfig>([
+    [
+        "EUROPE", {
+            title: "EUROPE",
+            imgSrc: "/images/europe-item.png",
+            custom: `${stylesItm["item--europe"]}`
+        }
+    ],
+    [
+        "AFRICA", {
+            title: "AFRIQUE",
+            imgSrc: "/images/africa-item.png",
+            custom: `${stylesItm["item--africa"]}`
+        }
+    ],
+    [
+        "NORTH-US", {
+            title: "AMÉRIQUE DU NORD",
+            imgSrc: "/images/north-us-item.png",
+            custom: `${stylesItm["item--northus"]}`
+        }
+    ],
+    [
+        "SOUTH-AMERICA", {
+            title: "AMÉRIQUE DU SUD",
+            imgSrc: "/images/south-america-item.png",
+            custom: `${stylesItm["item--southamerica"]}`
+        }
+    ],
+    [
+        "ASIA", {
+            title: "ASIE",
+            imgSrc: "/images/asia-item.png",
+            custom: `${stylesItm["item--asia"]}`
+        }
+    ],
+    [
+        "OCEANIA", {
+            title: "OCÉANIE",
+            imgSrc: "/images/oceania-item.png",
+            custom: `${stylesItm["item--oceania"]}`
+        }
+    ]
+]);
 
 const CreateForm = () => {
-
+    
     let createAccount = {
         focus: '',
         web: '',
@@ -56,12 +135,8 @@ const CreateForm = () => {
     const hide = useRef(null)
     let router = useRouter()
 
-    let countryEuro= useRef()
-    let countryAfri= useRef()
-    let countryUsNorth= useRef()
-    let countryUsSouth= useRef()
-    let countryAsia= useRef()
-    let countryOcea= useRef()
+    let countryRef = useRef([])
+    countryRef.current = []
     let individuel = useRef<HTMLDivElement|null>(null)
     let assosiation = useRef<HTMLDivElement | null >(null)
     type test = typeof assosiation
@@ -95,7 +170,7 @@ const CreateForm = () => {
         }
 
         // récupére le continent selectionné
-     function ContinentSelected(continent: string){
+     function ContinentSelected(continent ){
       setprofil({...profil, conntinent: continent})
      }
 
@@ -143,11 +218,10 @@ const CreateForm = () => {
         }
 
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
-            tabprofil.push(profil)
+            // tabprofil.push(profil)
             setcount(el => el +1)
 
             router.push('/')
-            console.log(createAccount.files.length,'test vide moh dthe fucker bitch')
         
         }
     }
@@ -182,23 +256,30 @@ const CreateForm = () => {
     }
 
     function CatchFile(file){
-        console.log("[CatchFile]", file)
 
 
         setprofil({...profil, files:  profil.files.concat(file)})
     }
 
     useEffect(()=>{
+        console.log(profil,countryRef,'test')
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
                 setfullprofil(true)
         } 
     })
 
+// boucle sur les ref de country 
+    function CatchCountry(e){
+      if(!countryRef.current.includes(e) && countryRef.current){
+        countryRef.current.push(e)
+      }
+ 
+    }
+
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
     'Numérique','Puissance publique','Répuclique','Ruralité','Santé','Séxurité et Défense','Solidarités','Sport','Théme autre','Transition écologique','Travail','Villes et Quartier']
 
-    console.log("PROFILE", profil)
     return (
         <Fragment>
             <MainNavigation/>
@@ -291,17 +372,13 @@ const CreateForm = () => {
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
                         <div className={styles["countries"]}>
 
-                            <Country titleCountry="EUROPE" imgSrc="/icons/europe-icon.svg" div={countryEuro} contSelect={ContinentSelected}   />
+                    
 
-                            <Country titleCountry="AFRIQUE" imgSrc='/icons/africa-icon.svg' div={countryAfri} contSelect={ContinentSelected}/>
+                            {tabTitle.map(({title,img},i) =>(
+                                <Country titleCountry={title} imgSrc={img} ref={CatchCountry} key={i} target={ContinentSelected} />
+                            ))
 
-                            <Country titleCountry="AMÉRIQUE DU NORD" imgSrc='/icons/na-icon.svg' div={countryUsNorth} contSelect={ContinentSelected}/>
-
-                            <Country titleCountry="AMÉRIQUE DU SUD" imgSrc='/icons/sa-icon.svg' div={countryUsSouth} contSelect={ContinentSelected}/>
-
-                            <Country titleCountry="ASIE" imgSrc='/icons/asia-icon.svg' div={countryAsia} contSelect={ContinentSelected}/>
-
-                            <Country titleCountry="OCÉANIE" imgSrc='/icons/oceania-icon.svg' div={countryOcea}  contSelect={ContinentSelected}/>
+                            }
 
                         </div>
                         {/*Todo :: Text should be dynamic either project or cause*/}
