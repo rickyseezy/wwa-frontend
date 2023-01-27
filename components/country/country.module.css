@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .country__icon {
