@@ -127,7 +127,7 @@ function Clean(){
          })
     }else{
         tabItems.map((el, i) => {
-// si la page est sur countries reset le styles des elements qui ne sont pas égale a l'index 
+// si la page est sur countries reset le styles des elements qui ne sont pas égale a l'index
             if (router.query.index != el.children[1].innerText) {
                 el.style = `  background-color: white !important;
         border: none !important;

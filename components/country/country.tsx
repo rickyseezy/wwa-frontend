@@ -15,11 +15,9 @@ interface CountryPanelProps {
 let tab =  []
 const country = ({imgSrc, titleCountry,target}: CountryPanelProps,ref ) => {
 
-          function catchCount(e){
-            target
-          }
+        
     return (
-        <div className={`${styles["country"]} `} onClick={catchCount}  ref={ref}  >
+        <div className={`${styles["country"]} `} onClick={target}  ref={ref}  >
             <img className={styles["country__icon"]} src={imgSrc}/>
             <div className={styles["country__name"]}  >{titleCountry}</div>
 

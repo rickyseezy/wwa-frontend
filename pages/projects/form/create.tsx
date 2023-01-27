@@ -12,6 +12,7 @@ import InputNtexterea from "@components/Input&texterea/InputNtexterea";
 import {useRouter} from "next/router";
 import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
+import { Console } from "console";
 let stylesbol = ""
 
 interface IProjet {
@@ -75,35 +76,35 @@ const continentConfig = new Map<string, IContinentConfig>([
         }
     ],
     [
-        "AFRICA", {
+        "AFRIQUE", {
             title: "AFRIQUE",
             imgSrc: "/images/africa-item.png",
             custom: `${stylesItm["item--africa"]}`
         }
     ],
     [
-        "NORTH-US", {
+        "AMÉRIQUE DU NORD", {
             title: "AMÉRIQUE DU NORD",
             imgSrc: "/images/north-us-item.png",
             custom: `${stylesItm["item--northus"]}`
         }
     ],
     [
-        "SOUTH-AMERICA", {
+        "AMÉRIQUE DU SUD", {
             title: "AMÉRIQUE DU SUD",
             imgSrc: "/images/south-america-item.png",
             custom: `${stylesItm["item--southamerica"]}`
         }
     ],
     [
-        "ASIA", {
+        "ASIE", {
             title: "ASIE",
             imgSrc: "/images/asia-item.png",
             custom: `${stylesItm["item--asia"]}`
         }
     ],
     [
-        "OCEANIA", {
+        "OCÉANIE", {
             title: "OCÉANIE",
             imgSrc: "/images/oceania-item.png",
             custom: `${stylesItm["item--oceania"]}`
@@ -112,7 +113,7 @@ const continentConfig = new Map<string, IContinentConfig>([
 ]);
 
 const CreateForm = () => {
-    
+
     let createAccount = {
         focus: '',
         web: '',
@@ -170,8 +171,22 @@ const CreateForm = () => {
         }
 
         // récupére le continent selectionné
-     function ContinentSelected(continent ){
-      setprofil({...profil, conntinent: continent})
+     function ContinentSelected(continent){
+        let whiteback = `${stylesItm["item--white-back"]}`
+        console.log(whiteback)
+        countryRef.current.forEach(continent1 => {
+        
+             continent1.classList.add(whiteback)
+            
+        })
+        let continentVal = continent.target.children[1].innerText
+        let continentStyle = continentConfig.get(continentVal).custom
+
+console.log(continentStyle)
+continent.target.classList.remove(whiteback)
+
+        continent.target.classList.add(continentStyle)
+      setprofil({...profil, conntinent: continentVal})
      }
 
  // selctionne les cartes pour les cause 
@@ -271,8 +286,14 @@ const CreateForm = () => {
 // boucle sur les ref de country 
     function CatchCountry(e){
       if(!countryRef.current.includes(e) && countryRef.current){
-        countryRef.current.push(e)
+        
+         
+            countryRef.current.push(e)
+          countryRef.current =  countryRef.current.filter( country => country != null)
+
+        
       }
+
  
     }
 
