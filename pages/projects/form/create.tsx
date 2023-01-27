@@ -135,7 +135,6 @@ const CreateForm = () => {
     const show = useRef(null)
     const hide = useRef(null)
     let router = useRouter()
-    const containerCountinent = useRef(null);
 
     let countryRef = useRef([])
     countryRef.current = []
@@ -285,10 +284,7 @@ const CreateForm = () => {
         } 
 
 
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
+       
     })
 
 // boucle sur les ref de country 
@@ -306,20 +302,7 @@ const CreateForm = () => {
     }
 
 
-    function handleScroll() {
-        if (containerCountinent.current) {
-          const { top } = containerCountinent.current.getBoundingClientRect();
-          console.log(`Element's position: ${top}`,typeof containerCountinent.current.children);
-
-          if(top === 0){
-            [...containerCountinent.current.children].map(countinentOp => {
-                countinentOp.style = 'opacity: 1;transition:1s'
-              })
-          }
-       
-        }
-      }
-    
+  
 
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
@@ -415,7 +398,7 @@ const CreateForm = () => {
                             bolea={false} val={InputValue} fileSelect={CatchFile}  files={profil.files} removefile={null}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
-                        <div className={styles["countries"] } ref={containerCountinent}>
+                        <div className={styles["countries"] }>
 
                     
 
