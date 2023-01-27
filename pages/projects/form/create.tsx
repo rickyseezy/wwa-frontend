@@ -135,12 +135,12 @@ const CreateForm = () => {
     const show = useRef(null)
     const hide = useRef(null)
     let router = useRouter()
+    const containerCountinent = useRef(null);
 
     let countryRef = useRef([])
     countryRef.current = []
     let individuel = useRef<HTMLDivElement|null>(null)
     let assosiation = useRef<HTMLDivElement | null >(null)
-    type test = typeof assosiation
 
     let [card1Style,setcard1Style] = useState("")
 
@@ -173,17 +173,20 @@ const CreateForm = () => {
         // récupére le continent selectionné
      function ContinentSelected(continent){
         let whiteback = `${stylesItm["item--white-back"]}`
-        console.log(whiteback)
-        countryRef.current.forEach(continent1 => {
-        
-             continent1.classList.add(whiteback)
-            
-        })
         let continentVal = continent.target.children[1].innerText
         let continentStyle = continentConfig.get(continentVal).custom
+     
 
-console.log(continentStyle)
-continent.target.classList.remove(whiteback)
+
+
+        countryRef.current.forEach(continent1 => {
+             continent1.classList.add(whiteback)
+             continent1.classList.remove(continentConfig.get(continent1.children[1].innerText).custom)
+        })
+  
+        console.log(continentVal,'continent val')   
+
+            continent.target.classList.remove(whiteback)
 
         continent.target.classList.add(continentStyle)
       setprofil({...profil, conntinent: continentVal})
@@ -277,10 +280,15 @@ continent.target.classList.remove(whiteback)
     }
 
     useEffect(()=>{
-        console.log(profil,countryRef,'test')
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
                 setfullprofil(true)
         } 
+
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
     })
 
 // boucle sur les ref de country 
@@ -296,6 +304,22 @@ continent.target.classList.remove(whiteback)
 
  
     }
+
+
+    function handleScroll() {
+        if (containerCountinent.current) {
+          const { top } = containerCountinent.current.getBoundingClientRect();
+          console.log(`Element's position: ${top}`,typeof containerCountinent.current.children);
+
+          if(top === 0){
+            [...containerCountinent.current.children].map(countinentOp => {
+                countinentOp.style = 'opacity: 1;transition:1s'
+              })
+          }
+       
+        }
+      }
+    
 
     const thematics = [...Array(25)];
     const Theme = ['Culture','Démocratie','Economie','Éducation','Égalité F/H','Europe','Familles','Inclusion','International','Jeunesse','Justice','Mobilités',
@@ -391,7 +415,7 @@ continent.target.classList.remove(whiteback)
                             bolea={false} val={InputValue} fileSelect={CatchFile}  files={profil.files} removefile={null}  />
 
                         <div className={styles["form-container__step"]}>5. Ou ça ?</div>
-                        <div className={styles["countries"]}>
+                        <div className={styles["countries"] } ref={containerCountinent}>
 
                     
 

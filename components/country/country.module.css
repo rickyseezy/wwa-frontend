@@ -1,4 +1,5 @@
 .country {
+  opacity: 0;
   border: 1px solid #BBCBE9;
   border-radius: 15px;
   width: 130px;
@@ -9,14 +10,16 @@
   align-items: center;
   margin-right: 20px;
 }
+
 .country__icon {
   width: 60px;
   pointer-events: none;
 }
+
 .country__name {
   margin-top: 5px;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: .8rem;
   letter-spacing: 2px;
   color: #474A57;
   width: 80%;
@@ -27,6 +30,7 @@
 @media screen and (min-width: 1080px) and (max-width: 1350px) {
   /* CSS */
 }
+
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -42,7 +46,7 @@
     justify-content: center;
     align-items: center;
     margin-right: 20px;
-    padding: 1em 0.5em;
+    padding: 1em .5em;
   }
   .country__icon {
     width: 60px;
@@ -50,22 +54,22 @@
   .country__name {
     margin-top: 5px;
     font-weight: 600;
-    font-size: 0.5rem !important;
+    font-size: .5rem !important;
     letter-spacing: 2px;
     color: #474A57;
     width: 80%;
     text-align: center;
   }
 }
+
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .country {
-    border: none;
-    width: 69px;
-    height: 69px;
+    width: 79px;
+    height: 79px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,13 +82,14 @@
   .country__name {
     margin-top: 5px;
     font-weight: 600;
-    font-size: 0.4rem;
+    font-size: .4rem;
     letter-spacing: 2px;
     color: #474A57;
     width: 80%;
     text-align: center;
   }
 }
+
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -120,4 +125,5 @@
     margin-top: 1px;
     display: none;
   }
-}/*# sourceMappingURL=country.module.css.map */
+}
+/*# sourceMappingURL=country.module.css.map */

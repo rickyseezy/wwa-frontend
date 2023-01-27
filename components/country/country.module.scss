@@ -1,4 +1,5 @@
 .country {
+  opacity: 0;
     border: 1px solid #BBCBE9;
     border-radius: 15px;
     width: 130px;
@@ -81,10 +82,9 @@
 
 @media screen and ( min-width:481px) and (max-width:768px) {
   .country {
-    border: none;
 
-    width: 69px;
-    height: 69px;
+    width: 79px;
+    height: 79px;
     display: flex;
     flex-direction: column;
     justify-content: center;
