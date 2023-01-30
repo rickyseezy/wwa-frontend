@@ -107,11 +107,7 @@ function MenuCountry({select}:MenuCountryProps) {
 
             )
           })}
-          {/* <li onClick={select} className={styles["menu__link"]}>Italie</li>
-          <li onClick={select} className={styles["menu__link"]}>Espagne</li>
-          <li onClick={select} className={styles["menu__link"]}>Portugal</li>
-          <li onClick={select} className={styles["menu__link"]}>Allemagne</li>
-          <li onClick={select} className={styles["menu__link"]}>Gréce</li> */}
+ 
 
         </ul>
         <div className={styles["menu-container__icon"]}>

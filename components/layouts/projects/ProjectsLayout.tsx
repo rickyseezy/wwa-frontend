@@ -15,7 +15,7 @@ interface IProjectsLayout {
 const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
   let [title, settitle] = useState('EUROPE')
-  let [accTittle, setAccTitle] = useState('')
+  let [showCard,setshowcard] = useState(false)
 
   let [titleCountry, settitleCountry] = useState('')
  let [bolean,setbolean] = useState(false)
@@ -26,6 +26,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
 
   function SwitchTitle(titles) {
+    setshowcard(false)
 
     switch (titles) {
       case 'AFRICA':
@@ -55,7 +56,8 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
     if(!bolean){
       settitle(e.target.innerText)
-
+      console.log('yo clicked')
+      setshowcard(true)
     }
 
   }
@@ -109,7 +111,12 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
           <div className={styles["causes-wrapper"]}>
            
             <MenuCountry select={menuClicked}/>
-            <div className={styles["children-container"]}>{children}</div>
+            <div className={styles["children-container"]}>{
+            
+          showCard   ? <h1>Bullet man </h1> : children
+            
+            
+            }</div>
           </div>
         </div>
         <div className={styles["custom-shape"]}></div>
