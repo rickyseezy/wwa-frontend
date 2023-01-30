@@ -1,17 +1,24 @@
 import styles from "./TopCauses.module.scss";
 import ScrollList from "@components/scroll-list/ScrollList";
 import ControlPane from "@components/control-pane/ControlPane";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import { useRouter } from "next/router";
 interface dataDirection{
     direction:String,
     id:number
 }
+
+
 
 const TopCauses = () => {
     
     let directionMoveCardOne = null
     let directionMoveCardTwo = null
     let directionMoveCardThree = null
+    let router = useRouter()
+
+    let [subtitle,setsubtitle] = useState('Europe')
+
 
     let [arrow,
         setarrow] = useState < Object > ({})
@@ -67,6 +74,32 @@ const TopCauses = () => {
         })
     }
 
+    // function qui capitalise le title 
+   function CapitalizeTitle(str){
+    let r = []
+    str = str.split("").forEach((el, i) => {
+      if(i < 1){
+        r.push(el.toUpperCase())
+  
+      }else{
+        r.push(el.toLowerCase())
+   
+      }
+    });
+    setsubtitle(r.join(''));
+   }
+
+   
+    useEffect(()=>{
+      if(router.query.index){
+      CapitalizeTitle(router.query.index)
+    }
+    })
+
+
+    // récupére les deux dernier caroussel
+
+
     return (
         <div className={styles["causes"]}>
             <div className={styles["scroll-list"]}>
@@ -75,7 +108,7 @@ const TopCauses = () => {
                         titleColor="#0A6AAF"
                         subtitleColor="black"
                         title=" TOP CAUSES"
-                        subTitle="Europe"
+                        subTitle={subtitle}
                         buttonColor="white"
                         id={2}
                         func={parentToChild}/>
@@ -84,7 +117,7 @@ const TopCauses = () => {
                     <ScrollList dir={arrow} id={2}/>
                 </div>
             </div>
-            <div className={styles["scroll-list"]}>
+            {/* <div className={styles["scroll-list"]} ref={RefScroll}>
                 <div className={styles["scroll-list__control-pane"]}>
                     <ControlPane
                         titleColor="#0A6AAF"
@@ -99,7 +132,7 @@ const TopCauses = () => {
                     <ScrollList dir={arrowTwo} id={3}/>
                 </div>
             </div>
-            <div className={styles["scroll-list"]}>
+            <div className={styles["scroll-list"]} ref={RefScroll} >
                 <div className={styles["scroll-list__control-pane"]}>
                     <ControlPane
                         titleColor="#0A6AAF"
@@ -113,7 +146,7 @@ const TopCauses = () => {
                 <div className={styles["scroll-list__list"]}>
                     <ScrollList dir={arrowThree} id={4}/>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
