@@ -67,7 +67,6 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   useEffect(() => {
   // let size =   window.matchMedia("(min-width: 1025px)").matches
       SwitchTitle(router.query.index)
-console.log(banner.current)
   if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]'){
     if(window.matchMedia("(min-width: 1025px)").matches){
       wrapper.current.style = 'height : 1080px'
