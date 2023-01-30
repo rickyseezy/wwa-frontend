@@ -6,56 +6,46 @@
   align-items: center;
   margin-bottom: 100px;
 }
-
 .form__steps {
   margin-top: 60px;
   display: flex;
   justify-content: center;
 }
-
 .form .content {
   width: 80%;
   margin-top: 120px;
 }
-
 .form .content__question {
   margin-top: 10px;
   font-size: 2.5rem;
   font-weight: 700;
 }
-
 .form .content .help-types {
   margin-top: 40px;
   display: flex;
   justify-content: center;
 }
-
 .form .content .help-types__separator {
   width: 20px;
 }
-
 .form .content .form-container {
   width: 80%;
   margin-left: 10%;
 }
-
 .form .content .form-container__step {
   font-size: 1rem;
   font-weight: 700;
   margin-top: 60px;
 }
-
 .form .content .form-container .select-box {
   display: flex;
   margin-top: 15px;
 }
-
 .form .content .form-container .select-box .choice {
   display: flex;
   align-items: center;
   width: 120px;
 }
-
 .form .content .form-container .select-box .choice__checkbox {
   width: 17px;
   height: 17px;
@@ -65,7 +55,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .form .content .form-container .select-box .choice__checkbox span {
   border-radius: 17px;
   display: block;
@@ -73,11 +62,9 @@
   width: 75%;
   height: 75%;
 }
-
 .form .content .form-container .select-box .choice__text {
   margin-left: 7px;
 }
-
 .form .content .form-container__input {
   border: none;
   background-color: #F3F9FD;
@@ -87,13 +74,21 @@
   padding-left: 20px;
   border-radius: 10px;
 }
-
+.form .content .form-container__input::-moz-placeholder {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #969BAB;
+}
+.form .content .form-container__input:-ms-input-placeholder {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #969BAB;
+}
 .form .content .form-container__input::placeholder {
   font-size: 1rem;
   font-weight: 700;
   color: #969BAB;
 }
-
 .form .content .form-container__textarea {
   margin-top: 15px;
   background-color: #F3F9FD;
@@ -104,14 +99,24 @@
   resize: vertical;
   padding: 20px;
 }
-
+.form .content .form-container__textarea::-moz-placeholder {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #969BAB;
+  font-family: "Poppins";
+}
+.form .content .form-container__textarea:-ms-input-placeholder {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #969BAB;
+  font-family: "Poppins";
+}
 .form .content .form-container__textarea::placeholder {
   font-size: 1rem;
   font-weight: 700;
   color: #969BAB;
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
-
 .form .content .form-container .files {
   border-radius: 10px;
   background-color: #F3F9FD;
@@ -123,11 +128,9 @@
   align-items: center;
   flex-direction: column;
 }
-
 .form .content .form-container .files__icon {
   width: 40px;
 }
-
 .form .content .form-container .files__text {
   width: 200px;
   text-align: center;
@@ -135,14 +138,12 @@
   color: #1D53B7;
   margin-top: 15px;
 }
-
 .form .content .form-container .countries {
   margin-top: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .form .content .form-container .countries .country {
   border: 1px solid #BBCBE9;
   border-radius: 15px;
@@ -154,21 +155,18 @@
   align-items: center;
   margin-right: 20px;
 }
-
 .form .content .form-container .countries .country__icon {
   width: 60px;
 }
-
 .form .content .form-container .countries .country__name {
   margin-top: 5px;
   font-weight: 600;
-  font-size: .8rem;
+  font-size: 0.8rem;
   letter-spacing: 2px;
   color: #474A57;
   width: 80%;
   text-align: center;
 }
-
 .form .content .form-container .thematics {
   display: flex;
   flex-wrap: wrap;
@@ -179,12 +177,10 @@
   overflow-y: scroll;
   cursor: pointer;
 }
-
 .form .content .form-container .thematics .thematic {
   width: 200px;
   height: 130px;
 }
-
 .form .content .form-container .thematics .thematic__image {
   height: 70%;
   background: url("/images/culture.jpg");
@@ -193,21 +189,18 @@
   border-radius: 10px;
   pointer-events: none;
 }
-
 .form .content .form-container .thematics .thematic__name {
   font-size: 1rem;
   margin-top: 10px;
   pointer-events: none;
 }
-
 .form .content .button-container {
   display: flex;
   justify-content: center;
   margin-top: 60px;
 }
-
 .form .content .button-container .button {
-  background-color: #1d53b770;
+  background-color: rgba(29, 83, 183, 0.4392156863);
   width: 318px;
   height: 54px;
   border-radius: 30px;
@@ -216,7 +209,7 @@
   align-items: center;
   color: white;
   font-weight: 500;
-  font-size: .8rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 
@@ -243,7 +236,6 @@
     margin-top: 120px;
   }
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -332,6 +324,16 @@
     padding-left: 20px;
     border-radius: 10px;
   }
+  .form .content .form-container__input::-moz-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+  }
+  .form .content .form-container__input:-ms-input-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+  }
   .form .content .form-container__input::placeholder {
     font-size: 1rem;
     font-weight: 700;
@@ -347,11 +349,23 @@
     resize: vertical;
     padding: 20px;
   }
+  .form .content .form-container__textarea::-moz-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+    font-family: "Poppins";
+  }
+  .form .content .form-container__textarea:-ms-input-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+    font-family: "Poppins";
+  }
   .form .content .form-container__textarea::placeholder {
     font-size: 1rem;
     font-weight: 700;
     color: #969BAB;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .form .content .form-container .files {
     border-radius: 10px;
@@ -397,7 +411,6 @@
     height: 200px !important;
   }
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -481,6 +494,16 @@
     padding-left: 20px;
     border-radius: 10px;
   }
+  .form .content .form-container__input::-moz-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+  }
+  .form .content .form-container__input:-ms-input-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+  }
   .form .content .form-container__input::placeholder {
     font-size: 1rem;
     font-weight: 700;
@@ -496,11 +519,23 @@
     resize: vertical;
     padding: 20px;
   }
+  .form .content .form-container__textarea::-moz-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+    font-family: "Poppins";
+  }
+  .form .content .form-container__textarea:-ms-input-placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #969BAB;
+    font-family: "Poppins";
+  }
   .form .content .form-container__textarea::placeholder {
     font-size: 1rem;
     font-weight: 700;
     color: #969BAB;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   .form .content .form-container .files {
     border-radius: 10px;
@@ -549,5 +584,4 @@
     width: 100% !important;
     height: 200px !important;
   }
-}
-/*# sourceMappingURL=Create.module.css.map */
+}/*# sourceMappingURL=Create.module.css.map */

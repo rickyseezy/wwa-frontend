@@ -8,38 +8,33 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: scale 0.4s ease-in-out;
+  -webkit-animation: scale 0.4s ease-in-out;
+          animation: scale 0.4s ease-in-out;
   border-radius: 10px;
   transition: background-color 1s;
 }
-
 .help-card--selected {
   background-color: #ecf2ff;
   color: #1D53B7;
 }
-
 .help-card--selectedRight {
   background-color: #ffffff;
   color: #1D53B7;
 }
-
 .help-card__img {
   width: 80%;
 }
-
 .help-card__text {
   font-size: 1rem;
   font-weight: 700;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .help-card__description {
-  font-size: .7rem;
+  font-size: 0.7rem;
   width: 80%;
   text-align: center;
 }
-
 .help-card .select-icon {
   width: 33px;
   height: 33px;
@@ -52,9 +47,17 @@
   top: -20px;
   right: 12px;
 }
-
 .help-card .select-icon img {
   width: 70%;
+}
+
+@-webkit-keyframes scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes scale {
@@ -65,7 +68,6 @@
     transform: scale(1);
   }
 }
-
 @media screen and (min-width: 1080px) and (max-width: 1720px) {
   /* CSS */
   .help-card {
@@ -82,7 +84,6 @@
     transition: background-color 1s;
   }
 }
-
 /* 
   ##Device = Tablets, Ipads (portrait)
   ##Screen = B/w 768px to 1024px
@@ -103,7 +104,6 @@
     transition: background-color 1s;
   }
 }
-
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
@@ -141,7 +141,7 @@
     margin-bottom: 10px;
   }
   .help-card__description {
-    font-size: .7rem;
+    font-size: 0.7rem;
     width: 80%;
     text-align: center;
   }
@@ -161,7 +161,6 @@
     width: 70%;
   }
 }
-
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -199,7 +198,7 @@
     margin-bottom: 10px;
   }
   .help-card__description {
-    font-size: .7rem;
+    font-size: 0.7rem;
     width: 80%;
     text-align: center;
   }
@@ -218,5 +217,4 @@
   .help-card .select-icon img {
     width: 70%;
   }
-}
-/*# sourceMappingURL=HelpCard.module.css.map */
+}/*# sourceMappingURL=HelpCard.module.css.map */

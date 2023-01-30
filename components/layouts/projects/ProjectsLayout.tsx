@@ -20,6 +20,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   let [titleCountry, settitleCountry] = useState('')
  let [bolean,setbolean] = useState(false)
  let banner = useRef<HTMLDivElement>(null)
+ let wrapper = useRef(null)
 
   const router = useRouter()
 
@@ -64,9 +65,29 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
 
   useEffect(() => {
-
+  // let size =   window.matchMedia("(min-width: 1025px)").matches
       SwitchTitle(router.query.index)
 console.log(banner.current)
+  if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]'){
+    if(window.matchMedia("(min-width: 1025px)").matches){
+      wrapper.current.style = 'height : 1080px'
+
+    }
+    else if(window.matchMedia("(max-width: 480px)").matches){
+      wrapper.current.style = 'height : 800px'
+
+    }
+
+    else if(window.matchMedia("(max-width: 768px)").matches){
+      wrapper.current.style = 'height : 872px'
+
+    }
+
+    else if(window.matchMedia("(max-width: 1024px)").matches){
+      wrapper.current.style = 'height : 1037px'
+
+    }
+  }
  
   },[router.query.index]);
    
@@ -76,7 +97,7 @@ console.log(banner.current)
 
   return (
     <>
-      <div className={styles["wrapper"]}> 
+      <div className={styles["wrapper"]} > 
         <MainNavigation />
         <MenuBurger />
         <div className={styles["banner"]} ref={banner}>
@@ -85,7 +106,7 @@ console.log(banner.current)
             <Stats />
           </div>
         </div>
-        <div className={styles["wrapper__content"]}>
+        <div className={styles["wrapper__content"]} ref={wrapper}>
           <div className={styles["causes-wrapper"]}>
            
             <MenuCountry select={menuClicked}/>

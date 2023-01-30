@@ -1,7 +1,8 @@
 import styles from "./TopCauses.module.scss";
 import ScrollList from "@components/scroll-list/ScrollList";
 import ControlPane from "@components/control-pane/ControlPane";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import { useRouter } from "next/router";
 interface dataDirection{
     direction:String,
     id:number
@@ -12,6 +13,9 @@ const TopCauses = () => {
     let directionMoveCardOne = null
     let directionMoveCardTwo = null
     let directionMoveCardThree = null
+    let twoLastScroll = useRef(null)
+    twoLastScroll.current = []
+    let router = useRouter()
 
     let [arrow,
         setarrow] = useState < Object > ({})
@@ -67,6 +71,26 @@ const TopCauses = () => {
         })
     }
 
+    useEffect(()=>{
+      console.log(router.pathname,twoLastScroll)
+      if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]'){
+        twoLastScroll.current.map(el =>{
+            console.log(el)
+            if(el){
+                el.style = 'display:none'
+            }
+        })
+      }
+    },[])
+    console.log(router)
+
+    function RefScroll(e){
+      console.log(e)
+      if(!twoLastScroll.current.includes(e)){
+        twoLastScroll.current.push(e)
+      }
+    }
+
     return (
         <div className={styles["causes"]}>
             <div className={styles["scroll-list"]}>
@@ -84,7 +108,7 @@ const TopCauses = () => {
                     <ScrollList dir={arrow} id={2}/>
                 </div>
             </div>
-            <div className={styles["scroll-list"]}>
+            <div className={styles["scroll-list"]} ref={RefScroll}>
                 <div className={styles["scroll-list__control-pane"]}>
                     <ControlPane
                         titleColor="#0A6AAF"
@@ -99,7 +123,7 @@ const TopCauses = () => {
                     <ScrollList dir={arrowTwo} id={3}/>
                 </div>
             </div>
-            <div className={styles["scroll-list"]}>
+            <div className={styles["scroll-list"]} ref={RefScroll} >
                 <div className={styles["scroll-list__control-pane"]}>
                     <ControlPane
                         titleColor="#0A6AAF"
