@@ -33,6 +33,7 @@
 }
 .control-pane .controllers {
   display: flex;
+  width: 100%;
 }
 
 .spacer {
@@ -177,8 +178,7 @@
     margin-top: 4em;
   }
   .controllers {
-    transform: translate(-21px, 75px) !important;
-    margin: 2em 0 3.5em 0 !important;
+    width: 100%;
   }
 }
 /* 

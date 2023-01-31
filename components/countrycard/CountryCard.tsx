@@ -3,7 +3,7 @@ import styles from './countrycard.module.scss'
 
 let tab = []
 
-for(let i = 0 ; i < 15 ; i++){
+for(let i = 0 ; i <= 15 ; i++){
     tab.push(i)
 
 }

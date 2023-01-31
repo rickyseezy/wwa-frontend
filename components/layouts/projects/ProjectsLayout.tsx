@@ -82,7 +82,7 @@ console.log(cardContainer.current.getBoundingClientRect().height)
       setshowcard(true)
     }
     if(window.matchMedia("(min-width: 1025px)").matches ){
-          wrapper.current.style = `height:2700px`
+          wrapper.current.style = `height:2300px`
       
         }
   }
