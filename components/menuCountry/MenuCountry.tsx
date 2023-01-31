@@ -103,7 +103,7 @@ function MenuCountry({select}:MenuCountryProps) {
           </li>
           {tabcountry.map(country =>{
             return (
-              <li onClick={select} className={styles["menu__link"]}>{country}</li>
+              <li onClick={select} key={country} className={styles["menu__link"]}>{country}</li>
 
             )
           })}

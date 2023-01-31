@@ -7,6 +7,7 @@ import MenuBurger from "@components/menu-burger/MenuBurger";
 import Footer from "@components/footer/Footer";
 import { useRouter } from "next/router";
 import MenuCountry from "@components/menuCountry/MenuCountry";
+import CountryCard from "@components/countrycard/CountryCard";
 
 interface IProjectsLayout {
   children: React.ReactNode;
@@ -17,10 +18,11 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   let [title, settitle] = useState('EUROPE')
   let [showCard,setshowcard] = useState(false)
 
-  let [titleCountry, settitleCountry] = useState('')
+  let [sizeCardCont, setsize] = useState('')
  let [bolean,setbolean] = useState(false)
  let banner = useRef<HTMLDivElement>(null)
  let wrapper = useRef(null)
+ let cardContainer = useRef(null)
 
   const router = useRouter()
 
@@ -50,26 +52,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
         break;
 
     }
-  }
 
-  function menuClicked(e){
-
-    if(!bolean){
-      settitle(e.target.innerText)
-      console.log('yo clicked')
-      setshowcard(true)
-    }
-
-  }
-
-  
-
-
-
-  useEffect(() => {
-  // let size =   window.matchMedia("(min-width: 1025px)").matches
-      SwitchTitle(router.query.index)
-  if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]'){
     if(window.matchMedia("(min-width: 1025px)").matches){
       wrapper.current.style = 'height : 1080px'
 
@@ -89,11 +72,64 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
     }
   }
+
+  function menuClicked(e){
+    if(cardContainer.current){
+      console.log(cardContainer.current.getBoundingClientRect().height,'carrrrrrrd')
+      setsize(cardContainer.current.getBoundingClientRect().height + 400)
+  
+    }
+  
+    if(!bolean){
+      settitle(e.target.innerText)
+      console.log('yo clicked')
+      setshowcard(true)
+    }
+    if(window.matchMedia("(min-width: 1025px)").matches){
+          wrapper.current.style = `height:${sizeCardCont}px`
+      
+        }
+
+
+        if(cardContainer.current){
+          console.log('yo')
+        }
+
+
+  }
+
+  
+
+
+
+  useEffect(() => {
+  // let size =   window.matchMedia("(min-width: 1025px)").matches
+      SwitchTitle(router.query.index)
+  if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]' && !showCard){
+    if(window.matchMedia("(min-width: 1025px)").matches){
+      wrapper.current.style = 'height : 1080px'
+
+    }
+    else if(window.matchMedia("(max-width: 480px)").matches){
+      wrapper.current.style = 'height : 800px'
+
+    }
+
+    else if(window.matchMedia("(max-width: 768px)").matches){
+      wrapper.current.style = 'height : 872px'
+
+    }
+
+    else if(window.matchMedia("(max-width: 1024px)").matches){
+      wrapper.current.style = 'height : 1037px'
+
+    }
+  }
+
+
+
  
   },[router.query.index]);
-   
-
-
 
 
   return (
@@ -113,7 +149,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
             <MenuCountry select={menuClicked}/>
             <div className={styles["children-container"]}>{
             
-          showCard   ? <h1>Bullet man </h1> : children
+          showCard   ? <CountryCard ref={cardContainer} /> : children
             
             
             }</div>
