@@ -140,8 +140,9 @@ function Clean(){
     useEffect(() => {
         tabItems.push(divItems.current)
         console.log(router.query.index)
-     
+        console.log(tabItems[0])
         // reset les classes background white sauf la premiere 
+        tabItems[0].classList.add("item--europe")
 
       Clean()
       

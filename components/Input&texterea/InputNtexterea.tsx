@@ -22,12 +22,10 @@ const InputNtexterea = ({
   // removefile
 }: ControlInputNtextera) => {
   let tab = [];
-  console.log("INITIAL FILES ", files)
   let [tabfile, settabfile] = useState<string[]>(files);
 
   function INputValue(e) {
-    console.log("HEY")
-    console.log(e?.target?.files,'file man')
+
     const file = e?.target?.files[0];
     if (file) {
       const reader = new FileReader();

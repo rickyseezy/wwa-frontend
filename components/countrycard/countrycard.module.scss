@@ -1,17 +1,1 @@
-.grid-card{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1em;
-    width: fit-content;
-}
 
-
-@media screen and (min-width: 320px) and (max-width: 480px){
-    .grid-card{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        gap: 1em;
-        width: fit-content;
-    }
-
-}

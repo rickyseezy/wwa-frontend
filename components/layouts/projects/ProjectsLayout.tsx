@@ -74,28 +74,17 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   }
 
   function menuClicked(e){
-    if(cardContainer.current){
-      console.log(cardContainer.current.getBoundingClientRect().height,'carrrrrrrd')
-      setsize(cardContainer.current.getBoundingClientRect().height + 400)
-  
-    }
+console.log(cardContainer.current.getBoundingClientRect().height)
   
     if(!bolean){
       settitle(e.target.innerText)
       console.log('yo clicked')
       setshowcard(true)
     }
-    if(window.matchMedia("(min-width: 1025px)").matches){
-          wrapper.current.style = `height:${sizeCardCont}px`
+    if(window.matchMedia("(min-width: 1025px)").matches ){
+          wrapper.current.style = `height:2700px`
       
         }
-
-
-        if(cardContainer.current){
-          console.log('yo')
-        }
-
-
   }
 
   
@@ -105,6 +94,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   useEffect(() => {
   // let size =   window.matchMedia("(min-width: 1025px)").matches
       SwitchTitle(router.query.index)
+
   if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]' && !showCard){
     if(window.matchMedia("(min-width: 1025px)").matches){
       wrapper.current.style = 'height : 1080px'
@@ -126,7 +116,10 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
     }
   }
 
-
+   if(showCard){
+    console.log(cardContainer.current.getBoundingClientRect().height,'taille')
+    setsize(cardContainer.current.getBoundingClientRect().height + 400)
+   }
 
  
   },[router.query.index]);
@@ -147,12 +140,22 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
           <div className={styles["causes-wrapper"]}>
            
             <MenuCountry select={menuClicked}/>
-            <div className={styles["children-container"]}>{
+            <div className={styles["children-container"]}>
+            <div className={styles['grid-card'] }     ref={cardContainer} >
+              {
             
-          showCard   ? <CountryCard ref={cardContainer} /> : children
+          showCard   ?
+   
+          <CountryCard  /> 
+          
+          : 
+          
+          children
             
             
-            }</div>
+            }
+            </div> 
+            </div>
           </div>
         </div>
         <div className={styles["custom-shape"]}></div>

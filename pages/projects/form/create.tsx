@@ -183,7 +183,6 @@ const CreateForm = () => {
              continent1.classList.remove(continentConfig.get(continent1.children[1].innerText).custom)
         })
   
-        console.log(continentVal,'continent val')   
 
             continent.target.classList.remove(whiteback)
 
@@ -279,6 +278,8 @@ const CreateForm = () => {
     }
 
     useEffect(()=>{
+         
+
         if(profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != ""){
                 setfullprofil(true)
         } 

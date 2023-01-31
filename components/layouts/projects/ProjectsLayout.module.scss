@@ -152,6 +152,14 @@
     border: 0;
 }
 
+.grid-card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1em;
+    width: fit-content;
+}
+
+
 
 
 
