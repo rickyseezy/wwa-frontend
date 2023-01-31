@@ -69,7 +69,6 @@ function MenuCountry({select}:MenuCountryProps) {
 
       function AddCountry(continent){
        let tabPays = continentConfig.get(continent).pays;
-       console.log(tabPays)
        settabcountry(tabPays)
       }
 
@@ -84,7 +83,6 @@ function MenuCountry({select}:MenuCountryProps) {
           AddCountry('EUROPE')
 
         }
-        console.log(router.query.index)
 
 
       },[router.query.index])
