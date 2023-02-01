@@ -74,7 +74,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   }
 
   function menuClicked(e){
-console.log(cardContainer.current.getBoundingClientRect().height)
+// console.log(cardContainer.current.getBoundingClientRect().height)
   
     if(!bolean){
       settitle(e.target.innerText)
@@ -141,20 +141,20 @@ console.log(cardContainer.current.getBoundingClientRect().height)
            
             <MenuCountry select={menuClicked}/>
             <div className={styles["children-container"]}>
-            <div className={styles['grid-card'] }     ref={cardContainer} >
               {
             
           showCard   ?
-   
+          <div className={styles['grid-card'] }     ref={cardContainer} >
+
           <CountryCard  /> 
-          
+          </div> 
+
           : 
           
           children
             
             
             }
-            </div> 
             </div>
           </div>
         </div>

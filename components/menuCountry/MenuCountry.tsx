@@ -50,6 +50,8 @@ function MenuCountry({select}:MenuCountryProps) {
     let [tabcountry,settabcountry] = useState([])
     let scrollable = useRef()
     let router = useRouter()
+    let pays = useRef(null)
+    pays.current = []
 
     const scrollButton = (
         <div className={`${styles["bullet"]}`}>
@@ -70,6 +72,16 @@ function MenuCountry({select}:MenuCountryProps) {
       function AddCountry(continent){
        let tabPays = continentConfig.get(continent).pays;
        settabcountry(tabPays)
+    
+      } 
+
+      function MenuSelected(e){
+        pays.current.map(pay =>{
+          pay.classList.remove('ProjectsLayout_menu__link--selected__Is402')
+
+        })
+        console.log(e.target,'menu selected')
+        e.target.classList.add('ProjectsLayout_menu__link--selected__Is402')
       }
 
       useEffect(()=>{
@@ -87,21 +99,36 @@ function MenuCountry({select}:MenuCountryProps) {
 
       },[router.query.index])
 
-   
+      // tche
+     function ChangePays(e){
+        if(!pays.current.includes(e)){
+          pays.current.push(e)
+         pays.current = pays.current.filter(e => e !== null)
+        }
+ 
+
+     }
       
 
     return ( 
 
         <div className={styles["menu-container"]}>
         <ul className={styles["menu"]} id={styles["scrollable"]}  ref={scrollable}>
-          <li onClick={select}
+          <li onClick={(e)=>{
+            select(e)
+            MenuSelected(e)
+          }} ref={ChangePays}
             className={`${styles["menu__link"]} ${styles["menu__link--selected"]} `}
           >
             Top causes
           </li>
           {tabcountry.map(country =>{
             return (
-              <li onClick={select} key={country} className={styles["menu__link"]}>{country}</li>
+              <li onClick={(e)=>{
+                select(e)
+                MenuSelected(e)
+
+              }} ref={ChangePays} key={country} className={styles["menu__link"]}>{country}</li>
 
             )
           })}
