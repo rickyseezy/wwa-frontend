@@ -1,1 +1,14 @@
+.grid-card{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2em .5em;
+    width: fit-content;
+}
 
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .grid-card{
+
+        grid-template-columns: repeat(1,1fr);
+   
+    }
+}

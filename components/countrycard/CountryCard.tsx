@@ -1,5 +1,6 @@
 import Card from "@components/card/Card";
 import styles from './countrycard.module.scss'
+import React, { useEffect, useRef} from "react";
 
 let tab = []
 
@@ -8,14 +9,23 @@ for(let i = 0 ; i <= 15 ; i++){
 
 }
 
-const CountryCard = () => {
+const CountryCard = ({size}) => {
     console.log(tab)
+    let cardContainer = useRef(null)
+     
+    useEffect(()=>{
+      console.log(cardContainer.current.clientHeight,'card container')
+      size(cardContainer.current.getBoundingClientRect().height + 400)
+    
+    })
+
     return ( 
-        <>
-          {tab.map((el,i)=>{
+      <div className={styles['grid-card'] }  ref={cardContainer} >
+      {tab.map((el,i)=>{
             return <Card key={i}/>
           })}
-          </>
+       </div> 
+
      );
 }
 

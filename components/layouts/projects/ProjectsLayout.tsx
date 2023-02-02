@@ -74,21 +74,24 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   }
 
   function menuClicked(e){
-// console.log(cardContainer.current.getBoundingClientRect().height)
-  
+
     if(!bolean){
       settitle(e.target.innerText)
       console.log('yo clicked')
       setshowcard(true)
     }
-    if(window.matchMedia("(min-width: 1025px)").matches ){
-          wrapper.current.style = `height:2300px`
-      
-        }
+
   }
 
   
+function CatchSize(e){
+console.log(e,'yo')
+let sizeCardContaint = e
 
+  wrapper.current.style = `height:${sizeCardContaint}px`
+
+
+}
 
 
   useEffect(() => {
@@ -116,14 +119,11 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
     }
   }
 
-   if(showCard){
-    console.log(cardContainer.current.getBoundingClientRect().height,'taille')
-    setsize(cardContainer.current.getBoundingClientRect().height + 400)
-   }
+
+
 
  
   },[router.query.index]);
-
 
   return (
     <>
@@ -144,10 +144,8 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
               {
             
           showCard   ?
-          <div className={styles['grid-card'] }     ref={cardContainer} >
 
-          <CountryCard  /> 
-          </div> 
+          <CountryCard size={CatchSize}  /> 
 
           : 
           
