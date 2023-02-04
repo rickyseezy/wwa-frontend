@@ -50,11 +50,11 @@ const Home = () => {
 
 export default Home;
 
-    function createmycause({cont_btn}) {
-      return (<div ref={cont_btn} className={styles["cont-button"]}>
-        <div className={styles.button}>
-          <div className={styles.button__text}>Je crée ma cause</div>
-        </div>
-        </div>);
-    }
+    // function createmycause({cont_btn}) {
+    //   return (<div ref={cont_btn} className={styles["cont-button"]}>
+    //     <div className={styles.button}>
+    //       <div className={styles.button__text}>Je crée ma cause</div>
+    //     </div>
+    //     </div>);
+    // }
   
