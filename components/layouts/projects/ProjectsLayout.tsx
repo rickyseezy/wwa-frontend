@@ -22,7 +22,6 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
  let [bolean,setbolean] = useState(false)
  let banner = useRef<HTMLDivElement>(null)
  let wrapper = useRef(null)
- let cardContainer = useRef(null)
 
   const router = useRouter()
 
@@ -53,24 +52,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
     }
 
-    if(window.matchMedia("(min-width: 1025px)").matches){
-      wrapper.current.style = 'height : 1080px'
 
-    }
-    else if(window.matchMedia("(max-width: 480px)").matches){
-      wrapper.current.style = 'height : 800px'
-
-    }
-
-    else if(window.matchMedia("(max-width: 768px)").matches){
-      wrapper.current.style = 'height : 872px'
-
-    }
-
-    else if(window.matchMedia("(max-width: 1024px)").matches){
-      wrapper.current.style = 'height : 1037px'
-
-    }
   }
 
   function menuClicked(e){
@@ -84,45 +66,12 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   }
 
   
-function CatchSize(e){
-console.log(e,'yo')
-let sizeCardContaint = e
 
-  wrapper.current.style = `height:${sizeCardContaint}px`
-
-
-}
 
 
   useEffect(() => {
-  // let size =   window.matchMedia("(min-width: 1025px)").matches
       SwitchTitle(router.query.index)
-
-  if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]' && !showCard){
-    if(window.matchMedia("(min-width: 1025px)").matches){
-      wrapper.current.style = 'height : 1080px'
-
-    }
-    else if(window.matchMedia("(max-width: 480px)").matches){
-      wrapper.current.style = 'height : 800px'
-
-    }
-
-    else if(window.matchMedia("(max-width: 768px)").matches){
-      wrapper.current.style = 'height : 872px'
-
-    }
-
-    else if(window.matchMedia("(max-width: 1024px)").matches){
-      wrapper.current.style = 'height : 1037px'
-
-    }
-  }
-
-
-
-
- 
+      
   },[router.query.index]);
 
   return (
@@ -145,7 +94,7 @@ let sizeCardContaint = e
             
           showCard   ?
 
-          <CountryCard size={CatchSize}  /> 
+          <CountryCard   /> 
 
           : 
           
@@ -156,14 +105,14 @@ let sizeCardContaint = e
             </div>
           </div>
         </div>
-        <div className={styles["custom-shape"]}></div>
-        <div className={styles["map"]}>
+        {/* <div className={styles["custom-shape"]}></div> */}
+        {/* <div className={styles["map"]}>
           <div className={styles["map__title"]}>Ça bouge dans le monde</div>
           <div className={styles["map__subtitle"]}>
             Choisissez votre continent
           </div>
           <div className={styles["map__display"]}></div>
-        </div>
+        </div> */}
         <div className={styles["continent-menu-wrapper"]}>
           <ContinentMenu   />
         </div>

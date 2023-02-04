@@ -4,20 +4,16 @@ import React, { useEffect, useRef} from "react";
 
 let tab = []
 
-for(let i = 0 ; i <= 15 ; i++){
+for(let i = 0 ; i < 15 ; i++){
     tab.push(i)
 
 }
 
-const CountryCard = ({size}) => {
+const CountryCard = () => {
     console.log(tab)
     let cardContainer = useRef(null)
      
-    useEffect(()=>{
-      console.log(cardContainer.current.clientHeight,'card container')
-      size(cardContainer.current.getBoundingClientRect().height + 400)
-    
-    })
+
 
     return ( 
       <div className={styles['grid-card'] }  ref={cardContainer} >
