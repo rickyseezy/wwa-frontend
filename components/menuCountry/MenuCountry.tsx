@@ -91,6 +91,7 @@ function MenuCountry({select}:MenuCountryProps) {
         showScrollableMenu(scroll);
         if(router.query.index){
           AddCountry(router.query.index)
+          pays.current[0].classList.add('ProjectsLayout_menu__link--selected__Is402')
         }else{
           AddCountry('EUROPE')
 
@@ -99,7 +100,6 @@ function MenuCountry({select}:MenuCountryProps) {
 
       },[router.query.index])
 
-      // tche
      function ChangePays(e){
         if(!pays.current.includes(e)){
           pays.current.push(e)
