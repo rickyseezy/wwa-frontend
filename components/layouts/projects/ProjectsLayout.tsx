@@ -68,17 +68,40 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   
   function ChangeBannerStyle(e){
 console.log(e,'stylee')
-    switch (e) {
+if(!showCard){
+  switch (e) {
     
-      case 'AMERIQUE DU NORD':
-        e = "USA"
+    case 'AMERIQUE DU NORD':
+      e = "USA"
 
+      break;
+    case 'AMERIQUE DU SUD':
+      e = "SOUTH"
+      break;
+  }
+  return e
+}else{
+  let DiRoute = router.query.index
+  switch (DiRoute) {
+    case 'AFRICA':
+      DiRoute = 'AFRIQUE'
+
+      break;
+    case 'AMÉRIQUE DU NORD':
+      DiRoute = "USA"
+
+      break;
+    case 'AMÉRIQUE DU SUD':
+      DiRoute = "SOUTH"
+      break;
+      case 'OCÈANIE':
+        DiRoute = "OCEANIE"
         break;
-      case 'AMERIQUE DU SUD':
-        e = "SOUTH"
-        break;
-    }
-    return e
+  }
+  console.log(DiRoute)
+  return DiRoute
+}
+    
   }
 
 
