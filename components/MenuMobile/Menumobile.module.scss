@@ -75,3 +75,85 @@ display: none;
         background-color: $blueLoyal;
     }
 }
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    /* CSS */
+    .menuMobile {
+        overflow: scroll;
+        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 105vh;
+        width: 100%;
+        background-color: white;
+        z-index: 454454545;
+        display: block;
+        padding: 2em 2em;
+    display: none;
+        &__cross {
+            margin-bottom: 1em;
+        }
+    
+        &__input {
+            margin: 0;
+            width: 100%;
+            border-radius: 50px;
+            padding: 10px 15px;
+            margin-bottom: 2em;
+            border: 1px solid transparent;
+            background-image: url(/images/search.png);
+            background-repeat: no-repeat;
+            background-position: 98%;
+    
+            &::placeholder{
+            
+            }
+            
+    
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 15px;
+            }
+        }
+    
+    
+    
+        &__ul {
+            margin-bottom: 8em;
+            li {
+                margin: 2em 0;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20.1702px;
+                line-height: 27px;
+                text-decoration: none;
+                color: black;
+                cursor: pointer;
+            }
+        }
+    
+        &__btn {
+            width: 65%;
+            margin: 4em 0 0em 0em;
+            border: 1px solid transparent;
+            color: white;
+            padding: 1em 0;
+            
+            font-size: 1em;
+            font-weight: 600;
+            position: absolute;
+            bottom: -28%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            border-radius: 50px;
+            background-color: $blueLoyal;
+        }
+    }
+
+}

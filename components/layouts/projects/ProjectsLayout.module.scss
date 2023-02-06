@@ -14,6 +14,7 @@
         justify-content: center;
         align-items: center;
         color: white;
+        z-index: 1;
 
         &__title {
             font-size: 2.5rem;
@@ -23,6 +24,9 @@
         .stats-container {
             margin-top: 20px;
         }
+
+
+        
     }
 
     &__content {
@@ -143,13 +147,157 @@
         top: 120px;
         display: flex;
         justify-content: center;
+        z-index: 3;
     }
+
+    .AFRIQUE{
+        background: url('/images/wwa-africa 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #6ACB11;
+           opacity: .6;
+           z-index: -1;
+           filter: saturate(1.2);
+
+        }
+        
+    }  
+
+    .EUROPE{
+        background: url('/images/wwa-europe 1.jpg');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #F49D3B;
+           opacity: .6;
+           z-index: -1;
+           filter: saturate(1.2);
+
+        }
+        
+    }  
+
+    .ASIE{
+        background: url('/images/wwa-asia 1.png ');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #F5A2DA;
+           opacity: .7;
+           z-index: -1;
+           filter: saturate(1.2);
+
+        }
+        
+    }  
+
+    .OCEANIE{
+        background: url('/images/wwa-oceanie 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #FFE702;
+           opacity: .6;
+           z-index: -1;
+           filter: saturate(1.2);
+
+        }
+        
+    }  
+
+    .USA{
+        background: url('/images/wwa-north-america 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #6F63E3;
+           opacity: .6;
+           z-index: -1;
+           filter: saturate(1.2);
+
+        }
+        
+    }  
+
+    .SOUTH{
+        background: url('/images/wwa-south-america 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #6F63E3;
+           opacity: .6;
+           z-index: -1;
+           filter: saturate(1.2);
+
+        }
+        
+    }  
 }
 
 #scrollable {
     border: 0;
 }
-
 
 
 
@@ -343,7 +491,6 @@
 
             .causes-wrapper {
                 width: 100%;
-                height: 1870px;
                 margin-left: 5% !important;
                 margin-top: 40px !important;
 

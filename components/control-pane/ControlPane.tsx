@@ -27,7 +27,7 @@ const ControlPane = ({
         if (window.matchMedia("(max-width: 481px)").matches) {
             // Viewport is less or equal to 700 pixels wide
             if(id === 1){
-                controller.current.style = ' transform: translate(-300px, 20px) !important'
+                controller.current.style = ' transform: translate(-300px, 40px) !important'
             }
           } 
      

@@ -32,7 +32,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
     switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
-        // if(banner) banner.current.style = `background:url('images/africa-back.png')`
+        // if(banner) banner.current.classList.add('africa')
         break;
       case 'ASIE':
         settitle('ASIE')
@@ -66,12 +66,25 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   }
 
   
+  function ChangeBannerStyle(e){
+console.log(e,'stylee')
+    switch (e) {
+    
+      case 'AMERIQUE DU NORD':
+        e = "USA"
 
+        break;
+      case 'AMERIQUE DU SUD':
+        e = "SOUTH"
+        break;
+    }
+    return e
+  }
 
 
   useEffect(() => {
       SwitchTitle(router.query.index)
-      
+      console.log(title)
   },[router.query.index]);
 
   return (
@@ -79,7 +92,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
       <div className={styles["wrapper"]} > 
         <MainNavigation />
         <MenuBurger />
-        <div className={styles["banner"]} ref={banner}>
+        <div className={`${styles["banner"]} ${styles[ChangeBannerStyle(title)]} `} ref={banner}>
           <h1 className={styles["banner__title"]}>{title}</h1>
           <div className={styles["stats-container"]}>
             <Stats />
