@@ -99,7 +99,7 @@ if(!showCard){
         break;
   }
   console.log(DiRoute)
-  return DiRoute
+  return DiRoute == undefined ? 'EUROPE' : DiRoute
 }
     
   }
