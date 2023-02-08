@@ -152,7 +152,7 @@
 
     .AFRIQUE{
         background: url('/images/wwa-africa 1.png');
-        background-size: cover;
+        background-size: 100% 120%;
         background-position-y:0px;
         background-repeat: no-repeat;
         width: 100%;
@@ -217,7 +217,7 @@
            background-color: #F5A2DA;
            opacity: .7;
            z-index: -1;
-           filter: saturate(1.2);
+           filter: contrast(1.2);
 
         }
         
@@ -241,7 +241,7 @@
            background-color: #FFE702;
            opacity: .6;
            z-index: -1;
-           filter: saturate(1.2);
+           filter: contrast(1.2);
 
         }
         
@@ -265,7 +265,7 @@
            background-color: #6F63E3;
            opacity: .6;
            z-index: -1;
-           filter: saturate(1.2);
+           filter: contrast(1.2);
 
         }
         
@@ -289,7 +289,7 @@
            background-color: #0A6AAF;
            opacity: .6;
            z-index: -1;
-           filter: saturate(1.2);
+           filter: contrast(1.2);
 
         }
         
