@@ -168,10 +168,23 @@
            background-color: #6ACB11;
            opacity: .6;
            z-index: -1;
-           filter: contrast(1.2);
+           mix-blend-mode: color;
 
 
         }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
         
     }  
 
@@ -193,9 +206,23 @@
            background-color: #F49D3B;
            opacity: .6;
            z-index: -1;
-           filter: contrast(1.2);
+           mix-blend-mode: color;
+           ;
 
         }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
         
     }  
 
@@ -215,12 +242,23 @@
            width: 100%;
            height: 100%;
            background-color: #F5A2DA;
-           opacity: .7;
+           opacity: .6;
            z-index: -1;
-           filter: contrast(1.2);
+           mix-blend-mode: color;
 
         }
-        
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
     }  
 
     .OCEANIE{
@@ -241,9 +279,21 @@
            background-color: #FFE702;
            opacity: .6;
            z-index: -1;
-           filter: contrast(1.2);
+           mix-blend-mode: color;
 
         }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
         
     }  
 
@@ -265,9 +315,21 @@
            background-color: #6F63E3;
            opacity: .6;
            z-index: -1;
-           filter: contrast(1.2);
+           mix-blend-mode: color;
 
         }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
         
     }  
 
@@ -289,9 +351,22 @@
            background-color: #0A6AAF;
            opacity: .6;
            z-index: -1;
-           filter: contrast(1.2);
+           mix-blend-mode: color;
 
         }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
         
     }  
 }
