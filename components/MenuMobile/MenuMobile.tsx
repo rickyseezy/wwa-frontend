@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles  from './Menumobile.module.scss'
+import {motion} from 'framer-motion'
 
 import { useRef,useEffect, } from 'react'
 import AccountMobile from '@components/AccountMobilepage/AccountMobile'
 import { useRouter } from 'next/router'
 
-function MenuMobile(props) {
+type variable = {
+  open : {},
+  closed: {}
+}
+const variants : variable = {
+  open: { visibility:'visible', width: '100%',  },
+  closed: { with: '0%' }
+};
+const variantsInp : variable = {
+  open: { opacity:1},
+  closed: { opacity:0 }
+};
+const variantsli : variable = {
+  open: { x: '0%',opacity:1},
+  closed: { x: '-100%',opacity:0  }
+};
+function MenuMobile({displayMenu,func}) {
  
-    let menuContainer = useRef(null)
-    let menuClose = useRef(null)
+    let [isOpen,setOpen] = useState(false)
     
     const router = useRouter()
 
@@ -29,34 +45,35 @@ function CreateCause(){
 
 
    useEffect(() => {
-     if(props.displayMenu > 0){
-        menuContainer.current.style = 'display : block'
+
+       if(displayMenu.push){
+        setOpen(true)
      }
-     
-   }, [props.displayMenu])
+
+   })
 
 
    
    function Close(){
-    menuContainer.current.style = 'display:none'
- 
+    func(displayMenu)
+    setOpen(false)
    }
 
   return (
-    <div ref={menuContainer} className={styles['menuMobile']}>
+    <motion.div animate={isOpen ? "open" : "closed"}  variants={variants} className={styles['menuMobile']}>
     <div>
-    <img onClick={Close} className={styles['menuMobile__cross']} src="/images/cross.png" alt=""></img>
+    <motion.img animate={isOpen ? "open" : "closed"}  variants={variantsInp} onClick={Close} className={styles['menuMobile__cross']} src="/images/cross.png" alt=""></motion.img>
 
     </div>
-     <input placeholder='Rechercher une cause à soutenir ' className={styles['menuMobile__input']}  type="text" />
+     <motion.input animate={isOpen ? "open" : "closed"}  variants={variantsInp} placeholder='Rechercher une cause à soutenir ' className={styles['menuMobile__input']}  type="text" />
       <ul className={styles['menuMobile__ul']}>
-        <li onClick={FowardCauses}>Causes </li>
-        <li onClick={FowardProject}>Projets </li>
-        <li onClick={FowardMNcompte}>Mon Compte</li>
-        <li>Connexion </li>
+        <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .3 }} onClick={FowardCauses}>Causes </motion.li>
+        <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .4 }} onClick={FowardProject}>Projets </motion.li>
+        <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .5 }} onClick={FowardMNcompte}>Mon Compte</motion.li>
+        <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .6 }}  >Connexion </motion.li>
       </ul>
-      <button className={styles['menuMobile__btn']} onClick={CreateCause}>Je crée ma cause</button>
-    </div>
+      <motion.button animate={isOpen ? "open" : "closed"}  variants={variantsInp} className={styles['menuMobile__btn']} onClick={CreateCause}>Je crée ma cause</motion.button>
+    </motion.div>
   )
 }
 

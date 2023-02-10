@@ -8,15 +8,20 @@ import Reinit from '@components/reinitialiser/Reinit';
 import LinkReinit from '@components/linkreinit/LinkReinit';
 
 function MenuBurger(props) {
-  let [menuDisplay,setmenuDisplay] = useState<number>(0)
+  let [menuDisplay,setmenuDisplay] = useState<Object>({push:false})
   let [showmenu,setmenu] = useState<boolean>(false)
   let [showLogin,setShowlogin] = useState<number>(0)
 
   function ChangeDisplay(){
-    setmenuDisplay(()=> menuDisplay += 1)
-
+    setmenuDisplay({push:true})
   }
+  function ChangeDisplayNone(e){
+    console.log(e,'eeeeeeeeeeeeee')
+    if(e){
+      setmenuDisplay({push:false})
 
+    }
+  }
   function HandleLogin(){
 
       setShowlogin(el => el +1)
@@ -38,7 +43,7 @@ function MenuBurger(props) {
              <img src="/images/search.png" alt="search icone" />
             <img onClick={HandleLogin} src="/icons/Vector.png" alt="login icone" />
         </div>
-        <MenuMobile   displayMenu={menuDisplay} />
+        <MenuMobile   displayMenu={menuDisplay} func={ChangeDisplayNone} />
         {showLogin >= 1 &&  <Connect show={showLogin} />}
    
     </div>

@@ -79,8 +79,20 @@
   ##Device = Laptops, Desktops
   ##Screen = B/w 1025px to 1280px
 */
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
+@media screen and (min-width: 1025px) and (max-width: 1680px) {
   /* CSS */
+  .content .map {
+    margin-top: 40px;
+    width: 100%;
+    height: 490px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .content .map svg {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
 }
 /* 
   ##Device = Tablets, Ipads (portrait)
@@ -150,7 +162,7 @@
     margin-top: 44px !important;
     background-size: 100% !important;
     width: 100%;
-    height: 357px !important;
+    height: 337px !important;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
