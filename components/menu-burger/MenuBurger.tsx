@@ -16,7 +16,6 @@ function MenuBurger(props) {
     setmenuDisplay({push:true})
   }
   function ChangeDisplayNone(e){
-    console.log(e,'eeeeeeeeeeeeee')
     if(e){
       setmenuDisplay({push:false})
 

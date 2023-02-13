@@ -80,7 +80,6 @@ function MenuCountry({select}:MenuCountryProps) {
           pay.classList.remove('ProjectsLayout_menu__link--selected__Is402')
 
         })
-        console.log(e.target,'menu selected')
         e.target.classList.add('ProjectsLayout_menu__link--selected__Is402')
       }
 

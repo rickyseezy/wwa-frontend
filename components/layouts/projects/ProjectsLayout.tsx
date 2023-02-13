@@ -59,7 +59,6 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
     if(!bolean){
       settitle(e.target.innerText)
-      console.log('yo clicked')
       setshowcard(true)
     }
 
@@ -67,7 +66,6 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
   
   function ChangeBannerStyle(e){
-console.log(e,'stylee')
 if(!showCard){
   switch (e) {
     
@@ -98,7 +96,6 @@ if(!showCard){
         DiRoute = "OCEANIE"
         break;
   }
-  console.log(DiRoute)
   return DiRoute == undefined ? 'EUROPE' : DiRoute
 }
     
@@ -107,7 +104,6 @@ if(!showCard){
 
   useEffect(() => {
       SwitchTitle(router.query.index)
-      console.log(title)
   },[router.query.index]);
 
   return (

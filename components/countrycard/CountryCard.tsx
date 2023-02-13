@@ -10,7 +10,6 @@ for(let i = 0 ; i < 15 ; i++){
 }
 
 const CountryCard = () => {
-    console.log(tab)
     let cardContainer = useRef(null)
      
 
