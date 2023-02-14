@@ -42,7 +42,7 @@ const InputNtexterea = ({
       };
     }
   }
-
+console.log(tabfile)
   if (bolea) {
     return (
       <div className={styles["form-container1__step"]} >
@@ -62,7 +62,7 @@ const InputNtexterea = ({
         <>
           {" "}
           <div className={styles["form-container1__step"]}>
-            4. Ajoutez une image a votre projet
+            {titleInput}
           </div>{" "}
           <div className={styles["files"]}>
             <img

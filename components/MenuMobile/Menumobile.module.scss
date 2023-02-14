@@ -1,7 +1,6 @@
 @import "/styles/colors.module.scss";
 
 .menuMobile {
-    transition: 0.32s ease-in-out;
     position: relative;
     position: fixed;
     top: 0;
@@ -10,8 +9,8 @@
     background-color: white;
     z-index: 454454545;
     display: block;
-    padding: 2em;
-    visibility: hidden;
+  
+    width: 0%;
     &__cross {
         margin-bottom: 1em;
     }

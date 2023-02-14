@@ -11,16 +11,25 @@ type variable = {
   closed: {}
 }
 const variants : variable = {
-  open: { visibility:'visible', width: '100%',  },
-  closed: { with: '0%' }
+  open: {  width: '100%',  padding: '2em' },
+  closed: { width: '0%', padding: '0' ,  transition: { delay: .2 }}
 };
 const variantsInp : variable = {
   open: { opacity:1},
   closed: { opacity:0 }
 };
+const variantsCross : variable = {
+  open: { opacity:1},
+  closed: { opacity:0}
+};
 const variantsli : variable = {
-  open: { x: '0%',opacity:1},
-  closed: { x: '-100%',opacity:0  }
+  open: { x: '0%'},
+  closed: { x: '-160px'}
+};
+
+const variantsbtn : variable = {
+  open: { opacity:1},
+  closed: { opacity:0 }
 };
 function MenuMobile({displayMenu,func}) {
  
@@ -49,30 +58,31 @@ function CreateCause(){
        if(displayMenu.push){
         setOpen(true)
      }
-
+console.log(isOpen,displayMenu.push)
    })
 
 
    
    function Close(){
-    func(displayMenu)
+      func(displayMenu)
     setOpen(false)
    }
 
   return (
-    <motion.div animate={isOpen ? "open" : "closed"}  variants={variants} className={styles['menuMobile']}>
+    <motion.div animate={isOpen ? "open" : "closed"}   variants={variants} className={styles['menuMobile']}>
     <div>
-    <motion.img animate={isOpen ? "open" : "closed"}  variants={variantsInp} onClick={Close} className={styles['menuMobile__cross']} src="/images/cross.png" alt=""></motion.img>
+    <motion.img animate={isOpen ? "open" : "closed"}  variants={variantsCross} onClick={Close} className={styles['menuMobile__cross']} src="/images/cross.png" alt=""></motion.img>
 
     </div>
      <motion.input animate={isOpen ? "open" : "closed"}  variants={variantsInp} placeholder='Rechercher une cause à soutenir ' className={styles['menuMobile__input']}  type="text" />
       <ul className={styles['menuMobile__ul']}>
+      <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .4 }} onClick={FowardProject}>Projets </motion.li>
+
         <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .3 }} onClick={FowardCauses}>Causes </motion.li>
-        <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .4 }} onClick={FowardProject}>Projets </motion.li>
         <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .5 }} onClick={FowardMNcompte}>Mon Compte</motion.li>
         <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .6 }}  >Connexion </motion.li>
       </ul>
-      <motion.button animate={isOpen ? "open" : "closed"}  variants={variantsInp} className={styles['menuMobile__btn']} onClick={CreateCause}>Je crée ma cause</motion.button>
+      <motion.button animate={isOpen ? "open" : "closed"}  variants={variantsbtn} className={styles['menuMobile__btn']} onClick={CreateCause}>Je crée ma cause</motion.button>
     </motion.div>
   )
 }

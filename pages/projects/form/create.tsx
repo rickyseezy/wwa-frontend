@@ -284,7 +284,7 @@ const CreateForm = () => {
                 setfullprofil(true)
         } 
 
-
+console.log(profil)
        
     })
 
@@ -382,23 +382,23 @@ const CreateForm = () => {
                                 }}/>
 
                         <InputNtexterea
-                            titleInput="2. Titre du project"
-                            placeholder={`Le titre de votre cause`}
+                            titleInput={`2. Titre du ${profil.project}`}
+                            placeholder={`Le titre de votre ${profil.project}`}
                             bolea={true} val={InputValue}  fileSelect={null} removefile={null} />
                              <InputNtexterea
-                            titleInput="3. Sous-titre du projet"
-                            placeholder={`Sous-titre de votre project`}
+                            titleInput={`3. Sous-titre du ${profil.project}`}
+                            placeholder={`Sous-titre de votre ${profil.project}`}
                             bolea={true} val={InputValue} fileSelect={null} removefile={null} />
                         <InputNtexterea
-                            titleInput="4. Description de votre projet"
-                            placeholder={`Description de votre project`}
+                            titleInput={`4. Description de votre ${profil.project}`}
+                            placeholder={`Description de votre ${profil.project}`}
                             bolea={true} val={InputValue} fileSelect={null} removefile={null}  />
                         <InputNtexterea
-                            titleInput="4. Ajoutez une image a votre projet"
+                            titleInput={`5. Ajoutez une image à votre ${profil.project}`}
                             placeholder={``}
                             bolea={false} val={InputValue} fileSelect={CatchFile}  files={profil.files} removefile={null}  />
 
-                        <div className={styles["form-container__step"]}>5. Ou ça ?</div>
+                        <div className={styles["form-container__step"]}>6. Ou ça ?</div>
                         <div className={styles["countries"] }>
 
                     
@@ -412,7 +412,7 @@ const CreateForm = () => {
                         </div>
                         {/*Todo :: Text should be dynamic either project or cause*/}
                         <div className={styles["form-container__step"]}>
-                            6. Le thème principal de votre projet
+                            7. Le thème principal de votre {profil.project}
                         </div>
                         <div className={styles["thematics"]}>
                             {thematics.map((_, i) => (
