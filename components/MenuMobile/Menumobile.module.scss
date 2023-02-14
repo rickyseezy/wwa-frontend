@@ -9,7 +9,6 @@
     background-color: white;
     z-index: 454454545;
     display: block;
-  
     width: 0%;
     &__cross {
         margin-bottom: 1em;
@@ -53,6 +52,7 @@
             text-decoration: none;
             color: black;
             cursor: pointer;
+            transform: translateX(-160px);
         }
     }
 

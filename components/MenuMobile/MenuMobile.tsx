@@ -11,8 +11,8 @@ type variable = {
   closed: {}
 }
 const variants : variable = {
-  open: {  width: '100%',  padding: '2em' },
-  closed: { width: '0%', padding: '0' ,  transition: { delay: .2 }}
+  open: {  width: '100%',  padding: '2em',visibility:'visible !important' },
+  closed: { width: '0%', padding: '0' ,  transition: { delay: .4 }}
 };
 const variantsInp : variable = {
   open: { opacity:1},
