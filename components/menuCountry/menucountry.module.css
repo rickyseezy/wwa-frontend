@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2em 0.5em;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }/*# sourceMappingURL=menucountry.module.css.map */

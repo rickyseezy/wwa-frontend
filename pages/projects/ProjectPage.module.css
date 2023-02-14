@@ -113,7 +113,6 @@
 }
 
 .menu-scroll {
-  position: -webkit-sticky;
   position: sticky;
   z-index: 999;
   top: 0;
@@ -461,7 +460,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 4545454454646546000 !important;
+    z-index: 4545454454646545400 !important;
   }
   .live-indicator .indicator__text {
     font-size: 0.8rem;

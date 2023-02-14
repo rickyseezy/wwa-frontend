@@ -8,8 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  -webkit-animation: scale 0.4s ease-in-out;
-          animation: scale 0.4s ease-in-out;
+  animation: scale 0.4s ease-in-out;
   border-radius: 10px;
   transition: background-color 1s;
 }
@@ -49,15 +48,6 @@
 }
 .help-card .select-icon img {
   width: 70%;
-}
-
-@-webkit-keyframes scale {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
 }
 
 @keyframes scale {
