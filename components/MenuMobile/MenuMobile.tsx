@@ -11,8 +11,8 @@ type variable = {
   closed: {}
 }
 const variants : variable = {
-  open: {  width: '100%',  padding: '2em',visibility:'visible !important' },
-  closed: { width: '0%', padding: '0' ,  transition: { delay: .4 }}
+  open: {  width: '100%',  padding: '2em',visibility:'visible'},
+  closed: { width: '0%', padding: '0' ,     visibility: 'hidden', transition: { delay: .4 }}
 };
 const variantsInp : variable = {
   open: { opacity:1},
@@ -23,8 +23,8 @@ const variantsCross : variable = {
   closed: { opacity:0}
 };
 const variantsli : variable = {
-  open: { x: '0%'},
-  closed: { x: '-160px'}
+  open: { x: '0%',opacity:1},
+  closed: { x: '-160px',opacity:0}
 };
 
 const variantsbtn : variable = {
