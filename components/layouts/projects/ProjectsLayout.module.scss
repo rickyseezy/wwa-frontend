@@ -6,7 +6,7 @@
     overflow-y: hidden;
     background-color: $backgroundColorBlueLight;
     .banner {
-        height: 362px;
+        height: 462px;
         background: url("/images/european-banner.png") no-repeat;
         background-size: cover;
         display: flex;
@@ -14,6 +14,7 @@
         justify-content: center;
         align-items: center;
         color: white;
+        z-index: 1;
 
         &__title {
             font-size: 2.5rem;
@@ -23,16 +24,16 @@
         .stats-container {
             margin-top: 20px;
         }
+
+
+        
     }
 
     &__content {
-        height: 2300px;
-      &__wrapper-size{
-        height : 1080px !important 
-    }
+ 
+    margin-bottom: 4em;
         .causes-wrapper {
             width: 100%;
-            height: 1870px;
             margin-left: 22%;
             margin-top: 40px;
 
@@ -64,8 +65,9 @@
                         padding: 5px 10px;
                         white-space: nowrap;
                         font-weight: 900;
-
+                        cursor: pointer;
                         &--selected {
+                            transition: .8s cubic-bezier(0.165, 0.84, 0.44, 1);
                             background-color: $blueLoyal;
                             color: $whiteParamount;
                         }
@@ -140,12 +142,233 @@
     }
 
     .continent-menu-wrapper {
-        left: 10%;
-        position: absolute;
-        top: 150px;
+        left: 13.2%;
+        position: fixed;
+        top: 120px;
         display: flex;
         justify-content: center;
+        z-index: 3;
     }
+
+    .AFRIQUE{
+        background: url('/images/wwa-africa 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #6ACB11;
+           opacity: .6;
+           z-index: -1;
+           mix-blend-mode: color;
+
+
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
+        
+    }  
+
+    .EUROPE{
+        background: url('/images/wwa-europe 1.jpg');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #F49D3B;
+           opacity: .6;
+           z-index: -1;
+           mix-blend-mode: color;
+           ;
+
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
+        
+    }  
+
+    .ASIE{
+        background: url('/images/wwa-asia 1.png ');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #F5A2DA;
+           opacity: .6;
+           z-index: -1;
+           mix-blend-mode: color;
+
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
+    }  
+
+    .OCEANIE{
+        background: url('/images/wwa-oceanie 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #FFE702;
+           opacity: .6;
+           z-index: -1;
+           mix-blend-mode: color;
+
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
+        
+    }  
+
+    .USA{
+        background: url('/images/wwa-north-america 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #6F63E3;
+           opacity: .6;
+           z-index: -1;
+           mix-blend-mode: color;
+
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
+        
+    }  
+
+    .SOUTH{
+        background: url('/images/wwa-south-america 1.png');
+        background-size: 100% 120%;
+        background-position-y:0px;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+    
+        &:after{
+           content: '';
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: #0A6AAF;
+           opacity: .6;
+           z-index: -1;
+           mix-blend-mode: color;
+
+        }
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #00000074;
+            opacity: .2;
+            z-index: -1;
+ 
+         }
+        
+    }  
 }
 
 #scrollable {
@@ -165,7 +388,6 @@
         background-color: $backgroundColorBlueLight;
         .banner {
             height: 362px;
-            background: url("/images/european-banner.png") no-repeat;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -184,11 +406,9 @@
         }
 
         &__content {
-            height: 2300px;
 
             .causes-wrapper {
                 width: 100%;
-                height: 1870px;
                 margin-left: 5%;
                 margin-top: 40px;
 
@@ -324,7 +544,6 @@
         background-color: $backgroundColorBlueLight;
         .banner {
             height: 362px;
-            background: url("/images/european-banner.png") no-repeat;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -343,11 +562,9 @@
         }
 
         &__content {
-            height: 2077px;
 
             .causes-wrapper {
                 width: 100%;
-                height: 1870px;
                 margin-left: 5% !important;
                 margin-top: 40px !important;
 
@@ -533,11 +750,7 @@
 
     }
 
-    .wrapper {
-        &__content {
-            height: 2197px;
-        }
-    }
+ 
 
     .custom-shape {
         background-color: #0A6AAF;

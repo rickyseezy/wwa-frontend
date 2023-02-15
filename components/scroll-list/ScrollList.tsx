@@ -143,7 +143,12 @@ const ScrollList = ({ dir, id }: IControlSwitch) => {
 
         }
 
-  
+        if (window.matchMedia("(max-width: 481px)").matches &&  containerCard.current) {
+            // Viewport is less or equal to 700 pixels wide
+            if(id === 1){
+                containerCard.current.style = ' transform: translateX(-14px);'
+            }
+          } 
 
 
         

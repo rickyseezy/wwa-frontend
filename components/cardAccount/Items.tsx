@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styles from './projetitems.module.scss'
-import { faker } from '@faker-js/faker';
 
 
-console.log(faker.name.firstName(),'faker')
 
 interface Data {
 objMesprojet: any
@@ -67,10 +65,10 @@ const [back, setback] = useState<void>()
             {props.objMesprojet.map((data: { img: any; title: any; p: any; id?: any },index:number) => {
             let {img ,title,p,id} = data
             return(
-            <>
-              <div className={styles["main"]}>
+            
+              <div className={styles["main"]} key={index}>
                 {/* front card */}
-                <div className={styles['main__frontcard']} key={index}>
+                <div className={styles['main__frontcard']} >
                   <div className={styles['main__imgProjet']}>
                     <img src={img=data.img} alt="" />
                   </div>
@@ -100,7 +98,6 @@ const [back, setback] = useState<void>()
 
               </div>
 
-            </>
             )})}
           </>
           )

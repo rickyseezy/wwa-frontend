@@ -34,6 +34,8 @@
 
   .controllers {
     display: flex;
+    transform: translateY(20px);
+
   }
 }
 
@@ -216,16 +218,28 @@
   .controllers {
     transform: translate(-21px, 75px) !important;
   margin: 2em 0 3.5em 0 !important;
+  // width: 100%;
   }
 }
-
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-*/
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
   
   /* CSS */
-
+  .control-pane {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2rem 0 0 0 !important ;
+    .control-header {
+   
+      &__subtitle {
+        margin: .5em 0 0 0;
+      }
+    }
+    .controllers {
+      transform: translate(-21px, -7px) !important;
+    margin: 2em 0 .5em 0 !important;
+    }
+  
+  }
 }

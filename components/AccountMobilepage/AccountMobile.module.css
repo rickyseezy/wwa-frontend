@@ -59,10 +59,6 @@
   font-size: 1.1em;
   font-weight: 700;
 }
-.AccountMobile__input input:-ms-input-placeholder {
-  font-size: 1.1em;
-  font-weight: 700;
-}
 .AccountMobile__input input::placeholder {
   font-size: 1.1em;
   font-weight: 700;
@@ -162,10 +158,6 @@
     border: 1px solid transparent !important;
   }
   .back-account .AccountMobile__input input::-moz-placeholder {
-    font-size: 1.1em;
-    font-weight: 700;
-  }
-  .back-account .AccountMobile__input input:-ms-input-placeholder {
     font-size: 1.1em;
     font-weight: 700;
   }

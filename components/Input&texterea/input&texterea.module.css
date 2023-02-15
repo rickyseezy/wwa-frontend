@@ -27,12 +27,6 @@
   color: #969BAB;
   font-family: "Poppins";
 }
-.form-container1__textarea:-ms-input-placeholder {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #969BAB;
-  font-family: "Poppins";
-}
 .form-container1__textarea::placeholder {
   font-size: 1rem;
   font-weight: 700;
@@ -160,12 +154,6 @@
     color: #969BAB;
     font-family: "Poppins";
   }
-  .form-container1__textarea:-ms-input-placeholder {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #969BAB;
-    font-family: "Poppins";
-  }
   .form-container1__textarea::placeholder {
     font-size: 1rem;
     font-weight: 700;
@@ -208,12 +196,6 @@
     padding: 20px;
   }
   .form-container1__textarea::-moz-placeholder {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #969BAB;
-    font-family: "Poppins";
-  }
-  .form-container1__textarea:-ms-input-placeholder {
     font-size: 1rem;
     font-weight: 700;
     color: #969BAB;

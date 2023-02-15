@@ -24,7 +24,9 @@ const PopularProjects = () => {
         })
     }
 
-    return ( <> <div className={styles["popular-projects"]}>
+    return (
+         <>
+          <div className={styles["popular-projects"]}>
         <ControlPane
             title="MOST POPULAR PROJECTS"
             subTitle="Ils ont besoin de vous !"
@@ -35,7 +37,10 @@ const PopularProjects = () => {
             func={parentToChild}
             />
         <div className={styles["pusher"]}/>
-    </div> < ScrollList dir = {arrow} id = { 1 } /> </>);
+       </div>
+        < ScrollList dir = {arrow} id = { 1 } />
+     </>
+     );
 };
 
 export default PopularProjects;

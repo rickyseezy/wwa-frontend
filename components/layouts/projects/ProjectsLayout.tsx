@@ -7,6 +7,7 @@ import MenuBurger from "@components/menu-burger/MenuBurger";
 import Footer from "@components/footer/Footer";
 import { useRouter } from "next/router";
 import MenuCountry from "@components/menuCountry/MenuCountry";
+import CountryCard from "@components/countrycard/CountryCard";
 
 interface IProjectsLayout {
   children: React.ReactNode;
@@ -15,9 +16,9 @@ interface IProjectsLayout {
 const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
   let [title, settitle] = useState('EUROPE')
-  let [accTittle, setAccTitle] = useState('')
+  let [showCard,setshowcard] = useState(false)
 
-  let [titleCountry, settitleCountry] = useState('')
+  let [sizeCardCont, setsize] = useState('')
  let [bolean,setbolean] = useState(false)
  let banner = useRef<HTMLDivElement>(null)
  let wrapper = useRef(null)
@@ -26,11 +27,12 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
 
   function SwitchTitle(titles) {
+    setshowcard(false)
 
     switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
-        // if(banner) banner.current.style = `background:url('images/africa-back.png')`
+        // if(banner) banner.current.classList.add('africa')
         break;
       case 'ASIE':
         settitle('ASIE')
@@ -49,57 +51,67 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
         break;
 
     }
+
+
   }
 
   function menuClicked(e){
 
     if(!bolean){
       settitle(e.target.innerText)
-
+      setshowcard(true)
     }
 
   }
 
   
+  function ChangeBannerStyle(e){
+if(!showCard){
+  switch (e) {
+    
+    case 'AMERIQUE DU NORD':
+      e = "USA"
 
+      break;
+    case 'AMERIQUE DU SUD':
+      e = "SOUTH"
+      break;
+  }
+  return e
+}else{
+  let DiRoute = router.query.index
+  switch (DiRoute) {
+    case 'AFRICA':
+      DiRoute = 'AFRIQUE'
+
+      break;
+    case 'AMÉRIQUE DU NORD':
+      DiRoute = "USA"
+
+      break;
+    case 'AMÉRIQUE DU SUD':
+      DiRoute = "SOUTH"
+      break;
+      case 'OCÈANIE':
+        DiRoute = "OCEANIE"
+        break;
+  }
+  return DiRoute == undefined ? 'EUROPE' : DiRoute
+}
+    
+  }
 
 
   useEffect(() => {
-  // let size =   window.matchMedia("(min-width: 1025px)").matches
       SwitchTitle(router.query.index)
-  if(router.pathname === '/projects' || router.pathname === '/projects/countries/[index]'){
-    if(window.matchMedia("(min-width: 1025px)").matches){
-      wrapper.current.style = 'height : 1080px'
-
-    }
-    else if(window.matchMedia("(max-width: 480px)").matches){
-      wrapper.current.style = 'height : 800px'
-
-    }
-
-    else if(window.matchMedia("(max-width: 768px)").matches){
-      wrapper.current.style = 'height : 872px'
-
-    }
-
-    else if(window.matchMedia("(max-width: 1024px)").matches){
-      wrapper.current.style = 'height : 1037px'
-
-    }
-  }
- 
   },[router.query.index]);
-   
-
-
-
 
   return (
     <>
       <div className={styles["wrapper"]} > 
         <MainNavigation />
         <MenuBurger />
-        <div className={styles["banner"]} ref={banner}>
+        <div className={`${styles["banner"]} ${styles[ChangeBannerStyle(title)]} `} ref={banner}>
           <h1 className={styles["banner__title"]}>{title}</h1>
           <div className={styles["stats-container"]}>
             <Stats />
@@ -109,17 +121,23 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
           <div className={styles["causes-wrapper"]}>
            
             <MenuCountry select={menuClicked}/>
-            <div className={styles["children-container"]}>{children}</div>
+            <div className={styles["children-container"]}>
+              {
+            
+          showCard   ?
+
+          <CountryCard   /> 
+
+          : 
+          
+          children
+            
+            
+            }
+            </div>
           </div>
         </div>
-        <div className={styles["custom-shape"]}></div>
-        <div className={styles["map"]}>
-          <div className={styles["map__title"]}>Ça bouge dans le monde</div>
-          <div className={styles["map__subtitle"]}>
-            Choisissez votre continent
-          </div>
-          <div className={styles["map__display"]}></div>
-        </div>
+    
         <div className={styles["continent-menu-wrapper"]}>
           <ContinentMenu   />
         </div>

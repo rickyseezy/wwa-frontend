@@ -1,0 +1,29 @@
+.grid-card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2em .5em;
+    width: fit-content;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .grid-card{
+        margin: 1em 0;
+        grid-template-columns: repeat(2,1fr);
+        gap: .5em 2em;
+   
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .grid-card{
+        margin: 1em auto;
+        grid-template-columns: repeat(2,1fr);
+   
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .grid-card{
+
+        grid-template-columns: repeat(1,1fr);
+   
+    }
+}
