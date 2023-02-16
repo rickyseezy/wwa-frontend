@@ -57,6 +57,8 @@ function CreateCause(){
 
        if(displayMenu.push){
         setOpen(true)
+     }else{
+      setOpen(false)
      }
 console.log(isOpen,displayMenu.push)
    })
