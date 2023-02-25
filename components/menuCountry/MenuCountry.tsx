@@ -52,7 +52,7 @@ function MenuCountry({ select }: MenuCountryProps) {
   let router = useRouter();
   let pays = useRef(null);
   pays.current = [];
-
+ console.log(router)
   const scrollButton = (
     <div className={`${styles["bullet"]}`}>
       <img
@@ -72,6 +72,21 @@ function MenuCountry({ select }: MenuCountryProps) {
   function AddCountry(continent) {
     let tabPays = continentConfig.get(continent).pays;
     settabcountry(tabPays);
+  }
+  function SwithRoute(e){
+    console.log(e.target.innerText)
+    let country = e.target.innerText
+
+      if(router.asPath.match('AFRICA')){
+        router.push({
+          pathname:`/countries/AFRICA`,
+          query:{country}
+        })
+      }
+    router.push({
+      pathname:`/projects`,
+      query:{country,continent:'africa'}
+    })
   }
 
   function MenuSelected(e) {
@@ -121,6 +136,8 @@ function MenuCountry({ select }: MenuCountryProps) {
               onClick={(e) => {
                 select(e);
                 MenuSelected(e);
+                SwithRoute(e)
+
               }}
               ref={ChangePays}
               key={country}

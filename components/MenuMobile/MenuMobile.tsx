@@ -78,7 +78,7 @@ console.log(isOpen,displayMenu.push)
     </div>
      <motion.input animate={isOpen ? "open" : "closed"}  variants={variantsInp} placeholder='Rechercher une cause à soutenir ' className={styles['menuMobile__input']}  type="text" />
       <ul className={styles['menuMobile__ul']}>
-      <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .4 }} onClick={FowardProject}>Projets </motion.li>
+      <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .4 }} onClick={FowardProject}>Home </motion.li>
 
         <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .3 }} onClick={FowardCauses}>Causes </motion.li>
         <motion.li animate={isOpen ? "open" : "closed"}  variants={variantsli} transition={{ ease: "backInOut", duration: .5 }} onClick={FowardMNcompte}>Mon Compte</motion.li>
