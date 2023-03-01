@@ -4,6 +4,7 @@ import styles from "../layouts/projects/ProjectsLayout.module.scss";
 
 interface MenuCountryProps {
   select: MouseEventHandler<HTMLLIElement>;
+  continent: string;
 }
 
 const continentConfig = new Map([
@@ -45,14 +46,14 @@ const continentConfig = new Map([
   ],
 ]);
 
-function MenuCountry({ select }: MenuCountryProps) {
+function MenuCountry({ select, continent }: MenuCountryProps) {
   const [isShown, toggleButton] = useState(false);
   let [tabcountry, settabcountry] = useState([]);
   let scrollable = useRef();
   let router = useRouter();
   let pays = useRef(null);
   pays.current = [];
- console.log(router)
+  console.log(continent);
   const scrollButton = (
     <div className={`${styles["bullet"]}`}>
       <img
@@ -69,26 +70,18 @@ function MenuCountry({ select }: MenuCountryProps) {
     );
   }
 
-  function AddCountry(continent) {
-    let tabPays = continentConfig.get(continent).pays;
-    settabcountry(tabPays);
-  }
-  function SwithRoute(e){
-    console.log(e.target.innerText)
-    let country = e.target.innerText
+  function SwithRoute(e) {
+    let country = e.target.innerText;
 
-      if(router.asPath.match('AFRICA')){
-        router.push({
-          pathname:`/countries/AFRICA`,
-          query:{country}
-        })
-      }
+    if (continent) {
+    
     router.push({
-      pathname:`/projects`,
-      query:{country,continent:'africa'}
-    })
+      pathname: `/projects`,
+      query: { country, continent },
+    });
   }
-
+  }
+  // change le background des items menu
   function MenuSelected(e) {
     pays.current.map((pay) => {
       pay.classList.remove("ProjectsLayout_menu__link--selected__Is402");
@@ -98,18 +91,22 @@ function MenuCountry({ select }: MenuCountryProps) {
 
   useEffect(() => {
     const scroll = scrollable.current;
-
     showScrollableMenu(scroll);
-    if (router.query.index) {
-      AddCountry(router.query.index);
+
+    // select le pays avec un background blue
+    if (continent) {
       pays.current[0].classList.add(
         "ProjectsLayout_menu__link--selected__Is402"
       );
-    } else {
-      AddCountry("EUROPE");
     }
-  }, [router.query.index]);
 
+
+    // select les pays par rapport au continents
+    let tabPays = continentConfig.get(continent).pays;
+    settabcountry(tabPays);
+  }, [continent]);
+
+  // ajoute une ref a chaque pays
   function ChangePays(e) {
     if (!pays.current.includes(e)) {
       pays.current.push(e);
@@ -136,8 +133,7 @@ function MenuCountry({ select }: MenuCountryProps) {
               onClick={(e) => {
                 select(e);
                 MenuSelected(e);
-                SwithRoute(e)
-
+                SwithRoute(e);
               }}
               ref={ChangePays}
               key={country}
