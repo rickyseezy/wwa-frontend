@@ -17,6 +17,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
 
   let [title, settitle] = useState('EUROPE')
   let [showCard,setshowcard] = useState(false)
+  let [continent,setcontinent] = useState('EUROPE')
 
   let [sizeCardCont, setsize] = useState('')
  let [bolean,setbolean] = useState(false)
@@ -24,11 +25,16 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
  let wrapper = useRef(null)
 
   const router = useRouter()
+   
 
+  //  récupére le text de l'item du menu continent 
+  function catchContinent(cont: any){
+setcontinent(cont)
+  }
 
   function SwitchTitle(titles) {
     setshowcard(false)
-
+console.log(titles)
     switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
@@ -77,9 +83,10 @@ if(!showCard){
       e = "SOUTH"
       break;
   }
+  console.log(e,'change')
   return e
 }else{
-  let DiRoute = router.query.index
+  let DiRoute = continent
   switch (DiRoute) {
     case 'AFRICA':
       DiRoute = 'AFRIQUE'
@@ -96,6 +103,8 @@ if(!showCard){
         DiRoute = "OCEANIE"
         break;
   }
+  console.log(e,'change')
+
   return DiRoute == undefined ? 'EUROPE' : DiRoute
 }
     
@@ -103,8 +112,9 @@ if(!showCard){
 
 
   useEffect(() => {
-      SwitchTitle(router.query.index)
-  },[router.query.index]);
+    
+      SwitchTitle(continent)
+  },[continent]);
 
   return (
     <>
@@ -120,7 +130,7 @@ if(!showCard){
         <div className={styles["wrapper__content"]} ref={wrapper}>
           <div className={styles["causes-wrapper"]}>
            
-            <MenuCountry select={menuClicked}/>
+            <MenuCountry select={menuClicked} continent={continent}/>
             <div className={styles["children-container"]}>
               {
             
@@ -139,7 +149,7 @@ if(!showCard){
         </div>
     
         <div className={styles["continent-menu-wrapper"]}>
-          <ContinentMenu   />
+          <ContinentMenu  select={catchContinent}  />
         </div>
       </div>
       <Footer />

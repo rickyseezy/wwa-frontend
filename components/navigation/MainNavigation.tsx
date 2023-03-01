@@ -46,7 +46,7 @@ function Menu() {
     <div className={styles['containerMenu__itemmenu']}>
         <ul>
           <li><a href="#" onClick={pageProjet}>Home</a> <img src="/images" alt="" /></li>
-          <li><a href="#" onClick={pageCause}>Project</a></li>
+          <li><a href="#" onClick={pageCause}>Cause</a></li>
           <li><a href="#" onClick={pageCompte}>Mon Compte</a></li>
           <li><a href="#" onClick={pageConnection}>Connexion</a></li>
         </ul>

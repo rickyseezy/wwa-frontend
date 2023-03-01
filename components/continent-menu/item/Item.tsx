@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 interface IContinentMenuItemProps {
   continent: string;
+  select: MouseEventHandler<HTMLLIElement>;
 }
 
 interface IContinentConfig {
@@ -66,7 +67,7 @@ const continentConfig = new Map<string, IContinentConfig>([
 
 let tabItems = [];
 
-const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
+const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
   let [selectCountry, setSelectCountry] = useState();
   const router = useRouter();
   const config = continentConfig.get(continent);
@@ -109,6 +110,7 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
   }, [router.query.index]);
 
   function Select(e) {
+    select(e.target.innerText);
     let tabItemsClasses: Object[] = Array.from(continentConfig.values());
     const target = e.target as HTMLDivElement;
 
@@ -129,12 +131,10 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 
 
 
-    if(config.title !== 'EUROPE'){
-   return     router.push("/projects/countries/" + config.title);
-
-    }else{
-        return router.push("/projects");
-    }
+    router.push({
+      pathname: `/projects`,
+      query: {continent },
+    });
   }
 
   return (
