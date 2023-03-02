@@ -166,7 +166,7 @@ console.log(continenttab)
     return () => {
       tabItems.length = 0;
     };
-  }, [continent,router.query.continent]);
+  }, [continent]);
 
 
   return (
