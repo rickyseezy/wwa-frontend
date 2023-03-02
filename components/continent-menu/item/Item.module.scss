@@ -100,7 +100,11 @@
     padding: .8em;
     border-radius: 10px;
     margin: 0 .4em;
-  
+    &--white{
+      background-color: white !important;
+      border: none !important;
+      color: black !important;
+    }
     &--europe {
       background-color: $orangeSalmon;
       border: 1px solid   transparent;
