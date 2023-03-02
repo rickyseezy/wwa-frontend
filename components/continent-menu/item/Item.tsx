@@ -79,7 +79,17 @@ const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
 
 
 
+  function Mapclicked(continent){
+    // console.log(continent.match('ameriquedunord'))
+    console.log(continent)
 
+     tabItems.map(tab =>{
+      if(tab.innerText.toLowerCase().match('africa')){
+        tab.classList.add("item--africa");
+      }
+     })
+    
+  }
 
   function Clean() {
     // si page est sur cause
@@ -150,13 +160,13 @@ console.log(continenttab)
     changeUrl(continent)
     // reset les classes background white sauf la premiere
     tabItems[0].classList.add("item--europe");
-
     Clean();
+     Mapclicked(router.query.continent)
 
     return () => {
       tabItems.length = 0;
     };
-  }, [continent]);
+  }, [continent,router.query.continent]);
 
 
   return (

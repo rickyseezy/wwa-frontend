@@ -23,26 +23,44 @@ const Home = () => {
     
     switch (conts) {
       case 'EUROPE-SVG':
-        router.push('/projects/countries/EUROPE')
+        router.push({
+          pathname: `/projects`,
+          query: {continent : 'europe' },
+        });
         break;
       case 'ASIA-SVG':
-        router.push('/projects/countries/ASIE')
+        router.push({
+          pathname: `/projects`,
+          query: {continent : 'asia' },
+        });
 
         break;
       case 'S-A':
-        router.push('/projects/countries/AMÉRIQUE DU SUD')
+        router.push({
+          pathname: `/projects`,
+          query: {continent : 'ameriquedusud' },
+        });
 
         break;
       case 'USA-SVG':
-        router.push('/projects/countries/AMÉRIQUE DU NORD')
+        router.push({
+          pathname: `/projects`,
+          query: {continent : 'ameriquedunord' },
+        });
 
         break;
       case 'Oceanie':
-        router.push('/projects/countries/OCÈANIE')
+        router.push({
+          pathname: `/projects`,
+          query: {continent : 'oceania' },
+        });
 
         break;
         case 'AFRICA':
-          router.push('/projects/countries/AFRICA')
+          router.push({
+            pathname: `/projects`,
+            query: {continent : 'africa' },
+          });
           break;
 
     }
