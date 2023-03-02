@@ -64,12 +64,18 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
       />
     </div>
   );
+
+
+// scroll droite a gauche 
   function showScrollableMenu(element: HTMLElement) {
     toggleButton(
       element.scrollHeight > element.clientHeight ||
         element.scrollWidth > element.clientWidth
     );
   }
+
+
+  // change le continent dans un format acceptable pour ajouter dans la route
   function changeUrl(url){
     console.log(url)
      switch(url){
@@ -85,6 +91,8 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
       setcontinenttab(()=> url.toLowerCase())
      }
    }
+
+  //  ajoute la route dans l'url avec country et continent
   function SwithRoute(e) {
     let country = e.target.innerText;
     country = country.toLowerCase()
@@ -102,6 +110,16 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     });
     e.target.classList.add("ProjectsLayout_menu__link--selected__Is402");
   }
+
+  // ajoute une ref a chaque pays
+  function ChangePays(e) {
+    if (!pays.current.includes(e)) {
+      pays.current.push(e);
+      pays.current = pays.current.filter((e) => e !== null);
+    }
+  }
+
+
   useEffect(() => {
     const scroll = scrollable.current;
     showScrollableMenu(scroll);
@@ -119,13 +137,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     settabcountry(tabPays);
   }, [continent]);
 
-  // ajoute une ref a chaque pays
-  function ChangePays(e) {
-    if (!pays.current.includes(e)) {
-      pays.current.push(e);
-      pays.current = pays.current.filter((e) => e !== null);
-    }
-  }
+
 
   return (
     <div className={styles["menu-container"]}>
