@@ -69,11 +69,18 @@ let tabItems = [];
 
 const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
   let [selectCountry, setSelectCountry] = useState();
+  let [continenttab, setcontinenttab] = useState<string>();
+
   const router = useRouter();
   const config = continentConfig.get(continent);
   const classes: string[] = [styles["item"]];
   classes.push(config.custom);
   let divItems = useRef(null);
+
+
+
+
+
   function Clean() {
     // si page est sur cause
     if (router.query.index === undefined) {
@@ -84,36 +91,21 @@ const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
         color: black !important;`;
         }
       });
-    } else {
-      tabItems.map((el, i) => {
-        // si la page est sur countries reset le styles des elements qui ne sont pas égale a l'index
-        if (router.query.index != el.children[1].innerText) {
-          el.style = `  background-color: white !important;
-        border: none !important;
-        color: black !important;`;
-        }
-      });
+    // } else {
+    //   tabItems.map((el, i) => {
+    //     // si la page est sur countries reset le styles des elements qui ne sont pas égale a l'index
+    //     if (router.query.index != el.children[1].innerText) {
+    //       el.style = `  background-color: white !important;
+    //     border: none !important;
+    //     color: black !important;`;
+    //     }
+    //   });
     }
   }
-
-  useEffect(() => {
-    tabItems.push(divItems.current);
-
-    // reset les classes background white sauf la premiere
-    tabItems[0].classList.add("item--europe");
-
-    Clean();
-
-    return () => {
-      tabItems.length = 0;
-    };
-  }, [router.query.index]);
-
   function Select(e) {
-    select(e.target.innerText);
     let tabItemsClasses: Object[] = Array.from(continentConfig.values());
     const target = e.target as HTMLDivElement;
-
+      select(e.target.innerText)
     setSelectCountry(e.target);
 
     // reset les classes bacground white
@@ -130,12 +122,42 @@ const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
     target.classList.add(classes[1]);
 
 
-
+console.log(continenttab)
     router.push({
       pathname: `/projects`,
-      query: {continent },
+      query: {continent : continenttab },
     });
   }
+ function changeUrl(url){
+  console.log(url)
+   switch(url){
+    case "NORTH-US":
+      setcontinenttab('amériquedunord')
+      break
+
+    case"SOUTH-AMERICA":
+    setcontinenttab('amériquedusud')
+
+    break
+   default :
+    setcontinenttab(()=> url.toLowerCase())
+   }
+ }
+
+
+  useEffect(() => {
+    tabItems.push(divItems.current);
+    changeUrl(continent)
+    // reset les classes background white sauf la premiere
+    tabItems[0].classList.add("item--europe");
+
+    Clean();
+
+    return () => {
+      tabItems.length = 0;
+    };
+  }, [continent]);
+
 
   return (
     <div className={classes.join(" ")} onClick={Select} ref={divItems}>

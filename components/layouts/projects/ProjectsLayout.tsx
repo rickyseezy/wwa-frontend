@@ -34,7 +34,6 @@ setcontinent(cont)
 
   function SwitchTitle(titles) {
     setshowcard(false)
-console.log(titles)
     switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
@@ -83,7 +82,6 @@ if(!showCard){
       e = "SOUTH"
       break;
   }
-  console.log(e,'change')
   return e
 }else{
   let DiRoute = continent
@@ -103,7 +101,6 @@ if(!showCard){
         DiRoute = "OCEANIE"
         break;
   }
-  console.log(e,'change')
 
   return DiRoute == undefined ? 'EUROPE' : DiRoute
 }

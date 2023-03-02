@@ -49,11 +49,12 @@ const continentConfig = new Map([
 function MenuCountry({ select, continent }: MenuCountryProps) {
   const [isShown, toggleButton] = useState(false);
   let [tabcountry, settabcountry] = useState([]);
+  let [continenttab, setcontinenttab] = useState<string>();
+
   let scrollable = useRef();
   let router = useRouter();
   let pays = useRef(null);
   pays.current = [];
-  console.log(continent);
   const scrollButton = (
     <div className={`${styles["bullet"]}`}>
       <img
@@ -69,17 +70,30 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
         element.scrollWidth > element.clientWidth
     );
   }
-
+  function changeUrl(url){
+    console.log(url)
+     switch(url){
+      case "NORTH-US":
+        setcontinenttab('amériquedunord')
+        break
+  
+      case"SOUTH-AMERICA":
+      setcontinenttab('amériquedusud')
+  
+      break
+     default :
+      setcontinenttab(()=> url.toLowerCase())
+     }
+   }
   function SwithRoute(e) {
     let country = e.target.innerText;
-
+    country = country.toLowerCase()
     if (continent) {
-    
-    router.push({
-      pathname: `/projects`,
-      query: { country, continent },
-    });
-  }
+      router.push({
+        pathname: `/projects`,
+        query: { country, continent:continenttab },
+      });
+    }
   }
   // change le background des items menu
   function MenuSelected(e) {
@@ -88,10 +102,10 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     });
     e.target.classList.add("ProjectsLayout_menu__link--selected__Is402");
   }
-
   useEffect(() => {
     const scroll = scrollable.current;
     showScrollableMenu(scroll);
+    changeUrl(continent)
 
     // select le pays avec un background blue
     if (continent) {
@@ -99,7 +113,6 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
         "ProjectsLayout_menu__link--selected__Is402"
       );
     }
-
 
     // select les pays par rapport au continents
     let tabPays = continentConfig.get(continent).pays;
