@@ -68,7 +68,6 @@ const continentConfig = new Map<string, IContinentConfig>([
 let tabItems = [];
 
 const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
-  let [selectCountry, setSelectCountry] = useState();
   let [continenttab, setcontinenttab] = useState<string>();
 
   const router = useRouter();
@@ -79,21 +78,12 @@ const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
 
 
 
-  function Mapclicked(continent){
-    // console.log(continent.match('ameriquedunord'))
-    console.log(continent)
 
-     tabItems.map(tab =>{
-      if(tab.innerText.toLowerCase().match('africa')){
-        tab.classList.add("item--africa");
-      }
-     })
-    
-  }
-
-  function Clean() {
+  function Clean(page) {
     // si page est sur cause
-    if (router.query.index === undefined) {
+let style = page.continent
+
+    if (Object.keys(page).length === 0) {
       tabItems.map((el, i) => {
         if (i != 0) {
           el.style = `  background-color: white !important;
@@ -101,22 +91,49 @@ const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
         color: black !important;`;
         }
       });
-    // } else {
-    //   tabItems.map((el, i) => {
-    //     // si la page est sur countries reset le styles des elements qui ne sont pas égale a l'index
-    //     if (router.query.index != el.children[1].innerText) {
-    //       el.style = `  background-color: white !important;
-    //     border: none !important;
-    //     color: black !important;`;
-    //     }
-    //   });
+    }else{
+
+      switch(style){
+        case 'amériquedunord':
+          style ='northus'
+          break
+      
+        case'amériquedusud':
+        style = 'southamerica'
+      
+        break
+       default :
+    style = page.continent
+       }
+
+      tabItems.map((el, i) => {
+        console.log(style)
+
+        if(el.className.match(style)){
+          if(style === 'northus' ){
+           return el.classList.add(continentConfig.get("NORTH-US").custom)
+
+          }
+          else if(style === 'southamerica'){
+           return el.classList.add(continentConfig.get("SOUTH-AMERICA").custom)
+          }
+          el.classList.add(continentConfig.get(style.toUpperCase()).custom)
+        }else{
+          el.style = `  background-color: white !important;
+          border: none !important;
+          color: black !important;`;
+          
+        }
+      });
     }
   }
+
+
   function Select(e) {
     let tabItemsClasses: Object[] = Array.from(continentConfig.values());
     const target = e.target as HTMLDivElement;
+    // récupére le text dans la barre continent 
       select(e.target.innerText)
-    setSelectCountry(e.target);
 
     // reset les classes bacground white
     tabItemsClasses.forEach((_el, i) => {
@@ -132,14 +149,15 @@ const ContinentMenuItem = ({ continent, select }: IContinentMenuItemProps) => {
     target.classList.add(classes[1]);
 
 
-console.log(continenttab)
+
     router.push({
       pathname: `/projects`,
       query: {continent : continenttab },
     });
   }
+
+
  function changeUrl(url){
-  console.log(url)
    switch(url){
     case "NORTH-US":
       setcontinenttab('amériquedunord')
@@ -159,10 +177,9 @@ console.log(continenttab)
     tabItems.push(divItems.current);
     changeUrl(continent)
     // reset les classes background white sauf la premiere
-    tabItems[0].classList.add("item--europe");
-    Clean();
-     Mapclicked(router.query.continent)
-
+    // tabItems[0].classList.add("item--europe");
+    Clean(router.query);
+    //  Mapclicked(router.query)
     return () => {
       tabItems.length = 0;
     };

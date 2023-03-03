@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import { useEffect, useState, useRef, MouseEventHandler } from "react";
 import styles from "../layouts/projects/ProjectsLayout.module.scss";
 
@@ -21,25 +21,25 @@ const continentConfig = new Map([
     },
   ],
   [
-    "AMÉRIQUE DU NORD",
+    "AMÉRIQUEDUNORD",
     {
       pays: ["New York", "Atlanta", "Philadelphie", "Chicago"],
     },
   ],
   [
-    "AMÉRIQUE DU SUD",
+    "AMÉRIQUEDUSUD",
     {
       pays: ["Brésil", "Colombie", "Venezuela", "Mexique"],
     },
   ],
   [
-    "ASIE",
+    "ASIA",
     {
       pays: ["Japon", "Chine", "Inde", "Thailande"],
     },
   ],
   [
-    "OCÈANIE",
+    "OCEANIA",
     {
       pays: ["Australie", "Fidji", "Micronésie", "Tonga"],
     },
@@ -65,8 +65,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     </div>
   );
 
-
-// scroll droite a gauche 
+  // scroll droite a gauche
   function showScrollableMenu(element: HTMLElement) {
     toggleButton(
       element.scrollHeight > element.clientHeight ||
@@ -74,32 +73,47 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     );
   }
 
+  function MapCheck(url) {
+    if (url) {
+      let tabPays = continentConfig.get(url.toUpperCase()).pays;
+      settabcountry(tabPays);
+    }else{
+      let tabPays = continentConfig.get('EUROPE').pays;
+      settabcountry(tabPays);
+    }
+  }
 
   // change le continent dans un format acceptable pour ajouter dans la route
-  function changeUrl(url){
+  function changeUrl(url) {
     console.log(url)
-     switch(url){
-      case "NORTH-US":
-        setcontinenttab('amériquedunord')
-        break
+    if (url) {
+      switch (url) {
+        case "NORTH-US":
+          setcontinenttab("amériquedunord");
+          break;
+
+        case "SOUTH-AMERICA":
+          setcontinenttab("amériquedusud");
   
-      case"SOUTH-AMERICA":
-      setcontinenttab('amériquedusud')
-  
-      break
-     default :
-      setcontinenttab(()=> url.toLowerCase())
-     }
-   }
+ 
+          break;
+        default:
+          setcontinenttab(url);
+      }
+    }else{
+      setcontinenttab('europe')
+    }
+  }
 
   //  ajoute la route dans l'url avec country et continent
   function SwithRoute(e) {
     let country = e.target.innerText;
-    country = country.toLowerCase()
+    country = country.toLowerCase();
+   console.log(continenttab)
     if (continent) {
       router.push({
         pathname: `/projects`,
-        query: { country, continent:continenttab },
+        query: { country, continent: continenttab },
       });
     }
   }
@@ -119,25 +133,18 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     }
   }
 
-
   useEffect(() => {
     const scroll = scrollable.current;
     showScrollableMenu(scroll);
-    changeUrl(continent)
-
+    // changeUrl(continent)
+    changeUrl(router.query.continent);
+    MapCheck(router.query.continent);
     // select le pays avec un background blue
-    if (continent) {
       pays.current[0].classList.add(
         "ProjectsLayout_menu__link--selected__Is402"
-      );
-    }
-
-    // select les pays par rapport au continents
-    let tabPays = continentConfig.get(continent).pays;
-    settabcountry(tabPays);
-  }, [continent]);
-
-
+      )
+    
+  }, [continent, router.query.continent]);
 
   return (
     <div className={styles["menu-container"]}>

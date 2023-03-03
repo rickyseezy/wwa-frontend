@@ -22,10 +22,7 @@ const TopCauses = () => {
 
     let [arrow,
         setarrow] = useState < Object > ({})
-    let [arrowTwo,
-        setarrowTwo] = useState < Object > ({})
-    let [arrowThree,
-        setarrowThree] = useState < Object > ({})
+
     // carousel 1
 
     function parentToChild(data : any, id : number) {
@@ -43,40 +40,17 @@ const TopCauses = () => {
         })
     }
 
-    // carousel 2
-
-    function parentToChildTwo(data : any, id : number) {
-        directionMoveCardTwo = data
-        let updateVal = {}
-        //  update de la direction et id  du carousel
-        updateVal = {
-            direction: directionMoveCardTwo,
-            id
-        }
-        setarrowTwo({
-            ...arrowTwo,
-            ...updateVal
-        })
-    }
-
-    // carousel 3
-    function parentToChildThree(data : any, id : number) {
-        directionMoveCardThree = data
-        let updateVal = {}
-        //  update de la direction et id  du carousel
-        updateVal = {
-            direction: directionMoveCardThree,
-            id
-        }
-        setarrowThree({
-            ...arrowThree,
-            ...updateVal
-        })
-    }
 
     // function qui capitalise le title 
    function CapitalizeTitle(str){
     let r = []
+    if(str === "amériquedunord"){
+      str = "AMÉRIQUE DU NORD"
+    }
+
+    else if(str === "amériquedusud"){
+        str = "AMÉRIQUE DU SUD"
+    }
     str = str.split("").forEach((el, i) => {
       if(i < 1){
         r.push(el.toUpperCase())
@@ -91,10 +65,10 @@ const TopCauses = () => {
 
    
     useEffect(()=>{
-      if(router.query.index){
-      CapitalizeTitle(router.query.index)
+      if(router.query.continent){
+      CapitalizeTitle(router.query.continent)
     }
-    })
+    },[router.query.continent])
 
 
     // récupére les deux dernier caroussel

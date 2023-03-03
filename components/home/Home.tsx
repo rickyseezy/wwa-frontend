@@ -38,14 +38,14 @@ const Home = () => {
       case 'S-A':
         router.push({
           pathname: `/projects`,
-          query: {continent : 'ameriquedusud' },
+          query: {continent : 'amériquedusud' },
         });
 
         break;
       case 'USA-SVG':
         router.push({
           pathname: `/projects`,
-          query: {continent : 'ameriquedunord' },
+          query: {continent : 'amériquedunord' },
         });
 
         break;
@@ -66,9 +66,6 @@ const Home = () => {
     }
    }
 
-   function Anime(e){
-        console.log(e.target)
-   }
 
 
   return (
