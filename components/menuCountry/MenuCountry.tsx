@@ -109,7 +109,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
   function SwithRoute(e) {
     let country = e.target.innerText;
     country = country.toLowerCase();
-   console.log(continenttab)
+
     if (continent) {
       router.push({
         pathname: `/projects`,
@@ -140,11 +140,14 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     changeUrl(router.query.continent);
     MapCheck(router.query.continent);
     // select le pays avec un background blue
+    if(router.query.continentt){
       pays.current[0].classList.add(
         "ProjectsLayout_menu__link--selected__Is402"
       )
     
-  }, [continent, router.query.continent]);
+    }
+ 
+  }, [router.query.continent]);
 
   return (
     <div className={styles["menu-container"]}>
