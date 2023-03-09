@@ -17,8 +17,10 @@ const Home = () => {
     router.push('/projects/form/create')
    }
 
+
+
+  //   quand un continent est cli
    function MapClicked(continent){
-    console.log(continent.target.classList.value)
     let conts = continent.target.classList.value
     
     switch (conts) {
@@ -38,14 +40,14 @@ const Home = () => {
       case 'S-A':
         router.push({
           pathname: `/projects`,
-          query: {continent : 'amériquedusud' },
+          query: {continent : 'southamerica' },
         });
 
         break;
       case 'USA-SVG':
         router.push({
           pathname: `/projects`,
-          query: {continent : 'amériquedunord' },
+          query: {continent : 'northus' },
         });
 
         break;

@@ -44,12 +44,12 @@ const TopCauses = () => {
     // function qui capitalise le title 
    function CapitalizeTitle(str){
     let r = []
-    if(str === "amériquedunord"){
-      str = "AMÉRIQUE DU NORD"
+    if(str === "northus"){
+      str = "North Us"
     }
 
-    else if(str === "amériquedusud"){
-        str = "AMÉRIQUE DU SUD"
+    else if(str === "southamerica"){
+        str = "South America"
     }
     str = str.split("").forEach((el, i) => {
       if(i < 1){

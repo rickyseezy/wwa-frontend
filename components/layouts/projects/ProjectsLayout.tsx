@@ -25,7 +25,7 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
  let wrapper = useRef(null)
 
   const router = useRouter()
-   
+   console.log(router.query.continent)
 
   //  récupére le text de l'item du menu continent 
   function catchContinent(cont: any){
@@ -34,6 +34,7 @@ setcontinent(cont)
 
   function SwitchTitle(titles) {
     setshowcard(false)
+    console.log(titles)
     switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
@@ -71,6 +72,7 @@ setcontinent(cont)
 
   
   function ChangeBannerStyle(e){
+    console.log(e,'yiu')
 if(!showCard){
   switch (e) {
     

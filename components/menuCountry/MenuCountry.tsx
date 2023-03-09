@@ -21,13 +21,13 @@ const continentConfig = new Map([
     },
   ],
   [
-    "AMÉRIQUEDUNORD",
+    "NORTHUS",
     {
       pays: ["New York", "Atlanta", "Philadelphie", "Chicago"],
     },
   ],
   [
-    "AMÉRIQUEDUSUD",
+    "SOUTHAMERICA",
     {
       pays: ["Brésil", "Colombie", "Venezuela", "Mexique"],
     },
@@ -85,17 +85,15 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
 
   // change le continent dans un format acceptable pour ajouter dans la route
   function changeUrl(url) {
-    console.log(url)
     if (url) {
       switch (url) {
         case "NORTH-US":
-          setcontinenttab("amériquedunord");
+          setcontinenttab("northus");
           break;
 
         case "SOUTH-AMERICA":
-          setcontinenttab("amériquedusud");
+          setcontinenttab("southamerica");
   
- 
           break;
         default:
           setcontinenttab(url);
@@ -140,7 +138,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     changeUrl(router.query.continent);
     MapCheck(router.query.continent);
     // select le pays avec un background blue
-    if(router.query.continentt){
+    if(router.query.continent){
       pays.current[0].classList.add(
         "ProjectsLayout_menu__link--selected__Is402"
       )

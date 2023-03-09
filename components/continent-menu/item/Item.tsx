@@ -107,7 +107,6 @@ let style = page.continent
        }
 
       tabItems.map((el, i) => {
-        console.log(style)
 
         if(el.className.match(style)){
           if(style === 'northus' ){
@@ -160,11 +159,11 @@ let style = page.continent
  function changeUrl(url){
    switch(url){
     case "NORTH-US":
-      setcontinenttab('amériquedunord')
+      setcontinenttab('northus')
       break
 
     case"SOUTH-AMERICA":
-    setcontinenttab('amériquedusud')
+    setcontinenttab('southamerica')
 
     break
    default :
