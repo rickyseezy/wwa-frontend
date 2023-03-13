@@ -33,22 +33,22 @@ setcontinent(cont)
   function SwitchTitle(titles) {
     setshowcard(false)
     switch (titles) {
-      case 'AFRICA':
+      case 'africa':
         settitle('AFRIQUE')
         break;
-      case 'ASIE':
+      case 'asia':
         settitle('ASIE')
         break;
-      case 'AMÉRIQUE DU NORD':
+      case 'northus':
         settitle('AMERIQUE DU NORD')
         break;
-      case 'AMÉRIQUE DU SUD':
+      case 'southamerica':
         settitle('AMERIQUE DU SUD')
         break;
-      case 'EUROPE':
+      case 'europe':
         settitle('EUROPE')
         break;
-      case 'OCÈANIE':
+      case 'oceania':
         settitle('OCEANIE')
         break;
 
@@ -60,7 +60,7 @@ setcontinent(cont)
   function menuClicked(e){
 
     if(!bolean){
-      settitle(e.target.innerText)
+      settitle(router.query.continent)
       setshowcard(true)
     }
 
@@ -68,7 +68,6 @@ setcontinent(cont)
 
   
   function ChangeBannerStyle(e){
-    console.log(e)
 
  
 if(!showCard){
@@ -84,7 +83,7 @@ if(!showCard){
   }
   return e
 }else{
-  let DiRoute = continent
+  let DiRoute = router.query.continent
   switch (DiRoute) {
     case 'AFRICA':
       DiRoute = 'AFRIQUE'
@@ -102,23 +101,18 @@ if(!showCard){
         break;
   }
 
-  return DiRoute == undefined ? 'EUROPE' : DiRoute
+  return DiRoute == undefined ? "EUROPE" : DiRoute
 }
     
   }
 
-function Banner(style){
-console.log(style,'style')
-}
 
 useEffect(() => {
        
-      SwitchTitle(continent)
-      if(router.query.continent){
-          Banner(router.query.continent)
-
-      }
-  },[continent,router.query.continent]);
+      SwitchTitle(router.query.continent)
+ console.log(title,'tessst')
+      
+  },[router.query.continent]);
 
   return (
     <>
