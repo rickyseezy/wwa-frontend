@@ -152,7 +152,10 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
       <ul className={styles["menu"]} id={styles["scrollable"]} ref={scrollable}>
         <li
           onClick={(e) => {
-            select(e);
+            router.push({
+              pathname: `/projects`,
+              query: { continent: continenttab },
+            });
             MenuSelected(e);
           }}
           ref={ChangePays}

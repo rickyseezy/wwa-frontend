@@ -19,13 +19,11 @@ const ProjectsLayout = ({ children }: IProjectsLayout) => {
   let [showCard,setshowcard] = useState(false)
   let [continent,setcontinent] = useState('EUROPE')
 
-  let [sizeCardCont, setsize] = useState('')
  let [bolean,setbolean] = useState(false)
  let banner = useRef<HTMLDivElement>(null)
  let wrapper = useRef(null)
 
   const router = useRouter()
-   console.log(router.query.continent)
 
   //  récupére le text de l'item du menu continent 
   function catchContinent(cont: any){
@@ -34,11 +32,9 @@ setcontinent(cont)
 
   function SwitchTitle(titles) {
     setshowcard(false)
-    console.log(titles)
     switch (titles) {
       case 'AFRICA':
         settitle('AFRIQUE')
-        // if(banner) banner.current.classList.add('africa')
         break;
       case 'ASIE':
         settitle('ASIE')
@@ -72,7 +68,9 @@ setcontinent(cont)
 
   
   function ChangeBannerStyle(e){
-    console.log(e,'yiu')
+    console.log(e)
+
+ 
 if(!showCard){
   switch (e) {
     
@@ -109,11 +107,18 @@ if(!showCard){
     
   }
 
+function Banner(style){
+console.log(style,'style')
+}
 
-  useEffect(() => {
-    
+useEffect(() => {
+       
       SwitchTitle(continent)
-  },[continent]);
+      if(router.query.continent){
+          Banner(router.query.continent)
+
+      }
+  },[continent,router.query.continent]);
 
   return (
     <>

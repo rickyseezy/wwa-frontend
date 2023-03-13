@@ -151,7 +151,7 @@
     }
 
     .AFRIQUE{
-        background: url('/images/wwa-africa 1.png');
+        background: url('/images/wwa-africa 2.png');
         background-size: 100% 120%;
         background-position-y:0px;
         background-repeat: no-repeat;
@@ -189,7 +189,7 @@
     }  
 
     .EUROPE{
-        background: url('/images/wwa-europe 1.jpg');
+        background: url('/images/wwa-europe 2.jpg');
         background-size: 100% 120%;
         background-position-y:0px;
         background-repeat: no-repeat;
@@ -227,7 +227,7 @@
     }  
 
     .ASIE{
-        background: url('/images/wwa-asia 1.png ');
+        background: url('/images/wwa-asia 2.png ');
         background-size: 100% 120%;
         background-position-y:0px;
         background-repeat: no-repeat;
@@ -262,7 +262,7 @@
     }  
 
     .OCEANIE{
-        background: url('/images/wwa-oceanie 1.png');
+        background: url('/images/wwa-oceanie 2.png');
         background-size: 100% 120%;
         background-position-y:0px;
         background-repeat: no-repeat;
@@ -298,7 +298,7 @@
     }  
 
     .USA{
-        background: url('/images/wwa-north-america 1.png');
+        background: url('/images/wwa-north-america 2.png');
         background-size: 100% 120%;
         background-position-y:0px;
         background-repeat: no-repeat;
@@ -334,7 +334,7 @@
     }  
 
     .SOUTH{
-        background: url('/images/wwa-south-america 1.png');
+        background: url('/images/wwa-south-america 2.png');
         background-size: 100% 120%;
         background-position-y:0px;
         background-repeat: no-repeat;
@@ -682,6 +682,7 @@
     /* CSS */
     .wrapper {
             .banner{
+                height: 100%;
                 &__title{
                     margin-top: 1em;
                     text-align: center;

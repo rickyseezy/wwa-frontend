@@ -60,7 +60,7 @@ function CreateCause(){
      }else{
       setOpen(false)
      }
-console.log(isOpen,displayMenu.push)
+
    })
 
 
