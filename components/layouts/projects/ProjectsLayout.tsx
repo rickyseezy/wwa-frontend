@@ -2,157 +2,129 @@ import styles from "./ProjectsLayout.module.scss";
 import MainNavigation from "@components/navigation/MainNavigation";
 import Stats from "@components/stats/Stats";
 import ContinentMenu from "@components/continent-menu/ContinentMenu";
-import React, { useEffect, useRef, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import Footer from "@components/footer/Footer";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import MenuCountry from "@components/menuCountry/MenuCountry";
 import CountryCard from "@components/countrycard/CountryCard";
 
 interface IProjectsLayout {
-  children: React.ReactNode;
+    children : React.ReactNode;
 }
 
-const ProjectsLayout = ({ children }: IProjectsLayout) => {
+const ProjectsLayout = ({children} : IProjectsLayout) => {
 
-  let [title, settitle] = useState('EUROPE')
-  let [showCard,setshowcard] = useState(false)
-  let [continent,setcontinent] = useState('EUROPE')
+    let [title,
+        settitle] = useState('EUROPE')
+    let [showCard,
+        setshowcard] = useState(false)
+    let [continent,
+        setcontinent] = useState('EUROPE')
+        let [country,
+          setcountry] = useState('')
 
- let [bolean,setbolean] = useState(false)
- let banner = useRef<HTMLDivElement>(null)
- let wrapper = useRef(null)
+    let [bolean,
+        setbolean] = useState(false)
+    let banner = useRef < HTMLDivElement > (null)
+    let wrapper = useRef(null)
 
-  const router = useRouter()
+    const router = useRouter()
 
-  //  récupére le text de l'item du menu continent 
-  function catchContinent(cont: any){
-setcontinent(cont)
-  }
+    //  récupére le text de l'item du menu continent
+    function catchContinent(cont : any) {}
 
-  function SwitchTitle(titles) {
-    setshowcard(false)
-    switch (titles) {
-      case 'africa':
-        settitle('AFRIQUE')
-        break;
-      case 'asia':
-        settitle('ASIE')
-        break;
-      case 'northus':
-        settitle('AMERIQUE DU NORD')
-        break;
-      case 'southamerica':
-        settitle('AMERIQUE DU SUD')
-        break;
-      case 'europe':
-        settitle('EUROPE')
-        break;
-      case 'oceania':
-        settitle('OCEANIE')
-        break;
+    function SwitchTitle(e) {
 
-    }
-
-
-  }
-
-  function menuClicked(e){
-
-    if(!bolean){
-      settitle(router.query.continent)
-      setshowcard(true)
-    }
-
-  }
-
-  
-  function ChangeBannerStyle(e){
-
+      if(!showCard){
+        switch (e) {
+          case "northus":
+              return "AMERIQUE DU NORD"
+          case "europe":
+              return "EUROPE"
+          case "africa":
+              return "AFRIQUE"
+          case "southamerica":
+              return "AMERIQUE DU SUD"
+          case "asia":
+            return "ASIE"
+          case  "oceania":
+            return "OCEANIE"
+      }
+      }
  
-if(!showCard){
-  switch (e) {
-    
-    case 'AMERIQUE DU NORD':
-      e = "USA"
 
-      break;
-    case 'AMERIQUE DU SUD':
-      e = "SOUTH"
-      break;
-  }
-  return e
-}else{
-  let DiRoute = router.query.continent
-  switch (DiRoute) {
-    case 'AFRICA':
-      DiRoute = 'AFRIQUE'
+    }
 
-      break;
-    case 'AMÉRIQUE DU NORD':
-      DiRoute = "USA"
+    function menuClicked(e) {
+     setshowcard(true)
+     console.log(e.target.innerText,'menucountry')
+    setcountry(e.target.innerText)
+    }
 
-      break;
-    case 'AMÉRIQUE DU SUD':
-      DiRoute = "SOUTH"
-      break;
-      case 'OCÈANIE':
-        DiRoute = "OCEANIE"
-        break;
-  }
+    function ChangeBannerStyle(e) {
+        switch (e) {
+            case "northus":
+                return "USA"
+            case "europe":
+                return "EUROPE"
+            case "africa":
+                return "AFRIQUE"
+            case "southamerica":
+                return "SOUTH"
+            case "asia":
+              return "ASIE"
+            case  "oceania":
+              return "OCEANIE"
+        }
+    }
 
-  return DiRoute == undefined ? "EUROPE" : DiRoute
-}
-    
-  }
+    useEffect(() => {
+        console.log(router.query.continent)
+        if(router.query.continent === undefined){
+          console.log('yooooo')
+          settitle('europe')
+        }else{
+          settitle(router.query.continent)
 
-
-useEffect(() => {
+        }
+        setshowcard(false)
        
-      SwitchTitle(router.query.continent)
- console.log(title,'tessst')
-      
-  },[router.query.continent]);
+    }, [router.query.continent]);
 
-  return (
-    <>
-      <div className={styles["wrapper"]} > 
-        <MainNavigation />
-        <MenuBurger />
-        <div className={`${styles["banner"]} ${styles[ChangeBannerStyle(title)]} `} ref={banner}>
-          <h1 className={styles["banner__title"]}>{title}</h1>
-          <div className={styles["stats-container"]}>
-            <Stats />
-          </div>
+    return ( <> <div className={styles["wrapper"]}>
+        <MainNavigation/>
+        <MenuBurger/>
+        <div
+            className={`${styles["banner"]} ${styles[ChangeBannerStyle(title)]} `}
+            ref={banner}>
+            <h1 className={styles["banner__title"]}>
+              { !showCard && SwitchTitle(title)}
+              { showCard && country}
+
+            </h1>
+            <div className={styles["stats-container"]}>
+                <Stats/>
+            </div>
         </div>
         <div className={styles["wrapper__content"]} ref={wrapper}>
-          <div className={styles["causes-wrapper"]}>
-           
-            <MenuCountry select={menuClicked} continent={continent}/>
-            <div className={styles["children-container"]}>
-              {
-            
-          showCard   ?
+            <div className={styles["causes-wrapper"]}>
 
-          <CountryCard   /> 
+                <MenuCountry select={menuClicked} continent={continent}/>
+                <div className={styles["children-container"]}>
+                    {showCard
+                        ? <CountryCard/>
 
-          : 
-          
-          children
-            
-            
-            }
+                        : children
+                    }
+                </div>
             </div>
-          </div>
         </div>
-    
+
         <div className={styles["continent-menu-wrapper"]}>
-          <ContinentMenu  select={catchContinent}  />
+            <ContinentMenu select={catchContinent}/>
         </div>
-      </div>
-      <Footer />
-    </>
-  );
+    </div> < Footer /> </>);
 };
 
 export default ProjectsLayout;

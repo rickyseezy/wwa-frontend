@@ -74,9 +74,8 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
   }
 
   function MapCheck(url) {
-    console.log(url,'map check')
     if (url) {
-      let tabPays = continentConfig.get(url.toUpperCase()).pays;
+      let tabPays =  ontinentConfig.get(url.toUpperCase()).pays;
       settabcountry(tabPays);
     }else{
       let tabPays = continentConfig.get('EUROPE').pays;
