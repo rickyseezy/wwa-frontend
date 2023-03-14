@@ -75,7 +75,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
 
   function MapCheck(url) {
     if (url) {
-      let tabPays =  ontinentConfig.get(url.toUpperCase()).pays;
+      let tabPays =  continentConfig.get(url.toUpperCase()).pays;
       settabcountry(tabPays);
     }else{
       let tabPays = continentConfig.get('EUROPE').pays;
@@ -156,6 +156,8 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
               pathname: `/projects`,
               query: { continent: continenttab },
             });
+            select(e);
+
             MenuSelected(e);
           }}
           ref={ChangePays}

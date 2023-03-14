@@ -15,7 +15,7 @@ function Menu() {
 
 
   const pageCause = ()=>{
-   router.push('/projects')
+   router.push('/projects?continent=europe')
 
    }
 

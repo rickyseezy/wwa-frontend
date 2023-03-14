@@ -5,12 +5,30 @@ import ContinentMenu from "@components/continent-menu/ContinentMenu";
 import React, {useEffect, useRef, useState} from "react";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import Footer from "@components/footer/Footer";
-import {useRouter} from "next/router";
+import {Router, useRouter} from "next/router";
 import MenuCountry from "@components/menuCountry/MenuCountry";
 import CountryCard from "@components/countrycard/CountryCard";
+import { route } from "next/dist/server/router";
 
 interface IProjectsLayout {
     children : React.ReactNode;
+}
+
+function UrlToTitle(e){
+  switch (e) {
+    case "northus":
+        return "AMERIQUE DU NORD"
+    case "europe":
+        return "EUROPE"
+    case "africa":
+        return "AFRIQUE"
+    case "southamerica":
+        return "AMERIQUE DU SUD"
+    case "asia":
+      return "ASIE"
+    case  "oceania":
+      return "OCEANIE"
+}
 }
 
 const ProjectsLayout = ({children} : IProjectsLayout) => {
@@ -31,8 +49,7 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
 
     const router = useRouter()
 
-    //  récupére le text de l'item du menu continent
-    function catchContinent(cont : any) {}
+
 
     function SwitchTitle(e) {
 
@@ -59,7 +76,13 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
     function menuClicked(e) {
      setshowcard(true)
      console.log(e.target.innerText,'menucountry')
-    setcountry(e.target.innerText)
+     if(e.target.innerText == "Top causes"){
+       console.log(router.query.continent,'top causes')
+      setcountry(UrlToTitle(router.query.continent))
+     }else{
+      setcountry(e.target.innerText)
+
+     }
     }
 
     function ChangeBannerStyle(e) {
@@ -80,9 +103,8 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
     }
 
     useEffect(() => {
-        console.log(router.query.continent)
-        if(router.query.continent === undefined){
-          console.log('yooooo')
+        if(router.query.continent === 'europe'){
+
           settitle('europe')
         }else{
           settitle(router.query.continent)
@@ -122,7 +144,7 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
         </div>
 
         <div className={styles["continent-menu-wrapper"]}>
-            <ContinentMenu select={catchContinent}/>
+            <ContinentMenu />
         </div>
     </div> < Footer /> </>);
 };
