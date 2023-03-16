@@ -32,9 +32,10 @@ function UrlToTitle(e){
 }
 
 const ProjectsLayout = ({children} : IProjectsLayout) => {
+    const router = useRouter()
 
     let [title,
-        settitle] = useState('EUROPE')
+        settitle] = useState('EUROPE'|| router.query.continent)
     let [showCard,
         setshowcard] = useState(false)
     let [continent,
@@ -47,7 +48,6 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
     let banner = useRef < HTMLDivElement > (null)
     let wrapper = useRef(null)
 
-    const router = useRouter()
 
 
 

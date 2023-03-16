@@ -2,6 +2,7 @@ import styles from "./Item.module.scss";
 import { string } from "prop-types";
 import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import Items from "@components/cardAccount/Items";
 
 interface IContinentMenuItemProps {
   continent: string;
@@ -64,6 +65,10 @@ const continentConfig = new Map<string, IContinentConfig>([
   ],
 ]);
 
+
+let obj = {'EUROPE':'europe','AFRICA':'africa','AMÉRIQUE DU SUD':'southamerica','AMÉRIQUE DU NORD':'northus','ASIE':'asia','OCÈANIE':"oceania"}
+
+
 let tabItems = [];
 
 const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
@@ -74,28 +79,41 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
   const classes: string[] = [styles["item"]];
   classes.push(config.custom);
   let divItems = useRef(null);
+if(router.query.continent === 'europe'){
+  console.log('yooooooo')
+  if(tabItems){
+    console.log(tabItems[0])
 
+  }
+}
   function Clean(page) {
     // si page est sur cause
     let route = page.continent;
     if(route){
-      console.log(route)
-
+  
+            tabItems.forEach(item =>{
+              if(obj[item.innerText] === route){
+              }else{
+                item.style = `  background-color: white !important;
+                border: none !important;
+                 color: black !important;
+                `;
+              }
+            })
+     
     }
   }
 
   function Select(e) {
-    let tabItemsClasses: Object[] = Array.from(continentConfig.values());
     const target = e.target as HTMLDivElement;
 
     // reset les classes background white
-    tabItemsClasses.forEach((_el, i) => {
-      tabItems[i].style = `  background-color: white !important;
-               border: none !important;
-                color: black !important;
-               `;
-    });
-
+     tabItems.forEach(item =>{
+      item.style = `  background-color: white !important;
+      border: none !important;
+       color: black !important;
+      `;
+     })
     // met la classe target du background correspondant
 
     e.target.style = "border: 1px solid transparent";
@@ -127,13 +145,9 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
   useEffect(() => {
     tabItems.push(divItems.current);
     changeUrl(continent);
-    // reset les classes background white sauf la premiere
-    // tabItems[0].classList.add("item--europe");
     Clean(router.query);
-    return () => {
-      tabItems.length = 0;
-    };
-  }, [router.query.continent]);
+    console.log(router.query,'query')
+  }, [router.query.continent === undefined]);
 
   return (
     <div className={classes.join(" ")} onClick={Select} ref={divItems}>
