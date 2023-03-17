@@ -83,7 +83,14 @@ if(router.query.continent === 'europe'){
   console.log('yooooooo')
   if(tabItems){
     console.log(tabItems[0])
-
+      tabItems.forEach( (item,i) =>{
+         if(i == 0){
+          item.style = `  background-color: #FFE2C1 !important;
+          border: 1px solid transparent;
+           color: #F49D3B !important;
+          `;
+        }
+         })
   }
 }
   function Clean(page) {
@@ -147,7 +154,7 @@ if(router.query.continent === 'europe'){
     changeUrl(continent);
     Clean(router.query);
     console.log(router.query,'query')
-  }, [router.query.continent === undefined]);
+  }, [router.query.continent === undefined,router.query.continent === 'europe']);
 
   return (
     <div className={classes.join(" ")} onClick={Select} ref={divItems}>
