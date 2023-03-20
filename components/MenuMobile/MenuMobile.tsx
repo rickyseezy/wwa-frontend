@@ -42,7 +42,7 @@ function MenuMobile({displayMenu,func}) {
         router.push('/')
     }
     function FowardCauses(){
-      router.push('/projects')
+      router.push('/projects?continent=europe')
   }
 
   function FowardMNcompte(){
