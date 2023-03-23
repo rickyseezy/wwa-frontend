@@ -11,7 +11,7 @@ interface Data {
   bjectEstand : []
 }
 
-// Mesprojet's data
+
 export const objMesprojet = [{
   img: '/images/champdemoussa.png',
   title: 'Les champs mais de moussa',
@@ -39,9 +39,6 @@ export const objMesprojet = [{
   id: 5
 }]
 
-
-
-
   
   
 
@@ -53,7 +50,7 @@ const ProjetItems = ({img,p,title,id}: Data) => {
 
   return(
     <>
-    <Items  objMesprojet={objMesprojet} img={img} title={''} p={''} targetCard={0} id={0} dataProject={[]}   setback={()=>{}}/>
+    <Items  objMesprojet={objMesprojet} img={img} title={''} p={''} targetCard={0} id={0} dataProject={[]}  />
     </>
   )
 

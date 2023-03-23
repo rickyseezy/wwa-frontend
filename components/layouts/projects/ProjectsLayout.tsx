@@ -43,8 +43,7 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
         let [country,
           setcountry] = useState('')
 
-    let [bolean,
-        setbolean] = useState(false)
+  
     let banner = useRef < HTMLDivElement > (null)
     let wrapper = useRef(null)
 

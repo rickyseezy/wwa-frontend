@@ -39,10 +39,10 @@ const TopCauses = () => {
   function CapitalizeTitle(str) {
 
     switch (str) {
-      case "northus":
+      case "north-america":
         str = "Amérique du nord";
         break;
-      case "southamerica":
+      case "south-america":
         str = "Amérique du sud";
         break;
       case "asia":
