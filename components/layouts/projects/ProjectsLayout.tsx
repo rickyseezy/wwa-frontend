@@ -16,13 +16,13 @@ interface IProjectsLayout {
 
 function UrlToTitle(e){
   switch (e) {
-    case "northus":
+    case "north-america":
         return "AMERIQUE DU NORD"
     case "europe":
         return "EUROPE"
     case "africa":
         return "AFRIQUE"
-    case "southamerica":
+    case "south-america":
         return "AMERIQUE DU SUD"
     case "asia":
       return "ASIE"
@@ -55,13 +55,13 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
 
       if(!showCard){
         switch (e) {
-          case "northus":
+          case "north-america":
               return "AMERIQUE DU NORD"
           case "europe":
               return "EUROPE"
           case "africa":
               return "AFRIQUE"
-          case "southamerica":
+          case "south-america":
               return "AMERIQUE DU SUD"
           case "asia":
             return "ASIE"
@@ -87,13 +87,13 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
 
     function ChangeBannerStyle(e) {
         switch (e) {
-            case "northus":
+            case "north-america":
                 return "USA"
             case "europe":
                 return "EUROPE"
             case "africa":
                 return "AFRIQUE"
-            case "southamerica":
+            case "south-america":
                 return "SOUTH"
             case "asia":
               return "ASIE"

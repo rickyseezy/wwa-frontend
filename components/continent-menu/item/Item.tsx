@@ -3,6 +3,7 @@ import { string } from "prop-types";
 import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Items from "@components/cardAccount/Items";
+import { ParsedUrlQuery } from "querystring";
 
 interface IContinentMenuItemProps {
   continent: string;
@@ -65,9 +66,14 @@ const continentConfig = new Map<string, IContinentConfig>([
   ],
 ]);
 
-
-let obj = {'EUROPE':'europe','AFRICA':'africa','AMÉRIQUE DU SUD':'southamerica','AMÉRIQUE DU NORD':'northus','ASIE':'asia','OCÈANIE':"oceania"}
-
+let obj = {
+  EUROPE: "europe",
+  AFRICA: "africa",
+  "AMÉRIQUE DU SUD": "south-america",
+  "AMÉRIQUE DU NORD": "north-america",
+  ASIE: "asia",
+  OCÈANIE: "oceania",
+};
 
 let tabItems = [];
 
@@ -79,48 +85,47 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
   const classes: string[] = [styles["item"]];
   classes.push(config.custom);
   let divItems = useRef(null);
-if(router.query.continent === 'europe'){
-  console.log('yooooooo')
-  if(tabItems){
-    console.log(tabItems[0])
-      tabItems.forEach( (item,i) =>{
-         if(i == 0){
-          item.style = `  background-color: #FFE2C1 !important;
-          border: 1px solid transparent;
-           color: #F49D3B !important;
-          `;
+
+  let backgroundWhite = `  background-color: white !important;
+  border: none !important;
+   color: black !important;
+  `;
+  let backgroundEurope = `  background-color: #FFE2C1 !important;
+  border: 1px solid transparent;
+   color: #F49D3B !important;
+  `;
+
+  if (router.query.continent === "europe") {
+    if (tabItems) {
+      console.log(tabItems[0]);
+      tabItems.forEach((item, i) => {
+        if (i == 0) {
+          item.style = backgroundEurope;
         }
-         })
-  }
-}
-  function Clean(page) {
-    // si page est sur cause
-    let route = page.continent;
-    if(route){
-  
-            tabItems.forEach(item =>{
-              if(obj[item.innerText] === route){
-              }else{
-                item.style = `  background-color: white !important;
-                border: none !important;
-                 color: black !important;
-                `;
-              }
-            })
-     
+      });
     }
   }
 
+  // mets le bacground white pour les continenets non concerné
+  function Clean(page: ParsedUrlQuery) {
+    let route = page.continent;
+    if (route) {
+      tabItems.forEach((item) => {
+        if (obj[item.innerText] !== route) {
+          item.style = backgroundWhite;
+        }
+      });
+    }
+  }
+
+  //  change le background quand l'item est selectionné
   function Select(e) {
     const target = e.target as HTMLDivElement;
 
     // reset les classes background white
-     tabItems.forEach(item =>{
-      item.style = `  background-color: white !important;
-      border: none !important;
-       color: black !important;
-      `;
-     })
+    tabItems.forEach((item) => {
+      item.style = backgroundWhite;
+    });
     // met la classe target du background correspondant
 
     e.target.style = "border: 1px solid transparent";
@@ -132,16 +137,15 @@ if(router.query.continent === 'europe'){
     });
   }
 
-
   // rajoute le continent dans l'url
-  function changeUrl(url) {
+  function changeUrl(url: string) {
     switch (url) {
       case "NORTH-US":
-        setcontinenttab("northus");
+        setcontinenttab("north-america");
         break;
 
-      case "SOUTH-AMERICA":
-        setcontinenttab("southamerica");
+      case "south-america":
+        setcontinenttab("south-america");
 
         break;
       default:
@@ -153,8 +157,11 @@ if(router.query.continent === 'europe'){
     tabItems.push(divItems.current);
     changeUrl(continent);
     Clean(router.query);
-    console.log(router.query,'query')
-  }, [router.query.continent === undefined,router.query.continent === 'europe']);
+    console.log(router.query, "query");
+  }, [
+    router.query.continent === undefined,
+    router.query.continent === "europe",
+  ]);
 
   return (
     <div className={classes.join(" ")} onClick={Select} ref={divItems}>

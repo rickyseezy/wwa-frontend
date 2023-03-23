@@ -1,5 +1,6 @@
 import { Router, useRouter } from "next/router";
-import { useEffect, useState, useRef, MouseEventHandler } from "react";
+import { ParsedUrlQuery } from "querystring";
+import { useEffect, useState, useRef, MouseEventHandler, SetStateAction, MouseEvent } from "react";
 import styles from "../layouts/projects/ProjectsLayout.module.scss";
 
 interface MenuCountryProps {
@@ -75,6 +76,9 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
 
   function MapCheck(url) {
     if (url) {
+      if(url === 'north-america') { url = "northus"}
+      if(url === 'south-america'){  url = "southamerica"}
+      console.log(url,'url')
       let tabPays =  continentConfig.get(url.toUpperCase()).pays;
       settabcountry(tabPays);
     }else{
@@ -88,7 +92,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     if (url) {
       switch (url) {
         case "NORTH-US":
-          setcontinenttab("northus");
+          setcontinenttab("north-america");
           break;
 
         case "SOUTH-AMERICA":
@@ -117,7 +121,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
   }
   // change le background des items menu
   function MenuSelected(e) {
-    pays.current.map((pay) => {
+    pays.current.map((pay: { classList: { remove: (arg0: string) => void; }; }) => {
       pay.classList.remove("ProjectsLayout_menu__link--selected__Is402");
     });
     e.target.classList.add("ProjectsLayout_menu__link--selected__Is402");

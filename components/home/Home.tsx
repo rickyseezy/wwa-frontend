@@ -40,14 +40,14 @@ const Home = () => {
       case 'S-A':
         router.push({
           pathname: `/projects`,
-          query: {continent : 'southamerica' },
+          query: {continent : 'south-america' },
         });
 
         break;
       case 'USA-SVG':
         router.push({
           pathname: `/projects`,
-          query: {continent : 'northus' },
+          query: {continent : 'north-america' },
         });
 
         break;
