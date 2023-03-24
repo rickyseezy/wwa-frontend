@@ -16,49 +16,53 @@ setback : () => void
 
 
 function Items(props : Data) {
-const [display, setdisplay] = useState(false)
-const [back, setback] = useState<void>()
 
 
 
-  let deleteRef = useRef([])
-  let indexbtnfront = useRef<number>(null)
-    const objProjet = props.objMesprojet
 
-
-    const handclick = (e: React.Dispatch<React.SetStateAction<string>> | React.MouseEvent<HTMLElement>) => {
-        // @ts-ignore
-    let front = e?.nativeEvent.path[3].children[0]
-        // @ts-ignore
-      let back = e?.nativeEvent.path[3].children[1]
-      setback(()=>{
-      back.style = 'display: block'
-      front.style = 'display: none'
-      })
-
-      console.log(indexbtnfront,'hey')
-
-
-      }
+  let cardRef = useRef([])
+  cardRef.current = []
 
 
 
-      const handclickDelete = (e: React.Dispatch<React.SetStateAction<string>> | React.MouseEvent<HTMLElement>) => {
-          // @ts-ignore
-        let front = e?.nativeEvent.path[3].children[0]
-          // @ts-ignore
-          let back = e?.nativeEvent.path[3].children[1]
 
-          setback(()=>{
-          front.style = 'display: block'
-          back.style = 'display: none'
-          })
+          function AllCard(e: any){
+            if (!cardRef.current.includes(e)) {
+              cardRef.current.push(e);
+              cardRef.current = cardRef.current.filter((e) => e !== null);
+            }
+            console.log(cardRef)
+          }
+          
 
+          function ChangeView(ide: string) {
+            let result = cardRef.current.find((el) => Number(el.id) === Number(ide));
+             cardRef.current.forEach(el =>{
+              console.log(el.id , ide)
+             })
+             console.log(result.firstChild.classList.contains('projetitems_visible__O_tc3'))
+             console.log(result.lastChild.classList.contains('projetitems_hidden__tCuId'))
 
+           
+             if (result.firstChild.classList.contains("projetitems_visible__O_tc3")) {
+              console.log('yo')
+              result.firstChild.classList.remove("projetitems_visible__O_tc3");
+              result.firstChild.classList.add("projetitems_hidden__tCuId");
+        
+              result.lastChild.classList.remove("projetitems_hidden__tCuId");
+              result.lastChild.classList.add("projetitems_visible__O_tc3");
+            } else {
+              result.firstChild.classList.remove("projetitems_hidden__tCuId");
+              result.firstChild.classList.add("projetitems_visible__O_tc3");
+        
+              result.lastChild.classList.remove("projetitems_visible__O_tc3");
+              result.lastChild.classList.add("projetitems_hidden__tCuId");
+            }
+            // result.children[0].style = "visibility:hidden";
+            // result.children[1].style = "visibility:visible";
           }
 
-
-          if (!display) {
+      
           return (
           <>
             {/* ref={(element) => deleteRef.current[index] = element} */}
@@ -66,9 +70,9 @@ const [back, setback] = useState<void>()
             let {img ,title,p,id} = data
             return(
             
-              <div className={styles["main"]} key={index}>
+              <div className={styles["main"]} id={id} key={index} ref={AllCard} >
                 {/* front card */}
-                <div className={styles['main__frontcard']} >
+                <div className={`${styles['main__frontcard']} ${styles['visible']}`} >
                   <div className={styles['main__imgProjet']}>
                     <img src={img=data.img} alt="" />
                   </div>
@@ -80,7 +84,7 @@ const [back, setback] = useState<void>()
                     <div className={styles['btnprojet']}>
                       <img src="/images/edit.png" alt="" />
                     </div>
-                    <div className={styles['btnprojet']} onClick={handclick}>
+                    <div className={styles['btnprojet']} onClick={()=> ChangeView(id)}>
                       <img src="/images/trash-2.png" alt="" />
 
                     </div>
@@ -88,11 +92,11 @@ const [back, setback] = useState<void>()
                 </div>
 
                 {/* delete */}
-                <div className={styles['main__containerdelete']} key={index + 1}>
+                <div className={`${styles['main__containerdelete']} ${styles["hidden"]}`} key={index + 1}>
                   <h2>Supprimer <br /> &quot;Des logements décents et <br /> fonctionnels&quot;</h2>
                   <div className={styles["btndelete"]}>
                     <button>Oui,supprimer</button>
-                    <button onClick={handclickDelete}>Annuler</button>
+                    <button onClick={()=> ChangeView(id)}>Annuler</button>
                   </div>
                 </div>
 
@@ -101,7 +105,7 @@ const [back, setback] = useState<void>()
             )})}
           </>
           )
-          }
+          
 
 
           }
