@@ -29,7 +29,7 @@ const PopularProjects = () => {
           <div className={styles["popular-projects"]}>
         <ControlPane
             title="MOST POPULAR PROJECTS"
-            subTitle="Ils ont besoin de vous !"
+            subTitle="Ils ont besoin de vous ! "
             titleColor="#FFFF"
             subtitleColor="#FFFF"
             buttonColor="blue"
