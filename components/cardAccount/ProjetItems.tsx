@@ -46,7 +46,7 @@ export const objMesprojet = [{
 
 
 const ProjetItems = ({img,p,title,id}: Data) => {
-   
+  //  card
 
   return(
     <>
