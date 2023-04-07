@@ -48,16 +48,8 @@ export const objMesprojet = [{
 const ProjetItems = ({img,p,title,id}: Data) => {
   //  card
 
-  return(
-    <>
-    <Items  objMesprojet={objMesprojet} img={img} title={''} p={''} targetCard={0} id={0} dataProject={[]} setback={function (): void {
-        throw new Error('Function not implemented.');
-      } }  />
-    </>
-  )
-
-
-
+  return <Items  objMesprojet={objMesprojet} img={img} title={''} p={''} targetCard={0} id={0} dataProject={[]} setback={()=>{}}  />
+ 
 }
 
 export default ProjetItems
