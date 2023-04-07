@@ -46,8 +46,8 @@
         border-radius: 20px;
         font-size: 1em;
 
-        border: 1px solid $blueLoyal;
-        background-color: $blueLoyal;
+        border: 1px solid $btnblue;
+        background-color: $btnblue;
         color: white;
         font-weight: bold;
 
@@ -167,5 +167,8 @@
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
 */
-@media screen and (max-width: 320px) {
-    }
+
+@media screen and (max-width: 320px)  {
+  
+
+}

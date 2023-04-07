@@ -78,7 +78,6 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     if (url) {
       if(url === 'north-america') { url = "northus"}
       if(url === 'south-america'){  url = "southamerica"}
-      console.log(url,'url')
       let tabPays =  continentConfig.get(url.toUpperCase()).pays;
       settabcountry(tabPays);
     }else{

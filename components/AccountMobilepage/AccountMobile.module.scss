@@ -15,10 +15,10 @@
     &__cross{
         position: absolute;
         left: 5%;
-        top: 2%;
+        top: 10%;
         z-index: 44646464;
 
-        width: 5%;
+        width: 25px;
 
     }
 
@@ -139,10 +139,10 @@ align-items: center;
     &__cross{
         position: absolute;
         left: 5%;
-        top: 5%;
+        top: 10%;
         z-index: 44646464;
 
-        width: 5%;
+        width: 25px;
 
     }
 
@@ -239,3 +239,42 @@ align-items: center;
    }
 
   }
+
+
+  
+@media screen and (max-width: 450px)  {
+  
+    .AccountMobile{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 454566544;
+    
+        height: 100vh;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        padding:2em;
+        box-sizing: border-box;
+    
+        /*Add this*/
+    
+        &__cross{
+            position: absolute;
+            left: 5%;
+            top: 5%;
+            z-index: 44646464;
+    
+            width: 25px;
+    
+        }
+    
+
+    
+
+
+    
+   
+    }
+    
+    
+}

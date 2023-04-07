@@ -97,7 +97,6 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 
   if (router.query.continent === "europe") {
     if (tabItems) {
-      console.log(tabItems[0]);
       tabItems.forEach((item, i) => {
         if (i == 0) {
           item.style = backgroundEurope;
@@ -139,6 +138,8 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 
   // rajoute le continent dans l'url
   function changeUrl(url: string) {
+    console.log(router.query,'url')
+
     switch (url) {
       case "NORTH-US":
         setcontinenttab("north-america");
@@ -157,7 +158,7 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
     tabItems.push(divItems.current);
     changeUrl(continent);
     Clean(router.query);
-    console.log(router.query, "query");
+
   }, [
     router.query.continent === undefined,
     router.query.continent === "europe",

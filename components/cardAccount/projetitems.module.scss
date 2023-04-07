@@ -32,6 +32,10 @@
         margin: .5em .5em;
     
         }
+
+        .btnprojet:nth-child(1){
+            background-color: $btnblue;
+        }
      
     }
 
@@ -94,6 +98,7 @@
 
     h2{
         font-weight: 700;
+        margin-bottom: 1em;
     }
     
     .btndelete{
@@ -117,10 +122,14 @@
             border-radius: 50px;
             border: 1px solid transparent;
             background: #ffffff;
-            color: rgb(10, 10, 10);
+            color: $btnblue;
             text-align: center;
-            font-weight: bold;
+            font-weight: 800 !important;
+            line-height: 20px;
             font-size: 1.2em;   
+            font-feature-settings: 'liga' off;
+            font-style: normal
+
         }
     }
 }
@@ -231,6 +240,50 @@
     
         }
     }
+
+            // back of the card
+            &__containerdelete{
+                text-align: center;
+                padding: 3em 0;
+               
+                background-color: white;
+            
+                h2{
+                    font-weight: 700;
+                    font-size: 1em; 
+
+                }
+                
+                .btndelete{
+                    display: flex;
+                    flex-direction: column;
+                    
+                    button:nth-child(1){
+            
+                        padding: .7em;
+                        border-radius: 50px;
+                        border: 1px solid transparent;
+                        background: #FF3A44;
+                        color: white;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 1em; 
+                    }
+                    button:nth-child(2){
+            
+                        padding: 1em;
+                        border-radius: 50px;
+                        border: 1px solid transparent;
+                        background: #ffffff;
+                        color: $btnblue;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 1em; 
+
+                    }
+                }
+            }
+            
 }
     
   }
@@ -485,6 +538,7 @@
     
         h2{
             font-weight: 700;
+            font-size: 1.2em;
         }
         
         .btndelete{
@@ -493,14 +547,16 @@
             
             button:nth-child(1){
     
-                padding: 1em;
+                padding: .8em;
                 border-radius: 50px;
                 border: 1px solid transparent;
                 background: #FF3A44;
                 color: white;
                 text-align: center;
                 font-weight: bold;
-                font-size: 1.2em; 
+                font-size: 1em;
+                width: 90%;
+                margin: .5em auto 0 auto; 
             }
             button:nth-child(2){
     
@@ -508,10 +564,10 @@
                 border-radius: 50px;
                 border: 1px solid transparent;
                 background: #ffffff;
-                color: rgb(10, 10, 10);
+                color: $btnblue;
                 text-align: center;
                 font-weight: bold;
-                font-size: 1.2em;   
+                font-size: 1em;   
             }
         }
     }

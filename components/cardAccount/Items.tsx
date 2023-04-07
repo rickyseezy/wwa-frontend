@@ -93,9 +93,9 @@ function Items(props : Data) {
 
                 {/* delete */}
                 <div className={`${styles['main__containerdelete']} ${styles["hidden"]}`} key={index + 1}>
-                  <h2>Supprimer <br /> &quot;Des logements décents et <br /> fonctionnels&quot;</h2>
+                  <h2>Supprimer <br /> &quot;Des logements décents et <br /> fonctionnels&quot; ?</h2>
                   <div className={styles["btndelete"]}>
-                    <button>Oui,supprimer</button>
+                    <button>Oui, supprimer</button>
                     <button onClick={()=> ChangeView(id)}>Annuler</button>
                   </div>
                 </div>
