@@ -89,6 +89,7 @@ padding: .2em 0;
 position: relative;
 padding-left : 2em; 
 
+
 ::after{
     content: '';
     position: absolute;
@@ -103,7 +104,23 @@ padding-left : 2em;
 
  
  }
+ .back-volet{
+   position: relative;
+   color: white;
+  ::before{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0%;
+ //    background-color: $primaryblue;
+     background-color: $blueNight;
+    opacity: 1;
+    width: 100%;
+    height:55px;
+    z-index: -5;
 
+}
+ }
  .Estandsection{
 padding: .2em 0;
 position: relative;
@@ -159,7 +176,6 @@ position: relative;
 padding-left : 2em; 
 
  }
-
 
 
 }

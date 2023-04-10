@@ -104,19 +104,19 @@ useEffect(()=>{
           <div className={styles['imageprojet']}>
             <img src='/images/Hand raise web 1.png' alt="" />
           </div>
-          <div className={styles['projetsection']} onClick={handlePageMesProj} about='/'>
+          <div className={`${styles['projetsection']} ${styles[page === 1 ? 'back-volet' : '']}`} onClick={handlePageMesProj} about='/'>
             <h2>Mes projets </h2>
           </div>
-          <div className={styles['Estandsection']} onClick={handlePageEstand}>
+          <div className={`${styles['Estandsection']} ${styles[page === 2 ? 'back-volet' : '']}`} onClick={handlePageEstand}>
             <h2>Mes e-stand</h2>
           </div>
-          <div className={styles['solutionSection']} onClick={handlePageMesSoutiens}>
+          <div className={`${styles['solutionSection']} ${styles[page === 3 ? 'back-volet' : '']}`} onClick={handlePageMesSoutiens}>
             <h2>Mes soutiens</h2>
           </div>
-          <div className={styles['infoSection']} onClick={handlePageMesInfo}>
+          <div className={`${styles['infoSection']} ${styles[page === 4 ? 'back-volet' : '']}`} onClick={handlePageMesInfo}>
             <h2>Mes informations</h2>
           </div>
-          <div className={styles['deconnecterSection']} onClick={handlePageMeDeconnecter}>
+          <div className={`${styles['deconnecterSection']} ${styles[page === 5 ? 'back-volet' : '']}`} onClick={handlePageMeDeconnecter}>
             <h2>Me déconnecter</h2>
           </div>
         </div>

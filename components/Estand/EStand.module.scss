@@ -22,10 +22,19 @@ width: 100%;
   ##Screen = 1281px to higher resolution desktops
 */
 
-@media (min-width: 1281px) {
+@media (max-width: 1281px) {
   
     /* CSS */
-    
+    .Container-soutients{
+      
+          &__grid{
+              display: grid;
+              grid-template-columns: repeat(2,1fr);
+             
+          }
+      
+      } 
+      
   }
   
   /* 

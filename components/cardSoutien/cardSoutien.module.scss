@@ -1,13 +1,12 @@
+@import "styles/colors.module";
 
-    // @import "styles/variables.module";
+// @import "styles/variables.module";
 
-
-.container{
+.container {
     width: 100%;
 }
 
-    
-.grid{
+.grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     width: 100%;
@@ -15,408 +14,355 @@
     gap: 1EM;
     padding: 1em 0;
 
-
-    .frontcard{
+    .frontcard {
         display: flex;
         justify-content: space-between;
-        flex-direction: column;;
+        flex-direction: column;
         background-color: white;
-        padding: 2em .5em;
+        padding: 2em 0.5em;
         border-radius: 33.805px 33.805px 27.044px 20.283px;
 
- 
- 
-     
     }
- 
 
 }
 
-.cont-text{
-    h2{
+.cont-text {
+    h2 {
         font-size: 1.1em;
-        margin-left: .5em;
+        margin-left: 0.5em;
     }
-    p{
+    p {
         font-size: 1em;
-       color: rgba(150, 155, 171, 1);
-       margin: .5em .5em;
-   
-       }
-}
-    
+        color: rgba(150, 155, 171, 1);
+        margin: 0.5em;
 
+    }
+}
 
 // btn's container
 
-.btn{
-    
+.btn {
 
     width: 98%;
-    margin: 0 auto
-    ;
-    gap: .5em;
-    
+    margin: 0 auto;
+    gap: 0.5em;
+
 }
 
 // btn's
 
-.btnprojet{
+.btnprojet {
     width: 100% !important;
     // background-color: $primaryblue;
-    background-color: blue;
+    background-color:$btnblue;
 
     color: aliceblue;
     border-radius: 20px;
-    padding: .5em .5em;
+    padding: 0.5em;
     display: flex;
     justify-content: center;
-    
 
-   
 }
 
 // btn's 1
-.btnprojet:nth-child(1){
+.btnprojet:nth-child(1) {
 
     font-weight: bold;
 }
 
-
-
 // btn's 2 ,
 // btn's 3
-.btnprojet:nth-child(2),.btnprojet:nth-child(3){
+.btnprojet:nth-child(2),
+.btnprojet:nth-child(3) {
     background-color: rgba(235, 235, 235, 0.76);
 }
-
-.btnprojet:nth-child(3) img{
+.btnprojet:nth-child(3) img {
     pointer-events: none;
 }
 
 // pic of the card 
-.imgProjet{
+.imgProjet {
     width: 95%;
     position: relative;
     color: #FE9A22;
     font-weight: 900;
     margin: 0 auto;
-        
 
-
-    img{
+    img {
         width: 100%;
         height: 200px;
         border-radius: 20px;
-       
-    }
-    
-    &::after{
-       content: '600 459 actors';
-       position: absolute;
-      padding: .5em 1em;
-       left: 10.85px;
-       top: 10.97px;
 
-       background: #FFE3C1;
-       border-radius: 20.283px;
     }
-   
+
+    &::after {
+        content: '600 459 actors';
+        position: absolute;
+        padding: 0.5em 1em;
+        left: 10.85px;
+        top: 10.97px;
+
+        background: #FFE3C1;
+        border-radius: 20.283px;
+    }
+
 }
-
-
-
-
-
 
 /* 
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
 */
-
 @media (min-width: 1281px) {
-  
+
     /* CSS */
-    
-  }
-  
-  /* 
+
+}
+
+/* 
     ##Device = Laptops, Desktops
     ##Screen = B/w 1025px to 1280px
   */
-  
-  @media (min-width: 1025px) and (max-width: 1280px) {
-    
+@media (min-width: 1025px) and (max-width: 1280px) {
+
     /* CSS */
-    
-  }
-  
-  /* 
+
+}
+
+/* 
     ##Device = Tablets, Ipads (portrait)
     ##Screen = B/w 768px to 1024px
   */
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    
-    /* CSS */
-        
-.grid{
-    display: grid;
-    grid-template-columns: repeat(2,1fr) !important;
-    width: 95%;
-    margin: 0 1em 0 0;
-    gap: 1EM;
-    padding: 1em 0;
+@media (min-width: 768px) and (max-width: 1024px) {
 
-  }
-  
-  }
-  /* 
+    /* CSS */
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr) !important;
+        width: 95%;
+        margin: 0 1em 0 0;
+        gap: 1EM;
+        padding: 1em 0;
+
+    }
+
+}
+/* 
     ##Device = Low Resolution Tablets, Mobiles (Landscape)
     ##Screen = B/w 481px to 767px
   */
-  
-  @media (min-width: 481px) and (max-width: 767px) {
-    
+@media (min-width: 481px) and (max-width: 767px) {
+
     /* CSS */
-        
-.grid{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    width: 93%;
-    margin: 3em auto;
-    gap: 1EM;
-    padding: 1em 0;
 
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 93%;
+        margin: 3em auto;
+        gap: 1EM;
+        padding: 1em 0;
 
-    .frontcard{
-        display: block;
-        background-color: white;
-        padding: 2em .5em;
-        border-radius: 33.805px 33.805px 27.044px 20.283px;
+        .frontcard {
+            display: block;
+            background-color: white;
+            padding: 2em 0.5em;
+            border-radius: 33.805px 33.805px 27.044px 20.283px;
 
-        h2{
-            font-size: 1em;
-            margin-left: .5em;
+            h2 {
+                font-size: 1em;
+                margin-left: 0.5em;
+            }
+            p {
+                font-size: 0.8em;
+                color: rgba(150, 155, 171, 1);
+                margin: 0.5em;
+
+            }
+
         }
-        p{
-         font-size: .8em;
-        color: rgba(150, 155, 171, 1);
-        margin: .5em .5em;
-    
-        }
-     
+
     }
- 
-  
-}
-    
 
+    // btn's container
 
-// btn's container
+    .btn {
 
-.btn{
-    
+        width: 98%;
+        margin: 0 auto;
+        gap: 0.5em;
 
-    width: 98%;
-    margin: 0 auto
-    ;
-    gap: .5em;
-    
-}
+    }
 
-// btn's
+    // btn's
 
-.btnprojet{
-    width: 100% !important;
-    // background-color: $primaryblue;
-    background-color: blue;
+    .btnprojet {
+        width: 100% !important;
+        // background-color: $primaryblue;
+        background-color: blue;
 
-    color: aliceblue;
-    border-radius: 20px;
-    padding: .5em .5em;
-    display: flex;
-    justify-content: center;
-    
-
-   
-}
-
-// btn's 1
-.btnprojet:nth-child(1){
-
-    font-weight: bold;
-}
-
-
-
-// btn's 2 ,
-// btn's 3
-.btnprojet:nth-child(2),.btnprojet:nth-child(3){
-    background-color: rgba(235, 235, 235, 0.76);
-}
-
-.btnprojet:nth-child(3) img{
-    pointer-events: none;
-}
-
-// pic of the card 
-.imgProjet{
-    width: 95%;
-    position: relative;
-    color: #FE9A22;
-    font-weight: 900;
-    margin: 0 auto;
-
-
-    img{
-        width: 100%;
-        height: 150px;
+        color: aliceblue;
         border-radius: 20px;
-        
-    }
-    
-    &::after{
-       content: '600 459 actors';
-       position: absolute;
-      padding: .5em 1em;
-       left: 10.85px;
-       top: 10.97px;
+        padding: 0.5em;
+        display: flex;
+        justify-content: center;
 
-       background: #FFE3C1;
-       border-radius: 20.283px;
     }
-   
+
+    // btn's 1
+    .btnprojet:nth-child(1) {
+
+        font-weight: bold;
+    }
+
+    // btn's 2 ,
+    // btn's 3
+    .btnprojet:nth-child(2),
+    .btnprojet:nth-child(3) {
+        background-color: rgba(235, 235, 235, 0.76);
+    }
+    .btnprojet:nth-child(3) img {
+        pointer-events: none;
+    }
+
+    // pic of the card 
+    .imgProjet {
+        width: 95%;
+        position: relative;
+        color: #FE9A22;
+        font-weight: 900;
+        margin: 0 auto;
+
+        img {
+            width: 100%;
+            height: 150px;
+            border-radius: 20px;
+
+        }
+
+        &::after {
+            content: '600 459 actors';
+            position: absolute;
+            padding: 0.5em 1em;
+            left: 10.85px;
+            top: 10.97px;
+
+            background: #FFE3C1;
+            border-radius: 20.283px;
+        }
+
+    }
+
 }
 
-
-    
-  }
-  
-  /* 
+/* 
     ##Device = Most of the Smartphones Mobiles (Portrait)
     ##Screen = B/w 320px to 479px
   */
-  
-  @media screen and (min-width: 320px) and (max-width: 480px) {
-    
+@media screen and (min-width: 320px) and (max-width: 480px) {
+
     /* CSS */
-    
-.container{
-    width: 100%;
-}
 
-    
-.grid{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    width: 90%;
-    margin: 3em auto;
-    gap: 1EM;
-    padding: 1em 0;
-
-
-    .frontcard{
-        display: block;
-        background-color: white;
-        padding: 2em .5em;
-        border-radius: 33.805px 33.805px 27.044px 20.283px;
-
-        h2{
-            font-size: 1.3em;
-            margin-left: .5em;
-        }
-        p{
-         font-size: 1em;
-        color: rgba(150, 155, 171, 1);
-        margin: .5em .5em;
-    
-        }
-     
-    }
- 
-  
-}
-    
-
-
-// btn's container
-
-.btn{
-    
-
-    width: 98%;
-    margin: 0 auto
-    ;
-    gap: .5em;
-    
-}
-
-// btn's
-
-.btnprojet{
-    width: 100% !important;
-    // background-color: $primaryblue;
-    background-color: blue;
-
-    color: aliceblue;
-    border-radius: 20px;
-    padding: .5em .5em;
-    display: flex;
-    justify-content: center;
-    
-
-   
-}
-
-// btn's 1
-.btnprojet:nth-child(1){
-
-    font-weight: bold;
-}
-
-
-
-// btn's 2 ,
-// btn's 3
-.btnprojet:nth-child(2),.btnprojet:nth-child(3){
-    background-color: rgba(235, 235, 235, 0.76);
-}
-
-.btnprojet:nth-child(3) img{
-    pointer-events: none;
-}
-
-// pic of the card 
-.imgProjet{
-    width: 95%;
-    position: relative;
-    color: #FE9A22;
-    font-weight: 900;
-    margin: 0 auto;
-
-
-    img{
+    .container {
         width: 100%;
-        height: 200px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        width: 90%;
+        margin: 3em auto;
+        gap: 1EM;
+        padding: 1em 0;
+
+        .frontcard {
+            display: block;
+            background-color: white;
+            padding: 2em 0.5em;
+            border-radius: 33.805px 33.805px 27.044px 20.283px;
+
+            h2 {
+                font-size: 1.3em;
+                margin-left: 0.5em;
+            }
+            p {
+                font-size: 1em;
+                color: rgba(150, 155, 171, 1);
+                margin: 0.5em;
+
+            }
+
+        }
+
+    }
+
+    // btn's container
+
+    .btn {
+
+        width: 98%;
+        margin: 0 auto;
+        gap: 0.5em;
+
+    }
+
+    // btn's
+
+    .btnprojet {
+        width: 100% !important;
+        // background-color: $primaryblue;
+        background-color: blue;
+
+        color: aliceblue;
         border-radius: 20px;
-        
-    }
-    
-    &::after{
-       content: '600 459 actors';
-       position: absolute;
-      padding: .5em 1em;
-       left: 10.85px;
-       top: 10.97px;
+        padding: 0.5em;
+        display: flex;
+        justify-content: center;
 
-       background: #FFE3C1;
-       border-radius: 20.283px;
     }
-   
+
+    // btn's 1
+    .btnprojet:nth-child(1) {
+
+        font-weight: bold;
+    }
+
+    // btn's 2 ,
+    // btn's 3
+    .btnprojet:nth-child(2),
+    .btnprojet:nth-child(3) {
+        background-color: rgba(235, 235, 235, 0.76);
+    }
+    .btnprojet:nth-child(3) img {
+        pointer-events: none;
+    }
+
+    // pic of the card 
+    .imgProjet {
+        width: 95%;
+        position: relative;
+        color: #FE9A22;
+        font-weight: 900;
+        margin: 0 auto;
+
+        img {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+
+        }
+
+        &::after {
+            content: '600 459 actors';
+            position: absolute;
+            padding: 0.5em 1em;
+            left: 10.85px;
+            top: 10.97px;
+
+            background: #FFE3C1;
+            border-radius: 20.283px;
+        }
+
+    }
+
 }
-
-
-  
-  
-  }
