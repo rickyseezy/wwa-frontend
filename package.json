@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "debounce": "^1.2.1",
+    "dotenv": "^16.0.3",
     "faker": "^6.6.6",
     "firebase": "^9.19.1",
     "framer-motion": "^6.0.0",
