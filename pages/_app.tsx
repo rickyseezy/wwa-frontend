@@ -13,8 +13,7 @@ console.log(fireApp,'firebase')
     console.log("effect");
 
     const handleTabClose = (event: { preventDefault: () => void; returnValue: string; }) => {
-      event.preventDefault();
-      // event.defaultPrevented()
+  
 
       console.log("beforeunload event triggered");
       setclose(true);
