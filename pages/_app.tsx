@@ -6,7 +6,7 @@ import {fireApp} from '../firebase/configApp'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-console.log(fireApp,'firebase')
+// console.log(fireApp,'firebase')
   let [close, setclose] = useState(false);
   console.log(close);
   useEffect(() => {

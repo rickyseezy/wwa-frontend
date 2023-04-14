@@ -11,7 +11,6 @@ const PopularProjects = () => {
 
     function parentToChild(data : any, id : Number) {
         directionMoveCard = data
-        console.log(directionMoveCard, id)
         let updateVal = {}
 
         updateVal = {

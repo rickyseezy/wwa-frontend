@@ -31,7 +31,7 @@ function Items(props : Data) {
               cardRef.current.push(e);
               cardRef.current = cardRef.current.filter((e) => e !== null);
             }
-            console.log(cardRef)
+
           }
           
 

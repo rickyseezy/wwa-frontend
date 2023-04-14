@@ -33,17 +33,17 @@ const ScrollList = ({ dir, id }: IControlSwitch) => {
 
     // function qui garde la derniére position en mémoire
     function memoiseDiection(idDir: Number, obj: CarousselsIds) {
-        console.log(obj,idDir,'mémoire')
+
  
           if(obj[`id${idDir}`] === undefined){
-            console.log('yo')
+
             obj[`id${idDir}`] = 0
                 compte = obj[`id${idDir}`]
           }else{
             compte = obj[`id${idDir}`]
           }
 
-          console.log(obj)
+
     }
 
  
@@ -55,7 +55,7 @@ const ScrollList = ({ dir, id }: IControlSwitch) => {
 
         //   si les fleches qui ont été cliqué correspondent au carrousel
         if (dir.id === id) {
-            console.log(id)
+
             if (containerCard != null) {
                 left = containerCard
                     .current
@@ -127,7 +127,6 @@ const ScrollList = ({ dir, id }: IControlSwitch) => {
                     
                 idobj[`id${id}`] = compte
                  in_slider.current.style = `transform:translateX(${compte}px);transition:.5s ease`
-                console.log(compte,'iuguigggguig')
                 // if(Math.abs(compte) > window.innerWidth){
                 //        console.log('yooooooooooooooooooo')
                 //       limited = false
