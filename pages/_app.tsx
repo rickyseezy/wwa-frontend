@@ -2,7 +2,6 @@ import "../styles/globals.scss";
 import { AppProps } from "next/app";
 import { closeContext } from "../context";
 import { useEffect, useState } from "react";
-import {fireApp} from '../firebase/configApp'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
