@@ -14,7 +14,7 @@ export interface IAccount extends Metadata {
     addressID: string // reference to address model
 }
 
-export interface ICreateAccount extends Omit<IAccount, 'id'> {
+export interface ICreateAccount extends Omit<IAccount, 'id' | 'lastName' | 'birthdate' | 'phoneNumber' | 'addressID'> {
 }
 
 export interface IUpdateAccount {
