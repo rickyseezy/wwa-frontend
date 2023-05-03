@@ -32,7 +32,13 @@ export default class AccountRepository implements IAccountRepository {
     async Create(req: ICreateAccount): Promise<IAccount> {
         try {
             const docRef = await addDoc(collection(this.db, this.collectionName), req)
-            return {...req, id: docRef.id};
+            let data: IAccount
+            let res: IAccount
+            res = {
+                ...data, // Remove typescript error
+                ...req
+            }
+            return {...res, id: docRef.id};
         } catch (e) {
             console.error(e)
             throw e
