@@ -13,12 +13,15 @@ const AccountMobile = (props: any) => {
   let [mail, setmail] = useState();
   let [ville, setville] = useState();
   let [birth, setbirth] = useState();
+  let [password, setpassword] = useState();
+
   let [account,setaccount] = useState({
     pseudo:'',
     mail:'',
     ville:'',
     birth: '',
-    gender:''
+    gender:'',
+    password:""
   })
 
   let genderRef = useRef(null)
@@ -58,6 +61,11 @@ const AccountMobile = (props: any) => {
     setpseudo(e.target.value)
 
   }
+  function getpassword(e){
+    setpassword(e.target.value)
+
+  }
+  
   
   function getmail(e){
     setmail(e.target.value)
@@ -83,10 +91,10 @@ const AccountMobile = (props: any) => {
 
   useEffect(() => {
     // accountMobile.current.style = "display:flex";
-    setaccount({...account,pseudo,mail:mail,birth:birth,gender:gender,ville:ville})
+    setaccount({...account,pseudo,mail:mail,birth:birth,gender:gender,ville:ville,password})
     console.log(account)
 
-  },[pseudo,ville,birth,gender,mail]);
+  },[pseudo,ville,birth,gender,mail,password]);
 
   return (
     <div className={styles["back-account"]} ref={accountMobile}>
@@ -151,6 +159,13 @@ const AccountMobile = (props: any) => {
               name="ville"
               onChange={getville}
               placeholder="Ville ou Pays hors France"
+            />
+             <input
+              type="text"
+              value={ville}
+              name="password"
+              onChange={getpassword}
+              placeholder="Password"
             />
           </div>
 
