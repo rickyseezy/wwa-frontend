@@ -12,8 +12,7 @@ function Connect(props) {
     // reinit
     let [reinit,
         setReinit] = useState < Boolean > (false)
-    let [connetShow,
-        setConnectshow] = useState < Boolean > (false)
+
 
     function handleSub() {
         setShowAccount(el => el = !el)
@@ -25,6 +24,12 @@ function Connect(props) {
         console.log(reinit)
 
     }
+
+
+
+
+
+    
     useEffect(() => {
         console.log(reinit, showAccount)
         //  si le props.show change la valeur de show Account revient a false
