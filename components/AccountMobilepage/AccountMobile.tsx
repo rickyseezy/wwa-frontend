@@ -1,11 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from "./AccountMobile.module.scss";
 import AccountRepository from '../../domain/repositories/account'
-import { DB } from "firebase/configApp";
+
 
 const AccountMobile = (props: any) => {
-  
-  let accountRepo = new AccountRepository(DB)
+ 
   const accountMobile = useRef(null);
   let [leave, setleave] = useState(false);
 
