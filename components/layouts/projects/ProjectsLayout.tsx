@@ -76,7 +76,7 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
      setshowcard(true)
      console.log(e.target.innerText,'menucountry')
      if(e.target.innerText == "Top causes"){
-       console.log(router.query.continent,'top causes')
+
       setcountry(UrlToTitle(router.query.continent))
      }else{
       setcountry(e.target.innerText)

@@ -38,6 +38,7 @@ export default class AccountRepository implements IAccountRepository {
                 ...data, // Remove typescript error
                 ...req
             }
+            console.log(res,'response create')
             return {...res, id: docRef.id};
         } catch (e) {
             console.error(e)
