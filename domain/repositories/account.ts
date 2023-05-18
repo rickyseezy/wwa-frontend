@@ -9,7 +9,7 @@ import {
     updateDoc,
     getDoc,
     orderBy,
-    getDocs
+    getDocs, setDoc
 } from "@firebase/firestore";
 import {Collections, IBaseRepository} from "./index";
 
@@ -31,7 +31,7 @@ export default class AccountRepository implements IAccountRepository {
 
     async Create(req: ICreateAccount): Promise<IAccount> {
         try {
-            const docRef = await addDoc(collection(this.db, this.collectionName), req)
+            const docRef = await setDoc(this.getObjectRef(req.id), req)
             let data: IAccount
             let res: IAccount
             res = {
@@ -39,7 +39,7 @@ export default class AccountRepository implements IAccountRepository {
                 ...req
             }
             console.log(res,'response create')
-            return {...res, id: docRef.id};
+            return {...res, id: req.id};
         } catch (e) {
             console.error(e)
             throw e
