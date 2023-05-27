@@ -1,43 +1,27 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from "./AccountMobile.module.scss";
 import AccountRepository from '../../domain/repositories/account'
-import {DB} from '../../firebase/configApp'
-import { ICreateAccount } from "domain/models/account";
 
 
 const AccountMobile = (props: any) => {
-  let addAccountInDB = new AccountRepository(DB)
-
-
+ 
   const accountMobile = useRef(null);
   let [leave, setleave] = useState(false);
 
   let [gender, setgender] = useState();
   let [pseudo, setpseudo] = useState();
-  let [email, setmail] = useState();
+  let [mail, setmail] = useState();
   let [ville, setville] = useState();
-  let [birthdate, setbirth] = useState();
+  let [birth, setbirth] = useState();
   let [password, setpassword] = useState();
 
-  let [account,setaccount] = useState<ICreateAccount>({
+  let [account,setaccount] = useState({
     pseudo:'',
-    email:'',
+    mail:'',
     ville:'',
+    birth: '',
     gender:'',
-    password:"",
-    firstName: '',
-    birthdate:null,
-    
-    certified: false,
-    activated: false,
-    createdAt:null,
-    updatedAt:null,
-
-   
-    roles: [],
-    
-    
-  
+    password:""
   })
 
   let genderRef = useRef(null)
@@ -102,16 +86,15 @@ const AccountMobile = (props: any) => {
   function getaccount(){
     // console.log(accountRepo.Create(account))
      console.log(account)
-     addAccountInDB.Create(account)
   }
 
 
   useEffect(() => {
     // accountMobile.current.style = "display:flex";
-    setaccount({...account,pseudo,email:email,birthdate:birthdate,gender:gender,ville:ville,password})
+    setaccount({...account,pseudo,mail:mail,birth:birth,gender:gender,ville:ville,password})
     console.log(account)
 
-  },[pseudo,ville,birthdate,gender,email,password]);
+  },[pseudo,ville,birth,gender,mail,password]);
 
   return (
     <div className={styles["back-account"]} ref={accountMobile}>
@@ -158,15 +141,15 @@ const AccountMobile = (props: any) => {
             />
             <input
               type="text"
-              value={email}
-              name="email"
+              value={mail}
+              name="mail"
               onChange={getmail}
               placeholder="Adresse email"
             />
             <input
               type="text"
-              value={birthdate}
-              name="birthdate"
+              value={birth}
+              name="birth"
               onChange={getbirth}
               placeholder="Année de naissance"
             />
@@ -179,7 +162,7 @@ const AccountMobile = (props: any) => {
             />
              <input
               type="text"
-              value={password}
+              value={ville}
               name="password"
               onChange={getpassword}
               placeholder="Password"
