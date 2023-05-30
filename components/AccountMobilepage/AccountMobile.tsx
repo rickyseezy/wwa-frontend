@@ -1,19 +1,20 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from "./AccountMobile.module.scss";
-import AccountRepository from '../../domain/repositories/account'
+import AuthenticatorRepository from '../../domain/repositories/authenticator'
+
 
 
 const AccountMobile = (props: any) => {
  
   const accountMobile = useRef(null);
   let [leave, setleave] = useState(false);
-
-  let [gender, setgender] = useState();
-  let [pseudo, setpseudo] = useState();
-  let [mail, setmail] = useState();
-  let [ville, setville] = useState();
-  let [birth, setbirth] = useState();
-  let [password, setpassword] = useState();
+  let authToDB = new AuthenticatorRepository()
+  let [gender, setgender] = useState('');
+  let [pseudo, setpseudo] = useState('');
+  let [mail, setmail] = useState('');
+  let [ville, setville] = useState('');
+  let [birth, setbirth] = useState('');
+  let [password, setpassword] = useState('');
 
   let [account,setaccount] = useState({
     pseudo:'',
@@ -86,7 +87,40 @@ const AccountMobile = (props: any) => {
   function getaccount(){
     // console.log(accountRepo.Create(account))
      console.log(account)
-  }
+     authToDB.CreateUser(mail,password,{
+       firstName: '',
+
+       certified: false,
+       activated: true,
+       birthdate: new Date(),
+       pseudo: pseudo,
+       email: mail,
+       password: password,
+       roles: [],
+       updatedAt: new Date(),
+       ville: ville,
+       gender: gender,
+       id: 'accounts',
+       createdAt: new Date(),
+       lastName: "",
+       phoneNumber: "",
+       addressID: ""
+     })
+
+     
+     setbirth('')
+     setmail('')
+     setpassword('')
+     setpseudo('')
+     setville('')
+
+    //  'accounts'
+
+
+     
+     accountMobile.current.style = "display:none";
+
+  }  
 
 
   useEffect(() => {
@@ -162,7 +196,7 @@ const AccountMobile = (props: any) => {
             />
              <input
               type="text"
-              value={ville}
+              value={password}
               name="password"
               onChange={getpassword}
               placeholder="Password"

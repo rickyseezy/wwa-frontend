@@ -3,15 +3,22 @@ import React, {useEffect, useRef} from 'react'
 import styles from './connect.module.scss'
 import {useState} from 'react'
 import Reinit from '@components/reinitialiser/Reinit'
+import AuthenticatorRepository from '../../domain/repositories/authenticator'
+import {getAuth,onAuthStateChanged} from "firebase/auth";
+import { auth } from "../../firebase/configApp";
+
 
 function Connect(props) {
     let connect = useRef(null)
     let [showAccount,
         setShowAccount] = useState < Boolean > (false)
-
+        let loggToDB = new AuthenticatorRepository()
+        let getauth = auth
     // reinit
     let [reinit,
         setReinit] = useState < Boolean > (false)
+    let[email,setemail] = useState('')
+    let [password,setpassword] = useState('')
 
 
     function handleSub() {
@@ -26,7 +33,11 @@ function Connect(props) {
     }
 
 
-
+    function sendLoggin(){
+         loggToDB.Login(email,password)
+         setemail('')
+         setpassword('')
+    }
 
 
     
@@ -37,6 +48,26 @@ function Connect(props) {
             setShowAccount(el => el = !el)
 
         }
+
+// vérifier si un user est logggé 
+        onAuthStateChanged(getauth, (user) => {
+            if (user) { 
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/auth.user
+                const uid = user.uid;
+                // ...
+                // console.log(uid,'yooooooooo');
+                console.log(user)
+
+            
+            } else {
+                // User is signed out
+                // ...
+
+    
+            }
+        } 
+            )
     }, [props.show])
 
     if (reinit) {
@@ -56,17 +87,17 @@ function Connect(props) {
                 <h1>Connectez-vous</h1>
                 <form action="" className={styles["connect__form"]}>
                     <label htmlFor="">
-                        <input type="text" placeholder="email"/>
+                        <input type="text" value={email} onChange={(e)=> setemail(e.target.value) } placeholder="email"/>
 
                     </label>
                     <label htmlFor="">
-                        <input type="text" placeholder="mot de passe"/>
+                        <input type="text" value={password} onChange={(e) => setpassword(e.target.value)} placeholder="mot de passe"/>
 
                     </label>
 
                     <p onClick={handleReinit}>Mot de passe oublier ?</p>
 
-                    <button >Connexion</button>
+                    <button onClick={sendLoggin} >Connexion</button>
                 </form>
                 <div className={styles['connect__band']}>
 

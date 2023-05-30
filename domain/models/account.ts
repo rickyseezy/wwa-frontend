@@ -27,6 +27,8 @@ export interface IUpdateAccount {
     activated?: boolean
     birthdate?: string
     pseudo?:string
+    ville:'',
+    gender:'',
     email?: string
     password?: string
     phoneNumber?: string
