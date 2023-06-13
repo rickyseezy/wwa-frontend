@@ -18,7 +18,7 @@ export default class AuthenticatorRepository implements IAuthenticatorRepository
         try {
             const data = await createUserWithEmailAndPassword(auth, email, password)
             req.id = data?.user?.uid
-            addToAccount.Create(req)
+            // addToAccount.Create(req)
             return data?.user?.uid
         } catch (e) {
             throw e

@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from "./AccountMobile.module.scss";
 import AuthenticatorRepository from '../../domain/repositories/authenticator'
+import AccountRepository from "domain/repositories/account";
+import { DB } from '../../firebase/configApp';
 
 
 
@@ -9,6 +11,7 @@ const AccountMobile = (props: any) => {
   const accountMobile = useRef(null);
   let [leave, setleave] = useState(false);
   let authToDB = new AuthenticatorRepository()
+  let addIdTocollect = new AccountRepository(DB)
   let [gender, setgender] = useState('');
   let [pseudo, setpseudo] = useState('');
   let [mail, setmail] = useState('');
@@ -86,25 +89,64 @@ const AccountMobile = (props: any) => {
 
   function getaccount(){
     // console.log(accountRepo.Create(account))
+    // {
+    //   firstName: '',
+
+    //   certified: false,
+    //   activated: true,
+    //   birthdate: new Date(),
+    //   pseudo: pseudo,
+    //   email: mail,
+    //   password: password,
+    //   roles: [],
+    //   updatedAt: new Date(),
+    //   ville: ville,
+    //   gender: gender,
+    //   id: 'accounts',
+    //   createdAt: new Date(),
+    //   lastName: "",
+    //   phoneNumber: "",
+    //   addressID: ""
+    // }
      console.log(account)
      authToDB.CreateUser(mail,password,{
-       firstName: '',
-
-       certified: false,
-       activated: true,
-       birthdate: new Date(),
-       pseudo: pseudo,
-       email: mail,
-       password: password,
-       roles: [],
-       updatedAt: new Date(),
-       ville: ville,
-       gender: gender,
-       id: 'accounts',
-       createdAt: new Date(),
+       id: "",
+       firstName: "",
        lastName: "",
+       gender: "",
+       pseudo: "",
+       ville: "",
+       certified: false,
+       activated: false,
+       birthdate: undefined,
+       email: "",
+       password: "",
        phoneNumber: "",
-       addressID: ""
+       roles: [],
+       addressID: "",
+       createdAt: undefined,
+       updatedAt: undefined
+     }).then(user =>{
+
+      addIdTocollect.Create({
+        id: user,
+        firstName: '',
+  
+      certified: false,
+       activated: true,
+      birthdate: new Date(),
+      pseudo: pseudo,
+      email: mail,
+      password: password,
+      roles: [],
+      updatedAt: new Date(),
+      ville: ville,
+      gender: gender,
+      createdAt: new Date(),
+      lastName: "",
+      phoneNumber: "",
+      addressID: ""
+      })
      })
 
      
