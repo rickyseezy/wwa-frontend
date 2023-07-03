@@ -13,11 +13,11 @@ interface IAuthenticatorRepository {
 }
 
 export default class AuthenticatorRepository implements IAuthenticatorRepository {
-    async CreateUser(email: string, password: string,req :IAccount): Promise<string> {
+    async CreateUser(email: string, password: string): Promise<string> {
 
         try {
             const data = await createUserWithEmailAndPassword(auth, email, password)
-            req.id = data?.user?.uid
+        
             // addToAccount.Create(req)
             return data?.user?.uid
         } catch (e) {
