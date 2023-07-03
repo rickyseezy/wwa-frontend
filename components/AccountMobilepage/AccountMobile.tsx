@@ -10,8 +10,8 @@ const AccountMobile = (props: any) => {
  
   const accountMobile = useRef(null);
   let [leave, setleave] = useState(false);
-  let authToDB = new AuthenticatorRepository()
-  let addIdTocollect = new AccountRepository(DB)
+  let authenticatorRepository = new AuthenticatorRepository()
+  let accountRepository = new AccountRepository(DB)
   let [gender, setgender] = useState('');
   let [pseudo, setpseudo] = useState('');
   let [mail, setmail] = useState('');
@@ -88,47 +88,11 @@ const AccountMobile = (props: any) => {
   }
 
   function getaccount(){
-    // console.log(accountRepo.Create(account))
-    // {
-    //   firstName: '',
 
-    //   certified: false,
-    //   activated: true,
-    //   birthdate: new Date(),
-    //   pseudo: pseudo,
-    //   email: mail,
-    //   password: password,
-    //   roles: [],
-    //   updatedAt: new Date(),
-    //   ville: ville,
-    //   gender: gender,
-    //   id: 'accounts',
-    //   createdAt: new Date(),
-    //   lastName: "",
-    //   phoneNumber: "",
-    //   addressID: ""
-    // }
      console.log(account)
-     authToDB.CreateUser(mail,password,{
-       id: "",
-       firstName: "",
-       lastName: "",
-       gender: "",
-       pseudo: "",
-       ville: "",
-       certified: false,
-       activated: false,
-       birthdate: undefined,
-       email: "",
-       password: "",
-       phoneNumber: "",
-       roles: [],
-       addressID: "",
-       createdAt: undefined,
-       updatedAt: undefined
-     }).then(user =>{
+     authenticatorRepository.CreateUser(mail,password ).then(user =>{
 
-      addIdTocollect.Create({
+      accountRepository.Create({
         id: user,
         firstName: '',
   
