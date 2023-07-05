@@ -95,12 +95,6 @@ const AccountMobile = (props: any) => {
   }  
 
 
-  // useEffect(() => {
-  //   // accountMobile.current.style = "display:flex";
-  //   setaccount({...account,pseudo,mail:mail,birth:birth,gender:gender,ville:ville,password})
-  //   console.log(account)
-
-  // },[pseudo,ville,birth,gender,mail,password]);
 
   return (
     <div className={styles["back-account"]} ref={accountMobile}>

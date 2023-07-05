@@ -10,23 +10,24 @@ export interface IProject extends Metadata {
     name: string
     description: string
     published: boolean
-    createdBy: string // reference to account
+    createdBy: Date // reference to account
     goal: string
     liveSupporters: number
     continent: string
     country: string
-    projectAccountType: ProjectAccountType
+    // projectAccountType: ProjectAccountType
     thematics: number[] // reference to thematics
     comments: number[] // reference to comments
     supporters: number[] // reference to accounts
     medias: string[] // reference to medias
 }
 
-export interface ICreateProject extends Omit<IProject, 'id'> {
+export interface ICreateProject extends Omit<IProject, ''> {
 
 }
 
 export interface IUpdateProject {
+    
     name?: string
     description?: string
     published?: boolean

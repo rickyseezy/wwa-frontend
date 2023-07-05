@@ -1,25 +1,24 @@
 import AccountMobile from '@components/AccountMobilepage/AccountMobile'
 import React, {useEffect, useRef} from 'react'
+import {onAuthStateChanged, Auth} from "@firebase/auth";
+
 import styles from './connect.module.scss'
 import {useState} from 'react'
 import Reinit from '@components/reinitialiser/Reinit'
 import AuthenticatorRepository from '../../domain/repositories/authenticator'
-import {getAuth,onAuthStateChanged} from "firebase/auth";
-import { auth } from "../../firebase/configApp";
+import {auth} from "../../firebase/configApp";
 
 
 function Connect(props) {
     let connect = useRef(null)
-    let [showAccount,
-        setShowAccount] = useState < Boolean > (false)
-        let loggToDB = new AuthenticatorRepository()
-        let getauth = auth
+    let [showAccount, setShowAccount] = useState < Boolean > (false)
+    let authenticatorRepository = new AuthenticatorRepository()
+    let getauth = auth
     // reinit
-    let [reinit,
-        setReinit] = useState < Boolean > (false)
-    let[email,setemail] = useState('')
-    let [password,setpassword] = useState('')
-
+    let [reinit, setReinit] = useState < Boolean > (false)
+    let [email, setemail] = useState('')
+    let [password, setpassword] = useState('')
+    let [currentUser, setcurrent] = useState < any > ({})
 
     function handleSub() {
         setShowAccount(el => el = !el)
@@ -33,42 +32,27 @@ function Connect(props) {
     }
 
 
-    function sendLoggin(){
-         loggToDB.Login(email,password)
-         setemail('')
-         setpassword('')
+    function sendLoggin() {
+        authenticatorRepository.Login(email, password)
+        setemail('')
+        setpassword('')
+
     }
 
 
-    
     useEffect(() => {
         console.log(reinit, showAccount)
-        //  si le props.show change la valeur de show Account revient a false
+        // si le props.show change la valeur de show Account revient a false
         if (props.show > 1) {
             setShowAccount(el => el = !el)
 
         }
 
-// vérifier si un user est logggé 
-        onAuthStateChanged(getauth, (user) => {
-            if (user) { 
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/auth.user
-                const uid = user.uid;
-                // ...
-                // console.log(uid,'yooooooooo');
-                console.log(user)
-
-            
-            } else {
-                // User is signed out
-                // ...
-
-    
-            }
-        } 
-            )
+        onAuthStateChanged(auth, (data) => {
+            console.log(data)
+        })
     }, [props.show])
+
 
     if (reinit) {
 
@@ -81,32 +65,22 @@ function Connect(props) {
 
     }
 
-    return (
-        <div className={styles['back-connect']}>
-            <div ref={connect} className={styles['connect']}>
-                <h1>Connectez-vous</h1>
-                <form action="" className={styles["connect__form"]}>
-                    <label htmlFor="">
-                        <input type="text" value={email} onChange={(e)=> setemail(e.target.value) } placeholder="email"/>
-
-                    </label>
-                    <label htmlFor="">
-                        <input type="text" value={password} onChange={(e) => setpassword(e.target.value)} placeholder="mot de passe"/>
-
-                    </label>
-
-                    <p onClick={handleReinit}>Mot de passe oublier ?</p>
-
-                    <button onClick={sendLoggin} >Connexion</button>
-                </form>
-                <div className={styles['connect__band']}>
-
-                    <p onClick={handleSub}>Pas encore de compte ?
-                        <span>s'inscrire</span>
-                    </p>
-                </div>
-            </div>
-        </div>
+    return(
+    <div className = {    styles ['back-connect']} >
+    <div ref={connect} className={styles['connect']}>
+    <h1> Connectez - vous </h1>
+    <form action="" className={styles["connect__form"]}>
+    <label htmlFor="">
+     <input type="text" value={email} onChange={(e)=> setemail(e.target.value) } placeholder="email"/> </label> < label htmlFor = "" > <input type="text" value={password} onChange={(e) => setpassword(e.target.value)} placeholder = "mot de passe" />
+    </label>
+    <p onClick = { handleReinit} > Mot de passe oublier ? </p> 
+    <button onClick = {sendLoggin} > Connexion </button>
+    </form > <div className={styles['connect__band']}>
+    < p onClick = {handleSub}> Pas encore de compte ? <span> s 'inscrire</span></p>
+    
+    </div > 
+    </div> 
+    </div>
     )
 }
 

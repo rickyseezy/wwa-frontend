@@ -21,6 +21,11 @@ import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import {Console} from "console";
 import Connect from "@components/connectionrequest/Connect";
+import ProjectRepository from "domain/repositories/project";
+import { DB, auth} from "../../../firebase/configApp";
+import AuthenticatorRepository from "domain/repositories/authenticator";
+import {onAuthStateChanged, Auth} from "@firebase/auth";
+
 let stylesbol = ""
 
     interface IProjet {
@@ -132,7 +137,9 @@ let stylesbol = ""
                 project: "",
                 files: []
             }
-
+            let projectRepository = new ProjectRepository(DB)
+            let authenticator = new AuthenticatorRepository()
+            let authe = auth
             let [profil,
                 setprofil] = useState < IProjet > (createAccount)
             let [fullprofil,
@@ -275,6 +282,31 @@ let stylesbol = ""
                     // tabprofil.push(profil)
                     setcount(el => el + 1)
 
+                    onAuthStateChanged(authe,(e)=>{
+                      
+                        projectRepository.Create({
+                            name: '',
+                            description: createAccount.description,
+                            published: true,
+                            createdBy: new Date(),
+                            goal: createAccount.focus,
+                            liveSupporters: 0,
+                            continent: createAccount.conntinent,
+                            country: createAccount.conntinent,
+                            // projectAccountType: '',
+                            thematics: [],
+                            comments: [],
+                            supporters: [],
+                            medias: [],
+                            id: e.uid,
+                            createdAt: new Date(),
+                            updatedAt: new Date()
+                        })
+   
+                    })
+                 
+              
+
                     router.push('/')
 
                 }
@@ -355,7 +387,8 @@ let stylesbol = ""
                     setfullprofil(true)
                 }
 
-                console.log(profil)
+               
+
 
             })
 

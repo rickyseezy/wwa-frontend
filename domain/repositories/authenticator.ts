@@ -1,10 +1,9 @@
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "@firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, Auth} from "@firebase/auth";
 import { auth } from "../../firebase/configApp";
 import { IAccount} from "../models/account";
-import AccountRepository from '../../domain/repositories/account'
-import { DB } from "../../firebase/configApp";
 
-let addToAccount = new AccountRepository(DB)
+
+
 
 
 interface IAuthenticatorRepository {
@@ -34,4 +33,5 @@ export default class AuthenticatorRepository implements IAuthenticatorRepository
            throw e
        }
     }
+
 }
