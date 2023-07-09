@@ -247,7 +247,7 @@ let stylesbol = ""
                         ...profil,
                         ...createAccount
                     })
-
+ 
                 } else if (e.currentTarget.classList.contains("card2")) {
                     stylesbol = "card2"
                     createAccount.project = 'cause'
