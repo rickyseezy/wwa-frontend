@@ -1,4 +1,4 @@
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, Auth} from "@firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword,onAuthStateChanged, Auth,getAuth} from "@firebase/auth";
 import { auth } from "../../firebase/configApp";
 import { IAccount} from "../models/account";
 
@@ -12,6 +12,9 @@ interface IAuthenticatorRepository {
 }
 
 export default class AuthenticatorRepository implements IAuthenticatorRepository {
+    static currentLogged() {
+      throw new Error("Method not implemented.");
+    }
     async CreateUser(email: string, password: string): Promise<string> {
 
         try {
@@ -32,6 +35,16 @@ export default class AuthenticatorRepository implements IAuthenticatorRepository
        }catch (e) {
            throw e
        }
+    }
+
+    async currentLogged(){
+     try{
+        const auth = getAuth();
+        const user = auth.currentUser;
+        return user
+     }catch(e){
+        throw e
+     }
     }
 
 }

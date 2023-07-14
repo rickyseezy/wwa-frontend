@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./HomeLayout.module.scss";
 import MainNavigation from "@components/navigation/MainNavigation";
 import Footer from "@components/footer/Footer";
 import MenuBurger from "@components/menu-burger/MenuBurger";
+import { useState } from "react";
+import AuthenticatorRepository from '../../../domain/repositories/authenticator'
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 const HomeLayout = ({ children }: LayoutProps) => {
+
+//   let [userConnected,setConneted] = useState(null)
+//   let authenticatorRepository = new AuthenticatorRepository()
+
+//   async function Connected(){
+//     const data = await authenticatorRepository.currentLogged()
+//     const infos = {
+//         email:data?.email,
+//         id:data?.uid
+//     }
+
+//     setConneted(infos)
+
+// }
+
+// useEffect(()=>{
+//   Connected()
+
+
+// },[userConnected?.email !== undefined])
+// console.log(userConnected)
   return (
     <>
-      <MainNavigation  />
+      <MainNavigation />
        <MenuBurger />
       
       <div className={styles["container-block"]}>

@@ -15,7 +15,7 @@ export interface IProject extends Metadata {
     liveSupporters: number
     continent: string
     country: string
-    // projectAccountType: ProjectAccountType
+    projectAccountType: ProjectAccountType
     thematics: number[] // reference to thematics
     comments: number[] // reference to comments
     supporters: number[] // reference to accounts

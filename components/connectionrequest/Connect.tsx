@@ -7,6 +7,7 @@ import {useState} from 'react'
 import Reinit from '@components/reinitialiser/Reinit'
 import AuthenticatorRepository from '../../domain/repositories/authenticator'
 import {auth} from "../../firebase/configApp";
+import { useRouter } from 'next/router';
 
 
 function Connect(props) {
@@ -14,7 +15,9 @@ function Connect(props) {
     let [showAccount, setShowAccount] = useState < Boolean > (false)
     let authenticatorRepository = new AuthenticatorRepository()
     let getauth = auth
+    let [isconnected,setconnected] = useState(null)
     // reinit
+    let router = useRouter()
     let [reinit, setReinit] = useState < Boolean > (false)
     let [email, setemail] = useState('')
     let [password, setpassword] = useState('')
@@ -36,7 +39,18 @@ function Connect(props) {
         authenticatorRepository.Login(email, password)
         setemail('')
         setpassword('')
+        router.push('/')
 
+    }
+
+    async function Connected(){
+        const data = await authenticatorRepository.currentLogged()
+        const infos = {
+            email:data?.email,
+            id:data?.uid
+        }
+        console.log(infos) 
+        setconnected(infos)
     }
 
 
@@ -48,10 +62,10 @@ function Connect(props) {
 
         }
 
-        onAuthStateChanged(auth, (data) => {
-            console.log(data)
-        })
-    }, [props.show])
+        Connected()
+
+        console.log(isconnected,'connected')
+    }, [props.show,isconnected?.email !== undefined])
 
 
     if (reinit) {

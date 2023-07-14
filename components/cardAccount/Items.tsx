@@ -38,14 +38,12 @@ function Items(props : Data) {
           function ChangeView(ide: string) {
             let result = cardRef.current.find((el) => Number(el.id) === Number(ide));
              cardRef.current.forEach(el =>{
-              console.log(el.id , ide)
+       
              })
-             console.log(result.firstChild.classList.contains('projetitems_visible__O_tc3'),result)
-             console.log(result.lastChild.classList.contains('projetitems_hidden__tCuId'))
-
+        
            
              if (result.firstChild.classList.contains("projetitems_visible__O_tc3")) {
-              console.log('yo')
+       
               result.firstChild.classList.remove("projetitems_visible__O_tc3");
               result.firstChild.classList.add("projetitems_hidden__tCuId");
                   result.style = 'transform:rotateY(360deg)'
