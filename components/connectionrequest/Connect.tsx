@@ -15,7 +15,7 @@ function Connect(props) {
     let [showAccount, setShowAccount] = useState < Boolean > (false)
     let authenticatorRepository = new AuthenticatorRepository()
     let getauth = auth
-    let [isconnected,setconnected] = useState(null)
+    // let [isconnected,setconnected] = useState(null)
     // reinit
     let router = useRouter()
     let [reinit, setReinit] = useState < Boolean > (false)
@@ -34,25 +34,16 @@ function Connect(props) {
 
     }
 
-
+ 
     function sendLoggin() {
+
         authenticatorRepository.Login(email, password)
+        router.push('/')
         setemail('')
         setpassword('')
-        router.push('/')
+ 
 
     }
-
-    async function Connected(){
-        const data = await authenticatorRepository.currentLogged()
-        const infos = {
-            email:data?.email,
-            id:data?.uid
-        }
-        console.log(infos) 
-        setconnected(infos)
-    }
-
 
     useEffect(() => {
         console.log(reinit, showAccount)
@@ -62,10 +53,8 @@ function Connect(props) {
 
         }
 
-        Connected()
 
-        console.log(isconnected,'connected')
-    }, [props.show,isconnected?.email !== undefined])
+    }, [props.show])
 
 
     if (reinit) {

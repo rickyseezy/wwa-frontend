@@ -19,7 +19,6 @@ import InputNtexterea from "@components/Input&texterea/InputNtexterea";
 import {useRouter} from "next/router";
 import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
-import {Console} from "console";
 import Connect from "@components/connectionrequest/Connect";
 import ProjectRepository from "domain/repositories/project";
 import {DB, auth} from "../../../firebase/configApp";
@@ -29,7 +28,7 @@ import {onAuthStateChanged, Auth} from "@firebase/auth";
 let stylesbol = ""
 
     interface IProjet {
-        project: string;
+ 
         focus: string,
         web: string,
         title: string,
@@ -37,7 +36,7 @@ let stylesbol = ""
           description: string,
            Theme: string,
             files: string[]
-        conntinent: string
+        conntinent: number
     }
 
     interface File {
@@ -141,19 +140,17 @@ let stylesbol = ""
 
         const CreateForm = () => {
 
-            let [infosUser,setInfosUser] = useState({email:'',id:''})
+            let [infosUser,setInfosUser] = useState(null)
             let projectRepository = new ProjectRepository(DB)
-            let authenticatorRepository = new AuthenticatorRepository()
-            let authe = auth
+     
             let [profil, setprofil] = useState < IProjet > ({
                 focus: 'associate',
                 web: '',
                 title: '',
                 subtitle: '',
                 description: '',
-                conntinent: '',
+                conntinent: 0,
                 Theme: '',
-                project: "",
                 files: []
             })
             let [fullprofil, setfullprofil] = useState < boolean > (false)
@@ -169,7 +166,6 @@ let stylesbol = ""
             let individuel = useRef < HTMLDivElement | null > (null)
             let assosiation = useRef < HTMLDivElement | null > (null)
 
-            let [card1Style, setcard1Style] = useState("")
 
             // l'option du site indiv || assos
             function OptionWebsite(e) {
@@ -200,12 +196,7 @@ let stylesbol = ""
                 }
             }
 
-            // si un user est connecté 
-            async function currentUserLogged(){
-                let data = await authenticatorRepository.currentLogged()
-               setInfosUser({...infosUser,email:data?.email,id:data?.uid})
-              return infosUser    
-            }
+ 
 
             // récupére le continent selectionné
             function ContinentSelected(continent) {
@@ -223,80 +214,68 @@ let stylesbol = ""
                 continent.target.classList.remove(whiteback)
 
                 continent.target.classList.add(continentStyle)
+        // transform les continents en numbre
+                switch(continentVal){
+                    case 'EUROPE':
+                    continentVal = 0
+                    case 'AFRIQUE':
+                    continentVal = 1
+                    case 'AMÉRIQUE DU NORD':
+                    continentVal = 2
+                    case 'AMÉRIQUE DU SUD' : 
+                    continentVal = 3
+                    case 'ASIE':
+                    continentVal = 4
+                    case 'OCÉANIE':
+                    continentVal = 5
+                }
                 setprofil({
                     ...profil,
                     conntinent: continentVal
                 })
             }
 
-            // selctionne les cartes pour les cause
-
-            // function SelectCause(e : {
-            //     currentTarget : {
-            //         classList: {
-            //             contains: (arg0 : string) => any;
-            //         };
-            //     };
-            // }) {
-
-            //     if (e.currentTarget.classList.contains("card1")) {
-            //         stylesbol = "card1"
-            //         setcard1Style(stylesbol)
-
-            //         setprofil({
-            //             ...profil,
-            //             project: 'project'
-            //         })
-
-            //     } else if (e.currentTarget.classList.contains("card2")) {
-            //         stylesbol = "card2"
-            //         setprofil({
-            //             ...profil,
-            //             project: 'cause'
-            //         })
-
-            //         setcard1Style(stylesbol)
-
-            //     }
-
-            // }
-
-            // bouton pour changer de page de cause a formulaire de formulaire a profil
+        
             const onContinueClick = () => {
-                    currentUserLogged()
-                setcard1Style("")
+                 
 
-                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != "" && infosUser.email != "") { // tabprofil.push(profil)
+                
+                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" ) { // tabprofil.push(profil)
                     setcount(el => el + 1)
-                    console.log(profil, 'create account')
+             
                     
-                        if(!infosUser.id){
+                        if(!infosUser?.uid){
                             setfullprofil(true)
                         }else{
                             setfullprofil(false)
                             alert('data send')
                         }
                         router.push('/')
-                        return projectRepository.Create({
-                            name: infosUser.email,
-                            description: profil.description,
-                            published: true,
-                            createdBy: new Date(),
-                            goal: profil.focus,
-                            liveSupporters: 0,
-                            continent: profil.conntinent,
-                            country: profil.conntinent,
-                            // projectAccountType: '',
-                            thematics: [],
-                            comments: [],
-                            supporters: [],
-                            medias: [],
-                            id:infosUser.id,
-                            createdAt: new Date(),
-                            updatedAt: new Date(),
-                            projectAccountType: 0
-                        });
+                  
+                  
+                                return projectRepository.Create({
+                                    name: infosUser?.email,
+                                    description: profil.description,
+                                    published: true,
+                                    createdBy: new Date(),
+                                    goal: profil.focus,
+                                    liveSupporters: 0,
+                                    continent: profil.conntinent,
+                                    country: profil.conntinent,
+                                    // projectAccountType: '',
+                                    thematics: [],
+                                    comments: [],
+                                    supporters: [],
+                                    medias: [],
+                                    id:infosUser?.uid,
+                                    createdAt: new Date(),
+                                    updatedAt: new Date(),
+                                    projectAccountType: 0
+                                }).then();
+                         
+    
 
+                     
 
 
 
@@ -351,7 +330,6 @@ let stylesbol = ""
                         break;
 
                     default:
-                        console.log(`Sorry, we are out of ${expr}.`);
                 }
 
             }
@@ -373,17 +351,26 @@ let stylesbol = ""
             }
 
             useEffect(() => {
-                // currentUserLogged()
-                console.log(projectDone,'proj')
-                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != "") {
+                 if(infosUser === null){
+                    onAuthStateChanged(auth,user =>{
+                        if(user){
+                            setInfosUser(user)
+                        }
+                    })
+                    console.log('yooo')
+                 }
+
+                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" ) {
                    
 
                     setProjectDone(true)
+                  
 
                 }
-               
+
+             
             })
-        
+
 
             // boucle sur les ref de country
             function CatchCountry(e) {
@@ -532,51 +519,37 @@ let stylesbol = ""
                                     }/>
 
                                 <InputNtexterea titleInput={
-                                        `2. Titre du ${
-                                            profil.project
-                                        }`
+                                        `2. Titre du cause`
                                     }
                                     placeholder={
-                                        `Le titre de votre ${
-                                            profil.project
-                                        }`
+                                        `Le titre de votre cause`
                                     }
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
                                 <InputNtexterea titleInput={
-                                        `3. Sous-titre de votre ${
-                                            profil.project
-                                        }`
+                                        `3. Sous-titre de votre cause`
                                     }
                                     placeholder={
-                                        `Sous-titre de votre ${
-                                            profil.project
-                                        }`
+                                        `Sous-titre de votre cause`
                                     }
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
                                 <InputNtexterea titleInput={
-                                        `4. Description de votre ${
-                                            profil.project
-                                        }`
+                                        `4. Description de votre cause`
                                     }
                                     placeholder={
-                                        `Description de votre ${
-                                            profil.project
-                                        }`
+                                        `Description de votre cause`
                                     }
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
                                 <InputNtexterea titleInput={
-                                        `5. Ajoutez une image à votre ${
-                                            profil.project
-                                        }`
+                                        `5. Ajoutez une image à votre cause`
                                     }
                                     placeholder={``}
                                     bolea={false}
@@ -610,9 +583,7 @@ let stylesbol = ""
                                 <div className={
                                     styles["form-container__step"]
                                 }>
-                                    7. Le thème principal de votre {
-                                    profil.project
-                                } </div>
+                                    7. Le thème principal de votre cause </div>
                                 <div className={
                                     styles["thematics"]
                                 }>
@@ -645,7 +616,7 @@ let stylesbol = ""
                                         `${
                                             styles["button"]
                                         } ${
-                                            styles[card1Style === "card1" || card1Style === "card2" || projectDone ? "bkg" : ""]
+                                            styles[projectDone ? "bkg" : ""]
                                         }`
                                     }
                                     onClick={onContinueClick}>Continuer</div>

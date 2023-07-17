@@ -12,9 +12,7 @@ interface IAuthenticatorRepository {
 }
 
 export default class AuthenticatorRepository implements IAuthenticatorRepository {
-    static currentLogged() {
-      throw new Error("Method not implemented.");
-    }
+
     async CreateUser(email: string, password: string): Promise<string> {
 
         try {

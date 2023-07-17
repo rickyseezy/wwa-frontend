@@ -5,8 +5,7 @@ import Mesprojets from '@components/MesprojetsCompo/Mesprojets'
 import CardSoutien from '@components/cardSoutien/cardSoutien'
 import Deconnecter from '@components/deconnecter/Deconnecter'
 import InfoForm from '@components/Mesinfos/InfoForm'
-import MenuBurger from '@components/menu-burger/MenuBurger'
-import MenuVoletCompte from '@components/menuVoletCompte/MenuVoletCompte'
+
 
 
 function SwitchCompte({props}) {
