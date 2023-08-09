@@ -22,7 +22,7 @@ function Mesprojets(props : Data) {
   return (
     <div className={styles['containerprojet']}>
 
-      <TittleAccount titleH1={'Mes projets'} />
+      <TittleAccount titleH1={'Mes cause'} />
 
         
         <div className={styles['containerCard']}>

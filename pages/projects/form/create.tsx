@@ -28,42 +28,40 @@ import {onAuthStateChanged, Auth} from "@firebase/auth";
 let stylesbol = ""
 
     interface IProjet {
- 
-        focus: string,
-        web: string,
-        title: string,
-         subtitle: string,
-          description: string,
-           Theme: string,
-            files: string[]
-        conntinent: number
+
+        focus : string,
+        web : string,
+        country:'',
+        title : string,
+        subtitle : string,
+        description : string,
+        Theme : string,
+        files : string[]
+        conntinent : number
     }
 
     interface File {
-        filename: string // dbeudbe.jpg
-        url: string // http://aws.cloud/dbeudbe.jpg
-        type: string // image/video
+        filename : string // dbeudbe.jpg
+        url : string // http://aws.cloud/dbeudbe.jpg
+        type : string // image/video
     }
 
     interface Array2 {
-        title: string,
-        img: string
+        title : string,
+        img : string
     }
 
-    let tabTitle: Array2[] = [
+    let tabTitle : Array2[] = [
             {
                 title: 'EUROPE',
                 img: "/icons/europe-icon.svg"
-            },
-            {
+            }, {
                 title: 'AFRIQUE',
                 img: '/icons/africa-icon.svg'
-            },
-            {
+            }, {
                 title: 'AMÉRIQUE DU NORD',
                 img: '/icons/na-icon.svg'
-            },
-            {
+            }, {
                 title: 'AMÉRIQUE DU SUD',
                 img: '/icons/sa-icon.svg'
             }, {
@@ -76,87 +74,83 @@ let stylesbol = ""
         ]
 
         interface IContinentConfig {
-            title: string;
-            imgSrc: string;
-            custom: string;
+            title : string;
+            imgSrc : string;
+            custom : string;
         }
 
-        const continentConfig = new Map < string,IContinentConfig > ([
+        const continentConfig = new Map < string,
+            IContinentConfig > ([
                 [
                     "EUROPE", {
                         title: "EUROPE",
                         imgSrc: "/images/europe-item.png",
-                        custom: `${
-                            stylesItm["item--europe"]
-                        }`
+                        custom: `${stylesItm["item--europe"]}`
                     }
                 ],
                 [
                     "AFRIQUE", {
                         title: "AFRIQUE",
                         imgSrc: "/images/africa-item.png",
-                        custom: `${
-                            stylesItm["item--africa"]
-                        }`
+                        custom: `${stylesItm["item--africa"]}`
                     }
                 ],
                 [
                     "AMÉRIQUE DU NORD", {
                         title: "AMÉRIQUE DU NORD",
                         imgSrc: "/images/north-us-item.png",
-                        custom: `${
-                            stylesItm["item--northus"]
-                        }`
+                        custom: `${stylesItm["item--northus"]}`
                     }
                 ],
                 [
                     "AMÉRIQUE DU SUD", {
                         title: "AMÉRIQUE DU SUD",
                         imgSrc: "/images/south-america-item.png",
-                        custom: `${
-                            stylesItm["item--southamerica"]
-                        }`
+                        custom: `${stylesItm["item--southamerica"]}`
                     }
                 ],
                 [
                     "ASIE", {
                         title: "ASIE",
                         imgSrc: "/images/asia-item.png",
-                        custom: `${
-                            stylesItm["item--asia"]
-                        }`
+                        custom: `${stylesItm["item--asia"]}`
                     }
                 ],
                 [
                     "OCÉANIE", {
                         title: "OCÉANIE",
                         imgSrc: "/images/oceania-item.png",
-                        custom: `${
-                            stylesItm["item--oceania"]
-                        }`
+                        custom: `${stylesItm["item--oceania"]}`
                     }
                 ]
             ]);
 
         const CreateForm = () => {
 
-            let [infosUser,setInfosUser] = useState(null)
+            let [infosUser,
+                setInfosUser] = useState(null)
             let projectRepository = new ProjectRepository(DB)
-     
-            let [profil, setprofil] = useState < IProjet > ({
+
+            let [profil,
+                setprofil] = useState < IProjet > ({
                 focus: 'associate',
                 web: '',
                 title: '',
                 subtitle: '',
                 description: '',
                 conntinent: 0,
+                country: '',
                 Theme: '',
                 files: []
             })
-            let [fullprofil, setfullprofil] = useState < boolean > (false)
-            let [count, setcount] = useState < number > (0)
-            const [bol, setbol] = useState(false)
-            const [projectDone, setProjectDone] = useState(false  )
+            let [fullprofil,
+                setfullprofil] = useState < boolean > (false)
+            let [count,
+                setcount] = useState < number > (0)
+            const [bol,
+                setbol] = useState(false)
+            const [projectDone,
+                setProjectDone] = useState(false)
 
             const show = useRef(null)
             const hide = useRef(null)
@@ -165,7 +159,6 @@ let stylesbol = ""
             countryRef.current = []
             let individuel = useRef < HTMLDivElement | null > (null)
             let assosiation = useRef < HTMLDivElement | null > (null)
-
 
             // l'option du site indiv || assos
             function OptionWebsite(e) {
@@ -181,7 +174,9 @@ let stylesbol = ""
                     if (assosiation.current !== undefined) {
                         let asos = assosiation.current
 
-                        asos.style.setProperty('background', 'white')
+                        asos
+                            .style
+                            .setProperty('background', 'white')
                     }
                 } else {
                     setprofil({
@@ -191,43 +186,57 @@ let stylesbol = ""
 
                     e.target.style = 'background : #1D53B7'
                     if (individuel.current != undefined) {
-                        individuel.current.style.setProperty('background', 'white')
+                        individuel
+                            .current
+                            .style
+                            .setProperty('background', 'white')
                     }
                 }
             }
 
- 
-
             // récupére le continent selectionné
             function ContinentSelected(continent) {
                 let whiteback = `${
-                    stylesItm["item--white-back"]
-                }`
+                stylesItm["item--white-back"]}`
                 let continentVal = continent.target.children[1].innerText
-                let continentStyle = continentConfig.get(continentVal).custom
+                let continentStyle = continentConfig
+                    .get(continentVal)
+                    .custom
 
-                countryRef.current.forEach(continent1 => {
-                    continent1.classList.add(whiteback)
-                    continent1.classList.remove(continentConfig.get(continent1.children[1].innerText).custom)
-                })
+                countryRef
+                    .current
+                    .forEach(continent1 => {
+                        continent1
+                            .classList
+                            .add(whiteback)
+                        continent1
+                            .classList
+                            .remove(continentConfig.get(continent1.children[1].innerText).custom)
+                    })
 
-                continent.target.classList.remove(whiteback)
+                continent
+                    .target
+                    .classList
+                    .remove(whiteback)
 
-                continent.target.classList.add(continentStyle)
-        // transform les continents en numbre
-                switch(continentVal){
+                continent
+                    .target
+                    .classList
+                    .add(continentStyle)
+                // transform les continents en numbre
+                switch (continentVal) {
                     case 'EUROPE':
-                    continentVal = 0
+                        continentVal = 0
                     case 'AFRIQUE':
-                    continentVal = 1
+                        continentVal = 1
                     case 'AMÉRIQUE DU NORD':
-                    continentVal = 2
-                    case 'AMÉRIQUE DU SUD' : 
-                    continentVal = 3
+                        continentVal = 2
+                    case 'AMÉRIQUE DU SUD':
+                        continentVal = 3
                     case 'ASIE':
-                    continentVal = 4
+                        continentVal = 4
                     case 'OCÉANIE':
-                    continentVal = 5
+                        continentVal = 5
                 }
                 setprofil({
                     ...profil,
@@ -235,52 +244,46 @@ let stylesbol = ""
                 })
             }
 
-        
             const onContinueClick = () => {
-                 
 
-                
-                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" ) { // tabprofil.push(profil)
+                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "") { // tabprofil.push(profil)
                     setcount(el => el + 1)
-             
-                    
-                        if(!infosUser?.uid){
-                            setfullprofil(true)
-                        }else{
-                            setfullprofil(false)
-                            alert('data send')
-                        }
-                        router.push('/')
-                  
-                  
-                                return projectRepository.Create({
-                                    name: infosUser?.email,
-                                    description: profil.description,
-                                    published: true,
-                                    createdBy: new Date(),
-                                    goal: profil.focus,
-                                    liveSupporters: 0,
-                                    continent: profil.conntinent,
-                                    country: profil.conntinent,
-                                    // projectAccountType: '',
-                                    thematics: [],
-                                    comments: [],
-                                    supporters: [],
-                                    medias: [],
-                                    id:infosUser?.uid,
-                                    createdAt: new Date(),
-                                    updatedAt: new Date(),
-                                    projectAccountType: 0
-                                }).then();
-                         
-    
 
-                     
+                    if (!infosUser
+                        ?.uid) {
+                        setfullprofil(true)
+                    } else {
+                        setfullprofil(false)
+                        alert('data send')
+                    }
+                    router.push('/')
 
+                    return projectRepository.Create({
+                        name: infosUser
+                            ?.email,
+                        description: profil.description,
+                        published: true,
+                        createdBy: infosUser
+                            ?.uid,
+                        goal: profil.focus,
+                        liveSupporters: 0,
+                        continent: profil.conntinent,
+                        country: profil.conntinent,
+                        // projectAccountType: '',
+                        thematics: [],
+                        comments: [],
+                        supporters: [],
+                        medias: [],
 
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                        projectAccountType: 0
+                    }).then(el => {
+                        console.log(el)
+
+                    });
 
                 }
-    
 
             }
 
@@ -296,6 +299,14 @@ let stylesbol = ""
                             description: e.target.value
                         })
                         break;
+
+
+                        case 'Choisissez votre pays':
+                            setprofil({
+                                ...profil,
+                                country: e.target.value
+                            })
+                            break;
 
                     case 'Description de votre cause':
                         setprofil({
@@ -346,38 +357,40 @@ let stylesbol = ""
 
                 setprofil({
                     ...profil,
-                    files: profil.files.concat(file)
+                    files: profil
+                        .files
+                        .concat(file)
                 })
             }
 
             useEffect(() => {
-                 if(infosUser === null){
-                    onAuthStateChanged(auth,user =>{
-                        if(user){
+                if (infosUser === null) {
+                    onAuthStateChanged(auth, user => {
+                        if (user) {
                             setInfosUser(user)
                         }
                     })
                     console.log('yooo')
-                 }
+                }
 
-                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" ) {
-                   
+                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "") {
 
                     setProjectDone(true)
-                  
 
                 }
 
-             
             })
-
 
             // boucle sur les ref de country
             function CatchCountry(e) {
-                if (! countryRef.current.includes(e) && countryRef.current) {
+                if (!countryRef.current.includes(e) && countryRef.current) {
 
-                    countryRef.current.push(e)
-                    countryRef.current = countryRef.current.filter(country => country != null)
+                    countryRef
+                        .current
+                        .push(e)
+                    countryRef.current = countryRef
+                        .current
+                        .filter(country => country != null)
 
                 }
 
@@ -413,20 +426,14 @@ let stylesbol = ""
 
             return (
                 <Fragment>
-                    <MainNavigation />
+                    <MainNavigation/>
                     <MenuBurger/>
 
-                    <form className={
-                        styles["form"]
-                    }>
-                        <div className={
-                            styles["form__steps"]
-                        }>
+                    <form className={styles["form"]}>
+                        <div className={styles["form__steps"]}>
                             <Steps step={bol}/>
                         </div>
-                        <div className={
-                            styles["content"]
-                        }>
+                        <div className={styles["content"]}>
                             {/* <Title text="VOTRE CAUSE"/> */}
                             {/* <div className={
                                 styles["content__question"]
@@ -464,165 +471,116 @@ let stylesbol = ""
                                     select={SelectCause}/>
                             </div> */}
                             {/*  form page */}
-                            <div className={
-                                    styles["form-container"]
-                                }
-                                ref={hide}
-                               >
-                                <div className={
-                                    styles["form-container__step"]
-                                }>1. Vous êtes</div>
-                                <div className={
-                                    styles["select-box"]
-                                }>
-                                    <div className={
-                                        styles["choice"]
-                                    }>
-                                        <div className={
-                                            styles["choice__checkbox"]
-                                        }>
-                                            <span onClick={OptionWebsite}
-                                                style={
-                                                    {background: "white"}
-                                                }
+                            <div className={styles["form-container"]} ref={hide}>
+                                <div className={styles["form-container__step"]}>1. Vous êtes</div>
+                                <div className={styles["select-box"]}>
+                                    <div className={styles["choice"]}>
+                                        <div className={styles["choice__checkbox"]}>
+                                            <span
+                                                onClick={OptionWebsite}
+                                                style={{
+                                                background: "white"
+                                            }}
                                                 ref={individuel}/>
                                         </div>
-                                        <div className={
-                                            styles["choice__text"]
-                                        }>Individuel</div>
+                                        <div className={styles["choice__text"]}>Individuel</div>
                                     </div>
-                                    <div className={
-                                        styles["choice"]
-                                    }>
-                                        <div className={
-                                            styles["choice__checkbox"]
-                                        }>
-                                            <span onClick={OptionWebsite}
-                                                ref={assosiation}/>
+                                    <div className={styles["choice"]}>
+                                        <div className={styles["choice__checkbox"]}>
+                                            <span onClick={OptionWebsite} ref={assosiation}/>
                                         </div>
-                                        <div className={
-                                            styles["choice__text"]
-                                        }>Association</div>
+                                        <div className={styles["choice__text"]}>Association</div>
                                     </div>
                                 </div>
-                                <input className={
-                                        styles["form-container__input"]
-                                    }
+                                <input
+                                    className={styles["form-container__input"]}
                                     placeholder="Votre site web"
-                                    onChange={
-                                        (e) => {
-                                            setprofil({
-                                                ...profil,
-                                                web: e.target.value
-                                            })
-                                        }
-                                    }/>
+                                    onChange={(e) => {
+                                    setprofil({
+                                        ...profil,
+                                        web: e.target.value
+                                    })
+                                }}/>
 
-                                <InputNtexterea titleInput={
-                                        `2. Titre du cause`
-                                    }
-                                    placeholder={
-                                        `Le titre de votre cause`
-                                    }
+                                <InputNtexterea
+                                    titleInput={`2. Titre du cause`}
+                                    placeholder={`Le titre de votre cause`}
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
-                                <InputNtexterea titleInput={
-                                        `3. Sous-titre de votre cause`
-                                    }
-                                    placeholder={
-                                        `Sous-titre de votre cause`
-                                    }
+                                <InputNtexterea
+                                    titleInput={`3. Sous-titre de votre cause`}
+                                    placeholder={`Sous-titre de votre cause`}
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
-                                <InputNtexterea titleInput={
-                                        `4. Description de votre cause`
-                                    }
-                                    placeholder={
-                                        `Description de votre cause`
-                                    }
+                                <InputNtexterea
+                                    titleInput={`4. Description de votre cause`}
+                                    placeholder={`Description de votre cause`}
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
-                                <InputNtexterea titleInput={
-                                        `5. Ajoutez une image à votre cause`
-                                    }
+                                <InputNtexterea
+                                    titleInput={`5. Ajoutez une image à votre cause`}
                                     placeholder={``}
                                     bolea={false}
                                     val={InputValue}
                                     fileSelect={CatchFile}
-                                    files={
-                                        profil.files
-                                    }
+                                    files={profil.files}
                                     removefile={null}/>
 
-                                <div className={
-                                    styles["form-container__step"]
-                                }>6. Ou ça ?</div>
-                                <div className={
-                                    styles["countries"]
-                                }>
+                                <div className={styles["form-container__step"]}>6. Ou ça ?</div>
+                                <div className={styles["countries"]}>
 
-                                    {
-                                    tabTitle.map(({
+                                    {tabTitle.map(({
                                         title,
                                         img
-                                    }, i) => (
-                                        <Country titleCountry={title}
-                                            imgSrc={img}
-                                            ref={CatchCountry}
-                                            key={i}
-                                            target={ContinentSelected}/>
-                                    ))
-                                } </div>
+                                    }, i) => (<Country
+                                        titleCountry={title}
+                                        imgSrc={img}
+                                        ref={CatchCountry}
+                                        key={i}
+                                        target={ContinentSelected}/>))
+}
+                                </div>
+                                <InputNtexterea
+                                    titleInput={`7. Quel est votre pays ?`}
+                                    placeholder={`Choisissez votre pays`}
+                                    bolea={true}
+                                    val={InputValue}
+                                    fileSelect={null}
+                                    removefile={null}/>
+                                
                                 {/*Todo :: Text should be dynamic either project or cause*/}
-                                <div className={
-                                    styles["form-container__step"]
-                                }>
-                                    7. Le thème principal de votre cause </div>
-                                <div className={
-                                    styles["thematics"]
-                                }>
-                                    {
-                                    thematics.map((_, i) => (
-                                        <div className={
-                                                styles["thematic"]
-                                            }
-                                            key={i}
-                                            onClick={CatchTheme}>
-                                            <div className={
-                                                styles["thematic__image"]
-                                            }/>
-                                            <div className={
-                                                styles["thematic__name"]
-                                            }>
-                                                {
-                                                Theme[i]
-                                            }</div>
+                                <div className={styles["form-container__step"]}>
+                                    8. Le thème principal de votre cause
+                                </div>
+                                <div className={styles["thematics"]}>
+                                    {thematics.map((_, i) => (
+                                        <div className={styles["thematic"]} key={i} onClick={CatchTheme}>
+                                            <div className={styles["thematic__image"]}/>
+                                            <div className={styles["thematic__name"]}>
+                                                {Theme[i]
+}</div>
                                         </div>
                                     ))
-                                } </div>
+}
+                                </div>
                             </div>
 
                             {/* SUBMIT BUTTON*/}
-                            <div className={
-                                styles["button-container"]
-                            }>
-                                <div className={
-                                        `${
-                                            styles["button"]
-                                        } ${
-                                            styles[projectDone ? "bkg" : ""]
-                                        }`
-                                    }
+                            <div className={styles["button-container"]}>
+                                <div
+                                    className={`${styles["button"]} ${styles[projectDone
+                                        ? "bkg"
+                                        : ""]}`}
                                     onClick={onContinueClick}>Continuer</div>
-                                {
-                                fullprofil && <Connect/>
-                            } </div>
+                                {fullprofil && <Connect/>
+}
+                            </div>
                         </div>
                     </form>
                     <Footer/>

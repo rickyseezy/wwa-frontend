@@ -10,7 +10,7 @@ export interface IProject extends Metadata {
     name: string
     description: string
     published: boolean
-    createdBy: Date // reference to account
+    createdBy: string // reference to account
     goal: string
     liveSupporters: number
     continent: number
@@ -22,7 +22,7 @@ export interface IProject extends Metadata {
     medias: string[] // reference to medias
 }
 
-export interface ICreateProject extends Omit<IProject, ''> {
+export interface ICreateProject extends Omit<IProject, 'id'> {
 
 }
 

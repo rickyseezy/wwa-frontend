@@ -1,5 +1,5 @@
 import {
-    setDoc,
+    addDoc,
     collection,
     deleteDoc,
     doc,
@@ -28,15 +28,8 @@ export default class ProjectRepository implements IProjectRepository {
 
     async Create(req: ICreateProject): Promise<IProject> {
         try {
-            const docRef = await setDoc(this.getObjectRef(req.id), req)
-            let data: ICreateProject
-            let res: ICreateProject
-            res = { 
-                ...data, // Remove typescript error
-                ...req
-            }
-            console.log(res,'response create')
-            return {...res, id: req.id};
+            const docRef = await addDoc(collection(this.db, this.collectionName), req)
+            return {...req, id: docRef.id};
         } catch (e) {
             console.error(e)
             throw e

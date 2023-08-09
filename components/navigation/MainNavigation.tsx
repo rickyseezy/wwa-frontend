@@ -95,7 +95,7 @@ function Menu() {
         <ul>
           <li><a href="#" onClick={pageProjet}>Home</a> <img src="/images" alt="" /></li>
           <li><a href="#" onClick={pageCause}>Cause</a></li>
-          <li><a href="#" onClick={pageCompte}>Mon Compte</a></li>
+       {userConnected !== null  ? <li><a href="#" onClick={pageCompte}>Mon Compte</a></li> : '' }
           <li><a href="#" onClick={()=>{
             if(userConnected !== null){
               UserLeaving()
