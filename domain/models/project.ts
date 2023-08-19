@@ -7,14 +7,16 @@ enum ProjectAccountType {
 
 export interface IProject extends Metadata {
     id: string
+    title: string
+    subtitle: string
     name: string
     description: string
     published: boolean
     createdBy: string // reference to account
     goal: string
     liveSupporters: number
-    continent: number
-    country: number
+    continent: string
+    country: string
     projectAccountType: ProjectAccountType
     thematics: number[] // reference to thematics
     comments: number[] // reference to comments
@@ -22,12 +24,11 @@ export interface IProject extends Metadata {
     medias: string[] // reference to medias
 }
 
-export interface ICreateProject extends Omit<IProject, 'id'> {
-
-}
+export interface ICreateProject extends Omit<IProject, 'id'> {}
 
 export interface IUpdateProject {
-    
+    title?: string
+    subtitle?: string
     name?: string
     description?: string
     published?: boolean
