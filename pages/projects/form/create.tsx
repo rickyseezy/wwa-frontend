@@ -19,20 +19,25 @@ import InputNtexterea from "@components/Input&texterea/InputNtexterea";
 import {useRouter} from "next/router";
 import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
-import {Console} from "console";
 import Connect from "@components/connectionrequest/Connect";
+import ProjectRepository from "domain/repositories/project";
+import {DB, auth} from "../../../firebase/configApp";
+import AuthenticatorRepository from "domain/repositories/authenticator";
+import {onAuthStateChanged, Auth} from "@firebase/auth";
+
 let stylesbol = ""
 
     interface IProjet {
-        project : string;
+
         focus : string,
         web : string,
-        title : string
-        subtitle : string
-        description : string
-        Theme : string
+        country:'',
+        title : string,
+        subtitle : string,
+        description : string,
+        Theme : string,
         files : string[]
-        conntinent : string
+        conntinent : number
     }
 
     interface File {
@@ -67,14 +72,15 @@ let stylesbol = ""
                 img: '/icons/oceania-icon.svg'
             }
         ]
-        
+
         interface IContinentConfig {
             title : string;
             imgSrc : string;
             custom : string;
         }
 
-        const continentConfig = new Map < string, IContinentConfig > ([
+        const continentConfig = new Map < string,
+            IContinentConfig > ([
                 [
                     "EUROPE", {
                         title: "EUROPE",
@@ -121,38 +127,38 @@ let stylesbol = ""
 
         const CreateForm = () => {
 
-            let createAccount = {
-                focus: '',
+            let [infosUser,
+                setInfosUser] = useState(null)
+            let projectRepository = new ProjectRepository(DB)
+
+            let [profil,
+                setprofil] = useState < IProjet > ({
+                focus: 'associate',
                 web: '',
                 title: '',
                 subtitle: '',
                 description: '',
-                conntinent: '',
+                conntinent: 0,
+                country: '',
                 Theme: '',
-                project: "",
                 files: []
-            }
-
-            let [profil,
-                setprofil] = useState < IProjet > (createAccount)
+            })
             let [fullprofil,
                 setfullprofil] = useState < boolean > (false)
             let [count,
                 setcount] = useState < number > (0)
-
             const [bol,
-                setbol] = useState(true)
+                setbol] = useState(false)
+            const [projectDone,
+                setProjectDone] = useState(false)
+
             const show = useRef(null)
             const hide = useRef(null)
             let router = useRouter()
-
             let countryRef = useRef([])
             countryRef.current = []
             let individuel = useRef < HTMLDivElement | null > (null)
             let assosiation = useRef < HTMLDivElement | null > (null)
-
-            let [card1Style,
-                setcard1Style] = useState("")
 
             // l'option du site indiv || assos
             function OptionWebsite(e) {
@@ -190,7 +196,8 @@ let stylesbol = ""
 
             // récupére le continent selectionné
             function ContinentSelected(continent) {
-                let whiteback = `${stylesItm["item--white-back"]}`
+                let whiteback = `${
+                stylesItm["item--white-back"]}`
                 let continentVal = continent.target.children[1].innerText
                 let continentStyle = continentConfig
                     .get(continentVal)
@@ -216,68 +223,68 @@ let stylesbol = ""
                     .target
                     .classList
                     .add(continentStyle)
+                // transform les continents en numbre
+                switch (continentVal) {
+                    case 'EUROPE':
+                        continentVal = 0
+                    case 'AFRIQUE':
+                        continentVal = 1
+                    case 'AMÉRIQUE DU NORD':
+                        continentVal = 2
+                    case 'AMÉRIQUE DU SUD':
+                        continentVal = 3
+                    case 'ASIE':
+                        continentVal = 4
+                    case 'OCÉANIE':
+                        continentVal = 5
+                }
                 setprofil({
                     ...profil,
                     conntinent: continentVal
                 })
             }
 
-            // selctionne les cartes pour les cause
-
-            function SelectCause(e : {
-                currentTarget: {
-                    classList: {
-                        contains: (arg0 : string) => any;
-                    };
-                };
-            }) {
-
-                if (e.currentTarget.classList.contains("card1")) {
-                    stylesbol = "card1"
-                    setcard1Style(stylesbol)
-                    createAccount.project = 'project'
-                    setprofil({
-                        ...profil,
-                        ...createAccount
-                    })
-
-                } else if (e.currentTarget.classList.contains("card2")) {
-                    stylesbol = "card2"
-                    createAccount.project = 'cause'
-                    setprofil({
-                        ...profil,
-                        ...createAccount
-                    })
-                    setcard1Style(stylesbol)
-
-                }
-
-            }
-
-            // bouton pour changer de page de cause a formulaire de formulaire a profil
             const onContinueClick = () => {
-                setcard1Style("")
-                if (card1Style === 'card1' || card1Style === 'card2') {
-                    if (!bol) {
-                        show.current.style = 'display :flex'
-                        hide.current.style = 'display : none'
-                    }
 
-                    if (bol) {
-                        show.current.style = 'display :none'
-                        hide.current.style = 'display : block'
-                    }
-
-                    setbol(!bol)
-                }
-
-                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != "") {
-                    // tabprofil.push(profil)
+                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "") { // tabprofil.push(profil)
                     setcount(el => el + 1)
 
+                    if (!infosUser
+                        ?.uid) {
+                        setfullprofil(true)
+                    } else {
+                        setfullprofil(false)
+                        alert('data send')
+                    }
                     router.push('/')
 
+                    return projectRepository.Create({
+                        name: infosUser
+                            ?.email,
+                        description: profil.description,
+                        published: true,
+                        createdBy: infosUser
+                            ?.uid,
+                        goal: profil.focus,
+                        liveSupporters: 0,
+                        continent: profil.conntinent,
+                        country: profil.conntinent,
+                        // projectAccountType: '',
+                        thematics: [],
+                        comments: [],
+                        supporters: [],
+                        medias: [],
+
+                        createdAt: new Date(),
+                        updatedAt: new Date(),
+                        projectAccountType: 0
+                    }).then(el => {
+                        console.log(el)
+
+                    });
+
                 }
+
             }
 
             // récupére l'information des chans selon le placeholder
@@ -292,6 +299,14 @@ let stylesbol = ""
                             description: e.target.value
                         })
                         break;
+
+
+                        case 'Choisissez votre pays':
+                            setprofil({
+                                ...profil,
+                                country: e.target.value
+                            })
+                            break;
 
                     case 'Description de votre cause':
                         setprofil({
@@ -326,7 +341,6 @@ let stylesbol = ""
                         break;
 
                     default:
-                        console.log(`Sorry, we are out of ${expr}.`);
                 }
 
             }
@@ -350,12 +364,20 @@ let stylesbol = ""
             }
 
             useEffect(() => {
-
-                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "" && profil.project != "") {
-                    setfullprofil(true)
+                if (infosUser === null) {
+                    onAuthStateChanged(auth, user => {
+                        if (user) {
+                            setInfosUser(user)
+                        }
+                    })
+                    console.log('yooo')
                 }
 
-                console.log(profil)
+                if (profil.Theme != "" && profil.description != "" && profil.files.length != 0 && profil.focus != "" && profil.subtitle != "" && profil.title != "" && profil.web != "") {
+
+                    setProjectDone(true)
+
+                }
 
             })
 
@@ -412,47 +434,44 @@ let stylesbol = ""
                             <Steps step={bol}/>
                         </div>
                         <div className={styles["content"]}>
-                            <Title text="VOTRE CAUSE"/>
-                            <div className={styles["content__question"]}>
-                                {bol
-                                    ? 'Quel est le type de cause ?'
-                                    : 'Dites nous tout'}
-                            </div>
+                            {/* <Title text="VOTRE CAUSE"/> */}
+                            {/* <div className={
+                                styles["content__question"]
+                            }>
+                                {
+                                bol ? 'Quel est le type de cause ?' : 'Dites nous tout'
+                            } </div> */}
                             {/* Todo :: Remove display: none to display the card type */}
-                            <div className={styles["help-types"]} ref={show}>
-                                <HelpCard
-                                    title='Un project'
-                                    id="card1"
-                                    backgroundColorCard={card1Style === "card1"
-                                    ? "help-card--selected"
-                                    : ""}
+                            {/* <div className={
+                                    styles["help-types"]
+                                }
+                                ref={show}>
+                                <HelpCard title='Un project' id="card1"
+                                    backgroundColorCard={
+                                        card1Style === "card1" ? "help-card--selected" : ""
+                                    }
                                     select={SelectCause}
                                     imgValid={"/icons/check.svg"}
-                                    valid={card1Style === "card1"
-                                    ? "select-icon"
-                                    : ""}
+                                    valid={
+                                        card1Style === "card1" ? "select-icon" : ""
+                                    }
                                     imgCard="/images/project-type.png"/>
-                                <div className={styles["help-types__separator"]}/>
-                                <HelpCard
-                                    title='Une cause'
-                                    id="card2"
-                                    backgroundColorCard={card1Style === "card2"
-                                    ? "help-card--selected"
-                                    : ""}
+                                <div className={
+                                    styles["help-types__separator"]
+                                }/>
+                                <HelpCard title='Une cause' id="card2"
+                                    backgroundColorCard={
+                                        card1Style === "card2" ? "help-card--selected" : ""
+                                    }
                                     imgValid={"/icons/check.svg"}
-                                    valid={card1Style === "card2"
-                                    ? "select-icon"
-                                    : ""}
+                                    valid={
+                                        card1Style === "card2" ? "select-icon" : ""
+                                    }
                                     imgCard="/images/Group.png"
                                     select={SelectCause}/>
-                            </div>
+                            </div> */}
                             {/*  form page */}
-                            <div
-                                className={styles["form-container"]}
-                                ref={hide}
-                                style={{
-                                display: "none"
-                            }}>
+                            <div className={styles["form-container"]} ref={hide}>
                                 <div className={styles["form-container__step"]}>1. Vous êtes</div>
                                 <div className={styles["select-box"]}>
                                     <div className={styles["choice"]}>
@@ -484,28 +503,28 @@ let stylesbol = ""
                                 }}/>
 
                                 <InputNtexterea
-                                    titleInput={`2. Titre du ${profil.project}`}
-                                    placeholder={`Le titre de votre ${profil.project}`}
+                                    titleInput={`2. Titre du cause`}
+                                    placeholder={`Le titre de votre cause`}
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
                                 <InputNtexterea
-                                    titleInput={`3. Sous-titre de votre ${profil.project}`}
-                                    placeholder={`Sous-titre de votre ${profil.project}`}
+                                    titleInput={`3. Sous-titre de votre cause`}
+                                    placeholder={`Sous-titre de votre cause`}
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
                                 <InputNtexterea
-                                    titleInput={`4. Description de votre ${profil.project}`}
-                                    placeholder={`Description de votre ${profil.project}`}
+                                    titleInput={`4. Description de votre cause`}
+                                    placeholder={`Description de votre cause`}
                                     bolea={true}
                                     val={InputValue}
                                     fileSelect={null}
                                     removefile={null}/>
                                 <InputNtexterea
-                                    titleInput={`5. Ajoutez une image à votre ${profil.project}`}
+                                    titleInput={`5. Ajoutez une image à votre cause`}
                                     placeholder={``}
                                     bolea={false}
                                     val={InputValue}
@@ -526,30 +545,41 @@ let stylesbol = ""
                                         key={i}
                                         target={ContinentSelected}/>))
 }
-
                                 </div>
+                                <InputNtexterea
+                                    titleInput={`7. Quel est votre pays ?`}
+                                    placeholder={`Choisissez votre pays`}
+                                    bolea={true}
+                                    val={InputValue}
+                                    fileSelect={null}
+                                    removefile={null}/>
+                                
                                 {/*Todo :: Text should be dynamic either project or cause*/}
                                 <div className={styles["form-container__step"]}>
-                                    7. Le thème principal de votre {profil.project}
+                                    8. Le thème principal de votre cause
                                 </div>
                                 <div className={styles["thematics"]}>
                                     {thematics.map((_, i) => (
                                         <div className={styles["thematic"]} key={i} onClick={CatchTheme}>
                                             <div className={styles["thematic__image"]}/>
-                                            <div className={styles["thematic__name"]}>{Theme[i]}</div>
+                                            <div className={styles["thematic__name"]}>
+                                                {Theme[i]
+}</div>
                                         </div>
-                                    ))}
+                                    ))
+}
                                 </div>
                             </div>
 
                             {/* SUBMIT BUTTON*/}
                             <div className={styles["button-container"]}>
                                 <div
-                                    className={`${styles["button"]} ${styles[card1Style === "card1" || card1Style === "card2" || fullprofil
+                                    className={`${styles["button"]} ${styles[projectDone
                                         ? "bkg"
                                         : ""]}`}
                                     onClick={onContinueClick}>Continuer</div>
-                                {fullprofil && <Connect/>}
+                                {fullprofil && <Connect/>
+}
                             </div>
                         </div>
                     </form>

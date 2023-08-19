@@ -22,14 +22,11 @@ export interface IAccountRepository extends IBaseRepository<IAccount>{
 }
 
 export default class AccountRepository implements IAccountRepository {
-    static create() {
-      throw new Error("Method not implemented.");
-    }
 
     constructor(private db: Firestore, private collectionName: string = Collections.Accounts) {
     }
 
-    async Create(req: ICreateAccount): Promise<IAccount> {
+    async Create(req:IAccount): Promise<IAccount> {
         try {
             const docRef = await setDoc(this.getObjectRef(req.id), req)
             let data: IAccount

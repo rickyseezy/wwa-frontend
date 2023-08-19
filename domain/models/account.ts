@@ -21,12 +21,15 @@ export interface ICreateAccount extends Omit<IAccount, 'lastName' |  'phoneNumbe
 }
 
 export interface IUpdateAccount {
+
     firstName?: string
     lastName?: string
     certified?: boolean
     activated?: boolean
     birthdate?: string
     pseudo?:string
+    ville:'',
+    gender:'',
     email?: string
     password?: string
     phoneNumber?: string

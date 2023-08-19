@@ -2,8 +2,9 @@
 import {initializeApp} from "firebase/app";
 import {getAnalytics} from "firebase/analytics";
 import {getFirestore} from "firebase/firestore";
+import {getAuth} from "@firebase/auth";
 
-console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY)
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -26,5 +27,6 @@ const firebaseConfig = {
 const fireApp = initializeApp(firebaseConfig)
 
 // const analytics = getAnalytics(fireApp);
+export const auth = getAuth(fireApp)
 
 export const DB = getFirestore(fireApp);

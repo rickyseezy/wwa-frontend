@@ -1,43 +1,27 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from "./AccountMobile.module.scss";
-import AccountRepository from '../../domain/repositories/account'
-import {DB} from '../../firebase/configApp'
-import { ICreateAccount } from "domain/models/account";
+import AuthenticatorRepository from '../../domain/repositories/authenticator'
+import AccountRepository from "domain/repositories/account";
+import { DB } from '../../firebase/configApp';
+
 
 
 const AccountMobile = (props: any) => {
-  let addAccountInDB = new AccountRepository(DB)
-
-
+ 
   const accountMobile = useRef(null);
   let [leave, setleave] = useState(false);
+  let authenticatorRepository = new AuthenticatorRepository()
+  let accountRepository = new AccountRepository(DB)
+  let [gender, setgender] = useState('');
 
-  let [gender, setgender] = useState();
-  let [pseudo, setpseudo] = useState();
-  let [email, setmail] = useState();
-  let [ville, setville] = useState();
-  let [birthdate, setbirth] = useState();
-  let [password, setpassword] = useState();
 
-  let [account,setaccount] = useState<ICreateAccount>({
+  let [account,setaccount] = useState({
     pseudo:'',
-    email:'',
+    mail:'',
     ville:'',
+    birth: '',
     gender:'',
-    password:"",
-    firstName: '',
-    birthdate:null,
-    
-    certified: false,
-    activated: false,
-    createdAt:null,
-    updatedAt:null,
-
-   
-    roles: [],
-    
-    
-  
+    password:''
   })
 
   let genderRef = useRef(null)
@@ -73,45 +57,44 @@ const AccountMobile = (props: any) => {
 
   }
 
-  function getpseudo(e){
-    setpseudo(e.target.value)
-
-  }
-  function getpassword(e){
-    setpassword(e.target.value)
-
-  }
-  
-  
-  function getmail(e){
-    setmail(e.target.value)
-
-  }
-
-  
-  function getville(e){
-    setville(e.target.value)
-
-  }
-
-  function getbirth(e){
-    setbirth(e.target.value)
-
-  }
-
   function getaccount(){
-    // console.log(accountRepo.Create(account))
+
      console.log(account)
-     addAccountInDB.Create(account)
-  }
+     authenticatorRepository.CreateUser(account.mail,account.password ).then(user =>{
+
+      accountRepository.Create({
+        id: user,
+        firstName: '',
+  
+      certified: false,
+       activated: true,
+      birthdate: new Date(),
+      pseudo: account.pseudo,
+      email: account.mail,
+      password: account.password,
+      roles: [],
+      updatedAt: new Date(),
+      ville: account.ville,
+      gender: gender,
+      createdAt: new Date(),
+      lastName: "",
+      phoneNumber: "",
+      addressID: ""
+      })
+     })
+
+     
 
 
-  useEffect(() => {
-    // accountMobile.current.style = "display:flex";
-    setaccount({...account,pseudo,email:email,birthdate:birthdate,gender:gender,ville:ville,password})
-    console.log(account)
+    //  'accounts'
 
-  },[pseudo,ville,birthdate,gender,email,password]);
+
+     
+     accountMobile.current.style = "display:none";
+
+  }  
+
+
 
   return (
     <div className={styles["back-account"]} ref={accountMobile}>
@@ -151,37 +134,32 @@ const AccountMobile = (props: any) => {
           <div className={styles["AccountMobile__input"]}>
             <input
               type="text"
-              value={pseudo}
               name="pseudo"
-              onChange={getpseudo}
+              onChange={(e)=> setaccount({...account,pseudo:e.target.value})}
               placeholder="Prénom / Pseudo"
             />
             <input
               type="text"
-              value={email}
-              name="email"
-              onChange={getmail}
+              name="mail"
+              onChange={(e)=> setaccount({...account,mail:e.target.value})}
               placeholder="Adresse email"
             />
             <input
               type="text"
-              value={birthdate}
-              name="birthdate"
-              onChange={getbirth}
+              name="birth"
+              onChange={(e)=> setaccount({...account,birth:e.target.value})}
               placeholder="Année de naissance"
             />
             <input
               type="text"
-              value={ville}
               name="ville"
-              onChange={getville}
+              onChange={(e)=> setaccount({...account,ville:e.target.value})}
               placeholder="Ville ou Pays hors France"
             />
              <input
               type="text"
-              value={password}
               name="password"
-              onChange={getpassword}
+              onChange={(e)=> setaccount({...account,password:e.target.value})}
               placeholder="Password"
             />
           </div>
