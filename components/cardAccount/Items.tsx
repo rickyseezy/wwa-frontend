@@ -11,17 +11,13 @@ interface Data {
     dataProject : [],
     setback : () => void
 }
-import ProjectRepository from 'domain/repositories/project';
-import { DB } from '../../firebase/configApp';
-import { useRouter } from 'next/router';
 
 function Items(props : Data) {
-  let [userConnected,setConneted] = useState(null)
-    let projectRepository = new ProjectRepository(DB)
+
     let cardRef = useRef([])
     cardRef.current = []
-    let [allcausesFromId,setallcausesfromid] = useState([])
-    let router = useRouter()
+ 
+
 
     function AllCard(e : any) {
         if (!cardRef.current.includes(e)) {
@@ -87,46 +83,7 @@ function Items(props : Data) {
     }
 
 
-    useEffect(()=>{
-      const connected = async () =>{
-        onAuthStateChanged(getAuth(), (user) => {
-          if (user) {
-            // User is signed in, see docs for a list of available properties
-            // https://firebase.google.com/docs/reference/js/auth.user
-            const uid = user.uid;
-              
-          
-            setConneted(user)
-            // ...
-          } else {
-            // User is signed out
-            // ...
-              
-              router.push('/')
-        
-          
-          }
-        });
-        }  
 
-      if(userConnected === null){
-        connected()
-
-      }
-
-  console.log(userConnected,' + userConnected')
-  if(userConnected){
-    projectRepository.List().then((causes)=>{
-    let currentCauses =  causes.filter(el => el.createdBy === userConnected.uid)
-
-    console.log(currentCauses,'curr cause')
-    setallcausesfromid(currentCauses)
-    })
-
-  }
-
-      },[userConnected == null])
-console.log(allcausesFromId)
     return (
         <> 
     {/* ref={(element) => deleteRef.current[index] = element} */}
@@ -136,20 +93,21 @@ console.log(allcausesFromId)
             .map((data : {
                 img: any;
                 title: any;
-                p: any;
+                description:string,
+
                 id?: any
             }, index : number) => {
-                let {img, title, p, id} = data
+                let {img, title, description, id} = data
                 return (
 
                     <div className={styles["main"]} id={id} key={index} ref={AllCard}>
                         {/* front card */}
                         <div className={`${styles['main__frontcard']} ${styles['visible']}`}>
                             <div className={styles['main__imgProjet']}>
-                                <img src={img = data.img} alt=""/>
+                                <img src='/images/champdemoussa.png' alt=""/>
                             </div>
-                            <h2>{title = data.title}</h2>
-                            <p>{p = data.p}</p>
+                            <h2>{title}</h2>
+                            <p>{description}</p>
                             {/* card'button */}
                              < div className = {styles['main__btn']} > 
                              <div className={styles['btnprojet']}>Voir</div> < div className = { styles['btnprojet']} > 

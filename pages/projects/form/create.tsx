@@ -25,7 +25,7 @@ import {DB, auth} from "../../../firebase/configApp";
 import AuthenticatorRepository from "domain/repositories/authenticator";
 import {onAuthStateChanged, Auth} from "@firebase/auth";
 
-let stylesbol = ""
+
 
     interface IProjet {
 
@@ -37,7 +37,7 @@ let stylesbol = ""
         description : string,
         Theme : string,
         files : string[]
-        conntinent : number
+        continent : string
     }
 
     interface File {
@@ -138,7 +138,7 @@ let stylesbol = ""
                 title: '',
                 subtitle: '',
                 description: '',
-                conntinent: 0,
+                continent:'',
                 country: '',
                 Theme: '',
                 files: []
@@ -240,7 +240,7 @@ let stylesbol = ""
                 }
                 setprofil({
                     ...profil,
-                    conntinent: continentVal
+                    continent: continentVal
                 })
             }
 
@@ -266,10 +266,10 @@ let stylesbol = ""
                         createdBy: infosUser
                             ?.uid,
                         goal: profil.focus,
+                        title: '',
+                        subtitle: '',
                         liveSupporters: 0,
-                        continent: profil.conntinent,
-                        country: profil.conntinent,
-                        // projectAccountType: '',
+
                         thematics: [],
                         comments: [],
                         supporters: [],
@@ -277,7 +277,9 @@ let stylesbol = ""
 
                         createdAt: new Date(),
                         updatedAt: new Date(),
-                        projectAccountType: 0
+                        projectAccountType: 0,
+                        country: profil.country,
+                        continent: profil.continent
                     }).then(el => {
                         console.log(el)
 

@@ -14,6 +14,7 @@ import MenuVoletCompte from '@components/menuVoletCompte/MenuVoletCompte'
 import SwitchCompte from '@components/switchcompte/SwitchCompte'
 
 
+
 export  let handlePageEstand  = null
 
 const Home: NextPage = (props) => {
@@ -25,9 +26,8 @@ let [page,setPage] = useState<number>(1)
 
 // fonction qui change de pages lorsque  l'on click
   const handlePageMesProj = (e: any) =>{ 
-    console.log('hr')
   setPage(()=>{
-    console.log('hr')
+
 
  return page = 1
  
@@ -72,6 +72,8 @@ let [page,setPage] = useState<number>(1)
   let taille: Window & typeof globalThis
 
 useEffect(()=>{
+
+
   let taille = window.innerWidth
   // console.log(taille,'tailllllllllle')
   // change la valeur de contswich (bolean)  si ell est inférieur a 600px
