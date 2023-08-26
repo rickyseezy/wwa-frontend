@@ -266,8 +266,8 @@ import {onAuthStateChanged, Auth} from "@firebase/auth";
                         createdBy: infosUser
                             ?.uid,
                         goal: profil.focus,
-                        title: '',
-                        subtitle: '',
+                        title: profil.subtitle,
+                        subtitle: profil.title,
                         liveSupporters: 0,
 
                         thematics: [],
@@ -329,10 +329,10 @@ import {onAuthStateChanged, Auth} from "@firebase/auth";
                         })
                         break;
 
-                    case 'Sous-titre de votre project':
+                    case 'Le titre de votre cause`':
                         setprofil({
                             ...profil,
-                            subtitle: e.target.value
+                           title: e.target.value
                         })
                         break;
                     case 'Sous-titre de votre cause':

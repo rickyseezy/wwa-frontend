@@ -19,42 +19,19 @@ interface Data {
 }
 
 
-export const objMesprojet = [{
-  img: '/images/champdemoussa.png',
-  title: 'Les champs mais de moussa',
-  p: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni est facere, eos esse, dicta quos alias debitis .',
-  id: 1
-}, {
-  img: '/images/champdemoussa.png',
-  title: 'Les champs mais de moussa',
-  p: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni est facere, eos esse, dicta quos alias debitis .',
-  id: 2
-}, {
-  img: '/images/champdemoussa.png',
-  title: 'Les champs mais de moussa',
-  p: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni est facere, eos esse, dicta quos alias debitis .',
-  id: 3
-}, {
-  img: '/images/champdemoussa.png',
-  title: 'Les champs mais de moussa',
-  p: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni est facere, eos esse, dicta quos alias debitis .',
-  id: 4
-}, {
-  img: '/images/champdemoussa.png',
-  title: 'Les champs mais de moussa',
-  p: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni est facere, eos esse, dicta quos alias debitis .',
-  id: 5
-}]
-
-  
   
 
 
 
 
-const ProjetItems = ({img,p,title,id}: Data) => {
+const ProjetItems = () => {
   //  card
+  let [cardErase,setCardErase] = useState(false)
   let projectRepository = new ProjectRepository(DB)
+  const deleteProject = (card : string) =>{
+    projectRepository.Delete(card)
+    setCardErase(true)
+  }
 
   let [userConnected,setConneted] = useState(null)
   let [allcausesFromId,setallcausesfromid] = useState([])
@@ -91,15 +68,16 @@ if(userConnected){
   projectRepository.List().then((causes)=>{
   let currentCauses =  causes.filter(el => el.createdBy === userConnected.uid)
 
-  console.log(currentCauses,'curr cause')
   setallcausesfromid(currentCauses)
   })
 
 }
+    setCardErase(false)
+    },[userConnected == null,cardErase])
 
-    },[userConnected == null])
+    
 console.log(allcausesFromId)
-  return <Items  objMesprojet={allcausesFromId} img={'/images/champdemoussa.png'} title={''} p={''} targetCard={0} id={0} dataProject={[]} setback={()=>{}}  />
+  return <Items  objMesprojet={allcausesFromId} img={'/images/champdemoussa.png'} title={''} p={''} targetCard={0} id={0} deleteProject={deleteProject}/>
  
 }
 

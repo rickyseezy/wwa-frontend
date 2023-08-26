@@ -1,14 +1,12 @@
-import EStand from '@components/Estand/EStand'
+
 import Footer from '@components/footer/Footer'
-import Mesprojets from '@components/MesprojetsCompo/Mesprojets'
+
 import MainNavigation from '@components/navigation/MainNavigation'
 import type { NextPage } from 'next'
 
 import styles from '@components/layouts/Account/AccountLayout.module.scss'
-import {  ReactChild, ReactFragment, ReactPortal, useEffect, useRef, useState } from 'react'
-import CardSoutien from '@components/cardSoutien/cardSoutien'
-import Deconnecter from '@components/deconnecter/Deconnecter'
-import InfoForm from '@components/Mesinfos/InfoForm'
+import {  useEffect, useState } from 'react'
+
 import MenuBurger from '@components/menu-burger/MenuBurger'
 import MenuVoletCompte from '@components/menuVoletCompte/MenuVoletCompte'
 import SwitchCompte from '@components/switchcompte/SwitchCompte'
@@ -86,7 +84,7 @@ useEffect(()=>{
 
       setcontswitch(false)
     }
-  console.log(taille,'tailllllllllle')
+
 
 
 },[taille,page])
@@ -109,9 +107,7 @@ useEffect(()=>{
           <div className={`${styles['projetsection']} ${styles[page === 1 ? 'back-volet' : '']}`} onClick={handlePageMesProj} about='/'>
             <h2>Mes projets </h2>
           </div>
-          <div className={`${styles['Estandsection']} ${styles[page === 2 ? 'back-volet' : '']}`} onClick={handlePageEstand}>
-            <h2>Mes e-stand</h2>
-          </div>
+      
           <div className={`${styles['solutionSection']} ${styles[page === 3 ? 'back-volet' : '']}`} onClick={handlePageMesSoutiens}>
             <h2>Mes soutiens</h2>
           </div>

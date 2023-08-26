@@ -1,14 +1,29 @@
-.connect {
+.back-connect{
+  background-color: rgba(0, 0, 0, 0.422);
 
-    position: relative;
+  position: fixed;
 
-    position: fixed;
+  z-index: 565765;
 
-    left: 0;
+  top: 0%;
+  left:  0;
 
-    top: 0;
 
-    width: 100vw;
+  width: 100% !important;
+
+  height:100vh;
+
+  display: flex !important;
+
+  justify-content: center !important;
+
+  align-items: center !important;
+
+  .connect {
+
+
+
+    width: 30% !important;
 
     background-color: white;
 
@@ -27,6 +42,7 @@
     overflow: hidden;
 
     gap: 1em;
+
 
 
 
@@ -133,6 +149,8 @@
 
 
 }
+}
+
 
 
 

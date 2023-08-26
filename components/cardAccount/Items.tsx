@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react'
 import styles from './projetitems.module.scss'
-import { getAuth, signOut,onAuthStateChanged } from "firebase/auth";
+
+
 interface Data {
     objMesprojet : any
     img : string,
@@ -8,18 +9,20 @@ interface Data {
     p : string,
     targetCard : number,
     id : number,
-    dataProject : [],
-    setback : () => void
+
+    
+    deleteProject : (card: string) => void
 }
 
-function Items(props : Data) {
+function Items({objMesprojet,deleteProject} : Data) {
 
     let cardRef = useRef([])
     cardRef.current = []
- 
 
 
-    function AllCard(e : any) {
+
+
+    const AllCard = (e : any) => {
         if (!cardRef.current.includes(e)) {
             cardRef
                 .current
@@ -31,51 +34,51 @@ function Items(props : Data) {
 
     }
 
-    function ChangeView(ide : string) {
+    const ChangeView = (ide : number) => {
         let result = cardRef
             .current
-            .find((el) => Number(el.id) === Number(ide));
-        cardRef
-            .current
-            .forEach(el => {})
+            .find((el) =>{
+     
+               return Number(el.id) === Number(ide)});
+       
 
-        if (result.firstChild.classList.contains("projetitems_visible__O_tc3")) {
+        if (result?.firstChild?.classList.contains("projetitems_visible__O_tc3")) {
 
             result
-                .firstChild
-                .classList
+                ?.firstChild
+                ?.classList
                 .remove("projetitems_visible__O_tc3");
             result
-                .firstChild
-                .classList
+                ?.firstChild
+                ?.classList
                 .add("projetitems_hidden__tCuId");
             result.style = 'transform:rotateY(360deg)'
             result
-                .lastChild
-                .classList
+                ?.lastChild
+                ?.classList
                 .remove("projetitems_hidden__tCuId");
             result
-                .lastChild
-                .classList
+                ?.lastChild
+                ?.classList
                 .add("projetitems_visible__O_tc3");
         } else {
             result
-                .firstChild
-                .classList
+                ?.firstChild
+                ?.classList
                 .remove("projetitems_hidden__tCuId");
             result
-                .firstChild
-                .classList
+                ?.firstChild
+                ?.classList
                 .add("projetitems_visible__O_tc3");
             result.style = 'transform:rotateY(0deg)'
 
             result
-                .lastChild
-                .classList
+                ?.lastChild
+                ?.classList
                 .remove("projetitems_visible__O_tc3");
             result
-                .lastChild
-                .classList
+                ?.lastChild
+                ?.classList
                 .add("projetitems_hidden__tCuId");
         }
         // result.children[0].style = "visibility:hidden"; result.children[1].style =
@@ -83,53 +86,50 @@ function Items(props : Data) {
     }
 
 
+    
+
 
     return (
         <> 
     {/* ref={(element) => deleteRef.current[index] = element} */}
     {
-        props
-            .objMesprojet
+
+            objMesprojet
             .map((data : {
                 img: any;
                 title: any;
                 description:string,
 
-                id?: any
+                id?: string
             }, index : number) => {
-                let {img, title, description, id} = data
+                let { title, description,id} = data
                 return (
 
-                    <div className={styles["main"]} id={id} key={index} ref={AllCard}>
+                    <div className={styles["main"]} id={`${index}`} key={index} ref={AllCard}>
                         {/* front card */}
                         <div className={`${styles['main__frontcard']} ${styles['visible']}`}>
                             <div className={styles['main__imgProjet']}>
                                 <img src='/images/champdemoussa.png' alt=""/>
                             </div>
                             <h2>{title}</h2>
-                            <p>{description}</p>
+                            <p>{description.substring(0,150)}...</p>
                             {/* card'button */}
                              < div className = {styles['main__btn']} > 
                              <div className={styles['btnprojet']}>Voir</div> < div className = { styles['btnprojet']} > 
                              <img src="/images/edit.png" alt=""/> 
                             </div>
-                           <div className={styles['btnprojet']} onClick={()=> ChangeView(id)}>
+                           <div className={styles['btnprojet']} onClick={()=> ChangeView(index)}>
                            <img src="/images/trash-2.png " alt=" " />
                            </div>
                           </div > 
                           </div>
 
                         {/* delete */} 
-                        < div className = { `${styles['main__containerdelete']} ${styles["hidden"]}`}
-                        key = {index + 1} > <h2>Supprimer
-                            <br/>
-                            &quot;Des logements décents et
-                            <br/>
-                            fonctionnels&quot; ?</h2> < div className = {
-                            styles["btndelete"]
-                        } > <button>Oui, supprimer</button> <button onClick = {
-                            () => ChangeView(id)
-                        } > Annuler </button>
+                        < div className = { `${styles['main__containerdelete']} ${styles["hidden"]}`}key = {index + 1} > 
+                        <h2>Supprimer<br/>&quot;Des logements décents et<br/>fonctionnels&quot; ?</h2> 
+                        <div className = {styles["btndelete"]} > 
+                        <button onClick={ () => deleteProject(id)} >Oui, supprimer</button> 
+                        <button onClick = {() => ChangeView(index)} > Annuler </button>
                   </div >
                   </div> 
                   </div>
@@ -141,6 +141,6 @@ function Items(props : Data) {
            </>
            )
         
-        }
+}
 
           export default Items

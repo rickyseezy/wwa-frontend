@@ -9,12 +9,7 @@ import InfoForm from '@components/Mesinfos/InfoForm'
 
 
 function SwitchCompte({props}) {
-    console.log(props,'ohihious')
 
-    useEffect(()=>{
-       console.log(props,'swtiwh')
-    },[props])
-    
   return (
     <>
     {(()=>{
