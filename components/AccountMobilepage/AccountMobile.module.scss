@@ -254,39 +254,76 @@ align-items: center;
 
 
   
-@media screen and (max-width: 450px)  {
+@media screen and (min-width: 480px) and (max-width: 758px)  {
   
-    .AccountMobile{
+    .back-account{
         position: fixed;
+        background-color: rgba(0, 0, 0, 0.422);
+        z-index: 8968689;
         top: 0;
-        left: 0;
-        z-index: 454566544;
-    
-        height: 100vh;
+        left:0;
         width: 100%;
-        background-color: rgb(255, 255, 255);
-        padding:2em;
-        box-sizing: border-box;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     
-        /*Add this*/
-    
-        &__cross{
-            position: absolute;
-            left: 5%;
-            top: 5%;
-            z-index: 44646464;
-    
-            width: 25px;
-    
+        overflow: scroll;
+          
+        .AccountMobile{
+             position: relative;
+            z-index: 454566544;
+            height: 90%;
+            width: 80% !important;
+                        background-color: rgb(255, 255, 255);
+            padding:2em;
+            box-sizing: border-box;
+        
+            /*Add this*/
+        
+ 
         }
-    
-
-    
-
-
-    
-   
     }
     
     
+    
 }
+
+
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    
+    .back-account{
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.422);
+        z-index: 8968689;
+        top: 0;
+        left:0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    
+        .AccountMobile{
+             position: relative;
+            z-index: 454566544;
+        
+          
+            width: 100% !important;
+            background-color: rgb(255, 255, 255);
+            padding:2em;
+            box-sizing: border-box;
+        
+            /*Add this*/
+        
+ 
+        }
+    }
+    
+    
+        
+        
+  }
+

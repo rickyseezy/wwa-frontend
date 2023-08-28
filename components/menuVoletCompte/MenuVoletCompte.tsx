@@ -14,7 +14,7 @@ import styles from './Menu-Volet-Compte.module.scss'
 function MenuVoletCompte() {
      const route = useRouter()
 
-     const  itemstab =["Mes projets(2)","Mes e-stand (0)","Mes soutiens (23)","Mes informations",' Me deconnecte']
+     const  itemstab =["Mes projets(2)","Mes soutiens (23)","Mes informations",' Me deconnecte']
 
      const itemmenu = useRef([]) 
     

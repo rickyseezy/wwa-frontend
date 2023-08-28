@@ -201,7 +201,7 @@
   ##Screen = 1281px to higher resolution desktops
 */
 
-@media (max-width: 1499px) {
+@media (min-width: 1280px) and (max-width: 1499px) {
   
     /* CSS */
     .back-connect{
@@ -340,16 +340,43 @@
   
   @media (min-width: 481px) and (max-width: 767px) {
     
-
+    
     .back-connect{
 
-        .connect{
+      background-color: rgba(0, 0, 0, 0.422);
 
-         padding: 2em 2em 0em 2em;
+      position: fixed;
 
-        }
+      z-index: 565765;
 
-    }
+      top: 0;
+
+      left: 0;
+
+      width: 100% !important;
+
+      height:100vh;
+
+      display: flex;
+
+      justify-content:center !important;
+
+      align-items:center !important;
+
+ 
+
+      .connect{
+       
+          position: relative !important;
+          overflow-y: scroll;
+
+          width: 80% !important;
+          height: 90%;
+          padding:1em 1em  0 1em;
+
+      }
+
+  }
 
     
   }
@@ -361,6 +388,40 @@
   
   @media screen and (min-width: 320px) and (max-width: 480px) {
     
+    .back-connect{
+
+      background-color: rgba(0, 0, 0, 0.422);
+
+      position: fixed;
+
+      z-index: 565765;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100% !important;
+
+      height:100vh;
+
+      display: flex;
+
+      justify-content:flex-start !important;
+
+      align-items:flex-start !important;
+
+
+
+      .connect{
+
+          position: relative !important;
+
+          width: 100% !important;
+          padding:2em 1em  0 1em;
+
+      }
+
+  }
 
         
         
