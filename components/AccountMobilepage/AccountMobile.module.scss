@@ -300,18 +300,19 @@ align-items: center;
         top: 0;
         left:0;
         width: 100%;
-        height: 100vh;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-    
-    
+        overflow-y: scroll;
         .AccountMobile{
              position: relative;
             z-index: 454566544;
-        
+
+
           
             width: 100% !important;
+            height: 100%;
             background-color: rgb(255, 255, 255);
             padding:2em;
             box-sizing: border-box;

@@ -5,6 +5,7 @@ import { getAuth, signOut,onAuthStateChanged } from "firebase/auth";
 import {useRef, useEffect} from 'react'
 import AccountMobile from '@components/AccountMobilepage/AccountMobile'
 import {useRouter} from 'next/router'
+import Connect from '@components/connectionrequest/Connect';
 
 type variable = {
     open: {},
@@ -193,6 +194,7 @@ function MenuMobile({displayMenu, func}) {
                 }}
                     onClick={FowardMNcompte}>Mon Compte</motion.li>}
                {userConnected === null && <motion.li
+               onClick={()=> <Connect show={(el: number)=> el++} />}
                     animate={isOpen
                     ? "open"
                     : "closed"}
