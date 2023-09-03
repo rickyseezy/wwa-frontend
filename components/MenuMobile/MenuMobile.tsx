@@ -63,6 +63,7 @@ const variantsbtn : variable = {
 };
 function MenuMobile({displayMenu, func}) {
   let [userConnected,setConneted] = useState(null)
+  let [connexion,setConnexion] = useState(false)
 
     let [isOpen,
         setOpen] = useState(false)
@@ -140,6 +141,7 @@ function MenuMobile({displayMenu, func}) {
             variants={variants}
             className={styles['menuMobile']}>
             <div>
+            {connexion && <Connect show={(el: number)=> el++} />}
                 <motion.img
                     animate={isOpen
                     ? "open"
@@ -194,7 +196,7 @@ function MenuMobile({displayMenu, func}) {
                 }}
                     onClick={FowardMNcompte}>Mon Compte</motion.li>}
                {userConnected === null && <motion.li
-               onClick={()=> <Connect show={(el: number)=> el++} />}
+               onClick={() => setConnexion(true)}
                     animate={isOpen
                     ? "open"
                     : "closed"}
@@ -204,6 +206,7 @@ function MenuMobile({displayMenu, func}) {
                     duration: .6
                 }}>Connexion
                 </motion.li>}
+                
                 { userConnected && <motion.li
                 onClick={UserLeaving}
                     animate={isOpen

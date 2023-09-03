@@ -15,14 +15,13 @@ function SwitchCompte({props}) {
     {(()=>{
         switch (props){
         case 2 :
-        return <EStand />
+        return <CardSoutien />
         case 1 :
-        return <Mesprojets objMesporjets={[]} img={''} tile={''} p={''} bjectEstand={[]} />
-        case 3 :
-        return  <CardSoutien />
-        case 4 :
+        return <Mesprojets img={''} tile={''} p={''} bjectEstand={[]} />
+
+        case 3:
         return <InfoForm />
-        case 5 :
+        case 4 :
         return <Deconnecter />
         }
         })()}

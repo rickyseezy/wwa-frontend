@@ -38,9 +38,12 @@ function Connect(props) {
     function sendLoggin() {
 
         authenticatorRepository.Login(email, password)
-        router.push('/')
-        setemail('')
-        setpassword('')
+        setTimeout(()=>{
+            router.push('/')
+            setemail('')
+            setpassword('')
+        },1000)
+ 
  
 
     }
