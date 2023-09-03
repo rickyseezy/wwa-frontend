@@ -25,7 +25,9 @@ function EStand() {
 
        <div className={styles['Container-soutients__grid']}>
 
-      <Items objMesprojet={objEstand} img={''} title={''} p={''} targetCard={0} id={0} dataProject={[]}  setback={()=>{}}/>
+      <Items objMesprojet={objEstand} img={''} title={''} p={''} targetCard={0} id={0} dataProject={[]} setback={() => { } } deleteProject={function (card: string): void {
+          throw new Error('Function not implemented.')
+        } }/>
      </div>
       
   </div>

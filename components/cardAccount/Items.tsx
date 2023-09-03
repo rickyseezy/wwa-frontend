@@ -10,6 +10,9 @@ interface Data {
     p : string,
     targetCard : number,
     id : number,
+    dataProject: [],
+    setback : any
+
 
     
     deleteProject : (card: string) => void

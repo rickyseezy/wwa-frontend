@@ -17,7 +17,7 @@ function SwitchCompte({props}) {
         case 2 :
         return <CardSoutien />
         case 1 :
-        return <Mesprojets img={''} tile={''} p={''} bjectEstand={[]} />
+        return <Mesprojets img={''} tile={''} p={''} bjectEstand={[]} objMesporjets={[]} />
 
         case 3:
         return <InfoForm />

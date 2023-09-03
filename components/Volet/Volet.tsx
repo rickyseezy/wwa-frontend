@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './volet.module.scss'
-import { objMesprojet } from '../cardAccount/ProjetItems'
+
 import { useRouter } from 'next/router'
 import { objSoutient  } from '../cardSoutien/cardSoutien'
 
@@ -56,7 +56,7 @@ useEffect(()=>{
            <img src='/images/Hand raise web 1.png' alt="" />
        </div>
        <div className={styles['projetsection']} onClick={handlePageMesProj} about='/'>
-           <h2>Mes projets ({objMesprojet.length}) </h2>
+           <h2>Mes projets (2) </h2>
        </div>
        <div className={styles['Estandsection']} onClick={handlePageEstand}>
            <h2>Mes e-stand</h2>

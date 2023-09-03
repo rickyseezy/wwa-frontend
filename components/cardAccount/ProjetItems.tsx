@@ -24,7 +24,7 @@ interface Data {
 
 
 
-const ProjetItems = () => {
+const ProjetItems = (props: Data) => {
   //  card
   let [cardErase,setCardErase] = useState(false)
   let projectRepository = new ProjectRepository(DB)
@@ -77,7 +77,7 @@ if(userConnected){
 
     
 console.log(allcausesFromId)
-  return <Items  objMesprojet={allcausesFromId} img={'/images/champdemoussa.png'} title={''} p={''} targetCard={0} id={0} deleteProject={deleteProject}/>
+  return <Items  objMesprojet={allcausesFromId} img={'/images/champdemoussa.png'} title={''} p={''} targetCard={0} id={0} deleteProject={deleteProject} dataProject={[]} setback={undefined}/>
  
 }
 

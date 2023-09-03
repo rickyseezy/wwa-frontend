@@ -9,7 +9,7 @@ interface Data  {
  tile : string,
  p : string
  bjectEstand : []
- 
+ objMesporjets :[]
 }
 
 
