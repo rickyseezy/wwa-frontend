@@ -10,14 +10,42 @@ import Actions from "@components/actions/Actions";
 import Title from "@components/title/Ttile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import Statstwo from "@components/stats/Statstwo";
+import { useRouter } from "next/router";
+import  ProjectRepository   from "domain/repositories/project";
+import { DB } from "../../firebase/configApp";
+
 
 
 const ProjectPage = () => {
   const [show, setShowScrollMenu] = useState(false);
+  const router = useRouter();
+  let projectRepository  = new ProjectRepository(DB)
+  let [contentProject,setContentProject] = useState({title:'',name:'',subtitle:'',description:''})
+  
+
+ async function GetInfosFromId(id: string){
+
+    try{
+      let dataProoject = await projectRepository.Get(id)
+ 
+      setContentProject(dataProoject)
+
+    }catch(e){
+       console.log(e)
+    }
+
+  }
+  
+
 
   useEffect(() => {
+
+    let idProject = router.query?.projectId?.toString()
+    GetInfosFromId(idProject)
+
+console.log(contentProject,'contegnt effect')
     function handleScroll(e) {
-      console.log(window.scrollY);
+
    
       if (window.matchMedia("(max-width: 400px)").matches) {
         /* the view port is at least 400 pixels wide */
@@ -33,7 +61,7 @@ const ProjectPage = () => {
     }
 
     window.addEventListener("scroll", handleScroll);
-  });
+  },[router.query,contentProject.hasOwnProperty('title')]);
   return (
     <Fragment>
       <div
@@ -49,13 +77,13 @@ const ProjectPage = () => {
           <div className={styles["overlay"]}></div>
           <div className={styles["content"]}>
             <h1 className={styles["content__title"]}>
-              Les champs de Maïs de Moussa
+              {contentProject?.title}
             </h1>
             <div className={styles["author-info"]}>
               <div className={styles["author-info__picture"]}>
                 <img src="/todelete/profilepicture.png" />
               </div>
-              <div className={styles["author-info__name"]}>@moussa223</div>
+              <div className={styles["author-info__name"]}>   {contentProject?.name}</div>
               <div className={styles["author-info__certified"]}>
                 <img src="/icons/check.svg" />
               </div>
@@ -72,25 +100,16 @@ const ProjectPage = () => {
           <div className={styles["intro"]}>
             <Title text="l'HISTOIRE" />
             <div className={styles["intro__title"]}>
-              Des champs de maïs vitaux
+              {contentProject?.subtitle}
             </div>
             <div className={styles["intro__description"]}>
-              Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis et sed
-              nam sem tellus erat.Lorem ipsum dolor amet, consectetur adipiscing
-              elit. Mattis et sed nam sem tellus erat. Lorem ipsum dolor amet,
-              consectetur adipiscing elit. Mattis et sed nam sem tellus
-              erat.Lorem ipsum dolor amet, consectetur adipiscing elit. Mattis
-              et sed nam sem tellus erat Lorem ipsum dolor amet, consectetur
-              adipiscing elit. Mattis et sed nam sem tellus erat.Lorem ipsum
-              dolor amet, consectetur adipiscing elit. Mattis et sed nam sem
-              tellus erat. Lorem ipsum dolor amet, consectetur adipiscing elit.
-              Mattis et sed nam sem tellus erat.
+              {   contentProject?.description}
             </div>
           </div>
           <div className={styles["live-indicator"]}>
             <div className={styles["indicator"]}>
               <div className={styles["indicator__text"]}>
-                Moussa est en live
+              {contentProject?.name.substring(0,5)} est en live
               </div>
             </div>
           </div>

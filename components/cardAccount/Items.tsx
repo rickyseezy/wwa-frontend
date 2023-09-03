@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import styles from './projetitems.module.scss'
+import { useRouter } from 'next/router'
 
 
 interface Data {
@@ -18,9 +19,10 @@ function Items({objMesprojet,deleteProject} : Data) {
 
     let cardRef = useRef([])
     cardRef.current = []
+    const router = useRouter();
 
 
-
+     console.log(router,'router')
 
     const AllCard = (e : any) => {
         if (!cardRef.current.includes(e)) {
@@ -84,7 +86,10 @@ function Items({objMesprojet,deleteProject} : Data) {
         // result.children[0].style = "visibility:hidden"; result.children[1].style =
         // "visibility:visible";
     }
+    
+    const currentProjectId = () => {
 
+    }
 
     
 
@@ -115,8 +120,8 @@ function Items({objMesprojet,deleteProject} : Data) {
                             <p>{description.substring(0,150)}...</p>
                             {/* card'button */}
                              < div className = {styles['main__btn']} > 
-                             <div className={styles['btnprojet']}>Voir</div> < div className = { styles['btnprojet']} > 
-                             <img src="/images/edit.png" alt=""/> 
+                             <div className={styles['btnprojet']} onClick={()=> router.push(`/projects/${id}`)} >Voir</div> < div className = { styles['btnprojet']} > 
+                             <img src="/images/edit.png" alt="" onClick={()=> router.push(`/projects/form/modify/${id}`)}/> 
                             </div>
                            <div className={styles['btnprojet']} onClick={()=> ChangeView(index)}>
                            <img src="/images/trash-2.png " alt=" " />

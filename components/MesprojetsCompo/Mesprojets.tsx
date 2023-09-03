@@ -1,10 +1,10 @@
 import TittleAccount from '@components/titleAccount/TittleAccount'
 import React from 'react'
-import ProjetItems, { objMesprojet } from '../cardAccount/ProjetItems'
+import ProjetItems from '../cardAccount/ProjetItems'
 import styles from './mesprojets.module.scss'
 
 interface Data  {
-  objMesporjets : [],
+
  img : string,
  tile : string,
  p : string

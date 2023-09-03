@@ -148,7 +148,7 @@ import {onAuthStateChanged, Auth} from "@firebase/auth";
             let [count,
                 setcount] = useState < number > (0)
             const [bol,
-                setbol] = useState(false)
+                setbol] = useState(2)
             const [projectDone,
                 setProjectDone] = useState(false)
 
@@ -436,43 +436,7 @@ import {onAuthStateChanged, Auth} from "@firebase/auth";
                             <Steps step={bol}/>
                         </div>
                         <div className={styles["content"]}>
-                            {/* <Title text="VOTRE CAUSE"/> */}
-                            {/* <div className={
-                                styles["content__question"]
-                            }>
-                                {
-                                bol ? 'Quel est le type de cause ?' : 'Dites nous tout'
-                            } </div> */}
-                            {/* Todo :: Remove display: none to display the card type */}
-                            {/* <div className={
-                                    styles["help-types"]
-                                }
-                                ref={show}>
-                                <HelpCard title='Un project' id="card1"
-                                    backgroundColorCard={
-                                        card1Style === "card1" ? "help-card--selected" : ""
-                                    }
-                                    select={SelectCause}
-                                    imgValid={"/icons/check.svg"}
-                                    valid={
-                                        card1Style === "card1" ? "select-icon" : ""
-                                    }
-                                    imgCard="/images/project-type.png"/>
-                                <div className={
-                                    styles["help-types__separator"]
-                                }/>
-                                <HelpCard title='Une cause' id="card2"
-                                    backgroundColorCard={
-                                        card1Style === "card2" ? "help-card--selected" : ""
-                                    }
-                                    imgValid={"/icons/check.svg"}
-                                    valid={
-                                        card1Style === "card2" ? "select-icon" : ""
-                                    }
-                                    imgCard="/images/Group.png"
-                                    select={SelectCause}/>
-                            </div> */}
-                            {/*  form page */}
+    
                             <div className={styles["form-container"]} ref={hide}>
                                 <div className={styles["form-container__step"]}>1. Vous êtes</div>
                                 <div className={styles["select-box"]}>
