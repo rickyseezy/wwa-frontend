@@ -14,7 +14,7 @@ interface Data {
     setback : any,
     deleteProject : (card: string) => void
 }
-
+ 
 function Items({objMesprojet,deleteProject} : Data) {
 
     let cardRef = useRef([])
