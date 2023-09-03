@@ -11,10 +11,7 @@ interface Data {
     targetCard : number,
     id : number,
     dataProject: [],
-    setback : any
-
-
-    
+    setback : any,
     deleteProject : (card: string) => void
 }
 
