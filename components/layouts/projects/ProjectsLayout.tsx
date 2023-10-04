@@ -8,7 +8,6 @@ import Footer from "@components/footer/Footer";
 import {Router, useRouter} from "next/router";
 import MenuCountry from "@components/menuCountry/MenuCountry";
 import CountryCard from "@components/countrycard/CountryCard";
-import { route } from "next/dist/server/router";
 
 interface IProjectsLayout {
     children : React.ReactNode;
