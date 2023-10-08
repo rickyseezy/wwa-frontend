@@ -77,7 +77,8 @@ function Connect(props) {
     <h1> Connectez - vous </h1>
     <form action="" className={styles["connect__form"]}>
     <label htmlFor="">
-     <input type="text" value={email} onChange={(e)=> setemail(e.target.value) } placeholder="email"/> </label> < label htmlFor = "" > <input type="text" value={password} onChange={(e) => setpassword(e.target.value)} placeholder = "mot de passe" />
+     <input type="text" value={email} onChange={(e)=> setemail(e.target.value) } placeholder="email"/> </label>
+   < label htmlFor = "" > <input type="text" value={password} onChange={(e) => setpassword(e.target.value)} placeholder = "mot de passe" />
     </label>
     <p onClick = { handleReinit} > Mot de passe oublier ? </p> 
     <button onClick = {sendLoggin} > Connexion </button>
