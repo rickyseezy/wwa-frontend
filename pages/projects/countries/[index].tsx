@@ -4,6 +4,7 @@ import ProjectsLayout from "@components/layouts/projects/ProjectsLayout";
 
 
 function index() {
+
   return (
     <ProjectsLayout>
     <TopCauses />

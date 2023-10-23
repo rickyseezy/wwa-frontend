@@ -3,9 +3,32 @@ import ScrollList from "@components/scroll-list/ScrollList";
 import ControlPane from "@components/control-pane/ControlPane";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import ProjectRepository from 'domain/repositories/project';
+import { DB } from '../../firebase/configApp';
+
 interface dataDirection {
   direction: String;
   id: number;
+}
+
+function RightNumberContinent(cont){
+  let num =                                                                                                       0
+  console.log(cont)
+  switch(cont){
+    case  'europe' :
+      return num = 1
+    case "africa":
+      return  num = 2
+    case 'north-america':
+      return  num = 3
+    case 'south-america' : 
+    return num =  4
+    case  'asia' :
+    return  num = 5
+    case   'oceania' : 
+    return 6
+  }
+
 }
 
 const TopCauses = () => {
@@ -13,8 +36,10 @@ const TopCauses = () => {
   let directionMoveCardTwo = null;
   let directionMoveCardThree = null;
   let router = useRouter();
+  let projectRepository = new ProjectRepository(DB)
 
-  let [subtitle, setsubtitle] = useState("Europe");
+  let [subtitle, setsubtitle] = useState<string>("Europe");
+  let [contriesCause,setcontriesCauses] = useState([])
 
   let [arrow, setarrow] = useState<Object>({});
 
@@ -67,6 +92,13 @@ const TopCauses = () => {
     if (router.query.continent) {
       CapitalizeTitle(router.query.continent);
     }
+    projectRepository.List().then((causes)=>{
+      let currentCauses  =  causes.filter(el => Number(el.continent) === RightNumberContinent(router.query.continent) )
+      // console.log(currentCauses,'current')
+      setcontriesCauses([...currentCauses])
+      console.log(currentCauses)
+    })
+    console.log(RightNumberContinent(router.query.continent),'continent')
   }, [router.query.continent]);
 
   // récupére les deux dernier caroussel
@@ -86,39 +118,10 @@ const TopCauses = () => {
           />
         </div>
         <div className={styles["scroll-list__list"]}>
-          <ScrollList dir={arrow} id={2} />
+          <ScrollList data_card={contriesCause} dir={arrow} id={2} />
         </div>
       </div>
-      {/* <div className={styles["scroll-list"]} ref={RefScroll}>
-                <div className={styles["scroll-list__control-pane"]}>
-                    <ControlPane
-                        titleColor="#0A6AAF"
-                        subtitleColor="black"
-                        title=" TOP CAUSES"
-                        subTitle="France"
-                        buttonColor="white"
-                        id={3}
-                        func={parentToChildTwo}/>
-                </div>
-                <div className={styles["scroll-list__list"]}>
-                    <ScrollList dir={arrowTwo} id={3}/>
-                </div>
-            </div>
-            <div className={styles["scroll-list"]} ref={RefScroll} >
-                <div className={styles["scroll-list__control-pane"]}>
-                    <ControlPane
-                        titleColor="#0A6AAF"
-                        subtitleColor="black"
-                        title=" TOP CAUSES"
-                        subTitle="Italie"
-                        buttonColor="white"
-                        id={4}
-                        func={parentToChildThree}/>
-                </div>
-                <div className={styles["scroll-list__list"]}>
-                    <ScrollList dir={arrowThree} id={4}/>
-                </div>
-            </div> */}
+
     </div>
   );
 };

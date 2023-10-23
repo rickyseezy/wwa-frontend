@@ -8,6 +8,8 @@ import Footer from "@components/footer/Footer";
 import {Router, useRouter} from "next/router";
 import MenuCountry from "@components/menuCountry/MenuCountry";
 import CountryCard from "@components/countrycard/CountryCard";
+import ProjectRepository from 'domain/repositories/project';
+import { DB } from '../../../firebase/configApp';
 
 interface IProjectsLayout {
     children : React.ReactNode;
@@ -30,8 +32,26 @@ function UrlToTitle(e){
 }
 }
 
+function RightCountriesNumber(countries){
+    console.log(countries,' + countries')
+  if(countries === 'Top causes') return
+   let countriesSelect = 0
+  switch(countries){
+    case 'Italie':
+    return  countriesSelect = 11
+    case 'Espagne':
+        return countriesSelect = 12
+    case 'Portugal' : 
+      return countriesSelect = 13
+    case 'Allemagne': 
+     return countriesSelect = 14
+  }
+return countriesSelect
+}
+
 const ProjectsLayout = ({children} : IProjectsLayout) => {
     const router = useRouter()
+    let projectRepository = new ProjectRepository(DB)
 
     let [title,
         settitle] = useState('EUROPE'|| router.query.continent)
@@ -41,6 +61,7 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
         setcontinent] = useState('EUROPE')
         let [country,
           setcountry] = useState('')
+    let [cardFromCountries,setcardFromCountries] = useState([])
 
   
     let banner = useRef < HTMLDivElement > (null)
@@ -73,10 +94,20 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
 
     function menuClicked(e) {
      setshowcard(true)
-     console.log(e.target.innerText,'menucountry')
+     console.log(RightCountriesNumber(e.target.innerText),'menucountry')
+     projectRepository.List().then(async (causes)=>{
+        let currentCauses  =  causes.filter(el => Number(el.country) === RightCountriesNumber(e.target.innerText) )
+          setcardFromCountries([...currentCauses])
+   
+      })
+     
+  
+
+
+
      if(e.target.innerText == "Top causes"){
 
-      setcountry(UrlToTitle(router.query.continent))
+      setshowcard(false)
      }else{
       setcountry(e.target.innerText)
 
@@ -112,6 +143,7 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
        
     }, [router.query.continent]);
 
+
     return ( <> <div className={styles["wrapper"]}>
         <MainNavigation/>
         <MenuBurger/>
@@ -133,7 +165,7 @@ const ProjectsLayout = ({children} : IProjectsLayout) => {
                 <MenuCountry select={menuClicked} continent={continent}/>
                 <div className={styles["children-container"]}>
                     {showCard
-                        ? <CountryCard/>
+                        ? <CountryCard data_countries={cardFromCountries}/>
 
                         : children
                     }

@@ -43,7 +43,7 @@ let [page,setPage] = useState<number>(1)
   const handlePageMesInfo = (e: any) =>{
     setPage(()=>{
  
-      return page = 4
+      return page = 3
       })
     
 
@@ -52,7 +52,7 @@ let [page,setPage] = useState<number>(1)
   const handlePageMesSoutiens = (e: any) =>{
   setPage(()=>{
  
-  return page = 3
+  return page = 2
   })
 
   }
@@ -61,7 +61,7 @@ let [page,setPage] = useState<number>(1)
   const handlePageMeDeconnecter = (e: any) =>{
     setPage(()=>{
  
-      return page = 5
+      return page = 4
       })
   }
 
@@ -108,7 +108,7 @@ useEffect(()=>{
             <h2>Mes projets </h2>
           </div>
       
-          <div className={`${styles['solutionSection']} ${styles[page === 3 ? 'back-volet' : '']}`} onClick={handlePageMesSoutiens}>
+          <div className={`${styles['solutionSection']} ${styles[page === 2 ? 'back-volet' : '']}`} onClick={handlePageMesSoutiens}>
             <h2>Mes soutiens</h2>
           </div>
           <div className={`${styles['infoSection']} ${styles[page === 4 ? 'back-volet' : '']}`} onClick={handlePageMesInfo}>

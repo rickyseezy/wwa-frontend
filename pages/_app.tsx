@@ -6,32 +6,32 @@ import { useEffect, useState } from "react";
 function MyApp({ Component, pageProps }: AppProps) {
 
 // console.log(fireApp,'firebase')
-  let [close, setclose] = useState(false);
-  console.log(close);
-  useEffect(() => {
-    console.log("effect");
+  // let [close, setclose] = useState(false);
+  // console.log(close);
+  // useEffect(() => {
+  //   console.log("effect");
 
-    const handleTabClose = (event: { preventDefault: () => void; returnValue: string; }) => {
+  //   const handleTabClose = (event: { preventDefault: () => void; returnValue: string; }) => {
   
 
-      console.log("beforeunload event triggered");
-      setclose(true);
+  //     console.log("beforeunload event triggered");
+  //     setclose(true);
 
-      return (event.returnValue = "are you sure you want to leave ? ");
-    };
+  //     return (event.returnValue = "are you sure you want to leave ? ");
+  //   };
 
-    window.addEventListener("beforeunload", handleTabClose);
+  //   window.addEventListener("beforeunload", handleTabClose);
 
-    return () => {
-      window.removeEventListener("beforeunload", handleTabClose);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("beforeunload", handleTabClose);
+  //   };
+  // }, []);
 
   return (
     <>
-      <closeContext.Provider value={close}>
+      {/* <closeContext.Provider value={close}> */}
         <Component {...pageProps} />
-      </closeContext.Provider>
+      {/* </closeContext.Provider> */}
     </>
   );
 }

@@ -37,7 +37,7 @@ const PopularProjects = () => {
             />
         <div className={styles["pusher"]}/>
        </div>
-        < ScrollList dir = {arrow} id = { 1 } />
+        < ScrollList data_card={[]} dir = {arrow} id = { 1 } />
      </>
      );
 };

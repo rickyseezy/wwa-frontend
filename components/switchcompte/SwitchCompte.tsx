@@ -9,7 +9,7 @@ import InfoForm from '@components/Mesinfos/InfoForm'
 
 
 function SwitchCompte({props}) {
-
+console.log(props,'pages')
   return (
     <>
     {(()=>{

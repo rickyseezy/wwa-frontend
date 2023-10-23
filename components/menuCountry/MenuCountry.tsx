@@ -117,6 +117,10 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
         query: { country, continent: continenttab },
       });
     }
+    // console.log(country)
+    // if(country === 'Top cause'){
+    //   router.push(`/project`)
+    // }
   }
   // change le background des items menu
   function MenuSelected(e) {

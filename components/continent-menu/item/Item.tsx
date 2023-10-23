@@ -138,7 +138,7 @@ const ContinentMenuItem = ({ continent }: IContinentMenuItemProps) => {
 
   // rajoute le continent dans l'url
   function changeUrl(url: string) {
-    console.log(router.query,'url')
+
 
     switch (url) {
       case "NORTH-US":
