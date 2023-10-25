@@ -132,7 +132,7 @@ function MenuMobile({displayMenu, func}) {
         func(displayMenu)
         setOpen(false)
     }
-
+console.log(connexion,'connectim')
     return (
         <motion.div
             animate={isOpen
@@ -141,7 +141,7 @@ function MenuMobile({displayMenu, func}) {
             variants={variants}
             className={styles['menuMobile']}>
             <div>
-            {connexion && <Connect show={(el: number)=> el++} />}
+            {connexion && <Connect onClose={()=> setConnexion(false)} children={undefined} title={undefined} />}
                 <motion.img
                     animate={isOpen
                     ? "open"

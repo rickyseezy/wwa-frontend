@@ -28,7 +28,7 @@ function Connect({onClose, children, title}) {
     let backClick = useRef(null)
 
     function handleReinit() {
-        setReinit(el => el = !el)
+        setReinit(true)
     }
     function sendLoggin() {
         authenticatorRepository.Login(email, password)
@@ -49,13 +49,13 @@ function Connect({onClose, children, title}) {
         backClick.current.addEventListener('click', (e) => {
             const {className} = e.target as HTMLDivElement;
 
-            console.log('click', className, backClick.current
-                ?.classList[0])
+            // console.log('click', className, backClick.current
+            //     ?.classList[0])
             if (className === backClick.current
                 ?.classList[0]) {
                 handleCloseClick()
             }
-            console.log(e.target,'targe')
+            // console.log(e.target,'targe')
         })
 
         // window.removeEventListener('click',()=>{
