@@ -497,7 +497,7 @@ const Theme = [
                                 ? "bkg"
                                 : ""]}`}
                             onClick={()=> ModifyData(idOfProject)}>Modifier</div>
-                        {fullprofil && <Connect/>
+                        {fullprofil && <Connect onClose={()=> setfullprofil(false)} children={undefined} title={undefined}/>
 }
                     </div>
                 </div>
