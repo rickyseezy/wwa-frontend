@@ -17,7 +17,7 @@ function Reinit(props) {
 
 
   return (
-    <div className={styles['back-Reinit']}>
+    // <div className={styles['back-Reinit']}>
     <div ref={reinit} className={styles["reinit"]}>
         <h1>Réinitialiser mon mdp </h1>
 
@@ -28,7 +28,7 @@ function Reinit(props) {
             <button>Envoyer</button>
         </form>
     </div>
-    </div>
+    // </div>
   )
 }
 

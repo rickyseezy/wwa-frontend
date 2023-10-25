@@ -6,7 +6,7 @@ import { DB } from '../../firebase/configApp';
 
 
 
-const AccountMobile = (props: any) => {
+const AccountMobile = ({close}) => {
  
   const accountMobile = useRef(null);
   let [leave, setleave] = useState(false);
@@ -39,9 +39,9 @@ const AccountMobile = (props: any) => {
 
 
   function LeaveCompte() {
-    console.log(props.data);
+ 
 
-    accountMobile.current.style = "display:none";
+   close()
   }
 
   function getgender(e){
@@ -97,7 +97,7 @@ const AccountMobile = (props: any) => {
 
 
   return (
-    <div className={styles["back-account"]} ref={accountMobile}>
+    // <div className={styles["back-account"]} ref={accountMobile}>
       <div className={styles["AccountMobile"]}>
         <img
           onClick={LeaveCompte}
@@ -192,7 +192,7 @@ const AccountMobile = (props: any) => {
           </div>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 

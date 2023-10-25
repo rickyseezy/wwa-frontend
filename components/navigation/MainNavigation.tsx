@@ -14,7 +14,7 @@ function Menu() {
 
   const router = useRouter()
 
-   let [showConnect,setConnect] = useState(0)
+   let [showConnect,setShow] = useState(false)
    let authenticatorRepository = new AuthenticatorRepository()
    let [userConnected,setConneted] = useState(null)
 
@@ -34,10 +34,10 @@ function Menu() {
     router.push('/Mon-compte')
  
     }
-    const pageConnection = ()=>{
+    const pageConnection = (e)=>{
          
     
-          setConnect(numb =>  numb  + 1)
+       e ?   setShow(true) : setShow(false)
      
 
    
@@ -101,14 +101,14 @@ function Menu() {
               UserLeaving()
               setConneted(null)
             }else{
-              pageConnection()
+              setShow(true)
             }
           }}>{userConnected !== null? 'deconnexion' : 'connexion'}</a></li>
         </ul>
        </div> 
 {/* input */}
      <Searchbar />
-     { showConnect > 0  ? <Connect show={showConnect}/> : null}
+     { showConnect  && <Connect onClose={() => setShow(false)} children={undefined} title={undefined}/>}
     </div>
 
     

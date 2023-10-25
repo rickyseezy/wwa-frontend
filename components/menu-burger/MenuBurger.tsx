@@ -10,7 +10,8 @@ import LinkReinit from '@components/linkreinit/LinkReinit';
 function MenuBurger(props) {
   let [menuDisplay,setmenuDisplay] = useState<Object>({push:false})
   let [showmenu,setmenu] = useState<boolean>(false)
-  let [showLogin,setShowlogin] = useState<number>(0)
+  let [showLogin,setShowlogin] = useState<boolean>(false)
+
 
   function ChangeDisplay(){
     setmenuDisplay({push:true})
@@ -21,14 +22,9 @@ function MenuBurger(props) {
 
     }
   }
-  function HandleLogin(){
-
-      setShowlogin(el => el +1)
-  //  console.log(showLogin)
-  }
 
 
-
+console.log(showLogin)
   
   return (
     <div className={styles['menuBurger-content']}>
@@ -40,10 +36,10 @@ function MenuBurger(props) {
         </div>
         <div className={styles["menuBurger-content__searchNcontact"]}>
              <img src="/images/search.png" alt="search icone" />
-            <img onClick={HandleLogin} src="/icons/Vector.png" alt="login icone" />
+            <img onClick={()=>setShowlogin(true)} src="/icons/Vector.png" alt="login icone" />
         </div>
         <MenuMobile   displayMenu={menuDisplay} func={ChangeDisplayNone} />
-        {showLogin >= 1 &&  <Connect show={showLogin} />}
+        {showLogin  &&  <Connect onClose={() => setShowlogin(false)} children={undefined} title={undefined} />}
    
     </div>
   )
