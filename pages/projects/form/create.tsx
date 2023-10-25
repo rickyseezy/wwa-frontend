@@ -544,7 +544,7 @@ import {onAuthStateChanged, Auth} from "@firebase/auth";
                                         ? "bkg"
                                         : ""]}`}
                                     onClick={onContinueClick}>Continuer</div>
-                                {fullprofil && <Connect/>
+                                {fullprofil && <Connect onClose={()=> setfullprofil(false)} children={undefined} title={undefined}/>
 }
                             </div>
                         </div>
