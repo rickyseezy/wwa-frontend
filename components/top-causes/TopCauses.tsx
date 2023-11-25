@@ -36,7 +36,7 @@ function RightNumberContinent(cont: string | string[]){
 
 
 
-const TopCauses = ({props}) => {
+const TopCauses = () => {
   
 
 
@@ -112,7 +112,7 @@ const TopCauses = ({props}) => {
       console.log(currentCauses)
     })
     console.log(RightNumberContinent(router.query.continent),'continent')
-  }, [router.query.continent,props]);
+  }, [router.query.continent]);
   
 
   return (
@@ -129,9 +129,7 @@ const TopCauses = ({props}) => {
             func={parentToChild}
           />
         </div>
-        {props?.countries && (<div>
-          <h1>{props?.countries.title}</h1>
-        </div>)}
+       
         <div className={styles["scroll-list__list"]}>
           <ScrollList data_card={contriesCause} dir={arrow} id={2} />
         </div>
@@ -142,15 +140,5 @@ const TopCauses = ({props}) => {
 };
 
 
-// export async function getStaticProps() {
-//   const filePath = path.join(process.cwd(), 'json/data.json','utf8');
-//   // Read the json file
-//   const jsonDatas = await fsPromises.readFile(filePath);
-//   // Parse data as json
-//   const objectData = JSON.parse(jsonDatas);
-//   return {
-//     props: {j: jsonDatas}
-//   }
-// }
 
 export default TopCauses;

@@ -7,7 +7,7 @@ function index() {
 
   return (
     <ProjectsLayout>
-    <TopCauses />
+    <TopCauses  />
   </ProjectsLayout>
   )
 }
