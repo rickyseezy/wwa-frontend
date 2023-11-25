@@ -1,10 +1,18 @@
 import { Router, useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
-import { useEffect, useState, useRef, MouseEventHandler, SetStateAction, MouseEvent } from "react";
+import {
+  useEffect,
+  useState,
+  useRef,
+  MouseEventHandler,
+  SetStateAction,
+  MouseEvent,
+} from "react";
 import styles from "../layouts/projects/ProjectsLayout.module.scss";
-
+import country from "../../public/data/countries.json";
+import request from "../../context/request";
 interface MenuCountryProps {
-  select: MouseEventHandler<HTMLLIElement>;
+  select: (e: MouseEvent<HTMLElement>, num: number) => void;
   continent: string;
 }
 
@@ -51,7 +59,8 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
   const [isShown, toggleButton] = useState(false);
   let [tabcountry, settabcountry] = useState([]);
   let [continenttab, setcontinenttab] = useState<string>();
-
+  let requestCounties = new request(country);
+  console.log(requestCounties.conutryAmerica(), "usaaa");
   let scrollable = useRef();
   let router = useRouter();
   let pays = useRef(null);
@@ -76,12 +85,31 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
 
   function MapCheck(url) {
     if (url) {
-      if(url === 'north-america') { url = "northus"}
-      if(url === 'south-america'){  url = "southamerica"}
-      let tabPays =  continentConfig.get(url.toUpperCase()).pays;
-      settabcountry(tabPays);
-    }else{
-      let tabPays = continentConfig.get('EUROPE').pays;
+      if (url === "north-america") {
+        url = "northus";
+      }
+      if (url === "south-america") {
+        url = "southamerica";
+      }
+      let tabPays = continentConfig.get(url.toUpperCase()).pays;
+      switch (url) {
+        case "europe":
+          settabcountry([...requestCounties.conutryEurope()]);
+          break;
+        case "africa":
+          settabcountry([...requestCounties.conutryAfrica()]);
+          break;
+        case "oceania":
+          settabcountry([...requestCounties.conutryOceania()]);
+          break;
+        case "asia":
+          settabcountry([...requestCounties.conutryAsia()]);
+          break;
+        default:
+          settabcountry(tabPays);
+      }
+    } else {
+      let tabPays = continentConfig.get("EUROPE").pays;
       settabcountry(tabPays);
     }
   }
@@ -96,13 +124,13 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
 
         case "SOUTH-AMERICA":
           setcontinenttab("southamerica");
-  
+
           break;
         default:
           setcontinenttab(url);
       }
-    }else{
-      setcontinenttab('europe')
+    } else {
+      setcontinenttab("europe");
     }
   }
 
@@ -123,10 +151,13 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     // }
   }
   // change le background des items menu
-  function MenuSelected(e) {
-    pays.current.map((pay: { classList: { remove: (arg0: string) => void; }; }) => {
-      pay.classList.remove("ProjectsLayout_menu__link--selected__Is402");
-    });
+  function MenuSelected(e, key) {
+    console.log(key, "select");
+    pays.current.map(
+      (pay: { classList: { remove: (arg0: string) => void } }) => {
+        pay.classList.remove("ProjectsLayout_menu__link--selected__Is402");
+      }
+    );
     e.target.classList.add("ProjectsLayout_menu__link--selected__Is402");
   }
 
@@ -145,13 +176,11 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
     changeUrl(router.query.continent);
     MapCheck(router.query.continent);
     // select le pays avec un background blue
-    if(router.query.continent){
+    if (router.query.continent) {
       pays.current[0].classList.add(
         "ProjectsLayout_menu__link--selected__Is402"
-      )
-    
+      );
     }
- 
   }, [router.query.continent]);
 
   return (
@@ -163,9 +192,9 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
               pathname: `/projects`,
               query: { continent: continenttab },
             });
-            select(e);
+            select(e, null);
 
-            MenuSelected(e);
+            MenuSelected(e, null);
           }}
           ref={ChangePays}
           className={`${styles["menu__link"]} ${styles["menu__link--selected"]} `}
@@ -176,15 +205,15 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
           return (
             <li
               onClick={(e) => {
-                select(e);
-                MenuSelected(e);
+                select(e, country?.id);
+                MenuSelected(e, country.id);
                 SwithRoute(e);
               }}
               ref={ChangePays}
-              key={country}
+              key={country.id}
               className={styles["menu__link"]}
             >
-              {country}
+              {country.name}
             </li>
           );
         })}

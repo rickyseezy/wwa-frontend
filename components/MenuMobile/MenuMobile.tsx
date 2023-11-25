@@ -125,14 +125,13 @@ function MenuMobile({displayMenu, func}) {
 
         }
 
-    console.log(userConnected,'user co')
     },[userConnected == null,displayMenu.push])
 
     function Close() {
         func(displayMenu)
         setOpen(false)
     }
-console.log(connexion,'connectim')
+
     return (
         <motion.div
             animate={isOpen

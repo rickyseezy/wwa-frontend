@@ -10,24 +10,33 @@
   },
   "dependencies": {
     "@types/firebase": "^3.2.1",
+    "@types/react-dom": "^18.2.17",
     "cookies-next": "^2.1.1",
     "debounce": "^1.2.1",
     "dotenv": "^16.0.3",
     "faker": "^6.6.6",
     "firebase": "^9.19.1",
     "framer-motion": "^6.0.0",
+    "fs": "^0.0.1-security",
+    "fs.promises": "^0.1.2",
     "next": "12.2.6",
     "prettier": "^2.5.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "promises": "^0.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sass": "^1.49.8"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
     "@types/node": "^17.0.19",
-    "@types/react": "^17.0.39",
+    "@types/react": "^18.2.38",
     "eslint": "8.9.0",
     "eslint-config-next": "12.1.0",
     "typescript": "^4.5.5"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }

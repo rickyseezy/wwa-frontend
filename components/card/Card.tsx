@@ -2,7 +2,7 @@ import styles from "./Card.module.scss";
 import { useRouter } from "next/router";
 
 const Card = ({content}) => {
-console.log(content)
+
   const router = useRouter()
 
   const GotoPageCause = (id : string) =>{

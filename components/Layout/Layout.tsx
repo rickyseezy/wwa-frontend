@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React, { Children, useEffect, useState } from 'react'
+import React, { Children, ReactNode, useEffect, useState } from 'react'
 import Footer from '../footer/Footer'
 import Menu from '../Menu/Menu'
 import VoletAccout from '../Voletaccount/VoletAccout'
@@ -7,6 +7,7 @@ import styles from './layout.module.scss'
 
 
 interface Layoutprops{
+   children: ReactNode
    pageTitle : string
 }
 

@@ -24,7 +24,6 @@ function MenuBurger(props) {
   }
 
 
-console.log(showLogin)
   
   return (
     <div className={styles['menuBurger-content']}>

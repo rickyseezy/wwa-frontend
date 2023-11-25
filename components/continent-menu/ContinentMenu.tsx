@@ -1,6 +1,7 @@
 import styles from "./ContinentMenu.module.scss";
 import ContinentMenuItem from "@components/continent-menu/item/Item";
 
+
 enum Continent {
     Europe = "EUROPE",
     Africa = "AFRICA",
@@ -11,7 +12,7 @@ enum Continent {
 }
 
 
-const ContinentMenu = () => {
+const ContinentMenu = ({}) => {
   
     return (
         <div className={styles["menu"]}>
