@@ -2,9 +2,9 @@ import React, { forwardRef, MouseEventHandler, useEffect, useRef, useState } fro
 import styles from "./country.module.scss";
 import stylesItm from "../continent-menu/item/Item.module.scss";
  
-interface CountryPanelProps {
+interface continentPanelProps {
     imgSrc : string;
-    titleCountry : string
+    titleContinent : string
     target:MouseEventHandler<HTMLDivElement>
 
 
@@ -13,13 +13,13 @@ interface CountryPanelProps {
 
 
 let tab =  []
-const country = ({imgSrc, titleCountry,target}: CountryPanelProps,ref ) => {
+const country = ({imgSrc, titleContinent,target}: continentPanelProps,ref ) => {
 
         
     return (
-        <div className={`${styles["country"]} `} onClick={target}  ref={ref}  >
-            <img className={styles["country__icon"]} src={imgSrc}/>
-            <div className={styles["country__name"]}  >{titleCountry}</div>
+        <div className={`${styles["continent"]} `} onClick={target}  ref={ref}  >
+            <img className={styles["continent__icon"]} src={imgSrc}/>
+            <div className={styles["continent__name"]}  >{titleContinent}</div>
 
         </div>
     )

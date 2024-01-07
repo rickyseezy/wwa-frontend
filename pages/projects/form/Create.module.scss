@@ -156,38 +156,36 @@
         }
       }
 
-      .countries {
+      .continents{
         margin-top: 35px;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        .country {
-          border: 1px solid #BBCBE9;
-          border-radius: 15px;
-          width: 130px;
-          height: 130px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          margin-right: 20px;
+      }
 
-          &__icon {
-            width: 60px;
-          }
+      .select-countries{
+         
+      label{
+        display: block;
+        margin-bottom: 1em;
+        font-weight: bolder;
+        // background-color: rebeccapurple;
+      }
 
-          &__name {
-            margin-top: 5px;
-            font-weight: 600;
-            font-size: .8rem;
-            letter-spacing: 2px;
-            color: #474A57;
-            width: 80%;
-            text-align: center;
-          }
+      &__select{
+        border-radius: 10px;
+        padding: 1em 1em;
+        border:  1px solid  #1d53b780;
+        color: #03071080;
+        outline: none;
+        option{
+        height: 20px;
         }
       }
+
+      }
+
 
       .thematics {
         display: flex;

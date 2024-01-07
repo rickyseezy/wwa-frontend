@@ -25,6 +25,7 @@ import { DB, auth } from "../../../firebase/configApp";
 import AuthenticatorRepository from "domain/repositories/authenticator";
 import { onAuthStateChanged, Auth } from "@firebase/auth";
 import countries from "../../../public/data/countries.json";
+import request from "../../../context/request";
 
 interface IProjet {
   focus: string;
@@ -134,8 +135,6 @@ const continentConfig = new Map<string, IContinentConfig>([
 ]);
 
 const CreateForm = () => {
-console.log(countries)
-
   let [infosUser, setInfosUser] = useState(null);
   let projectRepository = new ProjectRepository(DB);
 
@@ -154,6 +153,7 @@ console.log(countries)
   let [count, setcount] = useState<number>(0);
   const [bol, setbol] = useState(2);
   const [projectDone, setProjectDone] = useState(false);
+  let requestCounties = new request(countries);
 
   const show = useRef(null);
   const hide = useRef(null);
@@ -163,11 +163,9 @@ console.log(countries)
   let individuel = useRef<HTMLDivElement | null>(null);
   let assosiation = useRef<HTMLDivElement | null>(null);
 
+  // countries && continent pour select option
 
-// countries && continent pour select option
-
-
-const contryAsia = countries.reduce((_prev = [], _curr) => {
+  const contryAsia = countries.reduce((_prev = [], _curr) => {
     const { region, id, name } = _curr;
     if (region === "Asia") {
       _prev.push({ region, id, name });
@@ -176,15 +174,13 @@ const contryAsia = countries.reduce((_prev = [], _curr) => {
   }, []);
 
   const conutryEurope = countries.reduce((_prev = [], _curr) => {
-    const { region , id, name } = _curr;
+    const { region, id, name } = _curr;
     if (region === "Europe") {
       _prev.push({ region, id, name });
-   
     }
 
     return _prev;
   }, []);
-
 
   const conutryAfrica = countries.reduce((_prev = [], _curr) => {
     const { region, id, name } = _curr;
@@ -194,19 +190,21 @@ const contryAsia = countries.reduce((_prev = [], _curr) => {
     return _prev;
   }, []);
 
-
   const conutryOceania = countries.reduce((_prev = [], _curr) => {
     const { region, id, name } = _curr;
     if (region === "Oceania") {
-      _prev.push({ region , id, name });
+      _prev.push({ region, id, name });
     }
     return _prev;
   }, []);
+  const conutryNorthAmerica = [...requestCounties.countryAmericaNorth()];
+  const countrySouthAmerica = [
+    ...requestCounties
+      .countryAmericaSouth()
+      .concat(requestCounties.countryAmericaCentral()),
+  ];
 
-
-
-   console.log(conutryOceania ,'jlkjlkj')
-
+  //  console.log(conutryOceania ,'jlkjlkj')
 
   // l'option du site indiv || assos
   function OptionWebsite(e) {
@@ -392,25 +390,24 @@ const contryAsia = countries.reduce((_prev = [], _curr) => {
     });
   }
 
+  //   pays choisie
 
-//   pays choisie 
-
-const findCountries = (e) =>{
-console.log(e.target.value)
-let id = e.target.value
-const findcontinent = countries.find(country => Number(country.id) === Number(id))
-console.log(findcontinent.region,'finddddddd')
-setprofil({
-    ...profil,
-    country: id,
-    continent : findcontinent.region_id
-    
-  });
-
-}
+  const findCountries = (e) => {
+    console.log(e.target.value);
+    let id = e.target.value;
+    const findcontinent = countries.find(
+      (country) => Number(country.id) === Number(id)
+    );
+    console.log(findcontinent.region, "finddddddd");
+    setprofil({
+      ...profil,
+      country: id,
+      continent: findcontinent.region_id,
+    });
+  };
 
   useEffect(() => {
-    console.log(profil)
+    console.log(profil);
     if (infosUser === null) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -549,10 +546,10 @@ setprofil({
             />
 
             <div className={styles["form-container__step"]}>6. Ou ça ?</div>
-            <div className={styles["countries"]}>
+            <div className={styles["continents"]}>
               {tabTitle.map(({ title, img }, i) => (
                 <Country
-                  titleCountry={title}
+                  titleContinent={title}
                   imgSrc={img}
                   ref={CatchCountry}
                   key={i}
@@ -560,77 +557,111 @@ setprofil({
                 />
               ))}
             </div>
-        
-            <div className={styles['select-countries']}>
-              <label htmlFor="country">Choisir un pays:</label>
 
-              <select onClick={findCountries} name="country" className={styles['select-countries__select']}>
-                <option disabled value="">--Pays-</option>
-              {
-               contryAsia &&  ( 
-                <>
-                 <option disabled value=""className={styles['select-countries__continent-select']} >Asia</option>
-                 {
-                        contryAsia.map( Asiacountry => {
-                            const {name,id} = Asiacountry
-                      return (
-                          <option value={id}  >{name} </option>
-                      )
-                        })
-                 }
-                </>
-               
-               )
-              }
-                   {
-               conutryEurope &&  ( 
-                <>
-                 <option disabled value=""className={styles['select-countries__continent-select']} >Europe</option>
-                 {
-                        conutryEurope.map( Europecountry => {
-                            const {name,id} = Europecountry
-                      return (
-                          <option value={id} >{name} </option>
-                      )
-                        })
-                 }
-                </>
-               
-               )
-              }
-                                 {
-               conutryAfrica &&  ( 
-                <>
-                 <option disabled value=""className={styles['select-countries__continent-select']} > Africa</option>
-                 {
-                         conutryAfrica.map( Oceaniacountry => {
-                            const {name,id} = Oceaniacountry
-                      return (
-                          <option value={id}  >{name} </option>
-                      )
-                        })
-                 }
-                </>
-               
-               )
-              }
+            <div className={styles["select-countries"]}>
+              <label htmlFor="country">Choisir un pays :</label>
 
-{
-               conutryOceania &&  ( 
-                <>
-                 <option  value=""className={styles['select-countries__continent-select']} > Oceania</option>
-                 {
-                         conutryOceania.map( Oceaniacountry => {
-                            const {name,id} = Oceaniacountry
-                      return (
-                          <option value={id}  >{name} </option>
-                      )
-                        })
-                 }
-                </>
-               
-               )
-              }
+              <select
+                onClick={findCountries}
+                name="country"
+                className={styles["select-countries__select"]}
+              >
+                <option disabled value="">
+                  --Pays-
+                </option>
+                {contryAsia && (
+                  <>
+                    <option
+                      disabled
+                      value=""
+                      className={styles["select-countries__continent-select"]}
+                    >
+                      Asia
+                    </option>
+                    {contryAsia.map((Asiacountry) => {
+                      const { name, id } = Asiacountry;
+                      return <option value={id}>{name} </option>;
+                    })}
+                  </>
+                )}
+                {conutryEurope && (
+                  <>
+                    <option
+                      disabled
+                      value=""
+                      className={styles["select-countries__continent-select"]}
+                    >
+                      Europe
+                    </option>
+                    {conutryEurope.map((Europecountry) => {
+                      const { name, id } = Europecountry;
+                      return <option value={id}>{name} </option>;
+                    })}
+                  </>
+                )}
+                {conutryAfrica && (
+                  <>
+                    <option
+                      disabled
+                      value=""
+                      className={styles["select-countries__continent-select"]}
+                    >
+                      {" "}
+                      Africa
+                    </option>
+                    {conutryAfrica.map((Oceaniacountry) => {
+                      const { name, id } = Oceaniacountry;
+                      return <option value={id}>{name} </option>;
+                    })}
+                  </>
+                )}
+
+                {conutryOceania && (
+                  <>
+                    <option
+                      value=""
+                      className={styles["select-countries__continent-select"]}
+                    >
+                      {" "}
+                      Oceania
+                    </option>
+                    {conutryOceania.map((Oceaniacountry) => {
+                      const { name, id } = Oceaniacountry;
+                      return <option value={id}>{name} </option>;
+                    })}
+                  </>
+                )}
+
+                {countrySouthAmerica && (
+                  <>
+                    <option
+                      value=""
+                      className={styles["select-countries__continent-select"]}
+                    >
+                      {" "}
+                      South America
+                    </option>
+                    {countrySouthAmerica.map((Oceaniacountry) => {
+                      const { name, id } = Oceaniacountry;
+                      return <option value={id}>{name} </option>;
+                    })}
+                  </>
+                )}
+
+                {conutryNorthAmerica && (
+                  <>
+                    <option
+                      value=""
+                      className={styles["select-countries__continent-select"]}
+                    >
+                      North America
+                    </option>
+                    {conutryNorthAmerica.map((Oceaniacountry) => {
+                      const { name, id } = Oceaniacountry;
+                      return <option value={id}>{name} </option>;
+                    })}
+                  </>
+                )}
               </select>
             </div>
 

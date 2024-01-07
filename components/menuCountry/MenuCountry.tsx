@@ -60,7 +60,7 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
   let [tabcountry, settabcountry] = useState([]);
   let [continenttab, setcontinenttab] = useState<string>();
   let requestCounties = new request(country);
-  console.log(requestCounties.conutryAmerica(), "usaaa");
+console.log(country)
   let scrollable = useRef();
   let router = useRouter();
   let pays = useRef(null);
@@ -105,6 +105,13 @@ function MenuCountry({ select, continent }: MenuCountryProps) {
         case "asia":
           settabcountry([...requestCounties.conutryAsia()]);
           break;
+          case "southamerica":
+            settabcountry([...requestCounties.countryAmericaCentral().concat(requestCounties.countryAmericaSouth())]);
+            break;
+
+            case "northus":
+              settabcountry([...requestCounties.countryAmericaNorth()]);
+              break;
         default:
           settabcountry(tabPays);
       }
