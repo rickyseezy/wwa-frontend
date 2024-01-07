@@ -460,7 +460,7 @@ const Theme = [
                                 title,
                                 img
                             }, i) => (<Country
-                                titleCountry={title}
+                                titleContinent={title}
                                 imgSrc={img}
                                 ref={CatchCountry}
                                 key={i}
