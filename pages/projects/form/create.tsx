@@ -154,7 +154,8 @@ const CreateForm = () => {
   const [bol, setbol] = useState(2);
   const [projectDone, setProjectDone] = useState(false);
   let requestCounties = new request(countries);
-
+  const refThemes = useRef([])
+  refThemes.current = []
   const show = useRef(null);
   const hide = useRef(null);
   let router = useRouter();
@@ -165,6 +166,17 @@ const CreateForm = () => {
 
   // countries && continent pour select option
 
+  const themes = (e) =>{
+    if(e){
+      if(!refThemes.current.includes(e)){
+        refThemes.current.push(e)
+      }  
+    }
+  
+
+  }
+
+  console.log(refThemes,'thems')
   const contryAsia = countries.reduce((_prev = [], _curr) => {
     const { region, id, name } = _curr;
     if (region === "Asia") {
@@ -377,6 +389,11 @@ const CreateForm = () => {
 
   // récupére le theme
   function CatchTheme(e) {
+    
+    refThemes.current.forEach( theme => theme.children[0].style = 'opacity : 1')
+
+    e.target.children[0].style = 'opacity:.5'
+    console.log(e.target.children[0])
     setprofil({
       ...profil,
       Theme: e.target.children[1].innerText,
@@ -674,6 +691,7 @@ const CreateForm = () => {
                 <div
                   className={styles["thematic"]}
                   key={i}
+                  ref={themes}
                   onClick={CatchTheme}
                 >
                   <div className={styles["thematic__image"]} />
