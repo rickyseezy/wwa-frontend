@@ -117,7 +117,7 @@ function Items({objMesprojet,deleteProject} : Data) {
                                 <img src='/images/champdemoussa.png' alt=""/>
                             </div>
                             <h2>{title}</h2>
-                            <p>{description?.substring(0,150)}...</p>
+                            <p>{description?.substring(0,40)}...</p>
                             {/* card'button */}
                              < div className = {styles['main__btn']} > 
                              <div className={styles['btnprojet']} onClick={()=> router.push(`/projects/${id}`)} >Voir</div> < div className = { styles['btnprojet']} > 

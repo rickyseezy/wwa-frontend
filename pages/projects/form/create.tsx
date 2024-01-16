@@ -153,6 +153,7 @@ const CreateForm = () => {
   let [count, setcount] = useState<number>(0);
   const [bol, setbol] = useState(2);
   const [projectDone, setProjectDone] = useState(false);
+  const [profilfullfilled, setprofilfullfilled] = useState(true);
   let requestCounties = new request(countries);
   const refThemes = useRef([])
   refThemes.current = []
@@ -303,6 +304,7 @@ const CreateForm = () => {
         alert("data send");
       }
       router.push("/");
+      setprofilfullfilled(true)
 
       return projectRepository
         .Create({
@@ -329,6 +331,9 @@ const CreateForm = () => {
         .then((el) => {
           console.log(el);
         });
+    }else{
+        
+      setprofilfullfilled(false);
     }
   };
 
@@ -434,17 +439,6 @@ const CreateForm = () => {
       console.log("yooo");
     }
 
-    if (
-      profil.Theme != "" &&
-      profil.description != "" &&
-      profil.files.length != 0 &&
-      profil.focus != "" &&
-      profil.subtitle != "" &&
-      profil.title != "" &&
-      profil.web != ""
-    ) {
-      setProjectDone(true);
-    }
   });
 
   // boucle sur les ref de country
@@ -718,6 +712,19 @@ const CreateForm = () => {
                 title={undefined}
               />
             )}
+             
+
+             {
+          !profilfullfilled    && (
+              <div className={styles['profil-notfull']}>
+                 <h4>vous devez remplir obligatoirement <br /> tous les champs </h4>
+                 <button  onClick={()=> setprofilfullfilled(true)} >
+                  Fermer
+                 </button>
+               </div>
+              )
+             }
+
           </div>
         </div>
       </form>

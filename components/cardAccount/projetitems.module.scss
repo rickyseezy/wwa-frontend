@@ -3,6 +3,7 @@
 .main {
     border: 1px solid rgba(0, 0, 0, 0);
     position: relative;
+    white-space:nowrap ;
     padding: 1em;
     border-radius: 10px;
     background-color: white;
@@ -28,6 +29,7 @@
 
         }
         p {
+            word-wrap: break-word;
             font-size: 1em;
             color: rgba(150, 155, 171, 1);
             margin: 0.5em;
