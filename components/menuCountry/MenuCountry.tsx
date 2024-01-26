@@ -15,7 +15,7 @@ interface MenuCountryProps {
   select: (e: MouseEvent<HTMLElement>, num: number) => void;
   continent: string;
 }
-
+ 
 const continentConfig = new Map([
   [
     "EUROPE",

@@ -1,6 +1,5 @@
 import React, { forwardRef, MouseEventHandler, useEffect, useRef, useState } from 'react'
 import styles from "./country.module.scss";
-import stylesItm from "../continent-menu/item/Item.module.scss";
  
 interface continentPanelProps {
     imgSrc : string;
@@ -13,8 +12,10 @@ interface continentPanelProps {
 
 
 let tab =  []
-const country = ({imgSrc, titleContinent,target}: continentPanelProps,ref ) => {
+const country = ({imgSrc, titleContinent,target}: continentPanelProps,ref : any ) => {
+    
 
+      
         
     return (
         <div className={`${styles["continent"]} `} onClick={target}  ref={ref}  >

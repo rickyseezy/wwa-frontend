@@ -8,7 +8,7 @@ function InputFile({select,classtyle}) {
         // console.log("ON CLICKED ", e)
          //select(e)
      }} className={styles[classtyle]} onChange={(e) => {
-         console.log("BOO")
+   
          select(e)
      }}/>
     </>

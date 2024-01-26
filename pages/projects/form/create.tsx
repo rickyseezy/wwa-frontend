@@ -3,29 +3,29 @@ import {
   useEffect,
   useRef,
   useState,
-  useCallback,
-  MouseEventHandler,
+
 } from "react";
 import stylesItm from "../../../components/continent-menu/item/Item.module.scss";
+import { getStorage, ref, uploadBytes } from "@firebase/storage";
 
 import MainNavigation from "@components/navigation/MainNavigation";
 import styles from "./Create.module.scss";
 import Steps from "@components/steps/Steps";
-import Title from "@components/title/Ttile";
-import HelpCard from "@components/help-card/HelpCard";
+
 import Footer from "@components/footer/Footer";
 import Country from "@components/country/country";
 import InputNtexterea from "@components/Input&texterea/InputNtexterea";
 import { useRouter } from "next/router";
-import MenuMobile from "@components/MenuMobile/MenuMobile";
 import MenuBurger from "@components/menu-burger/MenuBurger";
 import Connect from "@components/connectionrequest/Connect";
 import ProjectRepository from "domain/repositories/project";
 import { DB, auth } from "../../../firebase/configApp";
-import AuthenticatorRepository from "domain/repositories/authenticator";
+
 import { onAuthStateChanged, Auth } from "@firebase/auth";
 import countries from "../../../public/data/countries.json";
 import request from "../../../context/request";
+import { userInfo } from "os";
+import ContinentMenuItem from "@components/continent-menu/item/Item";
 
 interface IProjet {
   focus: string;
@@ -135,6 +135,9 @@ const continentConfig = new Map<string, IContinentConfig>([
 ]);
 
 const CreateForm = () => {
+
+
+
   let [infosUser, setInfosUser] = useState(null);
   let projectRepository = new ProjectRepository(DB);
 
@@ -164,6 +167,7 @@ const CreateForm = () => {
   countryRef.current = [];
   let individuel = useRef<HTMLDivElement | null>(null);
   let assosiation = useRef<HTMLDivElement | null>(null);
+  let [continentSelected,setcontinentSelected] = useState()
 
   // countries && continent pour select option
 
@@ -177,7 +181,7 @@ const CreateForm = () => {
 
   }
 
-  console.log(refThemes,'thems')
+
   const contryAsia = countries.reduce((_prev = [], _curr) => {
     const { region, id, name } = _curr;
     if (region === "Asia") {
@@ -264,24 +268,36 @@ const CreateForm = () => {
 
     continent.target.classList.add(continentStyle);
     // transform les continents en numbre
+
     switch (continentVal) {
       case "EUROPE":
         continentVal = 0;
+        break
       case "AFRIQUE":
         continentVal = 1;
+        break
       case "AMÉRIQUE DU NORD":
         continentVal = 2;
+        break
       case "AMÉRIQUE DU SUD":
         continentVal = 3;
+        break
       case "ASIE":
         continentVal = 4;
+        break
       case "OCÉANIE":
         continentVal = 5;
+        break
+        default :
+        return null
     }
+    setcontinentSelected(continentVal)
+    console.log(continentVal,' + profil fn')
     setprofil({
       ...profil,
       continent: continentVal,
     });
+
   }
 
   const onContinueClick = () => {
@@ -406,37 +422,51 @@ const CreateForm = () => {
   }
 
   function CatchFile(file) {
+    console.log(file,'file',infosUser)
     setprofil({
       ...profil,
       files: profil.files.concat(file),
     });
+    const storage = getStorage();
+    const storageRef = ref(storage, 'some-child' + infosUser.uid + '');
+    
+    // 'file' comes from the Blob or File API
+    uploadBytes(storageRef, file).then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+    });
+    
   }
 
   //   pays choisie
 
   const findCountries = (e) => {
-    console.log(e.target.value);
+    console.log(e.target.value,'contrid');
     let id = e.target.value;
     const findcontinent = countries.find(
       (country) => Number(country.id) === Number(id)
     );
-    console.log(findcontinent.region, "finddddddd");
+    // if(findcontinent.region){
+
+
+
+    // }
+    console.log(findcontinent?.region, "finddddddd");
     setprofil({
       ...profil,
       country: id,
-      continent: findcontinent.region_id,
+      continent: findcontinent?.region_id,
     });
   };
 
   useEffect(() => {
-    console.log(profil);
+    console.log(profil,'profil');
     if (infosUser === null) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           setInfosUser(user);
         }
       });
-      console.log("yooo");
+      console.log("yooo",infosUser);
     }
 
   });
@@ -577,10 +607,13 @@ const CreateForm = () => {
                 name="country"
                 className={styles["select-countries__select"]}
               >
-                <option disabled value="">
+                <option
+                
+                disabled value="">
                   --Pays-
                 </option>
-                {contryAsia && (
+
+                { continentSelected === 4 && (
                   <>
                     <option
                       disabled
@@ -595,7 +628,7 @@ const CreateForm = () => {
                     })}
                   </>
                 )}
-                {conutryEurope && (
+                { continentSelected === 0   && (
                   <>
                     <option
                       disabled
@@ -610,7 +643,7 @@ const CreateForm = () => {
                     })}
                   </>
                 )}
-                {conutryAfrica && (
+                { continentSelected ===   1 && (
                   <>
                     <option
                       disabled
@@ -625,9 +658,9 @@ const CreateForm = () => {
                       return <option value={id}>{name} </option>;
                     })}
                   </>
-                )}
+                 )}
 
-                {conutryOceania && (
+                {continentSelected ===   5 &&(
                   <>
                     <option
                       value=""
@@ -643,7 +676,7 @@ const CreateForm = () => {
                   </>
                 )}
 
-                {countrySouthAmerica && (
+                {continentSelected ===   3 && (
                   <>
                     <option
                       value=""
@@ -659,7 +692,7 @@ const CreateForm = () => {
                   </>
                 )}
 
-                {conutryNorthAmerica && (
+                {continentSelected ===   2 && (
                   <>
                     <option
                       value=""
@@ -672,7 +705,7 @@ const CreateForm = () => {
                       return <option value={id}>{name} </option>;
                     })}
                   </>
-                )}
+                )} 
               </select>
             </div>
 
